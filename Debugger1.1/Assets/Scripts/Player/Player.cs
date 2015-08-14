@@ -11,7 +11,6 @@ public class Player : Statistics {
 	// Use this for initialization
 	void Start () {
 		currHealth = maxHealth = initialHealth + healthPerEndurance * endurance;
-		damage = initialDamage + damagePerStrength * strength;
 		critChance = initialCrit + critPerLuck * luck;
 	}
 	
