@@ -4,17 +4,32 @@ using System.Collections;
 public class VendingMachineUI : MonoBehaviour {
 
 	[SerializeField]
-	int price = 0;
+	int currMoney = 999;
 	[SerializeField]
-	Statistics buyer = null;
+	int price = 0;
+	/*[SerializeField]
+	Player buyer = null;*/
+	[SerializeField]
+	Confirm confirm = null;
 
 	public void ConfirmPurchase() {
-		if(CheckPrices())
-			Application.LoadLevelAsync ("ConfirmPurchase");
+		if (CheckPrices ()) {
+			//confirm.PreviousMenu = 
+			//Application.LoadLevelAsync ("ConfirmPurchase");
+			currMoney -= price;
+		}
 	}
 
 	// returns true if the player can afford to purchase this item; returns false otherwise
 	bool CheckPrices() {
-		return true;
+		if (currMoney >= price)
+			return true;
+		else
+			return false;
+	}
+
+	public int Price {
+		get { return price; }
+		set { price = value; }
 	}
 }
