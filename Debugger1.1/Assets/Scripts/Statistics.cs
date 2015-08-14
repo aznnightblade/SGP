@@ -22,17 +22,17 @@ public class Statistics : MonoBehaviour {
 	[SerializeField]
 	protected int strength = 0;
 	[SerializeField]
-	protected int damage = 0;
-	[SerializeField]
-	protected int initialDamage = 0;
-	[SerializeField]
-	protected int damagePerStrength = 0;
-	[SerializeField]
 	protected int endurance = 0;
 	[SerializeField]
 	protected int initialHealth = 0;
 	[SerializeField]
 	protected int healthPerEndurance = 0;
+	[SerializeField]
+	protected int defense = 0;
+	[SerializeField]
+	protected int initialDefense = 0;
+	[SerializeField]
+	protected int defensePerEndurance = 0;
 	[SerializeField]
 	protected int agility = 0;
 	[SerializeField]
@@ -93,10 +93,15 @@ public class Statistics : MonoBehaviour {
 	public int Intelligence { get; set; }
 	public int Dexterity { get; set; }
 	public int Luck { get; set; }
+	public DLLColor.Color Color {
+		get { return color; }
+		set { color = value; }
+	}
 	public int CurrHealth { get; set; }
 	public int MaxHealth { get; set; }
 	public int Shield { get; set; }
 	public int MaxShield { get; set; }
+	public int Defense { get; set; }
 	public int CritChance { get; set; }
 	public float Velocity { 
 		get { return velocity; }
@@ -110,4 +115,6 @@ public class Statistics : MonoBehaviour {
 		get { return acceleration; }
 		set { acceleration = value; }
 	}
+	public float InitialShotDistance { get { return initialShotDistance; } }
+	public float ShotDistancePerDexerity { get { return increaseDistancePerDexerity; } }
 }

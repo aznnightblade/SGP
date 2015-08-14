@@ -1,15 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BasicBullet : MonoBehaviour {
+public class BasicBullet : Weapon {
+	void OnCollisionEnter(Collision col) {
+		if (col.gameObject.tag != owner.gameObject.tag) {
+			if(col.gameObject.tag != "Wall") {
+				Statistics colStats = col.gameObject.GetComponent<Statistics>();
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+				float damage = (initialDamage + owner.Strength * damagePerStrength) - colStats.Defense;
+
+				if(damage < 0.0f)
+					damage = 1;
+
+				if(WeaknessCheck(color, colStats.Color) > 0) {
+					damage *= 1.5f;
+				} else if (WeaknessCheck(color, colStats.Color) < 0) {
+
+				}
+			}
+		}
 	}
 }
