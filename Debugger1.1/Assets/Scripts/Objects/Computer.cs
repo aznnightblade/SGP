@@ -3,13 +3,29 @@ using System.Collections;
 
 public class Computer : MonoBehaviour {
 
+    bool triggerActive = false;
+    public string Loadinglevel;
 	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    void OnTriggerEnter(Collider col)
+    {
+        if (col.tag == "Player")
+        {
+            triggerActive = true;
+        }
+    }
+    void OnTriggerExit(Collider col)
+    {
+        if (col.tag== "Player")
+        {
+            triggerActive = false;
+        }
+    }
+    void Update()
+    {
+        if (triggerActive==true)
+        {
+            PlayerPrefs.SetString("Nextscene", Loadinglevel);
+            Application.LoadLevel("Loadingscreen");
+        }
+    }
 }
