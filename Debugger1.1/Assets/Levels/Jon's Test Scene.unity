@@ -86,7 +86,7 @@ NavMeshSettings:
     minRegionArea: 2
     cellSize: .166666672
     manualCellSize: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 0db25a9ef0af14f4a82f7b5e9f1ea693, type: 2}
 --- !u!1 &223007419
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,7 +103,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!23 &223007420
 MeshRenderer:
@@ -160,6 +160,104 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+--- !u!1001 &871576236
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 426038, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 426038, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.13999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 426038, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 7.69999981
+      objectReference: {fileID: 0}
+    - target: {fileID: 426038, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 426038, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 426038, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 426038, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 426038, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5421284, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
+      propertyPath: m_Constraints
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476290, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
+      propertyPath: strength
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476290, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
+      propertyPath: endurance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476290, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
+      propertyPath: initialHealth
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476290, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
+      propertyPath: healthPerEndurance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476290, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
+      propertyPath: defense
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476290, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
+      propertyPath: initialDefense
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476290, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
+      propertyPath: defensePerEndurance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476290, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
+      propertyPath: agility
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476290, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
+      propertyPath: dexterity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476290, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
+      propertyPath: intelligence
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476290, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
+      propertyPath: luck
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476290, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
+      propertyPath: money
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476290, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
+      propertyPath: exp
+      value: 50
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
+  m_IsPrefabParent: 0
 --- !u!4 &1458858261 stripped
 Transform:
   m_PrefabParentObject: {fileID: 428672, guid: 71108b2f68b65d74e8ac8b19b852d1ae, type: 2}

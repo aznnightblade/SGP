@@ -7,10 +7,7 @@ public class PlayerController : MonoBehaviour {
 	Transform PlayerSprite = null;
 	Player player = null;
 
-	[SerializeField]
 	Vector3 moveDir = Vector3.zero;
-	[SerializeField]
-	float playerVelocity = 0.0f;
 	
 	bool bulletFired = false;
 
@@ -77,8 +74,6 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		//moveDir = Vector3.zero;
-		playerVelocity = player.Velocity;
 		moveDir.x = Input.GetAxisRaw ("Horizontal");
 		moveDir.z = Input.GetAxisRaw ("Vertical");
 
@@ -114,7 +109,7 @@ public class PlayerController : MonoBehaviour {
 		Transform Bullet = Instantiate (player.CurrWeapon.transform, player.ShotLocation.position, PlayerSprite.rotation) as Transform;
 		GameObject newBullet = Bullet.gameObject;
 		newBullet.tag = ("Player Bullet");
-		newBullet.GetComponent<Weapon> ().Owner = player;
+		newBullet.GetComponent<Weapon> ().Owner = (Statistics)player;
 		newBullet.transform.localScale = newBullet.transform.localScale * player.CurrWeapon.ChargeScale;
 		//newBullet.GetComponent<Weapon> ().ChargeScale = player.CurrWeapon.ChargeScale;
 

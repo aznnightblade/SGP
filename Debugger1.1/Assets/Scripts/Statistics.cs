@@ -22,13 +22,17 @@ public class Statistics : MonoBehaviour {
 	[SerializeField]
 	protected int strength = 0;
 	[SerializeField]
+	protected float initialDamage = 0.0f;
+	[SerializeField]
+	protected float damagePerStrength = 0.0f;
+	[SerializeField]
 	protected int endurance = 0;
 	[SerializeField]
 	protected int initialHealth = 0;
 	[SerializeField]
 	protected int healthPerEndurance = 0;
 	[SerializeField]
-	protected int defense = 0;
+	protected float defense = 0;
 	[SerializeField]
 	protected int initialDefense = 0;
 	[SerializeField]
@@ -63,6 +67,11 @@ public class Statistics : MonoBehaviour {
 	protected float dropRatePerLuck = 0;
 	[SerializeField]
 	protected DLLColor.Color color = DLLColor.Color.NEUTRAL;
+	[SerializeField]
+	int money = 0;
+	[SerializeField]
+	int exp = 0;
+
 	protected bool IsDisabled = false;
 	protected bool IsSlowed = false;
 	protected bool CanMove = true;
@@ -87,22 +96,66 @@ public class Statistics : MonoBehaviour {
 		Destroy (gameObject);
 	}
 
-	public int Strength { get; set; }
-	public int Agility { get; set; }
-	public int Endurance { get; set; }
-	public int Intelligence { get; set; }
-	public int Dexterity { get; set; }
-	public int Luck { get; set; }
+	public int Strength { 
+		get { return strength; }
+		set { strength = value; }
+	}
+	public int Agility {
+		get { return agility; }
+		set { agility = value; }
+	}
+	public int Endurance { 
+		get { return endurance; }
+		set { endurance = value; }
+	}
+	public int Intelligence { 
+		get { return intelligence; }
+		set { intelligence = value; }
+	}
+	public int Dexterity { 
+		get { return dexterity; }
+		set { dexterity = value; }
+	}
+	public int Luck { 
+		get { return luck; }
+		set { luck = value; }
+	}
 	public DLLColor.Color Color {
 		get { return color; }
 		set { color = value; }
 	}
-	public int CurrHealth { get; set; }
-	public int MaxHealth { get; set; }
-	public int Shield { get; set; }
-	public int MaxShield { get; set; }
-	public int Defense { get; set; }
-	public int CritChance { get; set; }
+	public int CurrHealth { 
+		get { return currHealth; }
+		set { currHealth = value; }
+	}
+	public int MaxHealth { 
+		get { return maxHealth; }
+		set { maxHealth = value; }
+	}
+	public int Shield {
+		get { return shield; }
+		set { shield = value; }
+	}
+	public int MaxShield {
+		get { return maxShield; }
+		set { maxShield = value; }
+	}
+	public float InitialDamage {
+		get { return initialDamage; }
+		set { initialDamage = value; }
+	}
+	public float DamagePerStrength {
+		get { return damagePerStrength; }
+		set { damagePerStrength = value; }
+	}
+	public float Defense {
+		get { return defense; }
+		set { defense = value; }
+	}
+	public float CritChance {
+		get { return critChance; }
+		set { critChance = value; }
+	}
 	public float Velocity { 
 		get { return velocity; }
 		set{ velocity = value; }
@@ -117,4 +170,12 @@ public class Statistics : MonoBehaviour {
 	}
 	public float InitialShotDistance { get { return initialShotDistance; } }
 	public float ShotDistancePerDexerity { get { return increaseDistancePerDexerity; } }
+	public int EXP { 
+		get { return exp; }
+		set { exp = value; }
+	}
+	public int Money { 
+		get { return money; }
+		set { money = value; }
+	}
 }
