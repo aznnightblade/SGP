@@ -4,7 +4,7 @@ using System.Collections;
 public class HealthPickup : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col) {
-		if (col.gameObject.tag = "Player") {
+		if (col.gameObject.tag == "Player") {
 			// Restores 15% of player's max health
 			int healthRestored = (int)(col.gameObject.GetComponent<Statistics>().MaxHealth * 0.15f);
 			col.gameObject.GetComponent<Statistics>().CurrHealth += healthRestored;
