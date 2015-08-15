@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
-public class SoundManager : MonoBehaviour {
 
-    public List<AudioSource> Soundeffects;
-    public List<AudioSource> Music;
+public class loadinglevel : MonoBehaviour {
+
 	// Use this for initialization
 	void Start () {
-	
+        Application.LoadLevelAsync(PlayerPrefs.GetString("Nextscene"));
 	}
 	
 	// Update is called once per frame
