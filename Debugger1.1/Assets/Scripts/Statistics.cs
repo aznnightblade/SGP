@@ -38,10 +38,6 @@ public class Statistics : MonoBehaviour {
 	[SerializeField]
 	protected float shotDelay = 0;
 	[SerializeField]
-	protected float initialShotDelay = 0;
-	[SerializeField]
-	protected float reducedDelayPerAgility = 0;
-	[SerializeField]
 	protected int dexterity = 0;
 	[SerializeField]
 	protected float initialShotDistance = 0;
@@ -85,6 +81,10 @@ public class Statistics : MonoBehaviour {
 
 	public virtual void OnCollisionEnter(Collision col){
 	
+	}
+
+	public void DestroyObject() {
+		Destroy (gameObject);
 	}
 
 	public int Strength { get; set; }

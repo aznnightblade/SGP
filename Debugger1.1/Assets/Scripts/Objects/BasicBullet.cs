@@ -15,8 +15,10 @@ public class BasicBullet : Weapon {
 				if(WeaknessCheck(color, colStats.Color) > 0) {
 					damage *= 1.5f;
 				} else if (WeaknessCheck(color, colStats.Color) < 0) {
-
+					damage *= 0.5f;
 				}
+
+				colStats.CurrHealth -= Mathf.CeilToInt(damage);
 			}
 		}
 	}
