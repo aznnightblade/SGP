@@ -201,7 +201,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 5421284, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
       propertyPath: m_Constraints
-      value: 80
+      value: 84
       objectReference: {fileID: 0}
     - target: {fileID: 11476290, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
       propertyPath: strength
@@ -254,6 +254,14 @@ Prefab:
     - target: {fileID: 11476290, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
       propertyPath: exp
       value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476290, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
+      propertyPath: initialDamage
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11476290, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
+      propertyPath: damagePerStrength
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e5cf6a6acc9f9ef4896a3fe2f28df5a7, type: 2}
@@ -418,6 +426,18 @@ Prefab:
     - target: {fileID: 428672, guid: 71108b2f68b65d74e8ac8b19b852d1ae, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485814, guid: 71108b2f68b65d74e8ac8b19b852d1ae, type: 2}
+      propertyPath: m_Constraints
+      value: 84
+      objectReference: {fileID: 0}
+    - target: {fileID: 192332, guid: 71108b2f68b65d74e8ac8b19b852d1ae, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 181624, guid: 71108b2f68b65d74e8ac8b19b852d1ae, type: 2}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71108b2f68b65d74e8ac8b19b852d1ae, type: 2}

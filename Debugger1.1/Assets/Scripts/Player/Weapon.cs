@@ -41,6 +41,7 @@ public class Weapon : MonoBehaviour {
 	protected float reducedDelayPerAgility = 0;
 
 	Vector3 direction = Vector3.zero;
+	Vector3 ownerMoveDirection = Vector3.zero;
 	[SerializeField]
 	protected float maxDistance = 0.0f;
 	protected Vector3 startLocation = Vector3.zero;
@@ -54,7 +55,15 @@ public class Weapon : MonoBehaviour {
 		maxDistance = owner.InitialShotDistance + owner.ShotDistancePerDexerity * owner.Dexterity;
 		direction = new Vector3 (-Mathf.Cos (rot), 0, Mathf.Sin (rot));
 		
-		gameObject.GetComponent<Rigidbody> ().velocity = direction * (Velocity + owner.Velocity);
+		Vector3 directionVelocity = direction * Velocity;
+
+		if (directionVelocity.x > 0 && ownerMoveDirection.x > 0 || directionVelocity.x < 0 && ownerMoveDirection.x < 0)
+			directionVelocity.x += ownerMoveDirection.x;
+
+		if (directionVelocity.z > 0 && ownerMoveDirection.z > 0 || directionVelocity.z < 0 && ownerMoveDirection.z < 0)
+			directionVelocity.z += ownerMoveDirection.z;
+
+		gameObject.GetComponent<Rigidbody> ().velocity = directionVelocity;
 		startLocation = transform.position;
 	}
 	
@@ -84,6 +93,10 @@ public class Weapon : MonoBehaviour {
 	public Statistics Owner {
 		get { return owner; }
 		set { owner = value; }
+	}
+	public Vector3 OwnerMoveDirection {
+		get { return ownerMoveDirection; }
+		set { ownerMoveDirection = value; }
 	}
 	public float HeatGenerated { 
 		get { return heatGenerated; }
