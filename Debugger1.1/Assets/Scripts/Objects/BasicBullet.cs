@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BasicBullet : Weapon {
 	void OnCollisionEnter(Collision col) {
-		if (col.gameObject.tag != owner.gameObject.tag) {
+		if (col.gameObject.tag != owner.gameObject.tag || col.gameObject.tag != gameObject.tag) {
 			if(col.gameObject.tag != "Wall") {
 				Statistics colStats = col.gameObject.GetComponent<Statistics>();
 

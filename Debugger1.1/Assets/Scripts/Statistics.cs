@@ -22,13 +22,17 @@ public class Statistics : MonoBehaviour {
 	[SerializeField]
 	protected int strength = 0;
 	[SerializeField]
+	protected float initialDamage = 0.0f;
+	[SerializeField]
+	protected float damagePerStrength = 0.0f;
+	[SerializeField]
 	protected int endurance = 0;
 	[SerializeField]
 	protected int initialHealth = 0;
 	[SerializeField]
 	protected int healthPerEndurance = 0;
 	[SerializeField]
-	protected int defense = 0;
+	protected float defense = 0;
 	[SerializeField]
 	protected int initialDefense = 0;
 	[SerializeField]
@@ -136,7 +140,15 @@ public class Statistics : MonoBehaviour {
 		get { return maxShield; }
 		set { maxShield = value; }
 	}
-	public int Defense {
+	public float InitialDamage {
+		get { return initialDamage; }
+		set { initialDamage = value; }
+	}
+	public float DamagePerStrength {
+		get { return damagePerStrength; }
+		set { damagePerStrength = value; }
+	}
+	public float Defense {
 		get { return defense; }
 		set { defense = value; }
 	}

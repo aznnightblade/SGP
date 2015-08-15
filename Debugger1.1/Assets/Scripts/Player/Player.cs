@@ -9,6 +9,9 @@ public class Player : Statistics {
 	Weapon currWeapon = null;
 	[SerializeField]
 	Weapon[] weapons = null;
+	[SerializeField]
+	float invulTimePerDamage = 0.1f;
+	float invulTimer = 0.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +22,24 @@ public class Player : Statistics {
 	
 	// Update is called once per frame
 	void Update () {
-		if (currHealth == 0) {
+		if (invulTimer >= 0.0f) {
+			invulTimer -= Time.deltaTime;
+
+			if (invulTimer < 0.0f)
+				invulTimer = 0.0f;
+		}
+	}
+
+	public void DamagePlayer (int damageTaken) {
+		// If the player is not in invulnerability state, deal damage to the player.
+		if (invulTimer <= 0.0f) {
+			currHealth -= damageTaken;
+
+			if (currHealth <= 0) {
+
+			}
+
+			invulTimer = invulTimePerDamage * damageTaken;
 		}
 	}
 
