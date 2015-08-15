@@ -106,14 +106,46 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FireBullet(){
-		Transform Bullet = Instantiate (player.CurrWeapon.transform, player.ShotLocation.position, PlayerSprite.rotation) as Transform;
-		GameObject newBullet = Bullet.gameObject;
-		newBullet.tag = ("Player Bullet");
-		newBullet.GetComponent<Weapon> ().Owner = (Statistics)player;
-		newBullet.transform.localScale = newBullet.transform.localScale * player.CurrWeapon.ChargeScale;
-		//newBullet.GetComponent<Weapon> ().ChargeScale = player.CurrWeapon.ChargeScale;
+		float rot = transform.rotation.eulerAngles.y;
+		Vector3 pos = player.ShotLocation.position;
+
+		switch (player.MultithreadLevel) {
+		case 1:
+			CreateBullet(player.CurrWeapon.transform, pos, rot);
+			break;
+		case 2:
+			CreateBullet(player.CurrWeapon.transform, pos, rot + 2);
+			CreateBullet(player.CurrWeapon.transform, pos, rot - 2);
+			break;
+		case 3:
+			CreateBullet(player.CurrWeapon.transform, pos, rot + 3);
+			CreateBullet(player.CurrWeapon.transform, pos, rot);
+			CreateBullet(player.CurrWeapon.transform, pos, rot - 3);
+			break;
+		case 4:
+			CreateBullet(player.CurrWeapon.transform, pos, rot + 8);
+			CreateBullet(player.CurrWeapon.transform, pos, rot + 3);
+			CreateBullet(player.CurrWeapon.transform, pos, rot - 3);
+			CreateBullet(player.CurrWeapon.transform, pos, rot - 8);
+			break;
+		default:
+			CreateBullet(player.CurrWeapon.transform, pos, rot + 8);
+			CreateBullet(player.CurrWeapon.transform, pos, rot + 3);
+			CreateBullet(player.CurrWeapon.transform, pos, rot - 3);
+			CreateBullet(player.CurrWeapon.transform, pos, rot - 8);
+			break;
+		}
 
 		player.CurrWeapon.ChargeScale = 1.0f;
 		bulletFired = false;
+	}
+
+	void CreateBullet (Transform weapon, Vector3 pos, float rot) {
+		GameObject newBullet = (Instantiate (weapon, pos, Quaternion.Euler(0, rot, 0)) as Transform).gameObject;
+		//GameObject newBullet = Bullet.gameObject;
+		newBullet.tag = ("Player Bullet");
+		newBullet.GetComponent<Weapon> ().Owner = (Statistics)player;
+		newBullet.GetComponent<Weapon> ().OwnerMoveDirection = moveDir;
+		newBullet.transform.localScale = newBullet.transform.localScale * player.CurrWeapon.ChargeScale;
 	}
 }

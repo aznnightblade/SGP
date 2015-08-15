@@ -10,6 +10,8 @@ public class Player : Statistics {
 	[SerializeField]
 	Weapon[] weapons = null;
 	[SerializeField]
+	int multithreadLevel = 1;
+	[SerializeField]
 	float invulTimePerDamage = 0.1f;
 	float invulTimer = 0.0f;
 
@@ -45,5 +47,9 @@ public class Player : Statistics {
 
 	public Weapon CurrWeapon { get { return currWeapon; } }
 	public Weapon[] Weapons { get { return weapons; } }
+	public int MultithreadLevel {
+		get { return multithreadLevel; }
+		set { multithreadLevel = value; }
+	}
 	public Transform ShotLocation { get { return shotLocation; } }
 }
