@@ -92,22 +92,58 @@ public class Statistics : MonoBehaviour {
 		Destroy (gameObject);
 	}
 
-	public int Strength { get; set; }
-	public int Agility { get; set; }
-	public int Endurance { get; set; }
-	public int Intelligence { get; set; }
-	public int Dexterity { get; set; }
-	public int Luck { get; set; }
+	public int Strength { 
+		get { return strength; }
+		set { strength = value; }
+	}
+	public int Agility {
+		get { return agility; }
+		set { agility = value; }
+	}
+	public int Endurance { 
+		get { return endurance; }
+		set { endurance = value; }
+	}
+	public int Intelligence { 
+		get { return intelligence; }
+		set { intelligence = value; }
+	}
+	public int Dexterity { 
+		get { return dexterity; }
+		set { dexterity = value; }
+	}
+	public int Luck { 
+		get { return luck; }
+		set { luck = value; }
+	}
 	public DLLColor.Color Color {
 		get { return color; }
 		set { color = value; }
 	}
-	public int CurrHealth { get; set; }
-	public int MaxHealth { get; set; }
-	public int Shield { get; set; }
-	public int MaxShield { get; set; }
-	public int Defense { get; set; }
-	public int CritChance { get; set; }
+	public int CurrHealth { 
+		get { return currHealth; }
+		set { currHealth = value; }
+	}
+	public int MaxHealth { 
+		get { return maxHealth; }
+		set { maxHealth = value; }
+	}
+	public int Shield {
+		get { return shield; }
+		set { shield = value; }
+	}
+	public int MaxShield {
+		get { return maxShield; }
+		set { maxShield = value; }
+	}
+	public int Defense {
+		get { return defense; }
+		set { defense = value; }
+	}
+	public float CritChance {
+		get { return critChance; }
+		set { critChance = value; }
+	}
 	public float Velocity { 
 		get { return velocity; }
 		set{ velocity = value; }
