@@ -9,7 +9,7 @@ public class BasicBullet : Weapon {
 
 				float damage = (initialDamage + owner.Strength * damagePerStrength) - colStats.Defense;
 
-				if(damage < 0.0f)
+				if(damage <= 0.0f)
 					damage = 1;
 
 				if(WeaknessCheck(color, colStats.Color) > 0) {
@@ -19,6 +19,7 @@ public class BasicBullet : Weapon {
 				}
 
 				colStats.CurrHealth -= Mathf.CeilToInt(damage);
+				Destroy(gameObject);
 			}
 		}
 	}

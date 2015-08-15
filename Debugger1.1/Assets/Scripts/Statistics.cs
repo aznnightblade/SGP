@@ -63,6 +63,11 @@ public class Statistics : MonoBehaviour {
 	protected float dropRatePerLuck = 0;
 	[SerializeField]
 	protected DLLColor.Color color = DLLColor.Color.NEUTRAL;
+	[SerializeField]
+	int money = 0;
+	[SerializeField]
+	int exp = 0;
+
 	protected bool IsDisabled = false;
 	protected bool IsSlowed = false;
 	protected bool CanMove = true;
@@ -117,4 +122,12 @@ public class Statistics : MonoBehaviour {
 	}
 	public float InitialShotDistance { get { return initialShotDistance; } }
 	public float ShotDistancePerDexerity { get { return increaseDistancePerDexerity; } }
+	public int EXP { 
+		get { return exp; }
+		set { exp = value; }
+	}
+	public int Money { 
+		get { return money; }
+		set { money = value; }
+	}
 }

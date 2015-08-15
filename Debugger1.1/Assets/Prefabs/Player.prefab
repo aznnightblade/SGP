@@ -162,7 +162,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &11439796
 MonoBehaviour:
@@ -201,27 +201,27 @@ MonoBehaviour:
   endurance: 1
   initialHealth: 20
   healthPerEndurance: 10
-  defense: 0
+  defense: 1
   initialDefense: 1
-  defensePerEndurance: 0
+  defensePerEndurance: 1
   agility: 1
   shotDelay: 0
   dexterity: 1
   initialShotDistance: 10
   increaseDistancePerDexerity: 1.5
   intelligence: 1
-  initialCooldownReduction: 0
-  reductionPerIntelligence: 0
-  luck: 0
+  initialCooldownReduction: .100000001
+  reductionPerIntelligence: .100000001
+  luck: 1
   critChance: 0
   initialCrit: 0
   initialDropRate: 0
   critPerLuck: 0
   dropRatePerLuck: 0
   color: 0
-  shotLocation: {fileID: 475504}
   money: 0
   exp: 0
+  shotLocation: {fileID: 475504}
   currWeapon: {fileID: 11460952, guid: 03f693d2d88d30340bd8da95c9603087, type: 2}
   weapons:
   - {fileID: 11460952, guid: 03f693d2d88d30340bd8da95c9603087, type: 2}

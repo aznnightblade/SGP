@@ -6,10 +6,6 @@ public class Player : Statistics {
 	[SerializeField]
 	Transform shotLocation = null;
 	[SerializeField]
-	int money = 0;
-	[SerializeField]
-	int exp = 0;
-	[SerializeField]
 	Weapon currWeapon = null;
 	[SerializeField]
 	Weapon[] weapons = null;
@@ -27,14 +23,6 @@ public class Player : Statistics {
 		}
 	}
 
-	public int EXP { 
-		get { return exp; }
-		set { exp = value; }
-	}
-	public int Money { 
-		get { return money; }
-		set { money = value; }
-	}
 	public Weapon CurrWeapon { get { return currWeapon; } }
 	public Weapon[] Weapons { get { return weapons; } }
 	public Transform ShotLocation { get { return shotLocation; } }

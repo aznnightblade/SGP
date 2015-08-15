@@ -114,7 +114,7 @@ public class PlayerController : MonoBehaviour {
 		Transform Bullet = Instantiate (player.CurrWeapon.transform, player.ShotLocation.position, PlayerSprite.rotation) as Transform;
 		GameObject newBullet = Bullet.gameObject;
 		newBullet.tag = ("Player Bullet");
-		newBullet.GetComponent<Weapon> ().Owner = player;
+		newBullet.GetComponent<Weapon> ().Owner = (Statistics)player;
 		newBullet.transform.localScale = newBullet.transform.localScale * player.CurrWeapon.ChargeScale;
 		//newBullet.GetComponent<Weapon> ().ChargeScale = player.CurrWeapon.ChargeScale;
 
