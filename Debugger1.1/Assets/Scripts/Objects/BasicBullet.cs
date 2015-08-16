@@ -4,7 +4,7 @@ using System.Collections;
 public class BasicBullet : Weapon {
 	void OnCollisionEnter(Collision col) {
 		if (col.gameObject.tag != owner.gameObject.tag && col.gameObject.tag != gameObject.tag) {
-			if(col.gameObject.tag != "Wall") {
+			if(col.gameObject.tag != "Wall" && col.gameObject.tag != "WorldObject") {
 				Statistics colStats = col.gameObject.GetComponent<Statistics>();
 
 				float damage = (initialDamage + owner.Strength * damagePerStrength) - colStats.Defense;
@@ -19,8 +19,9 @@ public class BasicBullet : Weapon {
 				}
 
 				colStats.CurrHealth -= Mathf.CeilToInt(damage);
-				Destroy(gameObject);
 			}
+
+			Destroy(gameObject);
 		}
 	}
 }
