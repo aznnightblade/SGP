@@ -11,8 +11,8 @@ public class HealthPickup : MonoBehaviour {
 			// Avoid overhealing the player
 			if(col.gameObject.GetComponent<Statistics>().CurrHealth >= col.gameObject.GetComponent<Statistics>().MaxHealth)
 				col.gameObject.GetComponent<Statistics>().CurrHealth = col.gameObject.GetComponent<Statistics>().MaxHealth;
+			
+			Destroy (gameObject);
 		}
-
-		Destroy (gameObject);
 	}
 }
