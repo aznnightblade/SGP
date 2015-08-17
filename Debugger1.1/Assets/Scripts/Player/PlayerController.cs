@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FireBullet(){
-		float rot = transform.rotation.eulerAngles.y;
+		float rot = PlayerSprite.rotation.eulerAngles.y;
 		Vector3 pos = player.ShotLocation.position;
 
 		switch (player.MultithreadLevel) {
