@@ -22,7 +22,7 @@ public class Computer : MonoBehaviour {
     }
     void Update()
     {
-        if (triggerActive==true)
+        if (triggerActive == true && Input.GetButtonDown("Submit"))
         {
             PlayerPrefs.SetString("Nextscene", Loadinglevel);
             Application.LoadLevel("Loadingscreen");
