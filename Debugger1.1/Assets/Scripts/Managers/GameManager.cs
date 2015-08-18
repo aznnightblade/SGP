@@ -2,29 +2,34 @@
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
-
 	public static GameManager instance;
-	private int credits;
-	private int xp;
-	void Awake(){ 
+	public static int indexLevel = 1;
+	public SaveData playersGame;
+	static Player player = null;
 
-		instance = this;
+	void Awake(){
+		if (instance==null)
+		{
+			instance = this;
+		}
+		else if (instance != this)
+		{
+			Destroy(gameObject);
+		}
+		DontDestroyOnLoad(gameObject);
 	}
-
-	public void AddXp(int _numXp){
-		xp = xp + _numXp;
-	}
-	public void AddCredits(int _numCredits){
-		credits = credits + _numCredits;
-	}
-
 	// Use this for initialization
-	void Start () {
-	
+	public static void ExitScenes()
+	{
+		player = GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<Player> ();
+	}
+	public static void LoadScene(Player _player)
+	{
+		_player = player;
 	}
 	
-	// Update is called once per frame
-	void Update () {
-	
+	public static void levelComplete(int _index)
+	{
+		indexLevel = _index;
 	}
 }
