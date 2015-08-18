@@ -14,22 +14,24 @@ public class Dialogue : MonoBehaviour {
     public int currentline;
     public int endline;
 
-    public PlayerController player;
+    public bool isActive;
+    private bool isTyping = false;
+    private bool canceltyping = false;
+    public float TypeSpeed;
+   // public PlayerController player;
 	// Update is called once per frame
     void Start()
     {
-
-        player = FindObjectOfType<PlayerController>();
-        if (textfile !=null)
+        if (textfile != null)
         {
             textlines = (textfile.text.Split('\n'));
         }
+        if (endline == 0)
+        {
+            endline = textlines.Length - 1;
+        }
        panel.SetActive(false);
 
-       if (endline==0)
-       {
-           endline = textlines.Length-1;
-       }
     }
     void Update()
     {
@@ -38,23 +40,49 @@ public class Dialogue : MonoBehaviour {
         {
             panel.SetActive(true);
             HUD.SetActive(false);
-            dialogue.text = textlines[currentline];
-            if (currentline==0)
-            {
-                currentline++;
-            } 
-            else
+            if (!isTyping)
             {
                 currentline += 1;
+
+                if (currentline > endline)
+                {
+
+                    panel.SetActive(false);
+                    HUD.SetActive(true);
+                    currentline = 0;
+                }
+                else
+                {
+                    StartCoroutine(Textscroll(textlines[currentline]));
+                }
             }
+            else if (isTyping && !canceltyping)
+            {
+                canceltyping = true;
+            }
+           // dialogue.text = textlines[currentline];
+
         }
 
-        if (currentline> endline)
-        {
-            panel.SetActive(false);
-            HUD.SetActive(true);
-        }
        
+       
+    }
+
+    private IEnumerator Textscroll (string lineoftext)
+    {
+        int letter = 0;
+        isTyping = true;
+        canceltyping = false;
+        dialogue.text = "";
+        while (isTyping && !canceltyping && (letter < lineoftext.Length-1))
+        {
+            dialogue.text += lineoftext[letter];
+            letter+=1;
+            yield return new WaitForSeconds(TypeSpeed);
+        }
+        dialogue.text = lineoftext;
+        isTyping = false;
+        canceltyping = false;
     }
     void OnTriggerEnter(Collider col)
     {
