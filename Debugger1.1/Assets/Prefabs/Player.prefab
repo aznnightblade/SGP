@@ -25,7 +25,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 449374}
   - 33: {fileID: 3351902}
-  - 23: {fileID: 2344214}
   - 135: {fileID: 13571516}
   - 114: {fileID: 11498358}
   m_Layer: 0
@@ -118,30 +117,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 449374}
   m_RootOrder: 1
---- !u!23 &2344214
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 181624}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 2100000, guid: def4fe4fa907e374a9c86657cad9e364, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!33 &3351902
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -176,8 +151,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerSprite: {fileID: 0}
-  moveDir: {x: 0, y: 0, z: 0}
-  playerVelocity: 0
 --- !u!114 &11498358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -198,6 +171,8 @@ MonoBehaviour:
   maxVelocity: 15
   maxTurnRadius: 0
   strength: 1
+  initialDamage: 0
+  damagePerStrength: 0
   endurance: 1
   initialHealth: 20
   healthPerEndurance: 10
@@ -225,6 +200,8 @@ MonoBehaviour:
   currWeapon: {fileID: 11460952, guid: 03f693d2d88d30340bd8da95c9603087, type: 2}
   weapons:
   - {fileID: 11460952, guid: 03f693d2d88d30340bd8da95c9603087, type: 2}
+  multithreadLevel: 1
+  invulTimePerDamage: .100000001
 --- !u!135 &13571516
 SphereCollider:
   m_ObjectHideFlags: 1

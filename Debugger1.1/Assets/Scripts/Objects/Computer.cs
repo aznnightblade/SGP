@@ -5,10 +5,11 @@ public class Computer : MonoBehaviour {
 
     bool triggerActive = false;
     public string Loadinglevel;
+	public int levelNumber;
 	// Use this for initialization
     void OnTriggerEnter(Collider col)
     {
-        if (col.tag == "Player")
+        if (col.tag == "Player" )
         {
             triggerActive = true;
         }
@@ -22,10 +23,12 @@ public class Computer : MonoBehaviour {
     }
     void Update()
     {
-        if (triggerActive==true)
-        {
-            PlayerPrefs.SetString("Nextscene", Loadinglevel);
-            Application.LoadLevel("Loadingscreen");
-        }
+		if (Input.GetButtonDown ("Submit")) {
+			if (triggerActive == true && GameManager.indexLevel >= levelNumber) {
+				GameManager.ExitScenes();
+				PlayerPrefs.SetString ("Nextscene", Loadinglevel);
+				Application.LoadLevel ("Loadingscreen");
+			}
+		}
     }
 }

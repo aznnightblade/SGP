@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 474704}
   - 212: {fileID: 21201970}
-  - 114: {fileID: 11498452}
   m_Layer: 0
   m_Name: LazerSprite
   m_TagString: Untagged
@@ -27,7 +26,7 @@ GameObject:
   - 4: {fileID: 451840}
   - 33: {fileID: 3362822}
   - 65: {fileID: 6550196}
-  - 23: {fileID: 2378722}
+  - 114: {fileID: 11474766}
   m_Layer: 0
   m_Name: LazerStart
   m_TagString: Untagged
@@ -54,36 +53,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 136840}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
+  m_LocalRotation: {x: -1.15202326e-07, y: .707106709, z: -.707106829, w: -1.15202312e-07}
   m_LocalPosition: {x: 0, y: .5, z: 0}
   m_LocalScale: {x: 2, y: 5.5, z: 1}
   m_Children: []
   m_Father: {fileID: 451840}
   m_RootOrder: 0
---- !u!23 &2378722
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 151162}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!33 &3362822
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -103,17 +78,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .200000003, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11498452
+--- !u!114 &11474766
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 136840}
+  m_GameObject: {fileID: 151162}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f30ad7b2375bf441a77f3e1e779a418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lazerSprites:
+  - {fileID: 21300004, guid: 3dcd2abd8a8b04e4284883208e56ba60, type: 3}
+  - {fileID: 21300002, guid: 3dcd2abd8a8b04e4284883208e56ba60, type: 3}
+  - {fileID: 21300006, guid: 3dcd2abd8a8b04e4284883208e56ba60, type: 3}
+  - {fileID: 21300000, guid: 3dcd2abd8a8b04e4284883208e56ba60, type: 3}
 --- !u!212 &21201970
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -146,7 +126,42 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_LocalRotation.x
+      value: -1.15202326e-07
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalRotation.y
+      value: .707106709
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalRotation.z
+      value: -.707106829
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalRotation.w
+      value: -1.15202312e-07
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: lazerSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 3dcd2abd8a8b04e4284883208e56ba60,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: lazerSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300006, guid: 3dcd2abd8a8b04e4284883208e56ba60,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: lazerSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300004, guid: 3dcd2abd8a8b04e4284883208e56ba60,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 151162}
