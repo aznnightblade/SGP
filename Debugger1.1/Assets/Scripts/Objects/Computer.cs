@@ -23,12 +23,10 @@ public class Computer : MonoBehaviour {
     }
     void Update()
     {
-		if (Input.GetButtonDown ("Submit")) {
-			if (triggerActive == true && GameManager.indexLevel >= levelNumber) {
-				GameManager.ExitScenes();
-				PlayerPrefs.SetString ("Nextscene", Loadinglevel);
-				Application.LoadLevel ("Loadingscreen");
-			}
-		}
+        if (triggerActive == true && Input.GetButtonDown("Submit"))
+        {
+            PlayerPrefs.SetString("Nextscene", Loadinglevel);
+            Application.LoadLevel("Loadingscreen");
+        }
     }
 }
