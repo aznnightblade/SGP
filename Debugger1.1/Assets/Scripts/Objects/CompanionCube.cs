@@ -12,7 +12,6 @@ public class CompanionCube : MonoBehaviour {
 		if (GameManager.indexLevel < Next) {
 			GameManager.levelComplete (Next);
 		}
-		GameManager.ExitScenes ();
 		PlayerPrefs.SetString ("Nextscene", HubWorld);
 		Application.LoadLevel ("Loadingscreen");
 

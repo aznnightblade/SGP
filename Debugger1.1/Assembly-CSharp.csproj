@@ -46,8 +46,8 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\ActingObject.cs" />
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\DLLColor.cs" />
      <Compile Include="Assets\Scripts\Enemy\Aurthor.cs" />
      <Compile Include="Assets\Scripts\Enemy\BasicMelee.cs" />
      <Compile Include="Assets\Scripts\Enemy\BasicRanged.cs" />
@@ -76,12 +76,13 @@
      <Compile Include="Assets\Scripts\GUI-Menu\WeaponDisplay.cs" />
      <Compile Include="Assets\Scripts\GUI-Menu\WeaponHeatBar.cs" />
      <Compile Include="Assets\Scripts\Managers\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Managers\SaveData.cs" />
      <Compile Include="Assets\Scripts\Managers\SoundManager.cs" />
-     <Compile Include="Assets\Scripts\MovingObject.cs" />
      <Compile Include="Assets\Scripts\Objects\BasicBullet.cs" />
      <Compile Include="Assets\Scripts\Objects\CompanionCube.cs" />
      <Compile Include="Assets\Scripts\Objects\Computer.cs" />
-     <Compile Include="Assets\Scripts\Objects\ConvyerBelt.cs" />
+     <Compile Include="Assets\Scripts\Objects\ConveyorBeltSpawner.cs" />
+     <Compile Include="Assets\Scripts\Objects\ConvyorBelt.cs" />
      <Compile Include="Assets\Scripts\Objects\Corruption.cs" />
      <Compile Include="Assets\Scripts\Objects\Dampener.cs" />
      <Compile Include="Assets\Scripts\Objects\Door.cs" />
@@ -100,9 +101,8 @@
      <Compile Include="Assets\Scripts\Player\Waveshot.cs" />
      <Compile Include="Assets\Scripts\Player\Weapon.cs" />
      <Compile Include="Assets\Scripts\Statistics.cs" />
-     <None Include="Assets\Sprites\New Text Document.txt" />
-     <None Include="Assets\Audio\Music\New Text Document.txt" />
-     <None Include="Assets\Audio\SFX\New Text Document.txt" />
+     <Compile Include="Assets\Scripts\loadinglevel.cs" />
+     <None Include="Assets\Scripts\Dialogue text\NPC_Test.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
