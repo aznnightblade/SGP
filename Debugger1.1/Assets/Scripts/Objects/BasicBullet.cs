@@ -5,7 +5,12 @@ public class BasicBullet : Weapon {
 	void OnCollisionEnter(Collision col) {
 		if (col.gameObject.tag != owner.gameObject.tag && col.gameObject.tag != gameObject.tag) {
 			if(col.gameObject.tag != "Wall" && col.gameObject.tag != "WorldObject") {
-				Statistics colStats = col.gameObject.GetComponent<Statistics>();
+				Statistics colStats = null;
+
+				if (col.gameObject.tag != "Player")
+					colStats = col.gameObject.GetComponent<Statistics> ();
+				else
+					colStats = col.gameObject.GetComponentInChildren<Player> ();
 
 				if(colStats != null) {
 					float damage = (initialDamage + owner.Strength * damagePerStrength) - colStats.Defense;
@@ -20,6 +25,13 @@ public class BasicBullet : Weapon {
 					}
 
 					colStats.CurrHealth -= Mathf.CeilToInt(damage);
+
+					if(col.gameObject.tag != "Player") {
+						EnemyHealthbar healthbar = col.transform.parent.GetComponentInChildren<EnemyHealthbar> ();
+
+						if (healthbar != null)
+							healthbar.UpdateFillAmount();
+					}
 				}
 			}
 
