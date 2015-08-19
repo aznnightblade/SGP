@@ -10,7 +10,7 @@ public class SaveData{
 	public int Level;
 	public int CurrentHealth;
 	public int Strength;
-	public int Intellagence;
+	public int Intelligence;
 	public int Luck;
 	public int Agility;
 	public int Endurance;
@@ -31,7 +31,7 @@ public class SaveData{
 		data.Name = PlayerPrefs.GetString (_name + "NAME");
 		data.Level = PlayerPrefs.GetInt (_name + "LEVEL");
 		data.Strength = PlayerPrefs.GetInt (_name + "STRENGTH");
-		data.Intellagence = PlayerPrefs.GetInt (_name + "INTELLAGANCE");
+		data.Intelligence = PlayerPrefs.GetInt (_name + "INTELLIGANCE");
 		data.Luck = PlayerPrefs.GetInt (_name + "LUCK");
 		data.Agility = PlayerPrefs.GetInt (_name + "AGILITY");
 		data.Endurance = PlayerPrefs.GetInt (_name + "ENDURANCE");
@@ -49,7 +49,7 @@ public class SaveData{
 		PlayerPrefs.SetString (_name + "NAME", _data.Name);
 		PlayerPrefs.SetInt (_name + "LEVEL", _data.Level);
 		PlayerPrefs.SetInt (_name + "STRENGTH", _data.Strength);
-		PlayerPrefs.SetInt (_name + "INTELLAGANCE", _data.Intellagence);
+		PlayerPrefs.SetInt (_name + "INTELLIGANCE", _data.Intelligence);
 		PlayerPrefs.SetInt (_name + "LUCK", _data.Luck);
 		PlayerPrefs.SetInt (_name + "AGILITY", _data.Agility);
 		PlayerPrefs.SetInt (_name + "ENDURANCE", _data.Endurance);
