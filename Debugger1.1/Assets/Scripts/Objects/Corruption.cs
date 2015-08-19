@@ -1,15 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Corruption : MonoBehaviour {
+public class Corruption : Statistics {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	void Update(){
+		if (gameObject.GetComponent<Statistics> ().CurrHealth <= 0)
+			Destroy (gameObject);
 	}
 }

@@ -93,7 +93,10 @@ public class Statistics : MonoBehaviour {
 	}
 
 	public void DestroyObject() {
-		Destroy (gameObject);
+		Breakpoint breakpoint = GameObject.FindGameObjectWithTag ("Player").GetComponent<Breakpoint> ();
+		breakpoint.AddFill ();
+
+		Destroy (transform.parent.gameObject);
 	}
 
 	public int Strength { 

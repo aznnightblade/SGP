@@ -46,6 +46,8 @@ public class Weapon : MonoBehaviour {
 	protected float maxDistance = 0.0f;
 	protected Vector3 startLocation = Vector3.zero;
 
+	Vector3 directionVelocity = Vector3.zero;
+
 	bool onCooldown = false;
 
 	// Use this for initialization
@@ -55,7 +57,7 @@ public class Weapon : MonoBehaviour {
 		maxDistance = owner.InitialShotDistance + owner.ShotDistancePerDexerity * owner.Dexterity;
 		direction = new Vector3 (-Mathf.Cos (rot), 0, Mathf.Sin (rot));
 		
-		Vector3 directionVelocity = direction * Velocity;
+		directionVelocity = direction * Velocity;
 
 		if (directionVelocity.x > 0 && ownerMoveDirection.x > 0 || directionVelocity.x < 0 && ownerMoveDirection.x < 0)
 			directionVelocity.x += ownerMoveDirection.x;
@@ -72,6 +74,9 @@ public class Weapon : MonoBehaviour {
 		if (Vector3.Distance (startLocation, transform.position) >= maxDistance) {
 			Destroy(gameObject);
 		}
+
+		if (gameObject.tag == "Enemy Bullet")
+			gameObject.GetComponent<Rigidbody> ().velocity = directionVelocity * GameManager.CTimeScale;
 	}
 
 	protected int WeaknessCheck(DLLColor.Color bullet, DLLColor.Color target) {
@@ -126,4 +131,5 @@ public class Weapon : MonoBehaviour {
 		get { return onCooldown; } 
 		set { onCooldown = value; }
 	}
+	public DLLColor.Color Color { get { return Color; } }
 }
