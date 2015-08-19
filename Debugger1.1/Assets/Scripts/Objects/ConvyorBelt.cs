@@ -8,6 +8,8 @@ public class ConvyorBelt : MonoBehaviour {
 	[SerializeField]
 	Vector3 dirVelocity = Vector3.zero;
 
+	bool isEnabled = true;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -39,5 +41,10 @@ public class ConvyorBelt : MonoBehaviour {
 	public Vector3 DirectionVelocity {
 		get { return dirVelocity; }
 		set { dirVelocity = value; }
+	}
+
+	public bool IsEnabled {
+		get { return isEnabled; }
+		set { isEnabled = value; }
 	}
 }

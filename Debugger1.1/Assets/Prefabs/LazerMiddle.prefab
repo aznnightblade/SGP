@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 439000}
   - 33: {fileID: 3371730}
   - 65: {fileID: 6579930}
-  - 23: {fileID: 2302542}
+  - 114: {fileID: 11487096}
   m_Layer: 0
   m_Name: LazerMiddle
   m_TagString: Untagged
@@ -27,7 +27,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 423728}
   - 212: {fileID: 21266268}
-  - 114: {fileID: 11494106}
   m_Layer: 0
   m_Name: LazerSprite
   m_TagString: Untagged
@@ -60,30 +59,6 @@ Transform:
   - {fileID: 423728}
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2302542
-MeshRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 116188}
-  m_Enabled: 0
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 1
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
 --- !u!33 &3371730
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -103,17 +78,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .200000003, y: 1, z: 1.10000002}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11494106
+--- !u!114 &11487096
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 166264}
+  m_GameObject: {fileID: 116188}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4f30ad7b2375bf441a77f3e1e779a418, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lazerSprites:
+  - {fileID: 21300012, guid: 3dcd2abd8a8b04e4284883208e56ba60, type: 3}
+  - {fileID: 21300010, guid: 3dcd2abd8a8b04e4284883208e56ba60, type: 3}
+  - {fileID: 21300014, guid: 3dcd2abd8a8b04e4284883208e56ba60, type: 3}
+  - {fileID: 21300008, guid: 3dcd2abd8a8b04e4284883208e56ba60, type: 3}
 --- !u!212 &21266268
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -146,7 +126,26 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: lazerSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300008, guid: 3dcd2abd8a8b04e4284883208e56ba60,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: lazerSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300014, guid: 3dcd2abd8a8b04e4284883208e56ba60,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: lazerSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300012, guid: 3dcd2abd8a8b04e4284883208e56ba60,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 116188}
