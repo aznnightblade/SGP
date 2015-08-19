@@ -9,6 +9,7 @@ public class SoundManager : MonoBehaviour {
     public List<AudioSource> EnemySoundeffects;
     public List<AudioSource> BossSoundeffects;
     public List<AudioSource> WeaponSoundeffects;
+	public List<AudioSource> MiscSoundeffects;
 	// Use this for initialization
 	void Start () {
 	

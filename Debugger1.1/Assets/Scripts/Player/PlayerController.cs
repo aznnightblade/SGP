@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-
 public class PlayerController : MonoBehaviour {
 
 	[SerializeField]
@@ -10,11 +9,14 @@ public class PlayerController : MonoBehaviour {
 	Vector3 moveDir = Vector3.zero;
 	
 	bool bulletFired = false;
-
+    bool chargebullet = false;
+    public SoundManager sounds;
 	// Use this for initialization
 	void Start () {
+        sounds = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
 		player = GetComponentInChildren<Player> ();
 		PlayerSprite = GameObject.FindGameObjectWithTag ("Player").transform;
+        sounds.PlayerSoundeffects[2].loop = true;
 	}
 	
 	// Update is called once per frame
@@ -32,14 +34,24 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (Input.GetButton ("Fire2") && !Input.GetButton ("Fire1") && player.CurrWeapon.ChargeDelay <= 0.0f) {
+            if (player.CurrWeapon.ChargeScale == 1.0f)
+                sounds.PlayerSoundeffects[1].Play();
+            
+            if (!sounds.PlayerSoundeffects[1].isPlaying && !sounds.PlayerSoundeffects[2].isPlaying)
+                sounds.PlayerSoundeffects[2].Play();
+
 			if (player.CurrWeapon.ChargeScale < player.CurrWeapon.MaxChargeScale) {
 				player.CurrWeapon.ChargeScale += player.CurrWeapon.ChargePerTick;
 				player.CurrWeapon.ChargeDelay = player.CurrWeapon.DelayTime;
-
+                chargebullet = true;
+               
 				if(player.CurrWeapon.ChargeScale > player.CurrWeapon.MaxChargeScale)
-					player.CurrWeapon.ChargeScale = player.CurrWeapon.MaxChargeScale;
+                    player.CurrWeapon.ChargeScale = player.CurrWeapon.MaxChargeScale;	
 			}
 		}
+
+		if (Input.GetButtonDown ("Fire3"))
+			player.Breakpoint.FireBreakpoint ();
 
 		for (int index = 0; index < player.Weapons.Length; index++) {
 			if (player.Weapons[index].ShotDelay > 0.0f) {
@@ -147,5 +159,16 @@ public class PlayerController : MonoBehaviour {
 		newBullet.GetComponent<Weapon> ().Owner = (Statistics)player;
 		newBullet.GetComponent<Weapon> ().OwnerMoveDirection = moveDir;
 		newBullet.transform.localScale = newBullet.transform.localScale * player.CurrWeapon.ChargeScale;
+        if (chargebullet==true)
+        {
+            chargebullet = false;
+            sounds.PlayerSoundeffects[1].Stop();
+            sounds.PlayerSoundeffects[2].Stop();
+            sounds.PlayerSoundeffects[3].Play();
+        }
+        else if(chargebullet==false)
+        {
+            sounds.PlayerSoundeffects[0].Play();
+        }
 	}
 }
