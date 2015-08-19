@@ -39,14 +39,15 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>F:/Unity 5/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>F:/Unity 5/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\Scripts\Companions\Companion.cs" />
      <Compile Include="Assets\Scripts\DLLColor.cs" />
      <Compile Include="Assets\Scripts\Enemy\Aurthor.cs" />
      <Compile Include="Assets\Scripts\Enemy\BasicMelee.cs" />
@@ -90,9 +91,14 @@
      <Compile Include="Assets\Scripts\Objects\LazerSpawner.cs" />
      <Compile Include="Assets\Scripts\Objects\Lazers.cs" />
      <Compile Include="Assets\Scripts\Objects\ShieldWall.cs" />
+     <Compile Include="Assets\Scripts\Objects\SpawnTrigger.cs" />
      <Compile Include="Assets\Scripts\Objects\Switch.cs" />
      <Compile Include="Assets\Scripts\Objects\Teleporter.cs" />
      <Compile Include="Assets\Scripts\Objects\WaveShotBullet.cs" />
+     <Compile Include="Assets\Scripts\Pickups\HealthDrops.cs" />
+     <Compile Include="Assets\Scripts\Pickups\HealthPickup.cs" />
+     <Compile Include="Assets\Scripts\Pickups\MoneyDrops.cs" />
+     <Compile Include="Assets\Scripts\Pickups\MoneyPickup.cs" />
      <Compile Include="Assets\Scripts\Player\Breakpoint.cs" />
      <Compile Include="Assets\Scripts\Player\Bullet.cs" />
      <Compile Include="Assets\Scripts\Player\Friendshot.cs" />
@@ -101,19 +107,24 @@
      <Compile Include="Assets\Scripts\Player\Waveshot.cs" />
      <Compile Include="Assets\Scripts\Player\Weapon.cs" />
      <Compile Include="Assets\Scripts\Statistics.cs" />
+     <Compile Include="Assets\Scripts\Vending Machines\Confirm.cs" />
+     <Compile Include="Assets\Scripts\Vending Machines\EnterVendorMenu.cs" />
+     <Compile Include="Assets\Scripts\Vending Machines\ExitVendorMenu.cs" />
+     <Compile Include="Assets\Scripts\Vending Machines\ShowMoneyAndExp.cs" />
+     <Compile Include="Assets\Scripts\Vending Machines\VendingMachineUI.cs" />
      <Compile Include="Assets\Scripts\loadinglevel.cs" />
      <None Include="Assets\Scripts\Dialogue text\NPC_Test.txt" />
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>F:/Unity 5/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>F:/Unity 5/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ <HintPath>F:/Unity 5/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="UnityEditor.iOS.Extensions.Xcode">
- <HintPath>C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
+ <HintPath>F:/Unity 5/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

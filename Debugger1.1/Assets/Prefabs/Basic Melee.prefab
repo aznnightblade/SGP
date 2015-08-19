@@ -14,6 +14,7 @@ GameObject:
   - 195: {fileID: 19577136}
   - 54: {fileID: 5421284}
   - 114: {fileID: 11432874}
+  - 114: {fileID: 11470290}
   m_Layer: 0
   m_Name: Basic Melee
   m_TagString: Enemy
@@ -97,6 +98,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropRate: 0
   itemDrop: {fileID: 418214, guid: f77fa78d742044241a4c75ff72c13ffc, type: 2}
+--- !u!114 &11470290
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a1e08c818fcacf4c8d3809014e61e27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropRate: 0
+  itemDrop: {fileID: 494706, guid: 935dc5906fc05b74d93ba01834893f85, type: 2}
 --- !u!114 &11476290
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -207,7 +221,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: itemDrop
+      value: 
+      objectReference: {fileID: 494706, guid: 935dc5906fc05b74d93ba01834893f85, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 102358}

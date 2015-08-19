@@ -20,6 +20,9 @@ public class Companion : Statistics {
 		agent = gameObject.GetComponent<NavMeshAgent> ();
 		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
 		agent.destination = player.GetComponent<Transform> ().position;
+
+		
+		player.Shield = player.MaxShield = shieldBuff;
 	}
 	
 	// Update is called once per frame
@@ -60,8 +63,6 @@ public class Companion : Statistics {
 			case StatToBuff.NONE:
 				break;
 			}
-			
-			player.Shield += shieldBuff;
 		}
 
 		buffApplied = true;
@@ -93,7 +94,7 @@ public class Companion : Statistics {
 				break;
 			}
 
-			player.Shield -= shieldBuff;
+			player.Shield = player.MaxShield = 0;
 		}
 
 		buffApplied = false;
