@@ -107,7 +107,7 @@ public class LazerSpawner : MonoBehaviour {
 
 	void FixedUpdate() {
 		if (!IsStationary && IsEnabled) {
-			gameObject.GetComponent<Rigidbody> ().MovePosition (transform.position + moveDirection * speed * Time.fixedDeltaTime);
+			gameObject.GetComponent<Rigidbody> ().MovePosition (transform.position + moveDirection * speed * Time.fixedDeltaTime * GameManager.CTimeScale);
 
 			if(Vector3.Distance (transform.position, target.position) < speed * Time.fixedDeltaTime){
 				SetDestination(target == startMove ? endMove : startMove);

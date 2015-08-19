@@ -25,6 +25,15 @@ public class BasicMelee : Statistics {
 	void Update () {
 		agent.destination = target.position;
 
+		if (GameManager.CTimeScale == 0.0f) {
+			agent.velocity = Vector3.zero;
+			agent.updateRotation = false;
+		}
+		
+		if (GameManager.CTimeScale > 0.0f && !agent.updateRotation) {
+			agent.updateRotation = true;
+		}
+
 		if (currHealth <= 0)
 			DestroyObject ();
 
@@ -42,7 +51,7 @@ public class BasicMelee : Statistics {
 		}
 
 		if (delayTimer > 0.0f) {
-			delayTimer -= Time.deltaTime;
+			delayTimer -= Time.deltaTime * GameManager.CTimeScale;
 
 			if (delayTimer <= 0.0f)
 				delayTimer = 0.0f;

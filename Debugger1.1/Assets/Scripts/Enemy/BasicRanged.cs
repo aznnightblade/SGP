@@ -13,6 +13,9 @@ public class BasicRanged : Statistics {
 	[SerializeField]
 	float maximumShotDistance = 5.0f;
 
+	[SerializeField]
+	Vector3 vel = Vector3.zero;
+
 	// Use this for initialization
 	void Start () {
 		currHealth = maxHealth = initialHealth + healthPerEndurance * endurance;
@@ -27,6 +30,15 @@ public class BasicRanged : Statistics {
 	void Update () {
 		agent.SetDestination (target.position);
 
+		if (GameManager.CTimeScale == 0.0f) {
+			agent.velocity = Vector3.zero;
+			agent.updateRotation = false;
+		}
+
+		if (GameManager.CTimeScale > 0.0f && !agent.updateRotation) {
+			agent.updateRotation = true;
+		}
+
 		if (Vector3.Distance (transform.position, target.position) <= maximumShotDistance && delayTimer <= 0.0f) {
 			FireBullet();
 
@@ -34,14 +46,14 @@ public class BasicRanged : Statistics {
 		}
 
 		if (delayTimer > 0.0f) {
-			delayTimer -= Time.deltaTime;
+			delayTimer -= Time.deltaTime * GameManager.CTimeScale;
 
 			if( delayTimer < 0.0f)
 				delayTimer = 0.0f;
 		}
 
 		if (currHealth <= 0.0f)
-			Destroy (transform.parent.gameObject);
+			DestroyObject ();
 	}
 
 	void FireBullet () {
