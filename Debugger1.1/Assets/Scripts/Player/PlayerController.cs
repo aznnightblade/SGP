@@ -33,26 +33,25 @@ public class PlayerController : MonoBehaviour {
 			player.CurrWeapon.HeatGenerated += player.CurrWeapon.HeatPerShot * player.CurrWeapon.ChargeScale;
 		}
 
-		if (Input.GetButton ("Fire2") && !Input.GetButton ("Fire1") && player.CurrWeapon.ChargeDelay <= 0.0f)
-        {
+		if (Input.GetButton ("Fire2") && !Input.GetButton ("Fire1") && player.CurrWeapon.ChargeDelay <= 0.0f) {
             if (player.CurrWeapon.ChargeScale == 1.0f)
                 sounds.PlayerSoundeffects[1].Play();
             
             if (!sounds.PlayerSoundeffects[1].isPlaying && !sounds.PlayerSoundeffects[2].isPlaying)
-            {
                 sounds.PlayerSoundeffects[2].Play();
-            }
-			if (player.CurrWeapon.ChargeScale < player.CurrWeapon.MaxChargeScale){
+
+			if (player.CurrWeapon.ChargeScale < player.CurrWeapon.MaxChargeScale) {
 				player.CurrWeapon.ChargeScale += player.CurrWeapon.ChargePerTick;
 				player.CurrWeapon.ChargeDelay = player.CurrWeapon.DelayTime;
                 chargebullet = true;
                
 				if(player.CurrWeapon.ChargeScale > player.CurrWeapon.MaxChargeScale)
-                    player.CurrWeapon.ChargeScale = player.CurrWeapon.MaxChargeScale;
-
-					
+                    player.CurrWeapon.ChargeScale = player.CurrWeapon.MaxChargeScale;	
 			}
 		}
+
+		if (Input.GetButtonDown ("Fire3"))
+			player.Breakpoint.FireBreakpoint ();
 
 		for (int index = 0; index < player.Weapons.Length; index++) {
 			if (player.Weapons[index].ShotDelay > 0.0f) {

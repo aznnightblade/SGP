@@ -8,6 +8,8 @@ public class ConvyorBelt : MonoBehaviour {
 	[SerializeField]
 	Vector3 dirVelocity = Vector3.zero;
 
+	float speed = 0.0f;
+
 	bool isEnabled = true;
 
 	// Use this for initialization
@@ -18,8 +20,13 @@ public class ConvyorBelt : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		for (int index = 0; index < Objects.Count; index++) {
-			Objects[index].position += dirVelocity * Time.deltaTime;
+			Objects[index].position += dirVelocity * Time.deltaTime * GameManager.CTimeScale;
 		}
+
+		if (gameObject.GetComponentInChildren<Animator> ().speed == 0.0f && GameManager.CTimeScale > 0.0f)
+			gameObject.GetComponentInChildren<Animator> ().speed = speed;
+		else if (gameObject.GetComponentInChildren<Animator> ().speed > 0.0f && GameManager.CTimeScale == 0.0f)
+			gameObject.GetComponentInChildren<Animator> ().speed = 0;
 	}
 
 	void OnTriggerEnter(Collider col) {
@@ -46,5 +53,10 @@ public class ConvyorBelt : MonoBehaviour {
 	public bool IsEnabled {
 		get { return isEnabled; }
 		set { isEnabled = value; }
+	}
+
+	public float Speed {
+		get { return speed; }
+		set { speed = value; }
 	}
 }

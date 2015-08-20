@@ -35,8 +35,5 @@ public class EnemyHealthbar : MonoBehaviour {
 			Health.color = Color.Lerp (Color.yellow, Color.green, Health.fillAmount);
 		else
 			Health.color = Color.Lerp (Color.red, Color.yellow, Health.fillAmount);
-
-		if (Health.fillAmount <= 0.0f)
-			Destroy (transform.parent.parent.gameObject);
 	}
 }

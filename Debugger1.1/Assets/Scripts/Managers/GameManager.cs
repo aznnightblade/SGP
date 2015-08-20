@@ -6,8 +6,10 @@ public class GameManager : MonoBehaviour {
 	public static int indexLevel = 0;
 	public static SaveData playersGame;
 	public static  string saveSpot;
-	 static bool first = true;
+	static bool first = true;
 
+	static float cTimeScale = 1.0f;
+	static float cTimeScale2 = 1.0f;
 
 	void Awake(){
 		if (instance==null)
@@ -49,5 +51,25 @@ public class GameManager : MonoBehaviour {
 	public static void levelComplete(int _index)
 	{
 		indexLevel = _index;
+	}
+
+	public static float CTimeScale {
+		get { return cTimeScale; }
+		set { 
+			if (value < 0.0f)
+				cTimeScale = 0.0f;
+			else
+				cTimeScale = value;
+		}
+	}
+
+	public static float CTimeScale2 {
+		get { return cTimeScale2; }
+		set { 
+			if (value < 0.0f)
+				cTimeScale2 = 0.0f;
+			else
+				cTimeScale2 = value;
+		}
 	}
 }

@@ -30,6 +30,7 @@ public class ConveyorBeltSpawner : MonoBehaviour {
 
 			GameObject newConveyorBelt = (Instantiate (conveyorBelt, pos, transform.rotation) as Transform).gameObject;
 			newConveyorBelt.GetComponent<ConvyorBelt> ().DirectionVelocity = moveDirection;
+			newConveyorBelt.GetComponent<ConvyorBelt> ().Speed = moveDirection.magnitude * 0.5f;
 			newConveyorBelt.GetComponentInChildren<Animator> ().speed = moveDirection.magnitude * 0.5f;
 			newConveyorBelt.transform.parent = transform;
 		}
@@ -45,6 +46,7 @@ public class ConveyorBeltSpawner : MonoBehaviour {
 			for (int index = 0; index < conveyorBelts.Count; index++) {
 				conveyorBelts[index].GetComponentInChildren<Animator> ().SetBool ("IsReversed", isReversed);
 				conveyorBelts[index].GetComponentInChildren<Animator> ().speed = speed;
+				conveyorBelts[index].GetComponentInChildren<ConvyorBelt> ().Speed = speed;
 			}
 		} else {
 			isReversed = true;
@@ -52,6 +54,7 @@ public class ConveyorBeltSpawner : MonoBehaviour {
 			for (int index = 0; index < conveyorBelts.Count; index++) {
 				conveyorBelts[index].GetComponentInChildren<Animator> ().SetBool ("IsReversed", isReversed);
 				conveyorBelts[index].GetComponentInChildren<Animator> ().speed = speed;
+				conveyorBelts[index].GetComponentInChildren<ConvyorBelt> ().Speed = speed;
 			}
 		}
 
