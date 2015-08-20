@@ -85,8 +85,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c108ce78c99d9824f8e9518f562a0a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currHealth: 0
-  maxHealth: 0
+  currHealth: 100
+  maxHealth: 100
   shield: 0
   maxShield: 0
   acceleration: 0
@@ -125,7 +125,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: currHealth
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 139786}
