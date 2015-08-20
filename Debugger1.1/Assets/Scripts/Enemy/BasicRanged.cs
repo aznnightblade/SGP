@@ -13,9 +13,6 @@ public class BasicRanged : Statistics {
 	[SerializeField]
 	float maximumShotDistance = 5.0f;
 
-	[SerializeField]
-	Vector3 vel = Vector3.zero;
-
 	// Use this for initialization
 	void Start () {
 		currHealth = maxHealth = initialHealth + healthPerEndurance * endurance;
