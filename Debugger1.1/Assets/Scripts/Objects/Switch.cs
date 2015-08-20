@@ -9,7 +9,6 @@ public class Switch : MonoBehaviour {
 	public int colorNumber;
 	public GameObject A;
 	public GameObject B;
-	public int numObjects;
 	public GameObject[] Attached;
 	DLLColor.Color color = DLLColor.Color.NEUTRAL;
 	// Use this for initialization
@@ -81,9 +80,17 @@ public class Switch : MonoBehaviour {
 
 				}
 
-				for(int i = 0; i < numObjects; ++i)
+				for(int i = 0; i < Attached.Length; ++i)
 				{
-					if(Attached[i].activeSelf == true)
+					if(Attached[i].tag == "Lazer")
+					{
+						Attached[i].GetComponentInChildren<LazerSpawner>().IsEnabled = !Attached[i].GetComponentInChildren<LazerSpawner>().IsEnabled;
+					}
+					if(Attached[i].tag == "Belt")
+					{
+						Attached[i].GetComponentInChildren<ConveyorBeltSpawner>().MoveDirection = -Attached[i].GetComponentInChildren<ConveyorBeltSpawner>().MoveDirection;
+					}					
+					else if(Attached[i].activeSelf == true)
 					{
 						Attached[i].SetActive(false);
 					}
