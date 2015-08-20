@@ -1,13 +1,31 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Switch : MonoBehaviour {
-	public int Health;
-	public int MaxHealth;
+	public int Health = 0;
+	public int MaxHealth = 100;
 	bool activateSwitch = false;
-	public bool Flipped = false;
-	public Light OnLight;
+	public int colorNumber;
+	public GameObject A;
+	public GameObject B;
+	public int numObjects;
+	public GameObject[] Attached;
+	DLLColor.Color color = DLLColor.Color.NEUTRAL;
 	// Use this for initialization
+	void Start(){
+		if (colorNumber == 0)
+			color = DLLColor.Color.NEUTRAL;
+
+		if (colorNumber == 1)
+			color = DLLColor.Color.RED;
+
+		if (colorNumber == 2)
+			color = DLLColor.Color.GREEN;
+
+		if (colorNumber == 3)
+			color = DLLColor.Color.BLUE;
+	}
 	void OnTriggerEnter(Collider col)
 	{
 		if (col.tag == "Player" )
@@ -28,11 +46,13 @@ public class Switch : MonoBehaviour {
 	{
 		if (col.gameObject.tag == "Player Bullet") 
 		{
-			//  
-			if(col.gameObject.GetComponent<Weapon>().Color == DLLColor.Color.NEUTRAL)
+	
+			if( col.gameObject.GetComponent<Weapon>().Color == color)
 			{
 				if (Health != MaxHealth)
 				Health = Health + 5;
+				gameObject.GetComponentInChildren<Image>().fillAmount = (float)Health / MaxHealth;
+
 			}
 		}
 	}
@@ -45,14 +65,37 @@ public class Switch : MonoBehaviour {
 		{
 			gameObject.GetComponentInChildren<Light> ().enabled = true;
 			if (Input.GetButtonDown ("Submit") && activateSwitch == true) {
-				Flipped = true;
 				gameObject.GetComponentInChildren<Light> ().enabled = false;
 				Health = 0;
+				gameObject.GetComponentInChildren<Image>().fillAmount = 0;
+				if(A.activeInHierarchy)
+				{
+					A.SetActive(false);
+					B.SetActive(true);
+
+
+				}else if (B.activeInHierarchy)
+				{
+					B.SetActive(false);
+					A.SetActive(true);
+
+				}
+
+				for(int i = 0; i < numObjects; ++i)
+				{
+					if(Attached[i].activeSelf == true)
+					{
+						Attached[i].SetActive(false);
+					}
+					else
+					{
+						Attached[i].SetActive(true);
+					}
+
+				}
+
 			}
 
 		}
 	}
-
 }
-
-
