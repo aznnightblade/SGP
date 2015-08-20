@@ -131,5 +131,5 @@ public class Weapon : MonoBehaviour {
 		get { return onCooldown; } 
 		set { onCooldown = value; }
 	}
-	public DLLColor.Color Color { get { return Color; } }
+	public DLLColor.Color Color { get { return color; } }
 }
