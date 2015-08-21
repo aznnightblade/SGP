@@ -104,6 +104,9 @@ public class FireWaller : Statistics {
 
 	public void RemoveShields () {
 		for (int index = 0; index < allies.Count; index ++) {
+			if (allies[index] == null)
+				continue;
+
 			if (allies[index].name != "FireWaller")
 				allies[index].GetComponent<Statistics> ().MaxShield = allies[index].GetComponent<Statistics> ().Shield = 0;
 			else {
