@@ -21,6 +21,7 @@ public class Breakpoint : MonoBehaviour {
     public Image _breakpoint;
     public Image timer;
     public GameObject timer_background;
+    public GameObject freezetint;
 	// Update is called once per frame
 
  
@@ -29,10 +30,12 @@ public class Breakpoint : MonoBehaviour {
 			GameManager.CTimeScale = 0.0f;
 			isActive = true;
             timer_background.SetActive(true);
+            freezetint.SetActive(true);
 		} else if (activeTimer == 0.0f && GameManager.CTimeScale == 0.0f) {
 			GameManager.CTimeScale = 1.0f;
 			isActive = false;
             timer_background.SetActive(false);
+            freezetint.SetActive(false);
 		}
 
 		if (activeTimer > 0.0f) {
