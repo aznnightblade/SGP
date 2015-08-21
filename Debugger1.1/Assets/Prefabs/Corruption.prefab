@@ -156,6 +156,7 @@ MonoBehaviour:
   color: 0
   money: 0
   exp: 0
+  sounds: {fileID: 11447646, guid: 71781c32a7dd242428cf9cfcf1d8bfbe, type: 2}
 --- !u!114 &11453628
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -300,6 +301,11 @@ Prefab:
       propertyPath: currHealth
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: sounds
+      value: 
+      objectReference: {fileID: 11447646, guid: 71781c32a7dd242428cf9cfcf1d8bfbe,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 139786}
