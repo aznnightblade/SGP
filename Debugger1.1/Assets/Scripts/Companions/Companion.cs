@@ -25,7 +25,7 @@ public class Companion : Statistics {
 		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
 		agent.destination = player.GetComponent<Transform> ().position;
 
-		maxHealth = currHealth = initialHealth + healthPerEndurance * endurance;
+		currHealth = maxHealth = initialHealth + healthPerEndurance * endurance;
 		critChance = initialCrit + critPerLuck * luck;
 		player.Shield = player.MaxShield = initShieldBuff + shieldIncreasePerLevel * currLevel;
 	}
