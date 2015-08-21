@@ -192,6 +192,8 @@ MonoBehaviour:
   maxHealth: 0
   shield: 0
   maxShield: 0
+  hitRegenTimer: 2
+  hitTimer: 0
   acceleration: 45
   velocity: 0
   maxVelocity: 15
@@ -229,8 +231,8 @@ MonoBehaviour:
   breakpoint: {fileID: 11439146}
   multithreadLevel: 1
   invulTimePerDamage: .100000001
-  healthText: {fileID: 11429594, guid: 946a1fb778f40924083eeda2c67d2163, type: 2}
-  visualHealth: {fileID: 11482176, guid: c611b37f3cd896e41ae57241650d8938, type: 2}
+  healthText: {fileID: 0}
+  visualHealth: {fileID: 0}
   healthspeed: 10
   sounds: {fileID: 11447646, guid: 71781c32a7dd242428cf9cfcf1d8bfbe, type: 2}
 --- !u!135 &13525848
