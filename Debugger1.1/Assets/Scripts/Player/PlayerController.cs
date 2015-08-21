@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 public class PlayerController : MonoBehaviour {
 
 	[SerializeField]
@@ -11,6 +12,7 @@ public class PlayerController : MonoBehaviour {
 	bool bulletFired = false;
     bool chargebullet = false;
     public SoundManager sounds;
+    public Image chargemeter;
 	// Use this for initialization
 	void Start () {
         sounds = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
@@ -83,6 +85,7 @@ public class PlayerController : MonoBehaviour {
 					player.Weapons[index].OnCooldown = false;
 			}
 		}
+        chargemeter.fillAmount = player.CurrWeapon.ChargeScale - 1;
 	}
 
 	void FixedUpdate() {
