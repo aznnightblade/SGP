@@ -20,11 +20,13 @@ public class Player : Statistics {
     public Text healthText;
     public Image visualHealth;
     public float healthspeed;
+    public SoundManager sounds;
 	// Use this for initialization
 	void Start () {
 		currHealth = maxHealth = initialHealth + healthPerEndurance * endurance;
 		critChance = initialCrit + critPerLuck * luck;
 		currWeapon = weapons [0];
+        sounds = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
 	}
 	
 	// Update is called once per frame
@@ -36,15 +38,17 @@ public class Player : Statistics {
 				invulTimer = 0.0f;
 		}
         HandleHealth();
+
 	}
 
 	public void DamagePlayer (int damageTaken) {
 		// If the player is not in invulnerability state, deal damage to the player.
 		if (invulTimer <= 0.0f) {
 			currHealth -= damageTaken;
+            sounds.PlayerSoundeffects[4].Play();
 
 			if (currHealth <= 0) {
-
+                sounds.PlayerSoundeffects[5].Play();
 			}
 
 			invulTimer = invulTimePerDamage * damageTaken;
