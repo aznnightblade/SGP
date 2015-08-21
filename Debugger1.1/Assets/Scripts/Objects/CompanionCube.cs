@@ -9,14 +9,13 @@ public class CompanionCube : MonoBehaviour {
 
 	void OnCollisionEnter(Collision col)
 	{
-		if (col.gameObject.tag == "Player") 
-		{
+
 			if (GameManager.indexLevel < Next) {
 				GameManager.levelComplete (Next);
 			}
 			PlayerPrefs.SetString ("Nextscene", HubWorld);
 			Application.LoadLevel ("Loadingscreen");
-		}
+
 	}
 	void Start () {
 	
