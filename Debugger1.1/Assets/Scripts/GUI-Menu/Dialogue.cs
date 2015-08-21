@@ -9,11 +9,12 @@ public class Dialogue : MonoBehaviour {
     public GameObject panel;
     public GameObject HUD;
     public Text dialogue;
-    public TextAsset textfile;
+    public TextAsset[] textfile;
     public string[] textlines;
     public int currentline;
     public int endline;
-
+   public int current_level = 0;
+    
     public bool isActive;
     private bool isTyping = false;
     private bool canceltyping = false;
@@ -24,7 +25,7 @@ public class Dialogue : MonoBehaviour {
     {
         if (textfile != null)
         {
-            textlines = (textfile.text.Split('\n'));
+            textlines = (textfile[current_level].text.Split('\n'));
         }
         if (endline == 0)
         {
@@ -35,7 +36,51 @@ public class Dialogue : MonoBehaviour {
     }
     void Update()
     {
-
+        switch (GameManager.indexLevel)
+        {
+            case 0:
+                {
+                    current_level = 0;
+                }
+                break;
+            case 1:
+                {
+                    current_level = 1;
+                }
+                break;
+            case 2:
+                {
+                    current_level = 2;
+                }
+                break;
+            case 3:
+                {
+                    current_level = 3;
+                }
+                break;
+            case 4:
+                {
+                    current_level = 4;
+                }
+                break;
+            case 5:
+                {
+                    current_level = 5;
+                }
+                break;
+            case 6:
+                {
+                    current_level = 6;
+                }
+                break;
+            case 7:
+                {
+                    current_level = 7;
+                }
+                break;
+            default:
+                break;
+        }
         if (triggerActive == true && Input.GetButtonDown("Submit"))
         {
             panel.SetActive(true);

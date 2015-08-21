@@ -73,7 +73,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 192332}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.583183289, y: .591071129, z: -.0905984193}
+  m_LocalPosition: {x: -40.7905617, y: 15.4399996, z: 42.8948441}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 449374}
@@ -137,7 +137,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 84
   m_CollisionDetection: 0
 --- !u!114 &11439796
 MonoBehaviour:
@@ -151,6 +151,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerSprite: {fileID: 0}
+  sounds: {fileID: 0}
+  chargemeter: {fileID: 0}
 --- !u!114 &11498358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -174,7 +176,7 @@ MonoBehaviour:
   initialDamage: 0
   damagePerStrength: 0
   endurance: 1
-  initialHealth: 20
+  initialHealth: 40
   healthPerEndurance: 10
   defense: 1
   initialDefense: 1
@@ -200,8 +202,12 @@ MonoBehaviour:
   currWeapon: {fileID: 11460952, guid: 03f693d2d88d30340bd8da95c9603087, type: 2}
   weapons:
   - {fileID: 11460952, guid: 03f693d2d88d30340bd8da95c9603087, type: 2}
+  breakpoint: {fileID: 0}
   multithreadLevel: 1
   invulTimePerDamage: .100000001
+  healthText: {fileID: 0}
+  visualHealth: {fileID: 0}
+  healthspeed: 10
 --- !u!135 &13571516
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -304,6 +310,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: intelligence
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Constraints
+      value: 84
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

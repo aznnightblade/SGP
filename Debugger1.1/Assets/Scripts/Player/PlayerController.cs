@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 public class PlayerController : MonoBehaviour {
 
 	[SerializeField]
@@ -11,6 +12,8 @@ public class PlayerController : MonoBehaviour {
 	bool bulletFired = false;
     bool chargebullet = false;
     public SoundManager sounds;
+    public Image chargemeter;
+    public Image Heatmeter;
 	// Use this for initialization
 	void Start () {
         sounds = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
@@ -51,7 +54,11 @@ public class PlayerController : MonoBehaviour {
 		}
 
 		if (Input.GetButtonDown ("Fire3"))
-			player.Breakpoint.FireBreakpoint ();
+        {
+            player.Breakpoint.FireBreakpoint();
+            sounds.WeaponSoundeffects[1].Play();
+        }
+			
 
 		for (int index = 0; index < player.Weapons.Length; index++) {
 			if (player.Weapons[index].ShotDelay > 0.0f) {
@@ -83,6 +90,8 @@ public class PlayerController : MonoBehaviour {
 					player.Weapons[index].OnCooldown = false;
 			}
 		}
+        chargemeter.fillAmount = player.CurrWeapon.ChargeScale - 1;
+        Heatmeter.fillAmount = player.CurrWeapon.HeatGenerated / player.CurrWeapon.OverheatLevel;
 	}
 
 	void FixedUpdate() {

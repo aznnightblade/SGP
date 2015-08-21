@@ -107,6 +107,7 @@ public class Weapon : MonoBehaviour {
 		get { return heatGenerated; }
 		set { heatGenerated = value; }
 	}
+
 	public float OverheatLevel { get { return overheatLevel; } }
 	public float HeatPerShot { get { return heatPerShot; } }
 	public float HeatLossPerSecond { get { return heatLossPerSecond; } }
