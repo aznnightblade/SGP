@@ -33,6 +33,7 @@ public class ConveyorBeltSpawner : MonoBehaviour {
 			newConveyorBelt.GetComponent<ConvyorBelt> ().Speed = moveDirection.magnitude * 0.5f;
 			newConveyorBelt.GetComponentInChildren<Animator> ().speed = moveDirection.magnitude * 0.5f;
 			newConveyorBelt.transform.parent = transform;
+			conveyorBelts.Add(newConveyorBelt);
 		}
 	}
 

@@ -13,9 +13,6 @@ public class BasicRanged : Statistics {
 	[SerializeField]
 	float maximumShotDistance = 5.0f;
 
-	[SerializeField]
-	Vector3 vel = Vector3.zero;
-
 	// Use this for initialization
 	void Start () {
 		currHealth = maxHealth = initialHealth + healthPerEndurance * endurance;
@@ -29,6 +26,8 @@ public class BasicRanged : Statistics {
 	// Update is called once per frame
 	void Update () {
 		agent.SetDestination (target.position);
+
+		RechargeShields ();
 
 		if (GameManager.CTimeScale == 0.0f) {
 			agent.velocity = Vector3.zero;

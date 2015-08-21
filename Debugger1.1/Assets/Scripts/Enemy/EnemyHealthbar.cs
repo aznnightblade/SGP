@@ -18,7 +18,7 @@ public class EnemyHealthbar : MonoBehaviour {
 
 	void Update () {
 		Vector3 pos = target.transform.position;
-		pos.z += 0.75f;
+		pos.z += 1.0f;
 
 		transform.position = pos;
 	}
