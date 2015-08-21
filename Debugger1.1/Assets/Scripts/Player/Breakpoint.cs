@@ -17,16 +17,22 @@ public class Breakpoint : MonoBehaviour {
 	float activeTimer = 0.0f;
 	[SerializeField]
 	bool isActive = false;
-
+    float maxTimer;
     public Image _breakpoint;
+    public Image timer;
+    public GameObject timer_background;
 	// Update is called once per frame
-	void Update () {
+
+ 
+    void Update () {
 		if (activeTimer > 0.0f && GameManager.CTimeScale > 0.0f) {
 			GameManager.CTimeScale = 0.0f;
 			isActive = true;
+            timer_background.SetActive(true);
 		} else if (activeTimer == 0.0f && GameManager.CTimeScale == 0.0f) {
 			GameManager.CTimeScale = 1.0f;
 			isActive = false;
+            timer_background.SetActive(false);
 		}
 
 		if (activeTimer > 0.0f) {
@@ -37,12 +43,14 @@ public class Breakpoint : MonoBehaviour {
 		}
 
         _breakpoint.fillAmount = fillAmount/maxFill;
+        timer.fillAmount = activeTimer/maxTimer;
 	}
 
 	public void FireBreakpoint () {
 		if (fillAmount == maxFill) {
-			activeTimer = duration;
+			maxTimer = activeTimer = duration;
 			fillAmount = 0.0f;
+            
 		}
 	}
 
