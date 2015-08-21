@@ -8,7 +8,8 @@ public class BossSwitch : MonoBehaviour {
 	bool activateSwitch = false;
 	public GameObject A;
 	public GameObject B;
-	public GameObject[] Attached;
+	public GameObject X;
+	public GameObject O;
 
 	// Use this for initialization
 	void Start(){
@@ -29,10 +30,23 @@ public class BossSwitch : MonoBehaviour {
 			activateSwitch = false;
 		}
 	}
-	
+	public void Reset()
+	{
+		O.SetActive (false);
+		X.SetActive (false);
+		Health = MaxHealth;
+	}
+	public void JoesChoice()
+	{
+		X.SetActive (true);
+		Health = 0;
+		gameObject.GetComponentInChildren<Image>().fillAmount = 0;
+		gameObject.GetComponentInChildren<Light> ().enabled = false;
+	}
 		// Update is called once per frame
 	void Update () 
 		{
+
 			gameObject.GetComponentInChildren<Image>().fillAmount = (float)Health / MaxHealth;
 			if (Health == MaxHealth) 
 			{
@@ -41,13 +55,13 @@ public class BossSwitch : MonoBehaviour {
 					gameObject.GetComponentInChildren<Light> ().enabled = false;
 					Health = 0;
 					gameObject.GetComponentInChildren<Image>().fillAmount = 0;
+					O.SetActive(true);
 					if(A.activeInHierarchy)
 					{
 						A.SetActive(false);
 						B.SetActive(true);
-						
-						
-					}else if (B.activeInHierarchy)
+					}
+				else if (B.activeInHierarchy)
 					{
 						B.SetActive(false);
 						A.SetActive(true);
