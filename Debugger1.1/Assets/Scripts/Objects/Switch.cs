@@ -86,7 +86,7 @@ public class Switch : MonoBehaviour {
 					{
 						Attached[i].GetComponentInChildren<LazerSpawner>().IsEnabled = !Attached[i].GetComponentInChildren<LazerSpawner>().IsEnabled;
 					}
-					if(Attached[i].tag == "Belt")
+					else if(Attached[i].tag == "Belt")
 					{
 						Attached[i].GetComponentInChildren<ConveyorBeltSpawner>().MoveDirection = -Attached[i].GetComponentInChildren<ConveyorBeltSpawner>().MoveDirection;
 					}					

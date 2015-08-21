@@ -11,7 +11,7 @@ GameObject:
   - 33: {fileID: 3371730}
   - 65: {fileID: 6579930}
   - 114: {fileID: 11487096}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: LazerMiddle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 423728}
   - 212: {fileID: 21266268}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: LazerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,6 +146,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300012, guid: 3dcd2abd8a8b04e4284883208e56ba60,
         type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 116188}

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -56,7 +56,7 @@ public class LazerSpawner : MonoBehaviour {
 				Physics.Raycast(transform.position + direction, fwd, out hit, maxDistance);
 				distance = Mathf.CeilToInt (hit.distance) + 1;
 
-				if(distance < 0)
+				if(distance < 1)
 					distance = Mathf.CeilToInt(maxDistance);
 			}
 
@@ -79,8 +79,13 @@ public class LazerSpawner : MonoBehaviour {
 		if (!IsStationary && IsEnabled) {
 			if(!HasEndpoint) {
 				RaycastHit hit;
-				Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, maxDistance);
+				LayerMask layer = ~(1 << LayerMask.NameToLayer ("Lazer"));
+				Vector3 fwd = transform.TransformDirection(Vector3.forward);
+				Physics.Raycast(transform.position + direction, fwd, out hit, maxDistance, layer);
 				int distance = Mathf.CeilToInt (hit.distance) + 1;
+
+				if(distance < 1)
+					distance = Mathf.CeilToInt(maxDistance);
 
 				if (distance != lazers.Count) {
 					int difference = 0;
@@ -88,14 +93,15 @@ public class LazerSpawner : MonoBehaviour {
 					if (distance < lazers.Count) {
 						difference = lazers.Count - distance;
 
-						for (int index = lazers.Count; index == lazers.Count - difference; index--) {
-							lazers.RemoveAt(index - 1);
+						for (int index = 0; index < difference; index++) {
+							Destroy(lazers[lazers.Count - 1]);
+							lazers.RemoveAt(lazers.Count - 1);
 						}
 					} else {
 						difference = distance - lazers.Count;
 
-						for (int index = lazers.Count; index == lazers.Count + difference; index++) {
-							Vector3 pos = transform.position + direction * (1 + index);
+						for (int index = 0; index < difference; index++) {
+							Vector3 pos = transform.position + direction * (1 + lazers.Count);
 
 							CreateLazer(lazerMiddle.transform, pos, transform.rotation);
 						}
@@ -145,7 +151,7 @@ public class LazerSpawner : MonoBehaviour {
 					}
 				}
 			} else {
-				for(int index = lazers.Count; index == 0; index--) {
+				for(int index = lazers.Count; index != 0; index--) {
 					Destroy(lazers[index - 1]);
 				}
 
