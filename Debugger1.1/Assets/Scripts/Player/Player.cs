@@ -66,7 +66,7 @@ public class Player : Statistics {
 
         float currentValue = MapValues(CurrHealth, 0, MaxHealth, 0, 1);
 
-        visualHealth.fillAmount = Mathf.Lerp(visualHealth.fillAmount, currentValue, Time.deltaTime * healthspeed);
+        visualHealth.fillAmount = CurrHealth / MaxHealth;
 
         if (CurrHealth > MaxHealth / 2) //more than 50% hp
         {
