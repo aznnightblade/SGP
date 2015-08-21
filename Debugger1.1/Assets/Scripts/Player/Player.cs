@@ -66,19 +66,19 @@ public class Player : Statistics {
 
     private void HandleHealth()
     {
-        healthText.text = "HP: " + CurrHealth;
+        healthText.text = "HP: " + currHealth;
 
-        float currentValue = MapValues(CurrHealth, 0, MaxHealth, 0, 1);
+        float currentValue = MapValues(currHealth, 0, maxHealth, 0, 1);
 
-        visualHealth.fillAmount = CurrHealth / MaxHealth;
+        visualHealth.fillAmount = currHealth / maxHealth;
 
-        if (CurrHealth > MaxHealth / 2) //more than 50% hp
+        if (currHealth > maxHealth / 2) //more than 50% hp
         {
-            visualHealth.color = new Color32((byte)MapValues(CurrHealth, MaxHealth / 2, MaxHealth, 255, 0), 255, 0, 255);
+            visualHealth.color = new Color32((byte)MapValues(currHealth, maxHealth / 2, maxHealth, 255, 0), 255, 0, 255);
         }
         else //less than 50% hp
         {
-            visualHealth.color = new Color32(255, (byte)MapValues(CurrHealth, 0, MaxHealth / 2, 0, 255), 0, 255);
+            visualHealth.color = new Color32(255, (byte)MapValues(currHealth, 0, maxHealth / 2, 0, 255), 0, 255);
         }
     }
     private float MapValues(float x, float inMin, float inMax, float outMin, float outMax)
