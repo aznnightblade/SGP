@@ -151,7 +151,7 @@ public class LazerSpawner : MonoBehaviour {
 					}
 				}
 			} else {
-				for(int index = lazers.Count; index == 0; index--) {
+				for(int index = lazers.Count; index != 0; index--) {
 					Destroy(lazers[index - 1]);
 				}
 

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class Rebugger : Statistics {
+
 	NavMeshAgent agent = null;
 	Transform target = null;
 	Statistics targetStats = null;
@@ -34,6 +35,20 @@ public class Rebugger : Statistics {
 	
 	// Update is called once per frame
 	void Update () {
+		RechargeShields ();
+
+		if (currHealth <= 0)
+			DestroyObject ();
+
+		if (GameManager.CTimeScale == 0.0f) {
+			agent.velocity = Vector3.zero;
+			agent.updateRotation = false;
+		}
+		
+		if (GameManager.CTimeScale > 0.0f && !agent.updateRotation) {
+			agent.updateRotation = true;
+		}
+
 		if (target != null && !isFleeing) {
 			agent.destination = target.position;
 

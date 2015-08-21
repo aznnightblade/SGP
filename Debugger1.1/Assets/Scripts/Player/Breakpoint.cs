@@ -44,7 +44,7 @@ public class Breakpoint : MonoBehaviour {
 	}
 
 	public void AddFill () {
-		fillAmount += fillPerKill + increasePerIntelligence * GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ().Intelligence;
+		fillAmount += fillPerKill + increasePerIntelligence * GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<Player> ().Intelligence;
 
 		if (fillAmount > maxFill)
 			fillAmount = maxFill;

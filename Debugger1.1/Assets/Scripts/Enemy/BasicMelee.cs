@@ -25,6 +25,8 @@ public class BasicMelee : Statistics {
 	void Update () {
 		agent.destination = target.position;
 
+		RechargeShields ();
+
 		if (GameManager.CTimeScale == 0.0f) {
 			agent.velocity = Vector3.zero;
 			agent.updateRotation = false;
@@ -64,7 +66,7 @@ public class BasicMelee : Statistics {
 		if (col.gameObject.tag == "Player") {
 			attackingPlayer = true;
 		}
-}
+	}
 
 	void OnCollisionExit(Collision col) {
 		if (col.gameObject.tag == "Player") {

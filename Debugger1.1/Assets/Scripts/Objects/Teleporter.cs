@@ -25,22 +25,25 @@ public class Teleporter : MonoBehaviour {
 	void FixedUpdate() {
 		if (playerWarping) {
 			Transform player = GameObject.FindGameObjectWithTag("Player").transform;
+			Vector3 playerPos = player.position;
+			Vector3 destPos = destination.position;
+			playerPos.y = destPos.y = 0;
 
-			if (Vector3.Distance(player.position, destination.position) > speed * Time.fixedDeltaTime) {
+			if (Vector3.Distance(playerPos, destPos) > speed * Time.fixedDeltaTime) {
 				player.GetComponentInParent<Rigidbody> ().MovePosition(player.position + moveDir * speed * Time.fixedDeltaTime);
 			}
 
 			if (!gameObject.GetComponent<ParticleSystem> ().IsAlive()) {
 				player.GetComponentInChildren<SpriteRenderer> ().enabled = true;
-				player.GetComponent<SphereCollider> ().enabled = true;
-				player.GetComponentInParent<PlayerController> ().enabled = true;
+				player.GetComponentInChildren<SphereCollider> ().enabled = true;
+				player.GetComponent<PlayerController> ().enabled = true;
 				playerWarping = false;
 			}
 		}
 	}
 
 	void OnTriggerEnter (Collider col) {
-		if (col.gameObject.tag == "Player") {
+		if (col.gameObject.tag == "Player" && isActive) {
 			ParticleSystem particles = gameObject.GetComponent<ParticleSystem> ();
 			particles.Play();
 

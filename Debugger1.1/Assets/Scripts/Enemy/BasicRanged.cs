@@ -27,6 +27,8 @@ public class BasicRanged : Statistics {
 	void Update () {
 		agent.SetDestination (target.position);
 
+		RechargeShields ();
+
 		if (GameManager.CTimeScale == 0.0f) {
 			agent.velocity = Vector3.zero;
 			agent.updateRotation = false;
