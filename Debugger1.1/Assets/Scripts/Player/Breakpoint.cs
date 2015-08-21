@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 public class Breakpoint : MonoBehaviour {
 
 	[SerializeField]
@@ -17,7 +17,8 @@ public class Breakpoint : MonoBehaviour {
 	float activeTimer = 0.0f;
 	[SerializeField]
 	bool isActive = false;
-	
+
+    public Image _breakpoint;
 	// Update is called once per frame
 	void Update () {
 		if (activeTimer > 0.0f && GameManager.CTimeScale > 0.0f) {
@@ -34,6 +35,8 @@ public class Breakpoint : MonoBehaviour {
 			if (activeTimer < 0.0f)
 				activeTimer = 0.0f;
 		}
+
+        _breakpoint.fillAmount = fillAmount/maxFill;
 	}
 
 	public void FireBreakpoint () {

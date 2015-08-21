@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using UnityEngine.UI;
 public class Player : Statistics {
 
 	[SerializeField]
@@ -17,6 +17,9 @@ public class Player : Statistics {
 	float invulTimePerDamage = 0.1f;
 	float invulTimer = 0.0f;
 
+    public Text healthText;
+    public Image visualHealth;
+    public float healthspeed;
 	// Use this for initialization
 	void Start () {
 		currHealth = maxHealth = initialHealth + healthPerEndurance * endurance;
@@ -32,6 +35,7 @@ public class Player : Statistics {
 			if (invulTimer < 0.0f)
 				invulTimer = 0.0f;
 		}
+        HandleHealth();
 	}
 
 	public void DamagePlayer (int damageTaken) {
@@ -55,4 +59,27 @@ public class Player : Statistics {
 		set { multithreadLevel = value; }
 	}
 	public Transform ShotLocation { get { return shotLocation; } }
+
+    private void HandleHealth()
+    {
+        healthText.text = "HP: " + CurrHealth;
+
+        float currentValue = MapValues(CurrHealth, 0, MaxHealth, 0, 1);
+
+        visualHealth.fillAmount = Mathf.Lerp(visualHealth.fillAmount, currentValue, Time.deltaTime * healthspeed);
+
+        if (CurrHealth > MaxHealth / 2) //more than 50% hp
+        {
+            visualHealth.color = new Color32((byte)MapValues(CurrHealth, MaxHealth / 2, MaxHealth, 255, 0), 255, 0, 255);
+        }
+        else //less than 50% hp
+        {
+            visualHealth.color = new Color32(255, (byte)MapValues(CurrHealth, 0, MaxHealth / 2, 0, 255), 0, 255);
+        }
+    }
+    private float MapValues(float x, float inMin, float inMax, float outMin, float outMax)
+    {
+        return (x - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+
+    }
 }
