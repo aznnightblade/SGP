@@ -31,7 +31,7 @@ GameObject:
   - 114: {fileID: 11428496}
   - 195: {fileID: 19561920}
   - 54: {fileID: 5451670}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Basic Melee
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 402946}
   - 212: {fileID: 21217550}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Basic Melee Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -387,7 +387,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 140700}

@@ -19,8 +19,10 @@ public class ConvyorBelt : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		for (int index = 0; index < Objects.Count; index++) {
-			Objects[index].position += dirVelocity * Time.deltaTime * GameManager.CTimeScale;
+		if (isEnabled) {
+			for (int index = 0; index < Objects.Count; index++) {
+				Objects [index].position += dirVelocity * Time.deltaTime * GameManager.CTimeScale;
+			}
 		}
 
 		if (gameObject.GetComponentInChildren<Animator> ().speed == 0.0f && GameManager.CTimeScale > 0.0f)

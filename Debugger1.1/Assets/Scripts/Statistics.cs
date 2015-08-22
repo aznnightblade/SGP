@@ -12,6 +12,10 @@ public class Statistics : MonoBehaviour {
 	[SerializeField]
 	protected int maxShield = 0;
 	[SerializeField]
+	protected float hitRegenTimer = 2.0f;
+	[SerializeField]
+	protected float hitTimer = 0.0f;
+	[SerializeField]
 	protected float acceleration = 0;
 	[SerializeField]
 	protected float velocity = 0;
@@ -92,9 +96,58 @@ public class Statistics : MonoBehaviour {
 	
 	}
 
+	// Only call this for enemies
+	public void Damage (int damageTaken) {
+		if (shield > 0) {
+			if (shield >= damageTaken)
+				shield -= damageTaken;
+			else {
+				damageTaken -= shield;
+				shield = 0;
+				currHealth -= damageTaken;
+				transform.parent.GetComponentInChildren<EnemyHealthbar> ().UpdateFillAmount ();
+			}
+
+			transform.parent.GetComponentInChildren<EnemyShieldbar> ().UpdateFillAmount ();
+		} else {
+			currHealth -= damageTaken;
+			transform.parent.GetComponentInChildren<EnemyHealthbar> ().UpdateFillAmount();
+		}
+
+		if (currHealth <= 0) {
+			DestroyObject();
+		}
+
+		hitTimer = hitRegenTimer;
+	}
+
+	public void RechargeShields() {
+		if (maxShield > 0) {
+			if (shield < maxShield && hitTimer <= 0.0f) {
+				shield += Mathf.CeilToInt(maxShield * 0.1f * Time.deltaTime * GameManager.CTimeScale);
+
+				if (shield > maxShield)
+					shield = maxShield;
+
+				if (gameObject.tag == "Enemy")
+					transform.parent.GetComponentInChildren<EnemyShieldbar> ().UpdateFillAmount ();
+			}
+		}
+
+		if (hitTimer >= 0.0f) {
+			hitTimer -= Time.deltaTime * GameManager.CTimeScale;
+
+			if (hitTimer <= 0.0f)
+				hitTimer = 0.0f;
+		}
+	}
+
 	public void DestroyObject() {
-		Breakpoint breakpoint = GameObject.FindGameObjectWithTag ("Player").GetComponent<Breakpoint> ();
+		Breakpoint breakpoint = GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<Breakpoint> ();
 		breakpoint.AddFill ();
+
+		if (gameObject.name == "FireWaller")
+			gameObject.GetComponent<FireWaller> ().RemoveShields ();
 
 		Destroy (transform.parent.gameObject);
 	}

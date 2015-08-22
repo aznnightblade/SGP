@@ -25,7 +25,10 @@ public class BasicBullet : Weapon {
 						damage *= 0.5f;
 					}
 
-					colStats.CurrHealth -= Mathf.CeilToInt(damage);
+					if (col.gameObject.tag != "Player")
+						colStats.Damage(Mathf.CeilToInt(damage));
+					else
+						col.gameObject.GetComponentInChildren<Player> ().DamagePlayer(Mathf.CeilToInt(damage));
 
 					if(col.gameObject.tag != "Player") {
 						EnemyHealthbar healthbar = col.transform.parent.GetComponentInChildren<EnemyHealthbar> ();
