@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class BossSwitch : MonoBehaviour {
+public class BossSwitches : MonoBehaviour {
 	public int Health = 100;
 	public int MaxHealth = 100;
 	bool activateSwitch = false;
@@ -51,7 +51,8 @@ public class BossSwitch : MonoBehaviour {
 			if (Health == MaxHealth) 
 			{
 				gameObject.GetComponentInChildren<Light> ().enabled = true;
-				if (Input.GetButtonDown ("Submit") && activateSwitch == true) {
+				if (Input.GetButtonDown ("Submit") && activateSwitch == true) 
+			{
 					gameObject.GetComponentInChildren<Light> ().enabled = false;
 					Health = 0;
 					gameObject.GetComponentInChildren<Image>().fillAmount = 0;
