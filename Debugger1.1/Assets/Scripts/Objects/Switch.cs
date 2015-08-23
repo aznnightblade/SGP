@@ -50,7 +50,7 @@ public class Switch : MonoBehaviour {
 			{
 				if (Health != MaxHealth)
 				Health = Health + 5;
-				gameObject.GetComponentInChildren<Image>().fillAmount = (float)Health / MaxHealth;
+			
 
 			}
 		}
@@ -60,6 +60,7 @@ public class Switch : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+		gameObject.GetComponentInChildren<Image>().fillAmount = (float)Health / MaxHealth;
 		if (Health == MaxHealth) 
 		{
 			gameObject.GetComponentInChildren<Light> ().enabled = true;
