@@ -3,9 +3,30 @@ using System.Collections;
 
 public class SaveMachine : MonoBehaviour {
 
-	void OnCollsionEnter(Collision col) {
-		if (col.gameObject.tag == "Player") {
-			Application.LoadLevel("SaveGame");
+	bool triggerActive = false;
+
+	void OnTriggerEnter(Collider col)
+	{
+		if (col.tag == "Player" )
+		{
+			triggerActive = true;
+		}
+	}
+
+	void OnTriggerExit(Collider col)
+	{
+		if (col.tag== "Player")
+		{
+			triggerActive = false;
+		}
+	}
+
+	void Update()
+	{
+		if (Input.GetButtonDown ("Submit")) {
+			if (triggerActive == true) {
+				Application.LoadLevel ("SaveGame");
+			}
 		}
 	}
 }
