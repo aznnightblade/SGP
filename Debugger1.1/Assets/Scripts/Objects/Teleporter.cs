@@ -40,7 +40,7 @@ public class Teleporter : MonoBehaviour {
 
 			if (!gameObject.GetComponent<ParticleSystem> ().IsAlive()) {
 				player.GetComponentInChildren<SpriteRenderer> ().enabled = true;
-				player.GetComponentInChildren<SphereCollider> ().enabled = true;
+				player.GetComponent<SphereCollider> ().enabled = true;
 				player.GetComponentInParent<PlayerController> ().enabled = true;
 				playerWarping = false;
 

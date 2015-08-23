@@ -10,6 +10,10 @@ public class Player : Statistics {
 	[SerializeField]
 	Weapon[] weapons = null;
 	[SerializeField]
+	bool hasDLLs = false;
+	DLLColor.Color prevColor = DLLColor.Color.BLUE;
+	DLLColor.Color nextColor = DLLColor.Color.RED;
+	[SerializeField]
 	Breakpoint breakpoint = null;
 	[SerializeField]
 	int multithreadLevel = 1;
@@ -20,7 +24,6 @@ public class Player : Statistics {
     public Text healthText;
     public Image visualHealth;
     public float healthspeed;
-    public SoundManager sounds;
 	// Use this for initialization
 	void Start () {
 		currHealth = maxHealth = initialHealth + healthPerEndurance * endurance;
@@ -57,6 +60,18 @@ public class Player : Statistics {
 
 	public Weapon CurrWeapon { get { return currWeapon; } }
 	public Weapon[] Weapons { get { return weapons; } }
+	public bool HasDLLs {
+		get { return hasDLLs; }
+		set { hasDLLs = value; }
+	}
+	public DLLColor.Color PrevColor {
+		get { return prevColor; }
+		set { prevColor = value; }
+	}
+	public DLLColor.Color NextColor {
+		get { return nextColor; }
+		set { nextColor = value; }
+	}
 	public Breakpoint Breakpoint { get { return breakpoint; } }
 	public int MultithreadLevel {
 		get { return multithreadLevel; }

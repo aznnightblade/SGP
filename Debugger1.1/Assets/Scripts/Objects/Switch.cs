@@ -46,7 +46,7 @@ public class Switch : MonoBehaviour {
 		if (col.gameObject.tag == "Player Bullet") 
 		{
 	
-			if( col.gameObject.GetComponent<Weapon>().Color == color)
+			if( col.gameObject.GetComponent<Weapon>().CurrColor == color)
 			{
 				if (Health != MaxHealth)
 				Health = Health + 5;

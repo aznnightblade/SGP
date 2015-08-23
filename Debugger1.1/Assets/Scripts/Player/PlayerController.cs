@@ -8,6 +8,8 @@ public class PlayerController : MonoBehaviour {
 	Player player = null;
 
 	Vector3 moveDir = Vector3.zero;
+	Vector3 direction = Vector3.zero;
+	Vector3 previousLookDir = Vector3.zero;
 	
 	bool bulletFired = false;
     bool chargebullet = false;
@@ -24,19 +26,29 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Vector3 direction = Camera.main.WorldToScreenPoint (transform.position) - Input.mousePosition;
+		if (InputManager.instance.UsingController == false) {
+			previousLookDir = direction;
+			direction = Camera.main.WorldToScreenPoint (transform.position) - Input.mousePosition;
+		} else {
+			previousLookDir = direction;
+			direction = new Vector3 (InputManager.instance.GetAxisRaw ("Horizontal2"), InputManager.instance.GetAxisRaw ("Vertical2"), 0);
+
+			if (direction == Vector3.zero)
+				direction = previousLookDir;
+		}
+
 		direction.Normalize();
 		float rot = (Mathf.Atan2(-direction.y, direction.x) * 180 / Mathf.PI) - 90;
 		PlayerSprite.rotation = Quaternion.Euler (0, rot, 0);
 
-		if ((Input.GetButton ("Fire1") || Input.GetButtonUp("Fire2")) && player.CurrWeapon.ShotDelay <= 0.0f) {
+		if ((InputManager.instance.GetButton ("Fire1") || InputManager.instance.GetButtonUp("Fire2")) && player.CurrWeapon.ShotDelay <= 0.0f) {
 			bulletFired = true;
 
 			player.CurrWeapon.ShotDelay += player.CurrWeapon.InitialShotDelay - player.CurrWeapon.ShotDelayReductionPerAgility * player.Agility;
 			player.CurrWeapon.HeatGenerated += player.CurrWeapon.HeatPerShot * player.CurrWeapon.ChargeScale;
 		}
 
-		if (Input.GetButton ("Fire2") && !Input.GetButton ("Fire1") && player.CurrWeapon.ChargeDelay <= 0.0f) {
+		if (InputManager.instance.GetButton ("Fire2") && !InputManager.instance.GetButton ("Fire1") && player.CurrWeapon.ChargeDelay <= 0.0f) {
             if (player.CurrWeapon.ChargeScale == 1.0f)
                 sounds.PlayerSoundeffects[1].Play();
             
@@ -53,12 +65,20 @@ public class PlayerController : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetButtonDown ("Fire3"))
+		if (InputManager.instance.GetButtonDown ("Fire3"))
         {
             player.Breakpoint.FireBreakpoint();
             sounds.WeaponSoundeffects[1].Play();
         }
-			
+
+		if (player.HasDLLs) {
+			if (InputManager.instance.GetButtonDown ("ColorSwap")) {
+				if (InputManager.instance.GetAxisRaw ("ColorSwap") > 0)
+					NextColor();
+				else
+					PrevColor();
+			}
+		}
 
 		for (int index = 0; index < player.Weapons.Length; index++) {
 			if (player.Weapons[index].ShotDelay > 0.0f) {
@@ -95,8 +115,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		moveDir.x = Input.GetAxisRaw ("Horizontal");
-		moveDir.z = Input.GetAxisRaw ("Vertical");
+		moveDir.x = InputManager.instance.GetAxisRaw ("Horizontal");
+		moveDir.z = InputManager.instance.GetAxisRaw ("Vertical");
 
 		if (moveDir.magnitude > 0.0f) {
 			if (player.Velocity < player.MaxVelocity) {
@@ -124,6 +144,24 @@ public class PlayerController : MonoBehaviour {
 
 		if (bulletFired)
 			FireBullet ();
+	}
+
+	void NextColor () {
+		player.CurrWeapon.CurrColor = player.NextColor;
+
+		if (player.NextColor == DLLColor.Color.BLUE)
+			player.NextColor = DLLColor.Color.NEUTRAL;
+		else
+			player.NextColor++;
+	}
+
+	void PrevColor () {
+		player.CurrWeapon.CurrColor = player.PrevColor;
+
+		if (player.PrevColor == DLLColor.Color.NEUTRAL)
+			player.PrevColor = DLLColor.Color.BLUE;
+		else
+			player.PrevColor--;
 	}
 
 	void FireBullet(){
@@ -166,7 +204,9 @@ public class PlayerController : MonoBehaviour {
 		//GameObject newBullet = Bullet.gameObject;
 		newBullet.tag = ("Player Bullet");
 		newBullet.GetComponent<Weapon> ().Owner = (Statistics)player;
+		newBullet.GetComponent<Weapon> ().CurrColor = player.CurrWeapon.CurrColor;
 		newBullet.GetComponent<Weapon> ().OwnerMoveDirection = moveDir;
+		newBullet.GetComponent<Weapon> ().ChargeScale = player.CurrWeapon.ChargeScale;
 		newBullet.transform.localScale = newBullet.transform.localScale * player.CurrWeapon.ChargeScale;
         if (chargebullet==true)
         {

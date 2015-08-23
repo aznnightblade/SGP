@@ -240,7 +240,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 129180}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.67000008, y: .591071129, z: -46.6899986}
+  m_LocalPosition: {x: -3.67000008, y: 26.6000004, z: -46.6899986}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 422588}
@@ -377,8 +377,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerSprite: {fileID: 0}
   sounds: {fileID: 0}
-  chargemeter: {fileID: 11459906, guid: e0a839ee4b9219e4b9b50840d15eb90f, type: 2}
-  Heatmeter: {fileID: 11408312, guid: 165e0f721a6c00644ab984cb1119b285, type: 2}
+  chargemeter: {fileID: 0}
+  Heatmeter: {fileID: 0}
 --- !u!114 &11439146
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -397,10 +397,10 @@ MonoBehaviour:
   duration: 3
   activeTimer: 0
   isActive: 0
-  _breakpoint: {fileID: 11448202, guid: 0ae4b3564655d4a4aa67ce70f29a6742, type: 2}
-  timer: {fileID: 11409042, guid: 5f897b5ae336de54babe898e7f1fd1e2, type: 2}
-  timer_background: {fileID: 193350, guid: 5f897b5ae336de54babe898e7f1fd1e2, type: 2}
-  freezetint: {fileID: 138174, guid: adffbd0193fb65343b26a81d125bc465, type: 2}
+  _breakpoint: {fileID: 0}
+  timer: {fileID: 0}
+  timer_background: {fileID: 0}
+  freezetint: {fileID: 0}
 --- !u!114 &11443360
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -448,6 +448,7 @@ MonoBehaviour:
   color: 0
   money: 0
   exp: 0
+  sounds: {fileID: 11447646, guid: 71781c32a7dd242428cf9cfcf1d8bfbe, type: 2}
   shotLocation: {fileID: 423828}
   currWeapon: {fileID: 11460952, guid: 03f693d2d88d30340bd8da95c9603087, type: 2}
   weapons:
@@ -458,7 +459,6 @@ MonoBehaviour:
   healthText: {fileID: 0}
   visualHealth: {fileID: 0}
   healthspeed: 10
-  sounds: {fileID: 11447646, guid: 71781c32a7dd242428cf9cfcf1d8bfbe, type: 2}
 --- !u!135 &13525848
 SphereCollider:
   m_ObjectHideFlags: 1

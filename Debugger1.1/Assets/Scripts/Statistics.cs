@@ -75,7 +75,7 @@ public class Statistics : MonoBehaviour {
 	int money = 0;
 	[SerializeField]
 	int exp = 0;
-
+    public SoundManager sounds;
 	protected bool IsDisabled = false;
 	protected bool IsSlowed = false;
 	protected bool CanMove = true;
@@ -111,10 +111,18 @@ public class Statistics : MonoBehaviour {
 			transform.parent.GetComponentInChildren<EnemyShieldbar> ().UpdateFillAmount ();
 		} else {
 			currHealth -= damageTaken;
+            if (gameObject.tag=="Corruption")
+            {
+                sounds.MiscSoundeffects[5].Play();
+            }
 			transform.parent.GetComponentInChildren<EnemyHealthbar> ().UpdateFillAmount();
 		}
 
 		if (currHealth <= 0) {
+            if (gameObject.tag=="Corruption")
+            {
+                sounds.MiscSoundeffects[4].Play();
+            }
 			DestroyObject();
 		}
 
@@ -143,7 +151,7 @@ public class Statistics : MonoBehaviour {
 	}
 
 	public void DestroyObject() {
-		Breakpoint breakpoint = GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<Breakpoint> ();
+		Breakpoint breakpoint = GameObject.FindGameObjectWithTag ("Player").GetComponent<Breakpoint> ();
 		breakpoint.AddFill ();
 
 		if (gameObject.name == "FireWaller")
