@@ -5,7 +5,9 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance;
 	public static int indexLevel = 0;
 	public static SaveData playersGame;
-	public static  string saveSpot;
+	public static  string saveSpot1;
+    public static string saveSpot2;
+    public static string saveSpot3;
 	static bool first = true;
 
 	static float cTimeScale = 1.0f;
@@ -35,6 +37,7 @@ public class GameManager : MonoBehaviour {
 			playersGame.XP = 0;
 			first = true;
 		}
+		else
 	
 		FindObjectOfType<Player>().Agility = playersGame.Agility; 
 		FindObjectOfType<Player>().Strength = playersGame.Strength; 

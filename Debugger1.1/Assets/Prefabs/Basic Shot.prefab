@@ -101,7 +101,7 @@ MonoBehaviour:
   color: 0
   heatGenerated: 0
   overheatLevel: 10
-  heatPerShot: 1
+  heatPerShot: .200000003
   heatLossPerSecond: 1
   chargeScale: 1
   maxChargeScale: 2
@@ -209,7 +209,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: heatPerShot
-      value: 1
+      value: .200000003
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: heatLossPerSecond
