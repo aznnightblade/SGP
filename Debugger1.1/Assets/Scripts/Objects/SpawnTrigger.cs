@@ -34,38 +34,38 @@ public class SpawnTrigger : MonoBehaviour {
 							int randColor = Random.Range(0, 4);
 							switch(randColor) {
 							case 0:
-								enemy.GetComponent<Statistics>().Color = DLLColor.Color.NEUTRAL;
-								enemy.GetComponentInChildren<SpriteRenderer>().color = Color.black;
+								enemy.GetComponentInChildren<Statistics>().Color = DLLColor.Color.NEUTRAL;
+								enemy.GetComponentInChildren<Transform>().GetComponentInChildren<SpriteRenderer>().color = Color.black;
 								break;
 							case 1:
-								enemy.GetComponent<Statistics>().Color = DLLColor.Color.RED;
-								enemy.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+								enemy.GetComponentInChildren<Statistics>().Color = DLLColor.Color.RED;
+								enemy.GetComponentInChildren<Transform>().GetComponentInChildren<SpriteRenderer>().color = Color.red;
 								break;
 							case 2:
-								enemy.GetComponent<Statistics>().Color = DLLColor.Color.GREEN;
-								enemy.GetComponentInChildren<SpriteRenderer>().color = Color.green;
+								enemy.GetComponentInChildren<Statistics>().Color = DLLColor.Color.GREEN;
+								enemy.GetComponentInChildren<Transform>().GetComponentInChildren<SpriteRenderer>().color = Color.green;
 								break;
 							case 3:
-								enemy.GetComponent<Statistics>().Color = DLLColor.Color.BLUE;
-								enemy.GetComponentInChildren<SpriteRenderer>().color = Color.blue;
+								enemy.GetComponentInChildren<Statistics>().Color = DLLColor.Color.BLUE;
+								enemy.GetComponentInChildren<Transform>().GetComponentInChildren<SpriteRenderer>().color = Color.blue;
 								break;
 							}
 						}
 						// Spawn enemies with a preselected DLL color?
 						else if(colorSpawnMethod == ColorSpawns.MANUAL) {
-							enemy.GetComponent<Statistics>().Color = manualColor;
+							enemy.GetComponentInChildren<Statistics>().Color = manualColor;
 							switch (manualColor) {
 							case DLLColor.Color.NEUTRAL:
-								enemy.GetComponentInChildren<SpriteRenderer>().color = Color.black;
+								enemy.GetComponentInChildren<Transform>().GetComponentInChildren<SpriteRenderer>().color = Color.black;
 								break;
 							case DLLColor.Color.RED:
-								enemy.GetComponentInChildren<SpriteRenderer>().color = Color.red;
+								enemy.GetComponentInChildren<Transform>().GetComponentInChildren<SpriteRenderer>().color = Color.red;
 								break;
 							case DLLColor.Color.GREEN:
-								enemy.GetComponentInChildren<SpriteRenderer>().color = Color.green;
+								enemy.GetComponentInChildren<Transform>().GetComponentInChildren<SpriteRenderer>().color = Color.green;
 								break;
 							case DLLColor.Color.BLUE:
-								enemy.GetComponentInChildren<SpriteRenderer>().color = Color.blue;
+								enemy.GetComponentInChildren<Transform>().GetComponentInChildren<SpriteRenderer>().color = Color.blue;
 								break;
 							}
 						}
