@@ -2,9 +2,6 @@
 using System.Collections;
 
 public class npc1movement : MonoBehaviour {
-    [SerializeField]
-	Transform target = null;
-
     public bool active = false;
     Random rnd = new Random();
 
@@ -22,7 +19,7 @@ public class npc1movement : MonoBehaviour {
 	// Update is called once per frame
     void Update()
     {
-       if (gameObject.GetComponent<NavMeshAgent>().remainingDistance <= 3)
+       if (agent.enabled==true && agent.remainingDistance <= 3)
        {
           agent.destination = Waypoints[Random.Range(0, Waypoints.Length)].transform.position;
        }

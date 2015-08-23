@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Dialogue : MonoBehaviour {
     bool triggerActive = false;
 	// Use this for initialization
+    private NavMeshAgent agent = null;
     public GameObject panel;
     public GameObject HUD;
     public Text dialogue;
@@ -19,10 +20,10 @@ public class Dialogue : MonoBehaviour {
     private bool isTyping = false;
     private bool canceltyping = false;
     public float TypeSpeed;
-   // public PlayerController player;
 	// Update is called once per frame
     void Start()
     {
+        agent = gameObject.GetComponent<NavMeshAgent>();
         if (textfile != null)
         {
             textlines = (textfile[current_level].text.Split('\n'));
@@ -36,6 +37,7 @@ public class Dialogue : MonoBehaviour {
     }
     void Update()
     {
+        Transform player = GameObject.FindGameObjectWithTag("Player").transform;
         switch (GameManager.indexLevel)
         {
             case 0:
@@ -83,6 +85,11 @@ public class Dialogue : MonoBehaviour {
         }
         if (triggerActive == true && Input.GetButtonDown("Submit"))
         {
+           
+            player.GetComponentInParent<PlayerController>().enabled = false;
+            player.GetComponentInParent<Rigidbody>().velocity = Vector3.zero;
+            player.GetComponentInParent<Rigidbody>().freezeRotation = true;
+            agent.enabled = false;
             panel.SetActive(true);
             HUD.SetActive(false);
             if (!isTyping)
@@ -91,9 +98,10 @@ public class Dialogue : MonoBehaviour {
 
                 if (currentline > endline)
                 {
-
                     panel.SetActive(false);
                     HUD.SetActive(true);
+                    player.GetComponentInParent<PlayerController>().enabled = true;
+                   // player.GetComponentInParent<Rigidbody>().freezeRotation = false;
                     currentline = 0;
                 }
                 else
@@ -141,7 +149,7 @@ public class Dialogue : MonoBehaviour {
         if (col.tag == "Player")
         {
             triggerActive = false;
-            
+            agent.enabled = true;
         }
     }
 
