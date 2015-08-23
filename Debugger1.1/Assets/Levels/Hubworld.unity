@@ -5802,6 +5802,7 @@ GameObject:
   - 23: {fileID: 421211830}
   - 195: {fileID: 421211829}
   - 114: {fileID: 421211828}
+  - 114: {fileID: 421211834}
   m_Layer: 0
   m_Name: npc1
   m_TagString: Untagged
@@ -5820,7 +5821,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d36a428518bfb2b4eb4f09a4280b1a76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   active: 0
   Waypoints:
   - {fileID: 946333161}
@@ -5878,7 +5878,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 421211827}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -5897,11 +5897,33 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 421211827}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
-  m_LocalPosition: {x: 6.6500001, y: 28.3299999, z: -23.5}
+  m_LocalPosition: {x: 6.6500001, y: 27.6030006, z: -23.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &421211834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 421211827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1555c296ee277164584525d8306e4b58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panel: {fileID: 2086845807}
+  HUD: {fileID: 766328441}
+  dialogue: {fileID: 992621185}
+  textfile:
+  - {fileID: 4900000, guid: 2132cb37fa149f04fa529b41c4f7ed75, type: 3}
+  textlines: []
+  currentline: 0
+  endline: 0
+  current_level: 0
+  isActive: 0
+  TypeSpeed: 0
 --- !u!1 &431217354
 GameObject:
   m_ObjectHideFlags: 0
