@@ -143,7 +143,7 @@ public class Statistics : MonoBehaviour {
 	}
 
 	public void DestroyObject() {
-		Breakpoint breakpoint = GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<Breakpoint> ();
+		Breakpoint breakpoint = GameObject.FindGameObjectWithTag ("Player").GetComponent<Breakpoint> ();
 		breakpoint.AddFill ();
 
 		if (gameObject.name == "FireWaller")

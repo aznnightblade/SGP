@@ -167,6 +167,7 @@ public class PlayerController : MonoBehaviour {
 		newBullet.tag = ("Player Bullet");
 		newBullet.GetComponent<Weapon> ().Owner = (Statistics)player;
 		newBullet.GetComponent<Weapon> ().OwnerMoveDirection = moveDir;
+		newBullet.GetComponent<Weapon> ().ChargeScale = player.CurrWeapon.ChargeScale;
 		newBullet.transform.localScale = newBullet.transform.localScale * player.CurrWeapon.ChargeScale;
         if (chargebullet==true)
         {
