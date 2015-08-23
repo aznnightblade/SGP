@@ -35,6 +35,7 @@ public class GameManager : MonoBehaviour {
 			playersGame.XP = 0;
 			first = true;
 		}
+		else
 	
 		FindObjectOfType<Player>().Agility = playersGame.Agility; 
 		FindObjectOfType<Player>().Strength = playersGame.Strength; 
