@@ -24,7 +24,6 @@ public class Player : Statistics {
     public Text healthText;
     public Image visualHealth;
     public float healthspeed;
-    public SoundManager sounds;
 	// Use this for initialization
 	void Start () {
 		currHealth = maxHealth = initialHealth + healthPerEndurance * endurance;

@@ -13,7 +13,11 @@ public class Companion : Statistics {
 	[SerializeField]
 	int buffAmount = 0; // amount to buff that stat by
 	[SerializeField]
-	int shieldBuff = 0; // amount to increase player shield level by
+	int initShieldBuff = 0; // amount to increase player shield level by
+	[SerializeField]
+	int shieldIncreasePerLevel = 50;
+	[SerializeField]
+	int currLevel = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -21,8 +25,9 @@ public class Companion : Statistics {
 		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
 		agent.destination = player.GetComponent<Transform> ().position;
 
-		
-		player.Shield = player.MaxShield = shieldBuff;
+		currHealth = maxHealth = initialHealth + healthPerEndurance * endurance;
+		critChance = initialCrit + critPerLuck * luck;
+		player.Shield = player.MaxShield = initShieldBuff + shieldIncreasePerLevel * currLevel;
 	}
 	
 	// Update is called once per frame
@@ -43,22 +48,22 @@ public class Companion : Statistics {
 		if(!buffApplied){
 			switch (statToBuff) {
 			case StatToBuff.STRENGTH:
-				player.Strength += buffAmount;
+				player.Strength += buffAmount * currLevel;
 				break;
 			case StatToBuff.ENDURANCE:
-				player.Endurance += buffAmount;
+				player.Endurance += buffAmount * currLevel;
 				break;
 			case StatToBuff.AGILITY:
-				player.Agility += buffAmount;
+				player.Agility += buffAmount * currLevel;
 				break;
 			case StatToBuff.DEXTERITY:
-				player.Dexterity += buffAmount;
+				player.Dexterity += buffAmount * currLevel;
 				break;
 			case StatToBuff.INTELLIGENCE:
-				player.Intelligence += buffAmount;
+				player.Intelligence += buffAmount * currLevel;
 				break;
 			case StatToBuff.LUCK:
-				player.Luck += buffAmount;
+				player.Luck += buffAmount * currLevel;
 				break;
 			case StatToBuff.NONE:
 				break;
@@ -73,22 +78,22 @@ public class Companion : Statistics {
 		if(buffApplied) {
 			switch (statToBuff) {
 			case StatToBuff.STRENGTH:
-				player.Strength -= buffAmount;
+				player.Strength -= buffAmount * currLevel;
 				break;
 			case StatToBuff.ENDURANCE:
-				player.Endurance -= buffAmount;
+				player.Endurance -= buffAmount * currLevel;
 				break;
 			case StatToBuff.AGILITY:
-				player.Agility -= buffAmount;
+				player.Agility -= buffAmount * currLevel;
 				break;
 			case StatToBuff.DEXTERITY:
-				player.Dexterity -= buffAmount;
+				player.Dexterity -= buffAmount * currLevel;
 				break;
 			case StatToBuff.INTELLIGENCE:
-				player.Intelligence -= buffAmount;
+				player.Intelligence -= buffAmount * currLevel;
 				break;
 			case StatToBuff.LUCK:
-				player.Luck -= buffAmount;
+				player.Luck -= buffAmount * currLevel;
 				break;
 			case StatToBuff.NONE:
 				break;
