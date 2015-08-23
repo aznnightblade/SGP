@@ -856,6 +856,97 @@ Transform:
   - {fileID: 822194539}
   - {fileID: 842541076}
   m_Father: {fileID: 0}
+  m_RootOrder: 5
+--- !u!1 &257064554
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 257064556}
+  - 114: {fileID: 257064555}
+  m_Layer: 0
+  m_Name: Input Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &257064555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 257064554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93ad52139f4676a4d8c451378dcbf062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KeyboardInputs:
+  - Name: Horizontal
+    Negative: 97
+    Positive: 100
+    AltNegative: 276
+    AltPositive: 275
+  - Name: Vertical
+    Negative: 115
+    Positive: 119
+    AltNegative: 274
+    AltPositive: 273
+  - Name: Fire1
+    Negative: 0
+    Positive: 323
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Fire2
+    Negative: 324
+    Positive: 0
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Fire3
+    Negative: 0
+    Positive: 32
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Submit
+    Negative: 0
+    Positive: 13
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Cancel
+    Negative: 0
+    Positive: 27
+    AltNegative: 0
+    AltPositive: 0
+  - Name: ColorSwap
+    Negative: 102
+    Positive: 114
+    AltNegative: 0
+    AltPositive: 0
+  - Name: 
+    Negative: 0
+    Positive: 0
+    AltNegative: 0
+    AltPositive: 0
+  - Name: 
+    Negative: 0
+    Positive: 0
+    AltNegative: 0
+    AltPositive: 0
+  ControllerInputs: []
+--- !u!4 &257064556
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 257064554}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.50463009, y: -19.7404652, z: -32.4224205}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
   m_RootOrder: 1
 --- !u!4 &322989143 stripped
 Transform:
@@ -1355,7 +1446,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 483882, guid: 71781c32a7dd242428cf9cfcf1d8bfbe, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71781c32a7dd242428cf9cfcf1d8bfbe, type: 2}
@@ -1711,6 +1802,12 @@ Prefab:
     - {fileID: 5483440, guid: de68082bf86202b489261d21b1445d5e, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: de68082bf86202b489261d21b1445d5e, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1406230183 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11416820, guid: 1b3721dd2e38339479213ebe6c016c5a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1622022389}
+  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1001 &1553529417
 Prefab:
   m_ObjectHideFlags: 0
@@ -2030,7 +2127,7 @@ Prefab:
     - target: {fileID: 11443360, guid: 71108b2f68b65d74e8ac8b19b852d1ae, type: 2}
       propertyPath: visualHealth
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1406230183}
     - target: {fileID: 11439796, guid: 71108b2f68b65d74e8ac8b19b852d1ae, type: 2}
       propertyPath: sounds
       value: 

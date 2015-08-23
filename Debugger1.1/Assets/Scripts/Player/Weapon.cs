@@ -67,6 +67,21 @@ public class Weapon : MonoBehaviour {
 
 		gameObject.GetComponent<Rigidbody> ().velocity = directionVelocity;
 		startLocation = transform.position;
+
+		switch ((int)color) {
+		case 0:
+			gameObject.GetComponentInChildren<SpriteRenderer> ().material.color = Color.white;
+			break;
+		case 1:
+			gameObject.GetComponentInChildren<SpriteRenderer> ().material.color = Color.red;
+			break;
+		case 2:
+			gameObject.GetComponentInChildren<SpriteRenderer> ().material.color = Color.green;
+			break;
+		case 3:
+			gameObject.GetComponentInChildren<SpriteRenderer> ().material.color = Color.blue;
+			break;
+		}
 	}
 	
 	// Update is called once per frame
@@ -132,5 +147,8 @@ public class Weapon : MonoBehaviour {
 		get { return onCooldown; } 
 		set { onCooldown = value; }
 	}
-	public DLLColor.Color Color { get { return color; } }
+	public DLLColor.Color CurrColor { 
+		get { return color; }
+		set { color = value; }
+	}
 }
