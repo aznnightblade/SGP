@@ -22,6 +22,7 @@ public class SaveData{
 		SucessfulLoad = false;
 	}
 
+
 	public static SaveData Load( string _name ){
 
 		if (PlayerPrefs.HasKey (_name))

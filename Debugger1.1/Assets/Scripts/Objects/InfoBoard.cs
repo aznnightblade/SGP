@@ -8,7 +8,7 @@ public class InfoBoard : MonoBehaviour {
     public Text info;
     private bool triggerActive=false;
     int roomnumber;
-    SaveData stats;
+
 	// Use this for initialization
 	void Start () {
         Board.SetActive(false);
