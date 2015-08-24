@@ -14,7 +14,7 @@ GameObject:
   - 114: {fileID: 11425718}
   m_Layer: 5
   m_Name: Save 3
-  m_TagString: Untagged
+  m_TagString: Load3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,10 +91,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 111440}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a68e6faa74ab2c74abdbb9b14d2d353e, type: 3}
+  m_Script: {fileID: 11500000, guid: 667afd907fdeebe4a8e8dddf08424152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameField: {fileID: 22489094, guid: 27643bf27ce9f614fa1ed3c902e81dd7, type: 2}
+  NextScene: HubWorld
 --- !u!114 &11491100
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -135,7 +135,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11425718}
-        m_MethodName: SlotSelected
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -20,13 +20,16 @@ public class Player : Statistics {
 	[SerializeField]
 	float invulTimePerDamage = 0.1f;
 	float invulTimer = 0.0f;
-	public bool newGame = true;
+	public int newGame = 1;
     public Text healthText;
     public Image visualHealth;
     public float healthspeed;
 	// Use this for initialization
 	void Start () {
-		currHealth = maxHealth = initialHealth + healthPerEndurance * endurance;
+        if (newGame==1)
+        {
+            currHealth = maxHealth = initialHealth + healthPerEndurance * endurance;
+        } 
 		critChance = initialCrit + critPerLuck * luck;
 		currWeapon = weapons [0];
         sounds = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();

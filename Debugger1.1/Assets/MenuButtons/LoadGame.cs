@@ -11,7 +11,7 @@ public class LoadGame : MonoBehaviour {
 	public void play()
 	{
 		PlayerPrefs.SetString ("Nextscene", NextScene);
-		Application.LoadLevel (NextScene);
+        Application.LoadLevel("Loadingscreen");
 	}
 
     
