@@ -243,30 +243,158 @@ public class InputManager : MonoBehaviour {
 		if (!controller) {
 			switch(selection){
 			case 0:
+				for (int index = 0; index < KeyboardInputs.Length; index++) {
+					if(KeyboardInputs[index].Negative == key) {
+						KeyboardInputs[index].Negative = KeyboardInputs[input].Negative;
+						break;
+					} else if (KeyboardInputs[index].Negative == key) {
+						KeyboardInputs[index].Positive = KeyboardInputs[input].Negative;
+						break;
+					} else if (KeyboardInputs[index].Negative == key) {
+						KeyboardInputs[index].AltNegative = KeyboardInputs[input].Negative;
+						break;
+					} else {
+						KeyboardInputs[index].AltPositive = KeyboardInputs[input].Negative;
+						break;
+					}
+				}
+
 				KeyboardInputs[input].Negative = key;
 				break;
 			case 1:
+				for (int index = 0; index < KeyboardInputs.Length; index++) {
+					if(KeyboardInputs[index].Negative == key) {
+						KeyboardInputs[index].Negative = KeyboardInputs[input].Positive;
+						break;
+					} else if (KeyboardInputs[index].Negative == key) {
+						KeyboardInputs[index].Positive = KeyboardInputs[input].Positive;
+						break;
+					} else if (KeyboardInputs[index].Negative == key) {
+						KeyboardInputs[index].AltNegative = KeyboardInputs[input].Positive;
+						break;
+					} else {
+						KeyboardInputs[index].AltPositive = KeyboardInputs[input].Positive;
+						break;
+					}
+				}
+
 				KeyboardInputs[input].Positive = key;
 				break;
 			case 2:
+				for (int index = 0; index < KeyboardInputs.Length; index++) {
+					if(KeyboardInputs[index].Negative == key) {
+						KeyboardInputs[index].Negative = KeyboardInputs[input].AltNegative;
+						break;
+					} else if (KeyboardInputs[index].Negative == key) {
+						KeyboardInputs[index].Positive = KeyboardInputs[input].AltNegative;
+						break;
+					} else if (KeyboardInputs[index].Negative == key) {
+						KeyboardInputs[index].AltNegative = KeyboardInputs[input].AltNegative;
+						break;
+					} else {
+						KeyboardInputs[index].AltPositive = KeyboardInputs[input].AltNegative;
+						break;
+					}
+				}
+
 				KeyboardInputs[input].AltNegative = key;
 				break;
 			case 3:
+				for (int index = 0; index < KeyboardInputs.Length; index++) {
+					if(KeyboardInputs[index].Negative == key) {
+						KeyboardInputs[index].Negative = KeyboardInputs[input].AltPositive;
+						break;
+					} else if (KeyboardInputs[index].Negative == key) {
+						KeyboardInputs[index].Positive = KeyboardInputs[input].AltPositive;
+						break;
+					} else if (KeyboardInputs[index].Negative == key) {
+						KeyboardInputs[index].AltNegative = KeyboardInputs[input].AltPositive;
+						break;
+					} else {
+						KeyboardInputs[index].AltPositive = KeyboardInputs[input].AltPositive;
+						break;
+					}
+				}
+
 				KeyboardInputs[input].AltPositive = key;
 				break;
 			}
 		} else {
 			switch(selection){
 			case 0:
+				for (int index = 0; index < ControllerInputs.Length; index++) {
+					if(ControllerInputs[index].Negative == key) {
+						ControllerInputs[index].Negative = ControllerInputs[input].Negative;
+						break;
+					} else if (ControllerInputs[index].Negative == key) {
+						ControllerInputs[index].Positive = ControllerInputs[input].Negative;
+						break;
+					} else if (ControllerInputs[index].Negative == key) {
+						ControllerInputs[index].AltNegative = ControllerInputs[input].Negative;
+						break;
+					} else {
+						ControllerInputs[index].AltPositive = ControllerInputs[input].Negative;
+						break;
+					}
+				}
+
 				ControllerInputs[input].Negative = key;
 				break;
 			case 1:
+				for (int index = 0; index < ControllerInputs.Length; index++) {
+					if(ControllerInputs[index].Negative == key) {
+						ControllerInputs[index].Negative = ControllerInputs[input].Positive;
+						break;
+					} else if (ControllerInputs[index].Negative == key) {
+						ControllerInputs[index].Positive = ControllerInputs[input].Positive;
+						break;
+					} else if (ControllerInputs[index].Negative == key) {
+						ControllerInputs[index].AltNegative = ControllerInputs[input].Positive;
+						break;
+					} else {
+						ControllerInputs[index].AltPositive = ControllerInputs[input].Positive;
+						break;
+					}
+				}
+
 				ControllerInputs[input].Positive = key;
 				break;
 			case 2:
+				for (int index = 0; index < ControllerInputs.Length; index++) {
+					if(ControllerInputs[index].Negative == key) {
+						ControllerInputs[index].Negative = ControllerInputs[input].AltNegative;
+						break;
+					} else if (ControllerInputs[index].Negative == key) {
+						ControllerInputs[index].Positive = ControllerInputs[input].AltNegative;
+						break;
+					} else if (ControllerInputs[index].Negative == key) {
+						ControllerInputs[index].AltNegative = ControllerInputs[input].AltNegative;
+						break;
+					} else {
+						ControllerInputs[index].AltPositive = ControllerInputs[input].AltNegative;
+						break;
+					}
+				}
+
 				ControllerInputs[input].AltNegative = key;
 				break;
 			case 3:
+				for (int index = 0; index < ControllerInputs.Length; index++) {
+					if(ControllerInputs[index].Negative == key) {
+						ControllerInputs[index].Negative = ControllerInputs[input].AltPositive;
+						break;
+					} else if (ControllerInputs[index].Negative == key) {
+						ControllerInputs[index].Positive = ControllerInputs[input].AltPositive;
+						break;
+					} else if (ControllerInputs[index].Negative == key) {
+						ControllerInputs[index].AltNegative = ControllerInputs[input].AltPositive;
+						break;
+					} else {
+						ControllerInputs[index].AltPositive = ControllerInputs[input].AltPositive;
+						break;
+					}
+				}
+
 				ControllerInputs[input].AltPositive = key;
 				break;
 			}
