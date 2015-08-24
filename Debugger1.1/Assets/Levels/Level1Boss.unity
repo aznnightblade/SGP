@@ -28807,6 +28807,7 @@ GameObject:
   - 135: {fileID: 1785876811}
   - 54: {fileID: 1785876815}
   - 114: {fileID: 1785876814}
+  - 114: {fileID: 1785876816}
   m_Layer: 10
   m_Name: Joe
   m_TagString: Enemy
@@ -28927,6 +28928,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!114 &1785876816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1785876810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce41870a991e464fa8742560cae9c7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Waves:
+  - EnemyTypes:
+    - {fileID: 140700, guid: 3141207ffaf1fae408b448611696e6d7, type: 2}
+    - {fileID: 175152, guid: 22ec68d962e7d334f8aeddd2cdb22f6e, type: 2}
+    numToSpawn: 0200000001000000
+  - EnemyTypes:
+    - {fileID: 140700, guid: 3141207ffaf1fae408b448611696e6d7, type: 2}
+    numToSpawn: 
+  timeBetweenWaves: 10
+  spawnTimer: 0
+  maxSpawnDistance: 3
 --- !u!1 &1790261404
 GameObject:
   m_ObjectHideFlags: 0
@@ -29320,7 +29343,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 423352, guid: 71108b2f68b65d74e8ac8b19b852d1ae, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -30.1137028
+      value: -31.0200005
       objectReference: {fileID: 0}
     - target: {fileID: 423352, guid: 71108b2f68b65d74e8ac8b19b852d1ae, type: 2}
       propertyPath: m_LocalPosition.z
@@ -29382,6 +29405,10 @@ Prefab:
       propertyPath: sounds
       value: 
       objectReference: {fileID: 742540745}
+    - target: {fileID: 129180, guid: 71108b2f68b65d74e8ac8b19b852d1ae, type: 2}
+      propertyPath: m_TagString
+      value: Player Controller
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71108b2f68b65d74e8ac8b19b852d1ae, type: 2}
   m_IsPrefabParent: 0

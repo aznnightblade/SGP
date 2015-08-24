@@ -58,6 +58,7 @@ public class Joe : Statistics {
 			if (checkTimer <= 0.0f) {
 				checkTimer = checkForWinDelay;
 				CheckForWin ();
+				CheckActive ();
 			}
 
 			if (teleportTimer <= 0.0f) {
@@ -90,10 +91,13 @@ public class Joe : Statistics {
 				teleportLocations.Add(index);
 		}
 
-		int teleportTo = Random.Range (0, teleportLocations.Count);
-		transform.position = new Vector3 (BossSwitches[teleportTo].transform.position.x,
-		                                  transform.position.y, BossSwitches[teleportTo].transform.position.z);
-		FlipSwitch (teleportTo);
+		if (teleportLocations.Count > 0) {
+			int teleportTo = Random.Range (0, teleportLocations.Count);
+			transform.position = new Vector3 (BossSwitches [teleportLocations [teleportTo]].transform.position.x,
+		                                  transform.position.y, BossSwitches [teleportLocations [teleportTo]].transform.position.z);
+			FlipSwitch (teleportTo);
+		}
+
 		CheckForWin ();
 	}
 
@@ -108,7 +112,64 @@ public class Joe : Statistics {
 	}
 
 	void CheckForWin () {
+		BossSwitches[] Switches = new BossSwitches[9];
+		bool win = false;
 
+		for (int index = 0; index < BossSwitches.Length; index++) {
+			Switches[index] = BossSwitches[index].GetComponent<BossSwitches> ();
+		}
+
+		int player = 0;
+		for (; player < 2; player++) {
+			if (Switches[0].CheckStatus(player)) {
+				if (Switches[1].CheckStatus(player) && Switches[2].CheckStatus(player) || Switches[3].CheckStatus(player) && Switches[5].CheckStatus(player) ||
+				    Switches[4].CheckStatus(player) && Switches[8].CheckStatus(player)) {
+					win = true;
+					break;
+				}
+			} else if (Switches[1].CheckStatus(player) && Switches[4].CheckStatus(player) && Switches[8].CheckStatus(player)) {
+				win = true;
+				break;
+			} else if (Switches[2].CheckStatus(player)) {
+				if(Switches[4].CheckStatus(player) && Switches[6].CheckStatus(player) || Switches[5].CheckStatus(player) && Switches[8].CheckStatus(player)) {
+					win = true;
+					break;
+				}
+			} else if (Switches[3].CheckStatus(player) && Switches[4].CheckStatus(player) && Switches[5].CheckStatus(player)) {
+				win = true;
+				break;
+			} else if (Switches[6].CheckStatus(player) && Switches[7].CheckStatus(player) && Switches[8].CheckStatus(player)) {
+				win = true;
+				break;
+			}
+		}
+
+		if (win) {
+			if (player == 0) {
+				BossWin();
+			} else {
+				PlayerWin();
+			}
+		}
+	}
+
+	void CheckActive () {
+		BossSwitches[] Switches = new BossSwitches[9];
+		bool allActive = true;
+
+		for (int index = 0; index < BossSwitches.Length; index++) {
+			Switches[index] = BossSwitches[index].GetComponent<BossSwitches> ();
+		}
+
+		for (int index = 0; index < BossSwitches.Length; index++) {
+			if (!Switches[index].CheckStatus(0) && !Switches[index].CheckStatus(0)) {
+				allActive = false;
+				break;
+			}
+		}
+
+		if (allActive)
+			ResetSwitches ();
 	}
 
 	void PlayerWin () {
@@ -117,6 +178,6 @@ public class Joe : Statistics {
 	}
 
 	void BossWin () {
-
+		ResetSwitches ();
 	}
 }
