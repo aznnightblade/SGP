@@ -10,11 +10,13 @@ public class GameManager : MonoBehaviour {
 	public  static string saveSpot2;
 	public  static string saveSpot3;
 	public bool BBool;
+	public GameObject Pause;
 	public  static SaveData data;
 	static float cTimeScale = 1.0f;
 	static float cTimeScale2 = 1.0f;
 	static public Vector3 lastPosition = new Vector3(-4.4f,28.0f,-36.7f);
 	static bool first = true;
+	static bool on = false;
 	void Awake(){
 		if (instance == null) {
 			instance = this;
