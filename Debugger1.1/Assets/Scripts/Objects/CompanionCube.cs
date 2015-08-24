@@ -15,6 +15,7 @@ public class CompanionCube : MonoBehaviour {
 			}
 			PlayerPrefs.SetString ("Nextscene", HubWorld);
 			Application.LoadLevel ("Loadingscreen");
+			GameManager.back = true;
 
 	}
 	void Start () {
