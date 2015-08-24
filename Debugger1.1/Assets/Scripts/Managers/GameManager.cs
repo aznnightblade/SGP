@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour {
 
 		DontDestroyOnLoad (gameObject);
 
-		if (FindObjectOfType<Player> ().newGame == true && first) {
+		if (FindObjectOfType<Player> ().newGame == 1 && first) {
 			FindObjectOfType<Player> ().Agility = 1;
 			FindObjectOfType<Player> ().Strength = 1;
 			FindObjectOfType<Player> ().Endurance = 1;
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour {
 			FindObjectOfType<Player> ().MaxHealth = 50;
 			FindObjectOfType<Player> ().Money = 100;
 			FindObjectOfType<Player> ().EXP = 0;
-			FindObjectOfType<Player> ().newGame = false;
+			FindObjectOfType<Player> ().newGame = 0;
 			first = false;
 		} 
 
@@ -64,6 +64,10 @@ public class GameManager : MonoBehaviour {
 	}
 	 public void LoadScene()
 	{
+        if (data.newGame==1)
+        {
+            return;
+        }
 
 		FindObjectOfType<Player> ().Agility = data.Agility ;
 		FindObjectOfType<Player> ().Strength = data.Strength;
@@ -78,6 +82,22 @@ public class GameManager : MonoBehaviour {
 		FindObjectOfType<Player> ().newGame = data.newGame;
 
 	}
+     public void LoadPlayerstatsScene(SaveData _data)
+     {
+
+         FindObjectOfType<Player>().Agility = _data.Agility;
+         FindObjectOfType<Player>().Strength = _data.Strength;
+         FindObjectOfType<Player>().Endurance = _data.Endurance;
+         FindObjectOfType<Player>().Luck = _data.Endurance;
+         FindObjectOfType<Player>().Intelligence = _data.Intelligence;
+         FindObjectOfType<Player>().Dexterity = _data.Dexterity;
+         FindObjectOfType<Player>().CurrHealth = _data.CurrentHealth;
+         FindObjectOfType<Player>().MaxHealth = _data.MaxHealth;
+         FindObjectOfType<Player>().Money = _data.Credits;
+         FindObjectOfType<Player>().EXP = _data.XP;
+         FindObjectOfType<Player>().newGame = _data.newGame;
+
+     }
 	public static void levelComplete(int _index)
 	{
 		indexLevel = _index;
