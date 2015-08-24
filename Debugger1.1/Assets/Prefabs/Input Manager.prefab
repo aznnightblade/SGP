@@ -41,56 +41,166 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KeyboardInputs:
   - Name: Horizontal
+    axis: 
+    direction: 
+    axisDown: 
     Negative: 97
     Positive: 100
     AltNegative: 276
     AltPositive: 275
   - Name: Vertical
+    axis: 
+    direction: 
+    axisDown: 
     Negative: 115
     Positive: 119
     AltNegative: 274
     AltPositive: 273
   - Name: Fire1
+    axis: 
+    direction: 
+    axisDown: 
     Negative: 0
     Positive: 323
     AltNegative: 0
     AltPositive: 0
   - Name: Fire2
+    axis: 
+    direction: 
+    axisDown: 
     Negative: 324
     Positive: 0
     AltNegative: 0
     AltPositive: 0
   - Name: Fire3
+    axis: 
+    direction: 
+    axisDown: 
     Negative: 0
     Positive: 32
     AltNegative: 0
     AltPositive: 0
   - Name: Submit
+    axis: 
+    direction: 
+    axisDown: 
     Negative: 0
     Positive: 13
     AltNegative: 0
     AltPositive: 0
   - Name: Cancel
+    axis: 
+    direction: 
+    axisDown: 
     Negative: 0
     Positive: 27
     AltNegative: 0
     AltPositive: 0
   - Name: ColorSwap
+    axis: 
+    direction: 
+    axisDown: 
     Negative: 102
     Positive: 114
     AltNegative: 0
     AltPositive: 0
   - Name: 
+    axis: 
+    direction: 
+    axisDown: 
     Negative: 0
     Positive: 0
     AltNegative: 0
     AltPositive: 0
   - Name: 
+    axis: 
+    direction: 
+    axisDown: 
     Negative: 0
     Positive: 0
     AltNegative: 0
     AltPositive: 0
-  ControllerInputs: []
+  ControllerInputs:
+  - Name: Horizontal
+    axis: 00000000000000000a0000000a000000
+    direction: 00000000010000000000000001000000
+    axisDown: 00000000
+    Negative: 0
+    Positive: 0
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Vertical
+    axis: 01000000010000000a0000000a000000
+    direction: 00000000010000000000000001000000
+    axisDown: 00000000
+    Negative: 0
+    Positive: 0
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Horizontal2
+    axis: 03000000030000000a0000000a000000
+    direction: 00000000010000000000000001000000
+    axisDown: 00000000
+    Negative: 0
+    Positive: 0
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Vertical2
+    axis: 04000000040000000a0000000a000000
+    direction: 00000000010000000000000001000000
+    axisDown: 00000000
+    Negative: 0
+    Positive: 0
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Fire1
+    axis: 0a000000090000000a0000000a000000
+    direction: 00000000010000000000000000000000
+    axisDown: 00000000
+    Negative: 0
+    Positive: 0
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Fire2
+    axis: 0a000000080000000a0000000a000000
+    direction: 00000000010000000000000000000000
+    axisDown: 00000000
+    Negative: 0
+    Positive: 0
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Fire3
+    axis: 0a0000000a0000000a0000000a000000
+    direction: 00000000000000000000000000000000
+    axisDown: 00000000
+    Negative: 0
+    Positive: 335
+    AltNegative: 0
+    AltPositive: 0
+  - Name: SwapColors
+    axis: 05000000050000000a0000000a000000
+    direction: 00000000010000000000000000000000
+    axisDown: 00000000
+    Negative: 0
+    Positive: 0
+    AltNegative: 0
+    AltPositive: 0
+  - Name: 
+    axis: 
+    direction: 
+    axisDown: 
+    Negative: 0
+    Positive: 0
+    AltNegative: 0
+    AltPositive: 0
+  - Name: 
+    axis: 
+    direction: 
+    axisDown: 
+    Negative: 0
+    Positive: 0
+    AltNegative: 0
+    AltPositive: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
