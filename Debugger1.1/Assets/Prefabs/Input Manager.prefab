@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &127490
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 490472}
+  - 114: {fileID: 11433664}
+  m_Layer: 0
+  m_Name: Input Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &490472
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127490}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.50463009, y: -19.7404652, z: -32.4224205}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11433664
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93ad52139f4676a4d8c451378dcbf062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KeyboardInputs:
+  - Name: Horizontal
+    Negative: 97
+    Positive: 100
+    AltNegative: 276
+    AltPositive: 275
+  - Name: Vertical
+    Negative: 115
+    Positive: 119
+    AltNegative: 274
+    AltPositive: 273
+  - Name: Fire1
+    Negative: 0
+    Positive: 323
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Fire2
+    Negative: 324
+    Positive: 0
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Fire3
+    Negative: 0
+    Positive: 32
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Submit
+    Negative: 0
+    Positive: 13
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Cancel
+    Negative: 0
+    Positive: 27
+    AltNegative: 0
+    AltPositive: 0
+  - Name: ColorSwap
+    Negative: 102
+    Positive: 114
+    AltNegative: 0
+    AltPositive: 0
+  - Name: 
+    Negative: 0
+    Positive: 0
+    AltNegative: 0
+    AltPositive: 0
+  - Name: 
+    Negative: 0
+    Positive: 0
+    AltNegative: 0
+    AltPositive: 0
+  ControllerInputs: []
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 127490}
+  m_IsPrefabParent: 1

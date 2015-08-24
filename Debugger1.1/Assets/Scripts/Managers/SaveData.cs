@@ -5,17 +5,19 @@ using UnityEditor;
 public class SaveData{
 
 	public string Name;
-	public int XP;
-	public int Credits;
-	public int Level;
-	public int CurrentHealth;
-	public int Strength;
-	public int Intelligence;
-	public int Luck;
-	public int Agility;
-	public int Endurance;
-	public int Dexterity;
+	public int XP = 0;
+	public int Credits = 0;
+	public int Level = 0;
+	public int CurrentHealth = 0;
+	public int Strength = 0;
+	public int Intelligence = 0;
+	public int Luck = 0;
+	public int Agility = 0;
+	public int Endurance = 0;
+	public int Dexterity= 0;
 	public bool SucessfulLoad;
+	public bool newGame = true;
+	public int MaxHealth = 0;
 
 	public SaveData()
 	{
