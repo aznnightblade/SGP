@@ -36,6 +36,21 @@ public class InputManager : MonoBehaviour {
 		LoadInputs ();
 	}
 
+	void Update() {
+		for (int index = 0; index < ControllerInputs.Length; index++) {
+			if (ControllerInputs[index].axis == InputType.Axes.NonAxis)
+				continue;
+
+			if (ControllerInputs[index].axisDown == true) {
+				if (GetAxisFromInput(ControllerInputs[index]) == 0.0f)
+					ControllerInputs[index].axisDown = false;
+			} else {
+				if (GetAxisFromInput(ControllerInputs[index]) != 0.0f)
+					ControllerInputs[index].axisDown = true;
+			}
+		}
+	}
+
 	public void SaveInputs () {
 		string KeyboardButtons = "";
 		string ControllerButtons = "";
@@ -105,12 +120,23 @@ public class InputManager : MonoBehaviour {
 
 		for (int keys = 0; keys < ControllerInputs.Length; keys++) {
 			if (button == ControllerInputs[keys].Name) {
-				if (Input.GetKeyDown(ControllerInputs[keys].Negative) || Input.GetKeyDown(ControllerInputs[keys].Positive) ||
-				    Input.GetKeyDown(ControllerInputs[keys].AltNegative) || Input.GetKeyDown(ControllerInputs[keys].AltPositive)){
-					if(!usingController)
-						usingController = true;
+				if (ControllerInputs[keys].axis == InputType.Axes.NonAxis) {
+					if (Input.GetKeyDown(ControllerInputs[keys].Negative) || Input.GetKeyDown(ControllerInputs[keys].Positive) ||
+					    Input.GetKeyDown(ControllerInputs[keys].AltNegative) || Input.GetKeyDown(ControllerInputs[keys].AltPositive)){
+						if(!usingController)
+							usingController = true;
+	
+						return true;
+					}
+				} else {
+					if(GetAxisFromInput(ControllerInputs[keys]) != 0.0f && ControllerInputs[keys].axisDown == false) {
+						if(!usingController)
+							usingController = true;
 
-					return true;
+						ControllerInputs[keys].axisDown = true;
+						
+						return true;
+					}
 				}
 			}
 		}
@@ -133,12 +159,23 @@ public class InputManager : MonoBehaviour {
 		
 		for (int keys = 0; keys < ControllerInputs.Length; keys++) {
 			if (button == ControllerInputs[keys].Name) {
-				if (Input.GetKey(ControllerInputs[keys].Negative) || Input.GetKey(ControllerInputs[keys].Positive) ||
-				    Input.GetKey(ControllerInputs[keys].AltNegative) || Input.GetKey(ControllerInputs[keys].AltPositive)){
-					if(!usingController)
-						usingController = true;
+				if (ControllerInputs[keys].axis == InputType.Axes.NonAxis) {
+					if (Input.GetKey(ControllerInputs[keys].Negative) || Input.GetKey(ControllerInputs[keys].Positive) ||
+					    Input.GetKey(ControllerInputs[keys].AltNegative) || Input.GetKey(ControllerInputs[keys].AltPositive)){
+						if(!usingController)
+							usingController = true;
 					
-					return true;
+						return true;
+					}
+				} else {
+					if (GetAxisFromInput(ControllerInputs[keys]) != 0.0f) {
+						if(!usingController)
+							usingController = true;
+
+						ControllerInputs[keys].axisDown = true;
+
+						return true;
+					}
 				}
 			}
 		}
@@ -161,12 +198,23 @@ public class InputManager : MonoBehaviour {
 		
 		for (int keys = 0; keys < ControllerInputs.Length; keys++) {
 			if (button == ControllerInputs[keys].Name) {
-				if (Input.GetKeyUp(ControllerInputs[keys].Negative) || Input.GetKeyUp(ControllerInputs[keys].Positive) ||
-				    Input.GetKeyUp(ControllerInputs[keys].AltNegative) || Input.GetKeyUp(ControllerInputs[keys].AltPositive)){
-					if(!usingController)
-						usingController = true;
+				if (ControllerInputs[keys].axis == InputType.Axes.NonAxis) {
+					if (Input.GetKeyUp(ControllerInputs[keys].Negative) || Input.GetKeyUp(ControllerInputs[keys].Positive) ||
+					    Input.GetKeyUp(ControllerInputs[keys].AltNegative) || Input.GetKeyUp(ControllerInputs[keys].AltPositive)){
+						if(!usingController)
+							usingController = true;
 					
-					return true;
+						return true;
+					}
+				} else {
+					if(GetAxisFromInput(ControllerInputs[keys]) == 0.0f && ControllerInputs[keys].axisDown == true) {
+						if(!usingController)
+							usingController = true;
+
+						ControllerInputs[keys].axisDown = false;
+						
+						return true;
+					}
 				}
 			}
 		}
@@ -189,45 +237,22 @@ public class InputManager : MonoBehaviour {
 			}
 		}
 
-		if (button != "Horizontal" && button != "Vertical" && button != "Horizontal2" && button != "Vertical2") {
-			for (int keys = 0; keys < ControllerInputs.Length; keys++) {
-				if (button == ControllerInputs [keys].Name) {
-					Axis = Axis + 1 * (Mathf.Ceil (Convert.ToInt32 (Input.GetKey (ControllerInputs [keys].Positive)) * 0.5f + Convert.ToInt32 (Input.GetKey (ControllerInputs [keys].AltPositive)) * 0.5f)) -
+
+		for (int keys = 0; keys < ControllerInputs.Length; keys++) {
+			if (button == ControllerInputs [keys].Name) {
+				float CAxis = 0.0f;
+
+				if (ControllerInputs[keys].axis == InputType.Axes.NonAxis) {
+					CAxis = 1 * (Mathf.Ceil (Convert.ToInt32 (Input.GetKey (ControllerInputs [keys].Positive)) * 0.5f + Convert.ToInt32 (Input.GetKey (ControllerInputs [keys].AltPositive)) * 0.5f)) -
 						1 * (Mathf.Ceil (Convert.ToInt32 (Input.GetKey (ControllerInputs [keys].Negative)) * 0.5f + Convert.ToInt32 (Input.GetKey (ControllerInputs [keys].AltNegative)) * 0.5f));
-				
-					if(!usingController)
-						usingController = true;
+				} else {
+					CAxis = GetAxisFromInput(ControllerInputs[keys]);
 				}
-			}
-		} else {
-			if (button == "Horizontal") {
-				if (Input.GetAxisRaw ("Horizontal") != 0.0f) {
-					Axis += Input.GetAxisRaw ("Horizontal");
 
-					if(!usingController)
-						usingController = true;
-				}
-			} else if (button == "Vertical") {
-				if (Input.GetAxisRaw ("Vertical") != 0.0f) {
-					Axis += Input.GetAxisRaw ("Vertical");
+				Axis += CAxis;
 
-					if(!usingController)
-						usingController = true;
-				}
-			} else if (button == "Horizontal2") {
-				if (Input.GetAxisRaw ("Horizontal2") != 0.0f) {
-					Axis += Input.GetAxisRaw ("Horizontal2");
-					
-					if(!usingController)
-						usingController = true;
-				}
-			} else {
-				if (Input.GetAxisRaw ("Vertical2") != 0.0f) {
-					Axis += Input.GetAxisRaw ("Vertical2");
-					
-					if(!usingController)
-						usingController = true;
-				}
+				if(!usingController && CAxis != 0)
+					usingController = true;
 			}
 		}
 
@@ -237,6 +262,33 @@ public class InputManager : MonoBehaviour {
 			Axis = -1.0f;
 
 		return Axis;
+	}
+
+	public float GetAxisFromInput (InputType button) {
+		switch ((int)button.axis) {
+		case 0:
+			return Input.GetAxis("AxisX");
+		case 1:
+			return Input.GetAxis("AxisY");
+		case 2:
+			return Input.GetAxis("Axis3");
+		case 3:
+			return Input.GetAxis("Axis4");
+		case 4:
+			return Input.GetAxis("Axis5");
+		case 5:
+			return Input.GetAxis("Axis6");
+		case 6:
+			return Input.GetAxis("Axis7");
+		case 7:
+			return Input.GetAxis("Axis8");
+		case 8:
+			return Input.GetAxis("Axis9");
+		case 9:
+			return Input.GetAxis("Axis10");
+		default:
+			return 0;
+		}
 	}
 
 	public void ChangeKey (bool controller, int input, int selection, KeyCode key) {
@@ -408,7 +460,11 @@ public class InputManager : MonoBehaviour {
 
 [System.Serializable]
 public struct InputType {
+	public enum Axes { AxisX, AxisY, Axis3, Axis4, Axis5, Axis6, Axis7, Axis8, Axis9, Axis10, NonAxis };
+
 	public string Name;
+	public Axes axis;
+	public bool axisDown;
 	public KeyCode Negative;
 	public KeyCode Positive;
 	public KeyCode AltNegative;

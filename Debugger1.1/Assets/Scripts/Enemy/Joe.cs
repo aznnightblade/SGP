@@ -8,6 +8,8 @@ public class Joe : Statistics {
     GameObject[] BossSwitches = null;
 	[SerializeField]
 	GameObject Teleporter = null;
+	[SerializeField]
+	Transform Explosion = null;
 
 	[SerializeField]
 	float vulnerableTime = 2.0f;
@@ -95,7 +97,8 @@ public class Joe : Statistics {
 			int teleportTo = Random.Range (0, teleportLocations.Count);
 			transform.position = new Vector3 (BossSwitches [teleportLocations [teleportTo]].transform.position.x,
 		                                  transform.position.y, BossSwitches [teleportLocations [teleportTo]].transform.position.z);
-			FlipSwitch (teleportTo);
+
+			FlipSwitch (teleportLocations [teleportTo]);
 		}
 
 		CheckForWin ();
@@ -178,6 +181,12 @@ public class Joe : Statistics {
 	}
 
 	void BossWin () {
+		for (int index = 0; index < BossSwitches.Length; index++) {
+			Vector3 pos = BossSwitches[index].transform.position;
+			pos.y += .25f;
+			Instantiate(Explosion, pos, Quaternion.Euler(90, 0, 0));
+		}
+
 		ResetSwitches ();
 	}
 }

@@ -3,9 +3,13 @@ using System.Collections;
 
 public class BossEnemySpawning : MonoBehaviour {
 
+	enum SpawnType { Interval, Random };
+
 	[SerializeField]
 	Wave[] Waves = null;
 	int waveCounter = 0;
+	[SerializeField]
+	SpawnType Spawn = SpawnType.Interval;
 
 	[SerializeField]
 	float timeBetweenWaves = 30.0f;
@@ -23,6 +27,18 @@ public class BossEnemySpawning : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (spawnTimer <= 0.0f) {
+			int spawn = 0;
+
+			if (Spawn == SpawnType.Interval) {
+				spawn = waveCounter;
+				waveCounter++;
+
+				if (waveCounter == Waves.Length)
+					waveCounter = 0;
+			} else {
+				spawn = Random.Range (0, Waves.Length - 1);
+			}
+
 			LayerMask layer = (1 << LayerMask.NameToLayer("Enemy"));
 
 			for (int index = 0; index < Waves[waveCounter].EnemyTypes.Length; index++) {
