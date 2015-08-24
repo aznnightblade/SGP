@@ -15,10 +15,10 @@ public class Dampener : Statistics {
 	}
 
 	void OnCollisionEnter(Collision col) {
-		if (col.gameObject.tag == "Player Bullet" && col.gameObject.GetComponent<Player>().CurrWeapon.ChargeScale > 1.0f) {
-			if(currHealth <= 0) {
-				teleporter.GetComponentInChildren<Teleporter>().IsActive = true;
-				DestroyObject();
+		if (col.gameObject.tag == "Player Bullet") {
+			if (currHealth <= 0) {
+				teleporter.GetComponentInChildren<Teleporter> ().IsActive = true;
+				DestroyObject ();
 			}
 		}
 	}

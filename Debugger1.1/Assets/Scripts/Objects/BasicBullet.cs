@@ -25,8 +25,12 @@ public class BasicBullet : Weapon {
 						damage *= 0.5f;
 					}
 
-					if (col.gameObject.tag != "Player")
+					if (col.gameObject.tag != "Player" && col.gameObject.tag != "Dampener")
 						colStats.Damage(Mathf.CeilToInt(damage));
+					else if(col.gameObject.tag == "Dampener" && ChargeScale > 1.0f)
+						colStats.Damage(Mathf.CeilToInt(damage));
+					else if(col.gameObject.tag == "Dampener" && ChargeScale <= 1.0f)
+						colStats.Damage (0);
 					else
 						col.gameObject.GetComponentInChildren<Player> ().DamagePlayer(Mathf.CeilToInt(damage));
 
