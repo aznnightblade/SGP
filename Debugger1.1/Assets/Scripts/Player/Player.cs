@@ -20,7 +20,7 @@ public class Player : Statistics {
 	[SerializeField]
 	float invulTimePerDamage = 0.1f;
 	float invulTimer = 0.0f;
-
+	public bool newGame = true;
     public Text healthText;
     public Image visualHealth;
     public float healthspeed;
@@ -30,6 +30,7 @@ public class Player : Statistics {
 		critChance = initialCrit + critPerLuck * luck;
 		currWeapon = weapons [0];
         sounds = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+
 	}
 	
 	// Update is called once per frame
@@ -42,6 +43,11 @@ public class Player : Statistics {
 		}
         HandleHealth();
 
+	}
+
+	public void SetPosition (Vector3 position)
+	{
+		transform.position = position;
 	}
 
 	public void DamagePlayer (int damageTaken) {

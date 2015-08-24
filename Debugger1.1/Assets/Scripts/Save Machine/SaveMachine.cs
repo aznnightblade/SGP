@@ -25,7 +25,9 @@ public class SaveMachine : MonoBehaviour {
 	{
 		if (Input.GetButtonDown ("Submit")) {
 			if (triggerActive == true) {
+				GameManager.lastPosition = FindObjectOfType<Player> ().transform.position;
 				Application.LoadLevel ("SaveGame");
+
 			}
 		}
 	}

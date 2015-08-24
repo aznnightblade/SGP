@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class loadinglevel : MonoBehaviour {
+public class dumb : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-        Application.LoadLevelAsync(PlayerPrefs.GetString("Nextscene"));
-
+		GameManager.instance.LoadScene ();
 	}
 	
 	// Update is called once per frame
