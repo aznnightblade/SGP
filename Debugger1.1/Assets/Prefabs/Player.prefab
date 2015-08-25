@@ -43,7 +43,7 @@ GameObject:
   - 114: {fileID: 11485414}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Player Controller
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -458,6 +458,7 @@ MonoBehaviour:
   breakpoint: {fileID: 11439146}
   multithreadLevel: 1
   invulTimePerDamage: .100000001
+  newGame: 1
   healthText: {fileID: 0}
   visualHealth: {fileID: 0}
   healthspeed: 10
@@ -555,6 +556,10 @@ Prefab:
       propertyPath: freezetint
       value: 
       objectReference: {fileID: 138174, guid: adffbd0193fb65343b26a81d125bc465, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Player Controller
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 129180}

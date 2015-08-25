@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour {
 	static public Vector3 lastPosition = new Vector3(-4.4f,28.0f,-36.7f);
 	static bool first = true;
 	static bool on = false;
+	public static bool quit = false;
+	public static bool loadfirst = true;
 	void Awake(){
 		if (instance == null) {
 			instance = this;
@@ -44,7 +46,6 @@ public class GameManager : MonoBehaviour {
 		if(back)
 		{
 		FindObjectOfType<Player> ().SetPosition (lastPosition);
-		back = false;
 		}
 		
 	}
@@ -66,11 +67,12 @@ public class GameManager : MonoBehaviour {
 	}
 	 public void LoadScene()
 	{
-        if (data.newGame==1)
-        {
-            return;
-        }
-
+       
+		if (loadfirst == true || back) {
+			loadfirst = false;
+			back = false;
+			return;
+		}
 		FindObjectOfType<Player> ().Agility = data.Agility ;
 		FindObjectOfType<Player> ().Strength = data.Strength;
 		FindObjectOfType<Player> ().Endurance = data.Endurance;
@@ -123,5 +125,9 @@ public class GameManager : MonoBehaviour {
 			else
 				cTimeScale2 = value;
 		}
+	}
+	public void DestroyGame()
+	{
+		Destroy (gameObject);
 	}
 }
