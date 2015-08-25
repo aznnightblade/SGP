@@ -83,6 +83,10 @@ public class FireWaller : Statistics {
 
 	void OnTriggerEnter (Collider col) {
 		if (col.gameObject.tag == "Enemy") {
+            if (!sounds.EnemySoundeffects[2].isPlaying)
+            {
+                sounds.EnemySoundeffects[2].Play();
+            }
 			col.GetComponent<Statistics> ().MaxShield = Mathf.CeilToInt(initialShieldAmount + increasePerIntelligence * gameObject.GetComponent<Statistics> ().Intelligence);
 			allies.Add(col.gameObject);
 		}
@@ -90,6 +94,7 @@ public class FireWaller : Statistics {
 
 	void OnTriggerExit (Collider col) {
 		if (col.gameObject.tag == "Enemy") {
+           
 			if (col.gameObject.name != "FireWaller")
 				col.GetComponent<Statistics> ().MaxShield = col.GetComponent<Statistics> ().Shield = 0;
 			else {

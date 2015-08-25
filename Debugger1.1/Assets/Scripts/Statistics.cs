@@ -115,7 +115,8 @@ public class Statistics : MonoBehaviour {
 		}
 
 		if (currHealth <= 0) {
-		//	DestroyObject();
+            sounds.EnemySoundeffects[6].Play();
+			DestroyObject();
 		}
 
 		hitTimer = hitRegenTimer;

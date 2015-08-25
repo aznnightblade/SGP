@@ -56,6 +56,10 @@ public class Rebugger : Statistics {
 				agent.stoppingDistance = healRange - 1.0f;
 
 			if (delayTimer <= 0.0f) {
+                if(!sounds.EnemySoundeffects[3].isPlaying)
+                {
+                    sounds.EnemySoundeffects[3].Play();
+                }
 				targetStats.CurrHealth += Mathf.CeilToInt(initialHealAmount + 
 				                                          increasePerIntelligence * GetComponent<Statistics> ().Intelligence);
 

@@ -95,7 +95,8 @@ public class ModerateRanged : Statistics {
 		}
 
 		if (Vector3.Distance (transform.position, target.position) <= maximumShotDistance && delayTimer <= 0.0f) {
-			FireBullet();
+            sounds.EnemySoundeffects[1].Play();
+            FireBullet();
 			
 			delayTimer = shotDelay;
 		}
@@ -109,7 +110,6 @@ public class ModerateRanged : Statistics {
 
         if (currHealth <= 0.0f)
         {
-            sounds.EnemySoundeffects[6].Play();
             DestroyObject();
         }
 	}
