@@ -29,7 +29,7 @@ public class CompanionCube : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetButtonDown ("Submit") && activateSwitch == true) {
+		if (InputManager.instance.GetButtonDown ("Submit") && activateSwitch == true) {
 			if (GameManager.indexLevel < Next) {
 				GameManager.levelComplete (Next);
 			}

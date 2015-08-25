@@ -18,7 +18,7 @@ public class SaveComputer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (triggerActive == true && Input.GetButtonDown("Submit"))
+        if (triggerActive == true && InputManager.instance.GetButtonDown("Submit"))
         {
             Panel.SetActive(true);
             Save1.SetActive(true);

@@ -24,7 +24,7 @@ public class Computer : MonoBehaviour {
     }
     void Update()
     {
-		if (Input.GetButtonDown ("Submit")) {
+		if (InputManager.instance.GetButtonDown ("Submit")) {
 			if (triggerActive == true && GameManager.indexLevel >= levelNumber) {
 				GameManager.lastPosition = FindObjectOfType<Player> ().transform.position;
 				GameManager.back = false;
