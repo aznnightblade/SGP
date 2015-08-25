@@ -115,6 +115,11 @@ public class Statistics : MonoBehaviour {
 		}
 
 		if (currHealth <= 0) {
+            if (gameObject.name=="Corruption")
+            {
+                sounds.MiscSoundeffects[4].Play();
+            }
+            else
             sounds.EnemySoundeffects[6].Play();
 			DestroyObject();
 		}
