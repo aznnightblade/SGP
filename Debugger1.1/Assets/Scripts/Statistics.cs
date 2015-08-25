@@ -111,19 +111,11 @@ public class Statistics : MonoBehaviour {
 			transform.parent.GetComponentInChildren<EnemyShieldbar> ().UpdateFillAmount ();
 		} else {
 			currHealth -= damageTaken;
-            if (gameObject.tag=="Corruption")
-            {
-                sounds.MiscSoundeffects[5].Play();
-            }
 			transform.parent.GetComponentInChildren<EnemyHealthbar> ().UpdateFillAmount();
 		}
 
 		if (currHealth <= 0) {
-            if (gameObject.tag=="Corruption")
-            {
-                sounds.MiscSoundeffects[4].Play();
-            }
-			DestroyObject();
+		//	DestroyObject();
 		}
 
 		hitTimer = hitRegenTimer;
