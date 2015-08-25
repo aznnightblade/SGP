@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEditor;
+//using UnityEditor;
 
 public class SaveData{
 
@@ -79,7 +79,7 @@ public class SaveData{
         PlayerPrefs.SetInt(temp, _data.newGame);
 	}
 
-	[MenuItem("Tools/DeleteAll")]
+	//[MenuItem("Tools/DeleteAll")]
 	public static void DeleteAllPrefs(){
 		PlayerPrefs.DeleteAll ();
 	}
