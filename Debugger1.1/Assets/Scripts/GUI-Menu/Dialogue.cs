@@ -24,6 +24,12 @@ public class Dialogue : MonoBehaviour {
     void Start()
     {
         agent = gameObject.GetComponent<NavMeshAgent>();
+        
+       panel.SetActive(false);
+
+    }
+    void Update()
+    {
         if (textfile != null)
         {
             textlines = (textfile[current_level].text.Split('\n'));
@@ -32,11 +38,6 @@ public class Dialogue : MonoBehaviour {
         {
             endline = textlines.Length - 1;
         }
-       panel.SetActive(false);
-
-    }
-    void Update()
-    {
         Transform player = GameObject.FindGameObjectWithTag("Player").transform;
         switch (GameManager.indexLevel)
         {

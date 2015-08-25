@@ -97,7 +97,7 @@ public class Statistics : MonoBehaviour {
 	}
 
 	// Only call this for enemies
-	public void Damage (int damageTaken) {
+	public virtual void Damage (int damageTaken) {
 		if (shield > 0) {
 			if (shield >= damageTaken)
 				shield -= damageTaken;
@@ -111,18 +111,16 @@ public class Statistics : MonoBehaviour {
 			transform.parent.GetComponentInChildren<EnemyShieldbar> ().UpdateFillAmount ();
 		} else {
 			currHealth -= damageTaken;
-            if (gameObject.tag=="Corruption")
-            {
-                sounds.MiscSoundeffects[5].Play();
-            }
 			transform.parent.GetComponentInChildren<EnemyHealthbar> ().UpdateFillAmount();
 		}
 
 		if (currHealth <= 0) {
-            if (gameObject.tag=="Corruption")
+            if (gameObject.name=="Corruption")
             {
                 sounds.MiscSoundeffects[4].Play();
             }
+            else
+            sounds.EnemySoundeffects[6].Play();
 			DestroyObject();
 		}
 
