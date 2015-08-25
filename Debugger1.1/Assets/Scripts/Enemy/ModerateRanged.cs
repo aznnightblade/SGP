@@ -106,16 +106,19 @@ public class ModerateRanged : Statistics {
 			if( delayTimer < 0.0f)
 				delayTimer = 0.0f;
 		}
-		
-		if (currHealth <= 0.0f)
-			DestroyObject ();
+
+        if (currHealth <= 0.0f)
+        {
+            sounds.EnemySoundeffects[6].Play();
+            DestroyObject();
+        }
 	}
 
 	void FireBullet() {
 		Vector3 pos = transform.position;
 		Vector3 direction = pos - player.position;
 		float rot = -((Mathf.Atan2(direction.z, direction.x) * 180 / Mathf.PI) + 90.0f);
-		
+        sounds.EnemySoundeffects[1].Play();
 		GameObject newBullet = (Instantiate (bullet, pos, Quaternion.Euler(0, rot, 0)) as Transform).gameObject;
 		newBullet.tag = ("Enemy Bullet");
 		newBullet.GetComponent<Weapon> ().Owner = this;

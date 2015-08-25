@@ -36,8 +36,11 @@ public class BasicMelee : Statistics {
 			agent.updateRotation = true;
 		}
 
-		if (currHealth <= 0)
-			DestroyObject ();
+        if (currHealth <= 0)
+        {
+            sounds.EnemySoundeffects[6].Play();
+            DestroyObject();
+        }
 
 		if (attackingPlayer && delayTimer <= 0.0f) {
 			Player player = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Player>();
@@ -46,7 +49,7 @@ public class BasicMelee : Statistics {
 
 			if(damage < 0.0f)
 				damage = 0;
-
+            sounds.EnemySoundeffects[0].Play();
 			player.DamagePlayer(Mathf.CeilToInt(damage));
 
 			delayTimer = damageDelay;
