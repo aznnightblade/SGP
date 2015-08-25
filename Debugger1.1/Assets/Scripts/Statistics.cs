@@ -97,7 +97,7 @@ public class Statistics : MonoBehaviour {
 	}
 
 	// Only call this for enemies
-	public void Damage (int damageTaken) {
+	public virtual void Damage (int damageTaken) {
 		if (shield > 0) {
 			if (shield >= damageTaken)
 				shield -= damageTaken;

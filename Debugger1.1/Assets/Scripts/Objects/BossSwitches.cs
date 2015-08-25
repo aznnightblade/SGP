@@ -15,6 +15,7 @@ public class BossSwitches : MonoBehaviour {
 	void Start(){
 	
 	}
+
 	void OnTriggerEnter(Collider col)
 	{
 		if (col.tag == "Player" )
@@ -30,12 +31,14 @@ public class BossSwitches : MonoBehaviour {
 			activateSwitch = false;
 		}
 	}
+
 	public void Reset()
 	{
 		O.SetActive (false);
 		X.SetActive (false);
 		Health = MaxHealth;
 	}
+
 	public void JoesChoice()
 	{
 		X.SetActive (true);
@@ -43,35 +46,41 @@ public class BossSwitches : MonoBehaviour {
 		gameObject.GetComponentInChildren<Image>().fillAmount = 0;
 		gameObject.GetComponentInChildren<Light> ().enabled = false;
 	}
-		// Update is called once per frame
-	void Update () 
-		{
 
-			gameObject.GetComponentInChildren<Image>().fillAmount = (float)Health / MaxHealth;
-			if (Health == MaxHealth) 
-			{
-				gameObject.GetComponentInChildren<Light> ().enabled = true;
-				if (Input.GetButtonDown ("Submit") && activateSwitch == true) 
-			{
-					gameObject.GetComponentInChildren<Light> ().enabled = false;
-					Health = 0;
-					gameObject.GetComponentInChildren<Image>().fillAmount = 0;
-					O.SetActive(true);
-					if(A.activeInHierarchy)
-					{
+	// Update is called once per frame
+	void Update () 
+	{
+		gameObject.GetComponentInChildren<Image>().fillAmount = (float)Health / MaxHealth;
+		if (Health == MaxHealth) {
+			gameObject.GetComponentInChildren<Light> ().enabled = true;
+			if (Input.GetButtonDown ("Submit") && activateSwitch == true) {
+				gameObject.GetComponentInChildren<Light> ().enabled = false;
+				Health = 0;
+				gameObject.GetComponentInChildren<Image>().fillAmount = 0;
+				O.SetActive(true);
+
+				if(A.activeInHierarchy) {
 						A.SetActive(false);
 						B.SetActive(true);
-					}
-				else if (B.activeInHierarchy)
-					{
+				} else if (B.activeInHierarchy) {
 						B.SetActive(false);
 						A.SetActive(true);
-						
-					}
-					
 				}
-				
 			}
+				
 		}
 	}
+
+	public bool CheckStatus(int player) {
+		if (player == 0) {
+			if (X.activeInHierarchy)
+				return true;
+		} else {
+			if (O.activeInHierarchy)
+				return true;
+		}
+
+		return false;
+	}
+}
 
