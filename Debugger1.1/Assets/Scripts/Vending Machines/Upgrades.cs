@@ -27,7 +27,7 @@ public class Upgrades : MonoBehaviour {
 	}
 
 	void Update() {
-		if (triggerActive == true && Input.GetButtonDown("Submit") && (player.Money >= moneyPrice || player.EXP >= expPrice))
+		if (triggerActive == true && InputManager.instance.GetButtonDown("Submit") && (player.Money >= moneyPrice || player.EXP >= expPrice))
 		{
 			panel.SetActive(true);
 			text.SetActive(true);
