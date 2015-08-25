@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ToSubMenu : MonoBehaviour {
+public class MenuKeys : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

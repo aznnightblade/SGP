@@ -10,13 +10,42 @@ public class SoundManager : MonoBehaviour {
     public List<AudioSource> BossSoundeffects;
     public List<AudioSource> WeaponSoundeffects;
 	public List<AudioSource> MiscSoundeffects;
+    public List<AudioSource> MenuSFX;
 	// Use this for initialization
 	void Start () {
-	
+
+        for (int i = 0; i < PlayerSoundeffects.Count; i++)
+        {
+            PlayerSoundeffects[i].volume = PlayerPrefs.GetFloat("SFX") / 100f;
+        }
+        for (int i = 0; i < EnemySoundeffects.Count; i++)
+        {
+            EnemySoundeffects[i].volume = PlayerPrefs.GetFloat("SFX") / 100f;
+        }
+        for (int i = 0; i < BossSoundeffects.Count; i++)
+        {
+            BossSoundeffects[i].volume = PlayerPrefs.GetFloat("SFX") / 100f;
+        }
+        for (int i = 0; i < WeaponSoundeffects.Count; i++)
+        {
+            WeaponSoundeffects[i].volume = PlayerPrefs.GetFloat("SFX") / 100f;
+        }
+        for (int i = 0; i <MiscSoundeffects.Count; i++)
+        {
+            MiscSoundeffects[i].volume = PlayerPrefs.GetFloat("SFX") / 100f;
+        }
+
+        for (int i = 0; i < Music.Count; i++)
+        {
+            Music[i].volume = PlayerPrefs.GetFloat("Music") / 100f;
+        }
+        for (int i = 0; i < BossMusic.Count; i++)
+        {
+            BossMusic[i].volume = PlayerPrefs.GetFloat("Music") / 100f;
+        }
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
 	}
 }

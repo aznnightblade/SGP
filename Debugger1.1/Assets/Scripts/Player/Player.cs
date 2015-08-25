@@ -26,6 +26,7 @@ public class Player : Statistics {
     public float healthspeed;
 	// Use this for initialization
 	void Start () {
+       
         if (newGame==1)
         {
             currHealth = maxHealth = initialHealth + healthPerEndurance * endurance;
@@ -34,6 +35,15 @@ public class Player : Statistics {
 		currWeapon = weapons [0];
         sounds = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
 
+
+        for (int i = 0; i < sounds.PlayerSoundeffects.Count; i++)
+        {
+            sounds.PlayerSoundeffects[i].volume = PlayerPrefs.GetFloat("SFX")/ 100f;
+        }
+        for (int i = 0; i < sounds.WeaponSoundeffects.Count; i++)
+        {
+            sounds.WeaponSoundeffects[i].volume = PlayerPrefs.GetFloat("SFX") / 100f;
+        }
 	}
 	
 	// Update is called once per frame

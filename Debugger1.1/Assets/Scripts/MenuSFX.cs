@@ -1,18 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShowMoneyAndExp : MonoBehaviour {
-
-	[SerializeField]
-	Player buyer = null;
-
+public class MenuSFX : MonoBehaviour {
+    
 	// Use this for initialization
 	void Start () {
-		
+        gameObject.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("SFX")/100;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		//this = "Credits: " + buyer.Money + "\nEXP: " + buyer.EXP;
+        
 	}
 }
