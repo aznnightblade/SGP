@@ -13,7 +13,7 @@ public class AdjustVolume : MonoBehaviour
     public Text sfxtext;
     public Text musictext;
     bool Play = false;
-    bool PlayMusic = false;
+
     void Start()
     {
         sfxslider.value = PlayerPrefs.GetFloat("SFX");
