@@ -41,8 +41,10 @@ public class BasicBullet : Weapon {
                         colStats.Damage(0);
                     }
                     else
+                    {
+                        sounds.PlayerSoundeffects[4].Play();
                         col.gameObject.GetComponentInChildren<Player>().DamagePlayer(Mathf.CeilToInt(damage));
-
+                    }
 					if(col.gameObject.tag != "Player") {
 						EnemyHealthbar healthbar = col.transform.parent.GetComponentInChildren<EnemyHealthbar> ();
 
