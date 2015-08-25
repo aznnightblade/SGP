@@ -26,7 +26,7 @@ public class Player : Statistics {
     public float healthspeed;
 	// Use this for initialization
 	void Start () {
-        newGame = GameManager.NewGamefile;
+       
         if (newGame==1)
         {
             currHealth = maxHealth = initialHealth + healthPerEndurance * endurance;
