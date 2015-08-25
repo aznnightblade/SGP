@@ -10,6 +10,7 @@ public class Corruption : Statistics {
 	void Update(){
 		if (CurrHealth <= 0)
         {
+            sounds.MiscSoundeffects[4].Play();
             Destroy(gameObject);
             
         }
