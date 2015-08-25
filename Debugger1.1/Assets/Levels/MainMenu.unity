@@ -87,6 +87,48 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &22205592
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 438634, guid: ed6b879089f65804fa229bc61f98e751, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -7.50463009
+      objectReference: {fileID: 0}
+    - target: {fileID: 438634, guid: ed6b879089f65804fa229bc61f98e751, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -19.7404652
+      objectReference: {fileID: 0}
+    - target: {fileID: 438634, guid: ed6b879089f65804fa229bc61f98e751, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -32.4224205
+      objectReference: {fileID: 0}
+    - target: {fileID: 438634, guid: ed6b879089f65804fa229bc61f98e751, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 438634, guid: ed6b879089f65804fa229bc61f98e751, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 438634, guid: ed6b879089f65804fa229bc61f98e751, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 438634, guid: ed6b879089f65804fa229bc61f98e751, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 438634, guid: ed6b879089f65804fa229bc61f98e751, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ed6b879089f65804fa229bc61f98e751, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &68850984
 GameObject:
   m_ObjectHideFlags: 0
@@ -3970,6 +4012,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24aa06babb6f94a40acf74c8a4dfad9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 5
+  moveDelay: .5
+  Buttons:
+  - buttons:
+    - {fileID: 1614539542}
+    - {fileID: 877535275}
+    - {fileID: 1323481066}
+    - {fileID: 703850308}
+    - {fileID: 475878459}
 --- !u!1 &1962289563
 GameObject:
   m_ObjectHideFlags: 0

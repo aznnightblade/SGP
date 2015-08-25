@@ -1973,7 +1973,7 @@ GameObject:
   - 114: {fileID: 871941474}
   m_Layer: 5
   m_Name: Music Slider
-  m_TagString: Untagged
+  m_TagString: Slider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2134,7 +2134,7 @@ GameObject:
   - 114: {fileID: 1230420205}
   m_Layer: 5
   m_Name: Slider
-  m_TagString: Untagged
+  m_TagString: Slider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4183,6 +4183,7 @@ GameObject:
   - 114: {fileID: 1607911446}
   - 114: {fileID: 1607911445}
   - 114: {fileID: 1607911444}
+  - 114: {fileID: 1607911448}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -4246,6 +4247,34 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!114 &1607911448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1607911443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24aa06babb6f94a40acf74c8a4dfad9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 5
+  moveDelay: .5
+  Buttons:
+  - buttons:
+    - {fileID: 100300166}
+    - {fileID: 1230420203}
+    - {fileID: 871941472}
+    - {fileID: 1779854997}
+    - {fileID: 127073399}
+  - buttons:
+    - {fileID: 175893547}
+    - {fileID: 1230420203}
+    - {fileID: 871941472}
+    - {fileID: 1779854997}
+    - {fileID: 127073399}
 --- !u!1 &1619540782
 GameObject:
   m_ObjectHideFlags: 0
