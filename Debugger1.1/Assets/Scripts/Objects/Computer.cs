@@ -4,7 +4,7 @@ using System.Collections;
 public class Computer : MonoBehaviour {
 
     bool triggerActive = false;
-    public string Loadinglevel;
+	public string Loadinglevel;
 	public int levelNumber;
 	public Player player;
 	// Use this for initialization
@@ -27,8 +27,10 @@ public class Computer : MonoBehaviour {
 		if (Input.GetButtonDown ("Submit")) {
 			if (triggerActive == true && GameManager.indexLevel >= levelNumber) {
 				GameManager.lastPosition = FindObjectOfType<Player> ().transform.position;
+				GameManager.back = false;
+				GameManager.nextlevelname = Loadinglevel;
 				GameManager.instance.NextScene();
-				PlayerPrefs.SetString ("Nextscene", Loadinglevel);
+				PlayerPrefs.SetString ("Nextscene", "Select");
 				Application.LoadLevel ("Loadingscreen");
 
 			}

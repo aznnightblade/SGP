@@ -3316,7 +3316,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BBool: 0
-  Pause: {fileID: 384480060}
 --- !u!4 &199027950
 Transform:
   m_ObjectHideFlags: 0
@@ -5268,10 +5267,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 362087288}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &384480060 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 172508, guid: d40dea6b442f6a040af118616c3deeb5, type: 2}
-  m_PrefabInternal: {fileID: 1545724945}
 --- !u!224 &384480061 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 22467750, guid: d40dea6b442f6a040af118616c3deeb5,
@@ -9698,10 +9693,10 @@ MonoBehaviour:
   m_Script: {fileID: 1077351063, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
+  m_HorizontalAxis: ' '
+  m_VerticalAxis: ' '
+  m_SubmitButton: ' '
+  m_CancelButton: ' '
   m_InputActionsPerSecond: 10
   m_RepeatDelay: .5
   m_AllowActivationOnMobileDevice: 0
@@ -13805,7 +13800,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1004686969}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf9da94bf1101ce46b6bb717cc2f849d, type: 3}
+  m_Script: {fileID: 11500000, guid: ee6a7cec2035916458afbe24241f4d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1004686971
