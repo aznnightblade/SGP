@@ -73,7 +73,7 @@ public class InfoBoard : MonoBehaviour {
             }
             else
             {
-                info.text = "You need to go to the Tutorial Stage next to this Board!";
+                info.text = "You need to go to the Computer next to this board! So you can access the Tutorial Stage!!";
             }
         }
 
