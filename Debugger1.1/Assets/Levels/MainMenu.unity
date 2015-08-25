@@ -589,7 +589,7 @@ GameObject:
   - 114: {fileID: 475878468}
   m_Layer: 5
   m_Name: Button (5)
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1089,10 +1089,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 456794376}
-  - {fileID: 703850313}
-  - {fileID: 1323481067}
   - {fileID: 1614539543}
   - {fileID: 877535276}
+  - {fileID: 1323481067}
+  - {fileID: 703850313}
   - {fileID: 475878465}
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -1269,7 +1269,7 @@ GameObject:
   - 114: {fileID: 703850316}
   m_Layer: 5
   m_Name: Button
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1371,7 +1371,7 @@ RectTransform:
   m_Children:
   - {fileID: 1289377735}
   m_Father: {fileID: 610671150}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -84, y: -155.199997}
@@ -1510,7 +1510,7 @@ GameObject:
   - 114: {fileID: 877535284}
   m_Layer: 5
   m_Name: Button (3)
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1527,7 +1527,7 @@ RectTransform:
   m_Children:
   - {fileID: 217970412}
   m_Father: {fileID: 610671150}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -86, y: -58}
@@ -1882,7 +1882,7 @@ GameObject:
   - 114: {fileID: 1323481075}
   m_Layer: 5
   m_Name: Button (1)
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1899,7 +1899,7 @@ RectTransform:
   m_Children:
   - {fileID: 573706883}
   m_Father: {fileID: 610671150}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -86, y: -111}
@@ -3508,7 +3508,7 @@ GameObject:
   - 114: {fileID: 1614539551}
   m_Layer: 5
   m_Name: Button (2)
-  m_TagString: Untagged
+  m_TagString: Button
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3525,7 +3525,7 @@ RectTransform:
   m_Children:
   - {fileID: 68850985}
   m_Father: {fileID: 610671150}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -87.1999969, y: -9}
@@ -3895,6 +3895,7 @@ GameObject:
   - 114: {fileID: 1938863785}
   - 114: {fileID: 1938863784}
   - 114: {fileID: 1938863783}
+  - 114: {fileID: 1938863787}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -3958,6 +3959,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
+--- !u!114 &1938863787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1938863782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24aa06babb6f94a40acf74c8a4dfad9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1962289563
 GameObject:
   m_ObjectHideFlags: 0
