@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour {
 	static float cTimeScale2 = 1.0f;
 	static public Vector3 lastPosition = new Vector3(-4.4f,28.0f,-36.7f);
 	static bool first = true;
+    public static int NewGamefile=1;
 	void Awake(){
 		if (instance == null) {
 			instance = this;

@@ -50,7 +50,7 @@ public class SaveData{
 	}
 	public static void  Save( string _name, SaveData _data){
         string temp = _name+"Name";
-
+        GameManager.NewGamefile = 0;
 		PlayerPrefs.SetString(temp,_name);
         PlayerPrefs.SetString(temp, _data.Name);
         temp = _name + "LEVEL";
