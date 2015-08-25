@@ -463,6 +463,25 @@ public class InputManager : MonoBehaviour {
 		}
 	}
 
+	public KeyCode GetKey(bool controller, int input, int selection) {
+		if (controller) {
+			switch (selection) {
+			case 0:
+				return KeyboardInputs[input].Negative;
+			case 1:
+				return KeyboardInputs[input].Positive;
+			case 2:
+				return KeyboardInputs[input].AltNegative;
+			case 3:
+				return KeyboardInputs[input].AltPositive;
+			}
+		} else {
+
+		}
+
+		return (KeyCode)0;
+	}
+
 	public bool UsingController { get { return usingController; } }
 	public InputType[] keyboardInputs { get { return KeyboardInputs; } }
 	public InputType[] controllerInputs { get { return ControllerInputs; } }
