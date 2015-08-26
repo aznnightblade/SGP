@@ -73,7 +73,7 @@ public class InfoBoard : MonoBehaviour {
             }
             else
             {
-                info.text = "You need to go to the Computer next to this board! So you can access the Tutorial Stage!!";
+                info.text = "You need to go to the Computer next to this board! So you can access the Tutorial Stage!! The Debugger Gun will transport you into the computer world";
             }
         }
 

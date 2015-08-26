@@ -1,9 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Invitation : MonoBehaviour {
+public class StatsVendor : MonoBehaviour {
 
-    public string next;
 	// Use this for initialization
 	void Start () {
 	
@@ -11,10 +10,6 @@ public class Invitation : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-        if (Input.GetButtonDown("Submit"))
-        {
-           
-        }
+	
 	}
 }
