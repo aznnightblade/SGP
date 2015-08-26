@@ -97,9 +97,15 @@ public class Statistics : MonoBehaviour {
 	}
 
 	public void UpdateStats () {
-		maxHealth = currHealth = initialHealth + healthPerEndurance * endurance;
-		critChance = initialCrit + critPerLuck * luck;
-		defense = initialDefense + defensePerEndurance * endurance;
+		if (gameObject.tag == "Player") {
+			maxHealth = currHealth = initialHealth + healthPerEndurance * endurance;
+			critChance = initialCrit + critPerLuck * luck;
+			defense = initialDefense + defensePerEndurance * endurance;
+		} else {
+			maxHealth = currHealth = initialHealth * GameManager.difficulty + healthPerEndurance * endurance;
+			critChance = initialCrit * GameManager.difficulty + critPerLuck * luck;
+			defense = initialDefense * GameManager.difficulty + defensePerEndurance * endurance;
+		}
 	}
 
 	// Only call this for enemies
