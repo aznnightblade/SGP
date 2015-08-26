@@ -14,7 +14,7 @@ public class Invitation : MonoBehaviour {
 
         if (Input.GetButtonDown("Submit"))
         {
-            Application.LoadLevel(next);
+           
         }
 	}
 }
