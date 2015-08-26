@@ -84,7 +84,7 @@ public class Dialogue : MonoBehaviour {
             default:
                 break;
         }
-        if (triggerActive == true && Input.GetButtonDown("Submit"))
+        if (triggerActive == true && InputManager.instance.GetButtonDown("Submit"))
         {
            
             player.GetComponentInParent<PlayerController>().enabled = false;
