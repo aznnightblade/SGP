@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class dumb : MonoBehaviour {
+public class Tutorial : MonoBehaviour {
 
 	// Use this for initialization
-	void Awake () {
-		GameManager.instance.LoadScene();
+	void Start () {
+	
 	}
 	
 	// Update is called once per frame

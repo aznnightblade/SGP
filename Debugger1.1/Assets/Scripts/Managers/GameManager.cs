@@ -3,6 +3,8 @@ using System.Collections;
 
 public class GameManager : MonoBehaviour {
 	public static GameManager instance;
+	public static int difficulty = 1;
+	public static string nextlevelname;
 	public static int indexLevel = 0;
 	public  static Player player;
 	public static bool back = true;
@@ -10,7 +12,6 @@ public class GameManager : MonoBehaviour {
 	public  static string saveSpot2;
 	public  static string saveSpot3;
 	public bool BBool;
-	public GameObject Pause;
 	public  static SaveData data;
 	static float cTimeScale = 1.0f;
 	static float cTimeScale2 = 1.0f;
@@ -67,11 +68,12 @@ public class GameManager : MonoBehaviour {
 	 public void LoadScene()
 	{
        
-		if (loadfirst == true || back) {
+		if (loadfirst == true) {
 			loadfirst = false;
-			back = false;
 			return;
 		}
+		if (back)
+			back = false;
 		FindObjectOfType<Player> ().Agility = data.Agility ;
 		FindObjectOfType<Player> ().Strength = data.Strength;
 		FindObjectOfType<Player> ().Endurance = data.Endurance;

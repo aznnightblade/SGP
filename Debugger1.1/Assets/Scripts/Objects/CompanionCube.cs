@@ -6,24 +6,38 @@ public class CompanionCube : MonoBehaviour {
 	// Use this for initialization
 	public int Next;
 	public string HubWorld;
-
-	void OnCollisionEnter(Collision col)
+	bool activateSwitch;
+	void OnTriggerEnter(Collider col)
 	{
-
-			if (GameManager.indexLevel < Next) {
-				GameManager.levelComplete (Next);
-			}
-			PlayerPrefs.SetString ("Nextscene", HubWorld);
-			Application.LoadLevel ("Loadingscreen");
-			GameManager.back = true;
-
+		if (col.tag == "Player" )
+		{
+			activateSwitch = true;
+		}
 	}
+	
+	void OnTriggerExit(Collider col)
+	{
+		if (col.tag== "Player")
+		{
+			activateSwitch = false;
+		}
+	}
+
 	void Start () {
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		if (InputManager.instance.GetButtonDown ("Submit") && activateSwitch == true) {
+			if (GameManager.indexLevel < Next) {
+				GameManager.levelComplete (Next);
+			}
+			GameManager.back = true;
+			GameManager.instance.NextScene();
+			PlayerPrefs.SetString ("Nextscene", HubWorld);
+			Application.LoadLevel ("Loadingscreen");
+
 	}
+}
 }
