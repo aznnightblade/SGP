@@ -89,6 +89,8 @@ public class Upgrades : MonoBehaviour {
 		text.SetActive(false);
 		confirm.SetActive(false);
 		cancel.SetActive(false);
+
+		player.GetComponentInParent<PlayerController>().enabled = true;
 	}
 
 	protected virtual void UpgradeStats() {
