@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour {
 			float rot = (Mathf.Atan2 (-direction.y, direction.x) * 180 / Mathf.PI) - 90;
 			PlayerSprite.rotation = Quaternion.Euler (0, rot, 0);
 
-			if ((InputManager.instance.GetButton ("Fire1") || InputManager.instance.GetButtonUp ("Fire2")) && player.CurrWeapon.ShotDelay <= 0.0f) {
+			if (((InputManager.instance.GetButton ("Fire1") || InputManager.instance.GetButtonUp ("Fire2")) && player.CurrWeapon.ShotDelay <= 0.0f)) {
 				bulletFired = true;
 
 				player.CurrWeapon.ShotDelay += player.CurrWeapon.InitialShotDelay - player.CurrWeapon.ShotDelayReductionPerAgility * player.Agility;
@@ -58,7 +58,8 @@ public class PlayerController : MonoBehaviour {
 				if (!sounds.PlayerSoundeffects [1].isPlaying && !sounds.PlayerSoundeffects [2].isPlaying)
 					sounds.PlayerSoundeffects [2].Play ();
 
-				if (player.CurrWeapon.ChargeScale < player.CurrWeapon.MaxChargeScale) {
+                if ((player.CurrWeapon.ChargeScale < player.CurrWeapon.MaxChargeScale) && GameManager.Chargeshot == 1)
+                {
 					player.CurrWeapon.ChargeScale += player.CurrWeapon.ChargePerTick;
 					player.CurrWeapon.ChargeDelay = player.CurrWeapon.DelayTime;
 					chargebullet = true;

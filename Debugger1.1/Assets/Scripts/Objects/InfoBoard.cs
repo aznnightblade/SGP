@@ -62,7 +62,7 @@ public class InfoBoard : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (triggerActive == true && Input.GetButtonDown("Submit"))
+        if (triggerActive == true && InputManager.instance.GetButtonDown("Submit"))
         {
             Board.SetActive(true);
             HUD.SetActive(false);
