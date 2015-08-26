@@ -49,11 +49,12 @@ public class Weapon : MonoBehaviour {
 	Vector3 directionVelocity = Vector3.zero;
 
 	bool onCooldown = false;
+    public SoundManager sounds;
 
 	// Use this for initialization
 	void Start () {
 		float rot = (transform.rotation.eulerAngles.y + 90.0f) * (Mathf.PI / 180.0f);
-		
+        sounds = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
 		maxDistance = owner.InitialShotDistance + owner.ShotDistancePerDexerity * owner.Dexterity;
 		direction = new Vector3 (-Mathf.Cos (rot), 0, Mathf.Sin (rot));
 		

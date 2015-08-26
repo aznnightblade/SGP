@@ -14,19 +14,51 @@ public class Upgrades : MonoBehaviour {
 	UpgradeType whatToUpgrade = UpgradeType.NONE;
 	[SerializeField]
 	CurrencyType currencyRequired = CurrencyType.NONE;
-
-	int statUpgradeLevel = 1;
-	int weaponUpgradeLevel = 1;
-	int companionUpgradeLevel = 1;
+	
 	Player player = null;
+	public GameObject panel;
+	public GameObject text;
+	public GameObject confirm;
+	public GameObject cancel;
+	bool triggerActive = false;
 
 	void Start() {
 		player = GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<Player> ();
 	}
 
-	void OnCollisionStay(Collision col) {
+	void Update() {
+		if (triggerActive == true && Input.GetButtonDown("Submit") && (player.Money >= moneyPrice || player.EXP >= expPrice))
+		{
+			panel.SetActive(true);
+			text.SetActive(true);
+			confirm.SetActive(true);
+			cancel.SetActive(true);
+			player.GetComponentInParent<PlayerController>().enabled = false;
+			player.GetComponentInParent<Rigidbody>().velocity = Vector3.zero;
+			player.GetComponentInParent<Rigidbody>().freezeRotation = true;
+		}
+	}
+
+	void OnTriggerEnter(Collider col)
+	{
+		if (col.tag == "Player")
+		{
+			triggerActive = true;
+		}
+	}
+
+	void OnTriggerExit(Collider col)
+	{
+		if (col.tag == "Player")
+		{
+			triggerActive = false;
+			
+		}
+	}
+
+	public void OnClick() {
 		// When you hit the switch, can you afford the upgrade?
-		if (InputManager.instance.GetButtonDown ("Submit") && (player.Money >= moneyPrice || player.EXP >= expPrice)) {
+		if (gameObject.name == "Confirm") {
 			switch (whatToUpgrade) {
 			case UpgradeType.STATS:
 				UpgradeStats ();
@@ -52,20 +84,22 @@ public class Upgrades : MonoBehaviour {
 				break;
 			}
 		}
-		else if(InputManager.instance.GetButtonDown ("Submit") && (player.Money < moneyPrice || player.EXP < expPrice)) {
-
-		}
+		
+		panel.SetActive(false);
+		text.SetActive(false);
+		confirm.SetActive(false);
+		cancel.SetActive(false);
 	}
 
-	void UpgradeStats() {
+	protected virtual void UpgradeStats() {
 
 	}
 
-	void UpgradeWeapons() {
+	protected virtual void UpgradeWeapons() {
 
 	}
 
-	void UpgradeCompanions() {
+	protected virtual void UpgradeCompanions() {
 
 	}
 }

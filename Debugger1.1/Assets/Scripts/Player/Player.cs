@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 public class Player : Statistics {
@@ -13,6 +13,8 @@ public class Player : Statistics {
 	bool hasDLLs = false;
 	DLLColor.Color prevColor = DLLColor.Color.BLUE;
 	DLLColor.Color nextColor = DLLColor.Color.RED;
+	[SerializeField]
+	bool isHovering = false;
 	[SerializeField]
 	Breakpoint breakpoint = null;
 	[SerializeField]
@@ -97,6 +99,11 @@ public class Player : Statistics {
 		set { multithreadLevel = value; }
 	}
 	public Transform ShotLocation { get { return shotLocation; } }
+
+	public bool IsHovering {
+		get { return isHovering; }
+		set { isHovering = value; }
+	}
 
     private void HandleHealth()
     {

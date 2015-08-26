@@ -1,0 +1,29 @@
+﻿using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
+public class sceneswitching : MonoBehaviour {
+    public GameObject Panel1;
+    public GameObject Panel2;
+    bool changescene = false;
+    public string next;
+	// Use this for initialization
+	void Start () {
+        Panel1.SetActive(true);
+        Panel2.SetActive(false);
+	}
+	
+	// Update is called once per frame
+	void Update () {
+        if (InputManager.instance.GetButtonDown("Submit") && changescene == true)
+        {
+            Application.LoadLevel(next);
+        }
+        if (InputManager.instance.GetButtonDown("Submit"))
+        {
+            Panel1.SetActive(false);
+            Panel2.SetActive(true);
+            changescene = true;
+        }
+      
+	}
+}
