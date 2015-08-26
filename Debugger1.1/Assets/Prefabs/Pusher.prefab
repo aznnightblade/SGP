@@ -184,6 +184,8 @@ MonoBehaviour:
   maxHealth: 0
   shield: 0
   maxShield: 0
+  hitRegenTimer: 2
+  hitTimer: 0
   acceleration: 0
   velocity: 0
   maxVelocity: 0
@@ -214,6 +216,7 @@ MonoBehaviour:
   color: 0
   money: 0
   exp: 0
+  sounds: {fileID: 11447646, guid: 71781c32a7dd242428cf9cfcf1d8bfbe, type: 2}
   damageDelay: .5
   resetFlankDistance: 7
 --- !u!114 &11459088
@@ -388,7 +391,12 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: sounds
+      value: 
+      objectReference: {fileID: 11447646, guid: 71781c32a7dd242428cf9cfcf1d8bfbe,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 152214}
