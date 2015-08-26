@@ -26,124 +26,132 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (InputManager.instance.UsingController == false) {
-			previousLookDir = direction;
-			direction = Camera.main.WorldToScreenPoint (transform.position) - Input.mousePosition;
-		} else {
-			previousLookDir = direction;
-			direction = new Vector3 (InputManager.instance.GetAxisRaw ("Horizontal2"), InputManager.instance.GetAxisRaw ("Vertical2"), 0);
+		if (GameManager.CTimeScale2 > 0.0f) {
+			if (Time.timeScale > 0.0f) {
+				if (InputManager.instance.UsingController == false) {
+					previousLookDir = direction;
+					direction = Camera.main.WorldToScreenPoint (transform.position) - Input.mousePosition;
+				} else {
+					previousLookDir = direction;
+					direction = new Vector3 (InputManager.instance.GetAxisRaw ("Horizontal2"), InputManager.instance.GetAxisRaw ("Vertical2"), 0);
 
-			if (direction == Vector3.zero)
-				direction = previousLookDir;
-		}
+					if (direction == Vector3.zero)
+						direction = previousLookDir;
+				}
+			}
 
-		direction.Normalize();
-		float rot = (Mathf.Atan2(-direction.y, direction.x) * 180 / Mathf.PI) - 90;
-		PlayerSprite.rotation = Quaternion.Euler (0, rot, 0);
+			direction.Normalize ();
+			float rot = (Mathf.Atan2 (-direction.y, direction.x) * 180 / Mathf.PI) - 90;
+			PlayerSprite.rotation = Quaternion.Euler (0, rot, 0);
 
-		if ((InputManager.instance.GetButton ("Fire1") || InputManager.instance.GetButtonUp("Fire2")) && player.CurrWeapon.ShotDelay <= 0.0f) {
-			bulletFired = true;
+			if (((InputManager.instance.GetButton ("Fire1") || InputManager.instance.GetButtonUp ("Fire2")) && player.CurrWeapon.ShotDelay <= 0.0f)) {
+				bulletFired = true;
 
-			player.CurrWeapon.ShotDelay += player.CurrWeapon.InitialShotDelay - player.CurrWeapon.ShotDelayReductionPerAgility * player.Agility;
-			player.CurrWeapon.HeatGenerated += player.CurrWeapon.HeatPerShot * player.CurrWeapon.ChargeScale;
-		}
+				player.CurrWeapon.ShotDelay += player.CurrWeapon.InitialShotDelay - player.CurrWeapon.ShotDelayReductionPerAgility * player.Agility;
+				player.CurrWeapon.HeatGenerated += player.CurrWeapon.HeatPerShot * player.CurrWeapon.ChargeScale;
+			}
 
-		if (InputManager.instance.GetButton ("Fire2") && !InputManager.instance.GetButton ("Fire1") && player.CurrWeapon.ChargeDelay <= 0.0f) {
-            if (player.CurrWeapon.ChargeScale == 1.0f)
-                sounds.PlayerSoundeffects[1].Play();
+			if (InputManager.instance.GetButton ("Fire2") && !InputManager.instance.GetButton ("Fire1") && player.CurrWeapon.ChargeDelay <= 0.0f) {
+				if (player.CurrWeapon.ChargeScale == 1.0f)
+					sounds.PlayerSoundeffects [1].Play ();
             
-            if (!sounds.PlayerSoundeffects[1].isPlaying && !sounds.PlayerSoundeffects[2].isPlaying)
-                sounds.PlayerSoundeffects[2].Play();
+				if (!sounds.PlayerSoundeffects [1].isPlaying && !sounds.PlayerSoundeffects [2].isPlaying)
+					sounds.PlayerSoundeffects [2].Play ();
 
-			if (player.CurrWeapon.ChargeScale < player.CurrWeapon.MaxChargeScale) {
-				player.CurrWeapon.ChargeScale += player.CurrWeapon.ChargePerTick;
-				player.CurrWeapon.ChargeDelay = player.CurrWeapon.DelayTime;
-                chargebullet = true;
+                if ((player.CurrWeapon.ChargeScale < player.CurrWeapon.MaxChargeScale) && GameManager.Chargeshot == 1)
+                {
+					player.CurrWeapon.ChargeScale += player.CurrWeapon.ChargePerTick;
+					player.CurrWeapon.ChargeDelay = player.CurrWeapon.DelayTime;
+					chargebullet = true;
                
-				if(player.CurrWeapon.ChargeScale > player.CurrWeapon.MaxChargeScale)
-                    player.CurrWeapon.ChargeScale = player.CurrWeapon.MaxChargeScale;	
+					if (player.CurrWeapon.ChargeScale > player.CurrWeapon.MaxChargeScale)
+						player.CurrWeapon.ChargeScale = player.CurrWeapon.MaxChargeScale;	
+				}
 			}
-		}
 
-		if (InputManager.instance.GetButtonDown ("Fire3"))
-        {
-            player.Breakpoint.FireBreakpoint();
-            sounds.WeaponSoundeffects[1].Play();
-        }
-
-		if (player.HasDLLs) {
-			if (InputManager.instance.GetButtonDown ("ColorSwap")) {
-				if (InputManager.instance.GetAxisRaw ("ColorSwap") > 0)
-					NextColor();
-				else
-					PrevColor();
+			if (InputManager.instance.GetButtonDown ("Fire3")) {
+				player.Breakpoint.FireBreakpoint ();
+				sounds.WeaponSoundeffects [1].Play ();
 			}
-		}
 
-		for (int index = 0; index < player.Weapons.Length; index++) {
-			if (player.Weapons[index].ShotDelay > 0.0f) {
-				player.Weapons[index].ShotDelay -= Time.deltaTime;
+			if (player.HasDLLs) {
+				if (InputManager.instance.GetButtonDown ("ColorSwap")) {
+					if (InputManager.instance.GetAxisRaw ("ColorSwap") > 0)
+						NextColor ();
+					else
+						PrevColor ();
+				}
+			}
+
+			for (int index = 0; index < player.Weapons.Length; index++) {
+				if (player.Weapons [index].ShotDelay > 0.0f) {
+					player.Weapons [index].ShotDelay -= Time.deltaTime;
 			
-				if (player.Weapons[index].ShotDelay < 0.0f)
-					player.Weapons[index].ShotDelay = 0.0f;
-			}
+					if (player.Weapons [index].ShotDelay < 0.0f)
+						player.Weapons [index].ShotDelay = 0.0f;
+				}
 
-			if (player.Weapons[index].ChargeDelay > 0.0f) {
-				player.Weapons[index].ChargeDelay -= Time.deltaTime;
+				if (player.Weapons [index].ChargeDelay > 0.0f) {
+					player.Weapons [index].ChargeDelay -= Time.deltaTime;
 
-				if (player.Weapons[index].ShotDelay < 0.0f)
-					player.Weapons[index].ShotDelay = 0.0f;
-			}
+					if (player.Weapons [index].ShotDelay < 0.0f)
+						player.Weapons [index].ShotDelay = 0.0f;
+				}
 
-			if (player.Weapons[index].HeatGenerated > 0.0f) {
-				if (player.Weapons[index].HeatGenerated >= player.Weapons[index].OverheatLevel)
-					player.Weapons[index].OnCooldown = true;
+				if (player.Weapons [index].HeatGenerated > 0.0f) {
+					if (player.Weapons [index].HeatGenerated >= player.Weapons [index].OverheatLevel)
+						player.Weapons [index].OnCooldown = true;
 			
-				player.Weapons[index].HeatGenerated -= player.Weapons[index].HeatLossPerSecond * Time.deltaTime;
+					player.Weapons [index].HeatGenerated -= player.Weapons [index].HeatLossPerSecond * Time.deltaTime;
 			
-				if (player.Weapons[index].HeatGenerated < 0.0f)
-					player.Weapons[index].HeatGenerated = 0.0f;
-			}
+					if (player.Weapons [index].HeatGenerated < 0.0f)
+						player.Weapons [index].HeatGenerated = 0.0f;
+				}
 		
-			if (player.Weapons[index].OnCooldown) {
-				if (player.Weapons[index].HeatGenerated <= 0.0f)
-					player.Weapons[index].OnCooldown = false;
+				if (player.Weapons [index].OnCooldown) {
+					if (player.Weapons [index].HeatGenerated <= 0.0f)
+						player.Weapons [index].OnCooldown = false;
+				}
 			}
+			chargemeter.fillAmount = player.CurrWeapon.ChargeScale - 1;
+			Heatmeter.fillAmount = player.CurrWeapon.HeatGenerated / player.CurrWeapon.OverheatLevel;
+		} else {
+			gameObject.GetComponent<Rigidbody> ().velocity = Vector3.zero;
 		}
-        chargemeter.fillAmount = player.CurrWeapon.ChargeScale - 1;
-        Heatmeter.fillAmount = player.CurrWeapon.HeatGenerated / player.CurrWeapon.OverheatLevel;
 	}
 
 	void FixedUpdate() {
-		moveDir.x = InputManager.instance.GetAxisRaw ("Horizontal");
-		moveDir.z = InputManager.instance.GetAxisRaw ("Vertical");
+		if (GameManager.CTimeScale2 > 0.0f) {
+			moveDir.x = InputManager.instance.GetAxisRaw ("Horizontal");
+			moveDir.z = InputManager.instance.GetAxisRaw ("Vertical");
 
-		if (moveDir.magnitude > 0.0f) {
-			if (player.Velocity < player.MaxVelocity) {
-				player.Velocity += player.Acceleration * Time.deltaTime;
+			if (moveDir.magnitude > 0.0f) {
+				if (player.Velocity < player.MaxVelocity) {
+					player.Velocity += player.Acceleration * Time.deltaTime;
 
-				if (player.Velocity > player.MaxVelocity)
-					player.Velocity = player.MaxVelocity;
+					if (player.Velocity > player.MaxVelocity)
+						player.Velocity = player.MaxVelocity;
+				}
 			}
-		}
-		if (moveDir.magnitude == 0.0f) {
-			if(player.Velocity > 0.0f){
-				player.Velocity -= player.Acceleration * Time.deltaTime;
+			if (moveDir.magnitude == 0.0f) {
+				if (player.Velocity > 0.0f) {
+					player.Velocity -= player.Acceleration * Time.deltaTime;
 
-				if(player.Velocity < 0.0f)
-					player.Velocity = 0.0f;
+					if (player.Velocity < 0.0f)
+						player.Velocity = 0.0f;
+				}
 			}
+
+			if (moveDir.magnitude > 1.0f)
+				moveDir.Normalize ();
+
+			moveDir *= player.Velocity;
+
+			gameObject.GetComponent<Rigidbody> ().velocity = moveDir;
+
+			if (bulletFired)
+				FireBullet ();
 		}
-
-		if (moveDir.magnitude > 1.0f)
-			moveDir.Normalize ();
-
-		moveDir *= player.Velocity;
-
-		gameObject.GetComponent<Rigidbody> ().velocity = moveDir;
-
-		if (bulletFired)
-			FireBullet ();
 	}
 
 	void NextColor () {

@@ -26,6 +26,7 @@ public class Player : Statistics {
     public Text healthText;
     public Image visualHealth;
     public float healthspeed;
+
 	// Use this for initialization
 	void Start () {
        
@@ -57,7 +58,12 @@ public class Player : Statistics {
 				invulTimer = 0.0f;
 		}
         HandleHealth();
-
+        if (currHealth <= 0)
+        {
+            sounds.PlayerSoundeffects[5].Play();
+            currHealth = maxHealth;
+            Application.LoadLevel("Hubworld");
+        }
 	}
 
 	public void SetPosition (Vector3 position)
@@ -70,10 +76,6 @@ public class Player : Statistics {
 		if (invulTimer <= 0.0f) {
 			currHealth -= damageTaken;
             sounds.PlayerSoundeffects[4].Play();
-
-			if (currHealth <= 0) {
-                sounds.PlayerSoundeffects[5].Play();
-			}
 
 			invulTimer = invulTimePerDamage * damageTaken;
 		}

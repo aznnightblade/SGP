@@ -16,7 +16,8 @@ public class sceneswitching : MonoBehaviour {
 	void Update () {
         if (InputManager.instance.GetButtonDown("Submit") && changescene == true)
         {
-            Application.LoadLevel(next);
+            PlayerPrefs.SetString("Nextscene", next);
+            Application.LoadLevel("Loadingscreen");
         }
         if (InputManager.instance.GetButtonDown("Submit"))
         {

@@ -4376,7 +4376,7 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 0}
-    m_HighlightedColor: {r: .960784316, g: .960784316, b: .960784316, a: .209000006}
+    m_HighlightedColor: {r: .960784316, g: .960784316, b: .960784316, a: 1}
     m_PressedColor: {r: .784313738, g: .784313738, b: .784313738, a: 1}
     m_DisabledColor: {r: .784313738, g: .784313738, b: .784313738, a: .501960814}
     m_ColorMultiplier: 1
@@ -7939,6 +7939,7 @@ GameObject:
   - 114: {fileID: 1488628084}
   - 114: {fileID: 1488628083}
   - 114: {fileID: 1488628081}
+  - 114: {fileID: 1488628086}
   m_Layer: 5
   m_Name: Controller Panel
   m_TagString: Untagged
@@ -8068,6 +8069,46 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1488628080}
+--- !u!114 &1488628086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1488628080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24aa06babb6f94a40acf74c8a4dfad9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 5
+  moveDelay: .5
+  Buttons:
+  - buttons:
+    - {fileID: 1055508113}
+    - {fileID: 1223905617}
+    - {fileID: 649988358}
+    - {fileID: 581062210}
+    - {fileID: 1801796305}
+    - {fileID: 805827595}
+    - {fileID: 454432543}
+    - {fileID: 1111383785}
+    - {fileID: 1577053315}
+    - {fileID: 1005936715}
+    - {fileID: 585710842}
+  - buttons:
+    - {fileID: 1426866114}
+    - {fileID: 1257250707}
+    - {fileID: 1426505716}
+    - {fileID: 720810567}
+    - {fileID: 2112030874}
+    - {fileID: 1257197041}
+    - {fileID: 493692612}
+    - {fileID: 1512744502}
+    - {fileID: 2022954579}
+    - {fileID: 1573497068}
+    - {fileID: 127073399}
 --- !u!1 &1508639111
 GameObject:
   m_ObjectHideFlags: 0
@@ -8368,14 +8409,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 438634, guid: ed6b879089f65804fa229bc61f98e751, type: 2}
       propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11469362, guid: ed6b879089f65804fa229bc61f98e751, type: 2}
-      propertyPath: KeyboardInputs.Array.data[3].Positive
-      value: 324
-      objectReference: {fileID: 0}
-    - target: {fileID: 11469362, guid: ed6b879089f65804fa229bc61f98e751, type: 2}
-      propertyPath: KeyboardInputs.Array.data[3].Negative
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -10401,6 +10434,7 @@ GameObject:
   - 114: {fileID: 1840978292}
   - 114: {fileID: 1840978294}
   - 114: {fileID: 1840978295}
+  - 114: {fileID: 1840978296}
   m_Layer: 5
   m_Name: Keyboard Panel
   m_TagString: Untagged
@@ -10530,6 +10564,46 @@ MonoBehaviour:
   - {fileID: 2028521035}
   - {fileID: 1108859149}
   - {fileID: 1397892955}
+--- !u!114 &1840978296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1840978290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24aa06babb6f94a40acf74c8a4dfad9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 5
+  moveDelay: .5
+  Buttons:
+  - buttons:
+    - {fileID: 1055508113}
+    - {fileID: 1220375213}
+    - {fileID: 2135470026}
+    - {fileID: 1766893160}
+    - {fileID: 1418756555}
+    - {fileID: 394920774}
+    - {fileID: 1155207498}
+    - {fileID: 222192476}
+    - {fileID: 2029708524}
+    - {fileID: 1108859147}
+    - {fileID: 585710842}
+  - buttons:
+    - {fileID: 1426866114}
+    - {fileID: 1213321228}
+    - {fileID: 1721071834}
+    - {fileID: 1743323646}
+    - {fileID: 720889457}
+    - {fileID: 1832283704}
+    - {fileID: 2023419491}
+    - {fileID: 1471071937}
+    - {fileID: 2028521033}
+    - {fileID: 1397892953}
+    - {fileID: 127073399}
 --- !u!1 &1886415697
 GameObject:
   m_ObjectHideFlags: 0

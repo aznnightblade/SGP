@@ -96,6 +96,12 @@ public class Statistics : MonoBehaviour {
 	
 	}
 
+	public void UpdateStats () {
+		maxHealth = currHealth = initialHealth + healthPerEndurance * endurance;
+		critChance = initialCrit + critPerLuck * luck;
+		defense = initialDefense + defensePerEndurance * endurance;
+	}
+
 	// Only call this for enemies
 	public virtual void Damage (int damageTaken) {
 		if (shield > 0) {
@@ -111,7 +117,10 @@ public class Statistics : MonoBehaviour {
 			transform.parent.GetComponentInChildren<EnemyShieldbar> ().UpdateFillAmount ();
 		} else {
 			currHealth -= damageTaken;
-			transform.parent.GetComponentInChildren<EnemyHealthbar> ().UpdateFillAmount();
+			EnemyHealthbar healthbar = transform.parent.GetComponentInChildren<EnemyHealthbar> ();
+
+			if (healthbar != null)
+				healthbar.UpdateFillAmount();
 		}
 
 		if (currHealth <= 0) {
@@ -121,6 +130,14 @@ public class Statistics : MonoBehaviour {
             }
             else
             sounds.EnemySoundeffects[6].Play();
+            if (gameObject.name=="Joe")
+            {
+                GameManager.DLLShot = 1;
+            }
+            if (gameObject.name == "Justin")
+            {
+                GameManager.Chargeshot = 1;
+            }
 			DestroyObject();
 		}
 

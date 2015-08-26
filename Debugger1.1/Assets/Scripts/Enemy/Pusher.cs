@@ -97,13 +97,13 @@ public class Pusher : Statistics {
 	public override void OnCollisionEnter(Collision col) {
 		gameObject.GetComponent<Rigidbody> ().velocity = Vector3.zero;
 		
-		if (col.gameObject.tag == "Player") {
+		if (col.gameObject.tag == "Player Controller") {
 			attackingPlayer = true;
 		}
 	}
 	
 	void OnCollisionExit(Collision col) {
-		if (col.gameObject.tag == "Player") {
+		if (col.gameObject.tag == "Player Controller") {
 			attackingPlayer = false;
 		}
 	}

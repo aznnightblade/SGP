@@ -124,6 +124,8 @@ MonoBehaviour:
     - {fileID: 140700, guid: 3141207ffaf1fae408b448611696e6d7, type: 2}
     numToSpawn: 
   Spawn: 0
+  Type: 0
+  spawnPoints: []
   timeBetweenWaves: 10
   spawnTimer: 0
   maxSpawnDistance: 3
@@ -174,7 +176,7 @@ MonoBehaviour:
   color: 0
   money: 500
   exp: 200
-  sounds: {fileID: 0}
+  sounds: {fileID: 11447646, guid: 71781c32a7dd242428cf9cfcf1d8bfbe, type: 2}
   BossSwitches:
   - {fileID: 0}
   - {fileID: 0}
@@ -245,7 +247,12 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: sounds
+      value: 
+      objectReference: {fileID: 11447646, guid: 71781c32a7dd242428cf9cfcf1d8bfbe,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 138494}
