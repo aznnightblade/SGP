@@ -91,8 +91,8 @@ public class GameManager : MonoBehaviour {
 		FindObjectOfType<Player> ().Money = data.Credits;
 		FindObjectOfType<Player> ().EXP = data.XP;
 		FindObjectOfType<Player> ().newGame = data.newGame;
-        DLLShot = data.DLLShot;
-        Chargeshot = data.ChargeShot;
+      //  DLLShot = data.DLLShot;
+        //Chargeshot = data.ChargeShot;
 
 	}
      public void LoadPlayerstatsScene(SaveData _data)
@@ -109,8 +109,8 @@ public class GameManager : MonoBehaviour {
          FindObjectOfType<Player>().Money = _data.Credits;
          FindObjectOfType<Player>().EXP = _data.XP;
          FindObjectOfType<Player>().newGame = _data.newGame;
-         DLLShot = data.DLLShot;
-         Chargeshot = data.ChargeShot;
+         //DLLShot = data.DLLShot;
+         //Chargeshot = data.ChargeShot;
 
      }
 	public static void levelComplete(int _index)
