@@ -26,6 +26,7 @@ public class Player : Statistics {
     public Text healthText;
     public Image visualHealth;
     public float healthspeed;
+
 	// Use this for initialization
 	void Start () {
        

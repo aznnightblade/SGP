@@ -18,6 +18,8 @@ public class SaveData{
 	public bool SucessfulLoad;
 	public int newGame = 1;
 	public int MaxHealth = 0;
+    public int ChargeShot = 0;
+    public int DLLShot = 0;
 
 	public SaveData()
 	{
@@ -44,7 +46,8 @@ public class SaveData{
 		data.XP = PlayerPrefs.GetInt (_name + "XP");
 		data.Credits = PlayerPrefs.GetInt (_name + "CREDITS");
         data.newGame = PlayerPrefs.GetInt(_name + "NEWGAME");
-
+        data.ChargeShot = PlayerPrefs.GetInt(_name + "CHARGESHOT");
+        data.DLLShot = PlayerPrefs.GetInt(_name + "DLLSHOT");
 
 		return data;
 	}
@@ -77,6 +80,10 @@ public class SaveData{
         PlayerPrefs.SetInt(temp, _data.Credits);
         temp = _name + "NEWGAME";
         PlayerPrefs.SetInt(temp, _data.newGame);
+        temp = _name + "CHARGESHOT";
+        PlayerPrefs.SetInt(temp, _data.ChargeShot);
+        temp = _name + "DLLSHOT";
+        PlayerPrefs.SetInt(temp, _data.DLLShot);
 	}
 
 	//[MenuItem("Tools/DeleteAll")]

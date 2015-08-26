@@ -130,6 +130,14 @@ public class Statistics : MonoBehaviour {
             }
             else
             sounds.EnemySoundeffects[6].Play();
+            if (gameObject.name=="Joe")
+            {
+                GameManager.DLLShot = 1;
+            }
+            if (gameObject.name == "Justin")
+            {
+                GameManager.Chargeshot = 1;
+            }
 			DestroyObject();
 		}
 
