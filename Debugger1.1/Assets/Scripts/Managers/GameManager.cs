@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour {
 	static bool first = true;
 	public static bool quit = false;
 	public static bool loadfirst = true;
+    public static int Chargeshot = 0;
+    public static int DLLShot = 0;
 	void Awake(){
 		if (instance == null) {
 			instance = this;
@@ -40,6 +42,8 @@ public class GameManager : MonoBehaviour {
 			FindObjectOfType<Player> ().Money = 100;
 			FindObjectOfType<Player> ().EXP = 0;
 			FindObjectOfType<Player> ().newGame = 0;
+            Chargeshot = 0;
+            DLLShot = 0;
 			first = false;
 		} 
 
@@ -64,6 +68,8 @@ public class GameManager : MonoBehaviour {
 		data.Credits = FindObjectOfType<Player> ().Money;
 		data.XP = FindObjectOfType<Player> ().EXP;
 		data.newGame = FindObjectOfType<Player> ().newGame;
+        data.ChargeShot = Chargeshot;
+        data.DLLShot = DLLShot;
 	}
 	 public void LoadScene()
 	{
@@ -85,6 +91,8 @@ public class GameManager : MonoBehaviour {
 		FindObjectOfType<Player> ().Money = data.Credits;
 		FindObjectOfType<Player> ().EXP = data.XP;
 		FindObjectOfType<Player> ().newGame = data.newGame;
+        DLLShot = data.DLLShot;
+        Chargeshot = data.ChargeShot;
 
 	}
      public void LoadPlayerstatsScene(SaveData _data)
@@ -101,6 +109,8 @@ public class GameManager : MonoBehaviour {
          FindObjectOfType<Player>().Money = _data.Credits;
          FindObjectOfType<Player>().EXP = _data.XP;
          FindObjectOfType<Player>().newGame = _data.newGame;
+         DLLShot = data.DLLShot;
+         Chargeshot = data.ChargeShot;
 
      }
 	public static void levelComplete(int _index)
