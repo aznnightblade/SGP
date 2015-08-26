@@ -232,7 +232,7 @@ MonoBehaviour:
   color: 0
   money: 50
   exp: 50
-  sounds: {fileID: 0}
+  sounds: {fileID: 11447646, guid: 71781c32a7dd242428cf9cfcf1d8bfbe, type: 2}
   damageDelay: .5
 --- !u!114 &11436788
 MonoBehaviour:
@@ -561,6 +561,11 @@ Prefab:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: sounds
+      value: 
+      objectReference: {fileID: 11447646, guid: 71781c32a7dd242428cf9cfcf1d8bfbe,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 140700}
