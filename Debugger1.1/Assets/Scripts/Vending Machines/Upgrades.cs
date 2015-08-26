@@ -56,9 +56,9 @@ public class Upgrades : MonoBehaviour {
 		}
 	}
 
-	public void OnClick() {
+	public void ButtonClick() {
 		// When you hit the switch, can you afford the upgrade?
-		if (gameObject.name == "Confirm") {
+		if (gameObject.tag == "Confirm") {
 			switch (whatToUpgrade) {
 			case UpgradeType.STATS:
 				UpgradeStats ();
