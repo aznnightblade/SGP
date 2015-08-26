@@ -786,6 +786,66 @@ MonoBehaviour:
 Transform:
   m_PrefabParentObject: {fileID: 423352, guid: 71108b2f68b65d74e8ac8b19b852d1ae, type: 2}
   m_PrefabInternal: {fileID: 1412232706}
+--- !u!1 &298451582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 298451583}
+  - 33: {fileID: 298451586}
+  - 65: {fileID: 298451585}
+  - 114: {fileID: 298451584}
+  m_Layer: 0
+  m_Name: Teleport Zone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &298451583
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 298451582}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -553.859985, y: -266.573059, z: 19.7000008}
+  m_LocalScale: {x: 25.6035995, y: 1.85729766, z: 24.7011166}
+  m_Children: []
+  m_Father: {fileID: 694492115}
+  m_RootOrder: 6
+--- !u!114 &298451584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 298451582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8afe29f6f552474f990f36f84c63a96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &298451585
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 298451582}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!33 &298451586
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 298451582}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &311076724 stripped
 Transform:
   m_PrefabParentObject: {fileID: 471066, guid: 8e5bf2025710e8f4786c94f1e73cf226, type: 2}
@@ -3280,6 +3340,7 @@ RectTransform:
   - {fileID: 644142668}
   - {fileID: 2118286598}
   - {fileID: 1729935493}
+  - {fileID: 298451583}
   m_Father: {fileID: 1888017135}
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
@@ -4082,7 +4143,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22493810, guid: 1b3721dd2e38339479213ebe6c016c5a, type: 2}
       propertyPath: m_RootOrder
-      value: 17
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 22493810, guid: 1b3721dd2e38339479213ebe6c016c5a, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -4873,7 +4934,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 438940, guid: c3e2fd0c274a3394caddb859121aeaec, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c3e2fd0c274a3394caddb859121aeaec, type: 2}
@@ -6117,6 +6178,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11450794, guid: 8cce1cfd25a7fdb4c991a3811cc84564, type: 2}
+      propertyPath: teleportLocations.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 433502, guid: 8cce1cfd25a7fdb4c991a3811cc84564, type: 2}
       propertyPath: m_LocalPosition.x
       value: 18.5599995
@@ -6147,24 +6212,8 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 433502, guid: 8cce1cfd25a7fdb4c991a3811cc84564, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 11431930, guid: 8cce1cfd25a7fdb4c991a3811cc84564, type: 2}
-      propertyPath: spawnPoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 1503088995}
-    - target: {fileID: 11431930, guid: 8cce1cfd25a7fdb4c991a3811cc84564, type: 2}
-      propertyPath: spawnPoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 1647800417}
-    - target: {fileID: 11431930, guid: 8cce1cfd25a7fdb4c991a3811cc84564, type: 2}
-      propertyPath: spawnPoints.Array.data[2]
-      value: 
-      objectReference: {fileID: 1759322421}
-    - target: {fileID: 11431930, guid: 8cce1cfd25a7fdb4c991a3811cc84564, type: 2}
-      propertyPath: spawnPoints.Array.data[3]
-      value: 
-      objectReference: {fileID: 59927813}
     - target: {fileID: 11450794, guid: 8cce1cfd25a7fdb4c991a3811cc84564, type: 2}
       propertyPath: conveyorBelts.Array.data[0]
       value: 
@@ -6230,6 +6279,10 @@ Prefab:
       value: 
       objectReference: {fileID: 1447790010}
     - target: {fileID: 11450794, guid: 8cce1cfd25a7fdb4c991a3811cc84564, type: 2}
+      propertyPath: teleportZone
+      value: 
+      objectReference: {fileID: 298451583}
+    - target: {fileID: 11450794, guid: 8cce1cfd25a7fdb4c991a3811cc84564, type: 2}
       propertyPath: Teleporter
       value: 
       objectReference: {fileID: 1368421763}
@@ -6237,6 +6290,38 @@ Prefab:
       propertyPath: Dampener
       value: 
       objectReference: {fileID: 838220282}
+    - target: {fileID: 11431930, guid: 8cce1cfd25a7fdb4c991a3811cc84564, type: 2}
+      propertyPath: spawnPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1503088995}
+    - target: {fileID: 11431930, guid: 8cce1cfd25a7fdb4c991a3811cc84564, type: 2}
+      propertyPath: spawnPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1647800417}
+    - target: {fileID: 11431930, guid: 8cce1cfd25a7fdb4c991a3811cc84564, type: 2}
+      propertyPath: spawnPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 1759322421}
+    - target: {fileID: 11431930, guid: 8cce1cfd25a7fdb4c991a3811cc84564, type: 2}
+      propertyPath: spawnPoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 59927813}
+    - target: {fileID: 11450794, guid: 8cce1cfd25a7fdb4c991a3811cc84564, type: 2}
+      propertyPath: teleportLocations.Array.data[1]
+      value: 
+      objectReference: {fileID: 1647800417}
+    - target: {fileID: 11450794, guid: 8cce1cfd25a7fdb4c991a3811cc84564, type: 2}
+      propertyPath: teleportLocations.Array.data[0]
+      value: 
+      objectReference: {fileID: 1503088995}
+    - target: {fileID: 11450794, guid: 8cce1cfd25a7fdb4c991a3811cc84564, type: 2}
+      propertyPath: teleportLocations.Array.data[2]
+      value: 
+      objectReference: {fileID: 1759322421}
+    - target: {fileID: 11450794, guid: 8cce1cfd25a7fdb4c991a3811cc84564, type: 2}
+      propertyPath: teleportLocations.Array.data[3]
+      value: 
+      objectReference: {fileID: 59927813}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8cce1cfd25a7fdb4c991a3811cc84564, type: 2}
   m_IsPrefabParent: 0

@@ -8,6 +8,10 @@ public class Justin : Statistics {
 	CardSpawner cardBase = null;
 	[SerializeField]
 	ConveyorBeltSpawner[] conveyorBelts = null;
+    [SerializeField]
+    Transform teleportZone = null;
+	[SerializeField]
+	Transform[] teleportLocations = null;
 	[SerializeField]
 	GameObject Teleporter = null;
 	[SerializeField]
@@ -113,6 +117,11 @@ public class Justin : Statistics {
 			FireBullets(2);
 			break;
 		case 3:
+			TeleportZoneScript teleport = teleportZone.GetComponent<TeleportZoneScript> ();
+
+			if(teleport.ContainsPlayer) {
+				target.parent.position = teleportLocations[Random.Range(0, teleportLocations.Length)].position;
+			}
 			break;
 		case 4:
 			FireBullets(4);
