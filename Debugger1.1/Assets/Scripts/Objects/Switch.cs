@@ -64,7 +64,7 @@ public class Switch : MonoBehaviour {
 		if (Health == MaxHealth) 
 		{
 			gameObject.GetComponentInChildren<Light> ().enabled = true;
-			if (Input.GetButtonDown ("Submit") && activateSwitch == true) {
+			if (InputManager.instance.GetButtonDown ("Submit") && activateSwitch == true) {
 				gameObject.GetComponentInChildren<Light> ().enabled = false;
 				Health = 0;
 				gameObject.GetComponentInChildren<Image>().fillAmount = 0;
