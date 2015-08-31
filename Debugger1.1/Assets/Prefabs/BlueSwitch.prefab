@@ -131,8 +131,8 @@ GameObject:
   m_Name: BlueSwitch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &406668
 Transform:
@@ -257,7 +257,7 @@ Light:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 151180}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 6
   m_Type: 2
   m_Color: {r: .220588207, g: .838742554, b: 1, a: 1}
@@ -333,10 +333,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 0
   MaxHealth: 100
-  colorNumber: 0
+  colorNumber: 3
   A: {fileID: 119278}
   B: {fileID: 117266}
-  Attached: []
+  Attached:
+  - {fileID: 0}
 --- !u!114 &11486108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -481,7 +482,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166206}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.08750844}
+  m_LocalPosition: {x: 0, y: 0, z: -22.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 455622}
@@ -492,7 +493,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -1.08664536, y: 1.96000004}
+  m_AnchoredPosition: {x: -4.58999634, y: 2.00999999}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000

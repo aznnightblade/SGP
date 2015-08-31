@@ -95,7 +95,7 @@ public class FireWaller : Statistics {
 	void OnTriggerExit (Collider col) {
 		if (col.gameObject.tag == "Enemy") {
            
-			if (col.gameObject.name != "FireWaller")
+			if (col.gameObject.name != "FireWaller" && col.gameObject.name != "Shielded Pusher")
 				col.GetComponent<Statistics> ().MaxShield = col.GetComponent<Statistics> ().Shield = 0;
 			else {
 				col.GetComponent<Statistics> ().MaxShield -= Mathf.CeilToInt(initialShieldAmount + increasePerIntelligence * gameObject.GetComponent<Statistics> ().Intelligence);
@@ -112,7 +112,7 @@ public class FireWaller : Statistics {
 			if (allies[index] == null)
 				continue;
 
-			if (allies[index].name != "FireWaller")
+			if (allies[index].name != "FireWaller" && allies[index].name != "Shielded Pusher")
 				allies[index].GetComponent<Statistics> ().MaxShield = allies[index].GetComponent<Statistics> ().Shield = 0;
 			else {
 				allies[index].GetComponent<Statistics> ().MaxShield -= Mathf.CeilToInt (initialShieldAmount + increasePerIntelligence * gameObject.GetComponent<Statistics> ().Intelligence);
