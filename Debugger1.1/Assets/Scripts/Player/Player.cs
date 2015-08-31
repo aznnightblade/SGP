@@ -14,7 +14,12 @@ public class Player : Statistics {
 	DLLColor.Color prevColor = DLLColor.Color.BLUE;
 	DLLColor.Color nextColor = DLLColor.Color.RED;
 	[SerializeField]
+	bool hasNegationBoots = false;
+	[SerializeField]
 	bool isHovering = false;
+	[SerializeField]
+	float hoverTime = 5.0f;
+	float hoverTimer = 5.0f;
 	[SerializeField]
 	Breakpoint breakpoint = null;
 	[SerializeField]
@@ -64,6 +69,21 @@ public class Player : Statistics {
             currHealth = maxHealth;
             Application.LoadLevel("Hubworld");
         }
+
+		if (isHovering) {
+			hoverTimer -= Time.deltaTime * GameManager.CTimeScale2;
+
+			if (hoverTimer <= 0.0f) {
+				hoverTimer = 0.0f;
+
+				isHovering = false;
+			} else if (hoverTimer < hoverTime) {
+				hoverTimer += Time.deltaTime * GameManager.CTimeScale2;
+
+				if (hoverTimer > hoverTime)
+					hoverTimer = hoverTime;
+			}
+		}
 	}
 
 	public void SetPosition (Vector3 position)
@@ -86,6 +106,10 @@ public class Player : Statistics {
 	public bool HasDLLs {
 		get { return hasDLLs; }
 		set { hasDLLs = value; }
+	}
+	public bool HasNegationBoots {
+		get { return hasNegationBoots; }
+		set { hasNegationBoots = value; }
 	}
 	public DLLColor.Color PrevColor {
 		get { return prevColor; }

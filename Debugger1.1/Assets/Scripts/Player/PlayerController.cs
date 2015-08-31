@@ -83,6 +83,12 @@ public class PlayerController : MonoBehaviour {
 				}
 			}
 
+			if (player.HasNegationBoots) {
+				if (InputManager.instance.GetButtonDown ("Hover")) {
+					player.IsHovering = !player.IsHovering;
+				}
+			}
+
 			for (int index = 0; index < player.Weapons.Length; index++) {
 				if (player.Weapons [index].ShotDelay > 0.0f) {
 					player.Weapons [index].ShotDelay -= Time.deltaTime;

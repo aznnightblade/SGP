@@ -130,21 +130,28 @@ public class Statistics : MonoBehaviour {
 		}
 
 		if (currHealth <= 0) {
-            if (gameObject.name=="Corruption")
-            {
+            if (gameObject.name=="Corruption") {
                 sounds.MiscSoundeffects[4].Play();
-            }
-            else
-            sounds.EnemySoundeffects[6].Play();
-            if (gameObject.name=="Joe")
-            {
+            } else
+            	sounds.EnemySoundeffects[6].Play();
+
+            if (gameObject.name=="Joe") {
                 GameManager.DLLShot = 1;
             }
-            if (gameObject.name == "Justin")
-            {
+
+            if (gameObject.name == "Justin") {
                 GameManager.Chargeshot = 1;
             }
-			DestroyObject();
+
+			if (gameObject.name == "Worm") {
+				gameObject.GetComponent<Trojan> ().OnDeath ();
+			}
+
+			if (gameObject.name == "Destructor") {
+				gameObject.GetComponent<Destructor> ().Detonate ();
+			} else {
+				DestroyObject();
+			}
 		}
 
 		hitTimer = hitRegenTimer;

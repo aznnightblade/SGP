@@ -64,7 +64,7 @@ public class BossEnemySpawning : MonoBehaviour {
 							pos.y = GameObject.FindGameObjectWithTag("Player Controller").transform.position.y;
 						} while (Physics.OverlapSphere(pos, enemyCollider[0].radius, layer).Length > 1);
 
-						Instantiate(Waves[spawn].EnemyTypes[index], pos, transform.rotation);
+						Instantiate(Waves[spawn].EnemyTypes[index], pos, Quaternion.identity);
 					}
 				}
 			} else {
@@ -82,7 +82,7 @@ public class BossEnemySpawning : MonoBehaviour {
 							pos.y = GameObject.FindGameObjectWithTag("Player Controller").transform.position.y;
 						} while (Physics.OverlapSphere(pos, enemyCollider[0].radius, layer).Length > 1);
 						
-						Instantiate(Waves[spawn].EnemyTypes[index], pos, transform.rotation);
+						Instantiate(Waves[spawn].EnemyTypes[index], pos, Quaternion.identity);
 					}
 				}
 			}
