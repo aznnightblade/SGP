@@ -31,7 +31,8 @@ public class Player : Statistics {
     public Text healthText;
     public Image visualHealth;
     public float healthspeed;
-
+    public Text experience;
+    public Text gold;
 	// Use this for initialization
 	void Start () {
        
@@ -84,6 +85,8 @@ public class Player : Statistics {
 					hoverTimer = hoverTime;
 			}
 		}
+        experience.text = "Current Experience: " + EXP;
+        gold.text = "Current Credits: " + Money;
 	}
 
 	public void SetPosition (Vector3 position)

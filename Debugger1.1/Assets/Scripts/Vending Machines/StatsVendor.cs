@@ -122,7 +122,7 @@ public class StatsVendor : MonoBehaviour {
         }
         if (gameObject.name == "Dexterity")
         {
-            _currentstatlvl = player.Strength;
+            _currentstatlvl = player.Dexterity;
             if (UpgradeCost())
             {
                 player.EXP -= _upgradecost;
