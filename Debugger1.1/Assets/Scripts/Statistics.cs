@@ -75,7 +75,7 @@ public class Statistics : MonoBehaviour {
 	int money = 0;
 	[SerializeField]
 	int exp = 0;
-    public SoundManager sounds;
+    
 	protected bool IsDisabled = false;
 	protected bool IsSlowed = false;
 	protected bool CanMove = true;
@@ -130,21 +130,28 @@ public class Statistics : MonoBehaviour {
 		}
 
 		if (currHealth <= 0) {
-            if (gameObject.name=="Corruption")
-            {
-                sounds.MiscSoundeffects[4].Play();
-            }
-            else
-            sounds.EnemySoundeffects[6].Play();
-            if (gameObject.name=="Joe")
-            {
+            if (gameObject.name=="Corruption") {
+                SoundManager.instance.MiscSoundeffects[4].Play();
+            } else
+            	SoundManager.instance.EnemySoundeffects[6].Play();
+
+            if (gameObject.name=="Joe") {
                 GameManager.DLLShot = 1;
             }
-            if (gameObject.name == "Justin")
-            {
+
+            if (gameObject.name == "Justin") {
                 GameManager.Chargeshot = 1;
             }
-			DestroyObject();
+
+			if (gameObject.name == "Worm") {
+				gameObject.GetComponent<Trojan> ().OnDeath ();
+			}
+
+			if (gameObject.name == "Destructor") {
+				gameObject.GetComponent<Destructor> ().Detonate ();
+			} else {
+				DestroyObject();
+			}
 		}
 
 		hitTimer = hitRegenTimer;

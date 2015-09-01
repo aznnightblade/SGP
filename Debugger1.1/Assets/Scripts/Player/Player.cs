@@ -14,7 +14,12 @@ public class Player : Statistics {
 	DLLColor.Color prevColor = DLLColor.Color.BLUE;
 	DLLColor.Color nextColor = DLLColor.Color.RED;
 	[SerializeField]
+	bool hasNegationBoots = false;
+	[SerializeField]
 	bool isHovering = false;
+	[SerializeField]
+	float hoverTime = 5.0f;
+	float hoverTimer = 5.0f;
 	[SerializeField]
 	Breakpoint breakpoint = null;
 	[SerializeField]
@@ -26,7 +31,8 @@ public class Player : Statistics {
     public Text healthText;
     public Image visualHealth;
     public float healthspeed;
-
+    public Text experience;
+    public Text gold;
 	// Use this for initialization
 	void Start () {
        
@@ -36,16 +42,15 @@ public class Player : Statistics {
         } 
 		critChance = initialCrit + critPerLuck * luck;
 		currWeapon = weapons [0];
-        sounds = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
 
 
-        for (int i = 0; i < sounds.PlayerSoundeffects.Count; i++)
+        for (int i = 0; i < SoundManager.instance.PlayerSoundeffects.Count; i++)
         {
-            sounds.PlayerSoundeffects[i].volume = PlayerPrefs.GetFloat("SFX")/ 100f;
+            SoundManager.instance.PlayerSoundeffects[i].volume = PlayerPrefs.GetFloat("SFX") / 100f;
         }
-        for (int i = 0; i < sounds.WeaponSoundeffects.Count; i++)
+        for (int i = 0; i < SoundManager.instance.WeaponSoundeffects.Count; i++)
         {
-            sounds.WeaponSoundeffects[i].volume = PlayerPrefs.GetFloat("SFX") / 100f;
+            SoundManager.instance.WeaponSoundeffects[i].volume = PlayerPrefs.GetFloat("SFX") / 100f;
         }
 	}
 	
@@ -60,10 +65,27 @@ public class Player : Statistics {
         HandleHealth();
         if (currHealth <= 0)
         {
-            sounds.PlayerSoundeffects[5].Play();
+            SoundManager.instance.PlayerSoundeffects[5].Play();
             currHealth = maxHealth;
             Application.LoadLevel("Hubworld");
         }
+
+		if (isHovering) {
+			hoverTimer -= Time.deltaTime * GameManager.CTimeScale2;
+
+			if (hoverTimer <= 0.0f) {
+				hoverTimer = 0.0f;
+
+				isHovering = false;
+			} else if (hoverTimer < hoverTime) {
+				hoverTimer += Time.deltaTime * GameManager.CTimeScale2;
+
+				if (hoverTimer > hoverTime)
+					hoverTimer = hoverTime;
+			}
+		}
+        experience.text = "Current Experience: " + EXP;
+        gold.text = "Current Credits: " + Money;
 	}
 
 	public void SetPosition (Vector3 position)
@@ -75,7 +97,7 @@ public class Player : Statistics {
 		// If the player is not in invulnerability state, deal damage to the player.
 		if (invulTimer <= 0.0f) {
 			currHealth -= damageTaken;
-            sounds.PlayerSoundeffects[4].Play();
+            SoundManager.instance.PlayerSoundeffects[4].Play();
 
 			invulTimer = invulTimePerDamage * damageTaken;
 		}
@@ -86,6 +108,10 @@ public class Player : Statistics {
 	public bool HasDLLs {
 		get { return hasDLLs; }
 		set { hasDLLs = value; }
+	}
+	public bool HasNegationBoots {
+		get { return hasNegationBoots; }
+		set { hasNegationBoots = value; }
 	}
 	public DLLColor.Color PrevColor {
 		get { return prevColor; }

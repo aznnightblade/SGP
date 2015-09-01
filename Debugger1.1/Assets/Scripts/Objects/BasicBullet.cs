@@ -27,22 +27,22 @@ public class BasicBullet : Weapon {
 
                     if (col.gameObject.tag != "Player" && col.gameObject.tag != "Dampener")
                     {
-                        sounds.EnemySoundeffects[4].Play();
+                        SoundManager.instance.EnemySoundeffects[4].Play();
                         colStats.Damage(Mathf.CeilToInt(damage));
                     }
                     else if (col.gameObject.tag == "Dampener" && ChargeScale > 1.0f)
                     {
-                        sounds.MiscSoundeffects[5].Play();
+                        SoundManager.instance.MiscSoundeffects[5].Play();
                         colStats.Damage(Mathf.CeilToInt(damage));
                     }
                     else if (col.gameObject.tag == "Dampener" && ChargeScale <= 1.0f)
                     {
-                        sounds.MiscSoundeffects[6].Play();
+                        SoundManager.instance.MiscSoundeffects[6].Play();
                         colStats.Damage(0);
                     }
                     else
                     {
-                        sounds.PlayerSoundeffects[4].Play();
+                        SoundManager.instance.PlayerSoundeffects[4].Play();
                         col.gameObject.GetComponentInChildren<Player>().DamagePlayer(Mathf.CeilToInt(damage));
                     }
 					if(col.gameObject.tag != "Player") {

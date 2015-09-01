@@ -12,12 +12,13 @@ GameObject:
   - 65: {fileID: 6548862}
   - 23: {fileID: 2317988}
   - 114: {fileID: 11421666}
+  - 65: {fileID: 6561700}
   m_Layer: 0
   m_Name: Companion Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &120668
 GameObject:
@@ -33,8 +34,8 @@ GameObject:
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &142344
 GameObject:
@@ -49,8 +50,8 @@ GameObject:
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &419922
 Transform:
@@ -58,8 +59,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110332}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.67999983, y: 2.25999999, z: 3.61999989}
+  m_LocalRotation: {x: 0, y: -.707106829, z: 0, w: .707106709}
+  m_LocalPosition: {x: -65.6999969, y: 1.14999998, z: 38.2200012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 421634}
@@ -128,11 +129,23 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 110332}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1, z: 1.5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &6561700
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110332}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .999999762, y: 1, z: .999999762}
+  m_Center: {x: -3.81469727e-06, y: 0, z: -2.28881836e-05}
 --- !u!114 &11421666
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -144,7 +157,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23fceb9d926acaf44a06ea264a7b136d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Next: 0
+  Next: 1
   HubWorld: Hubworld
 --- !u!198 &19824442
 ParticleSystem:
@@ -1204,7 +1217,7 @@ ParticleSystemRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 0
   m_Materials:
-  - {fileID: 2100000, guid: b7a02170560c1e94abbea8bc7cb95e36, type: 2}
+  - {fileID: 0}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1

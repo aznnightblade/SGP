@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 public class SoundManager : MonoBehaviour {
-
+    public static SoundManager instance { get; private set; }
     public List<AudioSource> PlayerSoundeffects;
     public List<AudioSource> Music;
     public List<AudioSource> BossMusic;
@@ -12,7 +12,19 @@ public class SoundManager : MonoBehaviour {
 	public List<AudioSource> MiscSoundeffects;
     public List<AudioSource> MenuSFX;
 	// Use this for initialization
+
 	void Start () {
+
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+
+        DontDestroyOnLoad(gameObject);
 
         for (int i = 0; i < PlayerSoundeffects.Count; i++)
         {

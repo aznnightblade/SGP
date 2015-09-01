@@ -43,12 +43,12 @@ public class BasicMelee : Statistics {
 
 		if (attackingPlayer && delayTimer <= 0.0f) {
 			Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-            sounds.EnemySoundeffects[0].Play();
+            SoundManager.instance.EnemySoundeffects[0].Play();
 			float damage = (initialDamage + damagePerStrength * strength) - player.Defense;
 
 			if(damage < 0.0f)
 				damage = 0;
-            sounds.EnemySoundeffects[0].Play();
+             SoundManager.instance.EnemySoundeffects[0].Play();
 			player.DamagePlayer(Mathf.CeilToInt(damage));
 
 			delayTimer = damageDelay;
