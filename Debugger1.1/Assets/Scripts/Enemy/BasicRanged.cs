@@ -39,7 +39,7 @@ public class BasicRanged : Statistics {
 		}
 
 		if (Vector3.Distance (transform.position, target.position) <= maximumShotDistance && delayTimer <= 0.0f) {
-            sounds.EnemySoundeffects[1].Play();
+            SoundManager.instance.EnemySoundeffects[1].Play();
             FireBullet();
 
 			delayTimer = shotDelay;

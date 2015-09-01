@@ -75,7 +75,7 @@ public class Statistics : MonoBehaviour {
 	int money = 0;
 	[SerializeField]
 	int exp = 0;
-    public SoundManager sounds;
+    
 	protected bool IsDisabled = false;
 	protected bool IsSlowed = false;
 	protected bool CanMove = true;
@@ -131,9 +131,9 @@ public class Statistics : MonoBehaviour {
 
 		if (currHealth <= 0) {
             if (gameObject.name=="Corruption") {
-                sounds.MiscSoundeffects[4].Play();
+                SoundManager.instance.MiscSoundeffects[4].Play();
             } else
-            	sounds.EnemySoundeffects[6].Play();
+            	SoundManager.instance.EnemySoundeffects[6].Play();
 
             if (gameObject.name=="Joe") {
                 GameManager.DLLShot = 1;

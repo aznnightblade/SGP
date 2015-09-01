@@ -42,16 +42,15 @@ public class Player : Statistics {
         } 
 		critChance = initialCrit + critPerLuck * luck;
 		currWeapon = weapons [0];
-        sounds = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
 
 
-        for (int i = 0; i < sounds.PlayerSoundeffects.Count; i++)
+        for (int i = 0; i < SoundManager.instance.PlayerSoundeffects.Count; i++)
         {
-            sounds.PlayerSoundeffects[i].volume = PlayerPrefs.GetFloat("SFX")/ 100f;
+            SoundManager.instance.PlayerSoundeffects[i].volume = PlayerPrefs.GetFloat("SFX") / 100f;
         }
-        for (int i = 0; i < sounds.WeaponSoundeffects.Count; i++)
+        for (int i = 0; i < SoundManager.instance.WeaponSoundeffects.Count; i++)
         {
-            sounds.WeaponSoundeffects[i].volume = PlayerPrefs.GetFloat("SFX") / 100f;
+            SoundManager.instance.WeaponSoundeffects[i].volume = PlayerPrefs.GetFloat("SFX") / 100f;
         }
 	}
 	
@@ -66,7 +65,7 @@ public class Player : Statistics {
         HandleHealth();
         if (currHealth <= 0)
         {
-            sounds.PlayerSoundeffects[5].Play();
+            SoundManager.instance.PlayerSoundeffects[5].Play();
             currHealth = maxHealth;
             Application.LoadLevel("Hubworld");
         }
@@ -98,7 +97,7 @@ public class Player : Statistics {
 		// If the player is not in invulnerability state, deal damage to the player.
 		if (invulTimer <= 0.0f) {
 			currHealth -= damageTaken;
-            sounds.PlayerSoundeffects[4].Play();
+            SoundManager.instance.PlayerSoundeffects[4].Play();
 
 			invulTimer = invulTimePerDamage * damageTaken;
 		}
