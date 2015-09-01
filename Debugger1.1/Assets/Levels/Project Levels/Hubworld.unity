@@ -8727,7 +8727,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
 --- !u!1 &784788865
 GameObject:
   m_ObjectHideFlags: 0
@@ -10559,12 +10559,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 908002641}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &908488789 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11453502, guid: bad108bd7c5945b4d9b68c4102aeae84,
-    type: 2}
-  m_PrefabInternal: {fileID: 697453847}
-  m_Script: {fileID: 11500000, guid: 38878e5e52cfc7341b0d18575c976c14, type: 3}
 --- !u!1 &918445327
 GameObject:
   m_ObjectHideFlags: 0
@@ -12216,22 +12210,16 @@ GameObject:
 --- !u!114 &1045433188
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11499250, guid: 5a4daafcb90d5ad45aa9bb93924072e5,
-    type: 2}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1045433187}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da093d32903b9e84da8684da46a3e66a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a79b22f70e893b41a897980dae4a922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Panel: {fileID: 0}
-  Button: {fileID: 0}
-  sounds: {fileID: 908488789}
-  Panel2: {fileID: 0}
-  text: {fileID: 0}
-  costtext: {fileID: 0}
-  something: 0
+  loadingLevel: StatsVendor
+  player: {fileID: 0}
 --- !u!23 &1045433189
 MeshRenderer:
   m_ObjectHideFlags: 0
