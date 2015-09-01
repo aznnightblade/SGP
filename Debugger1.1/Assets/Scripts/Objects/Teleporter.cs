@@ -10,7 +10,7 @@ public class Teleporter : MonoBehaviour {
     public SoundManager sounds;
 	bool isActive = true;
 	bool playerWarping = false;
-
+	public Dampener[] dampeners;
 	// Use this for initialization
 	void Start () {
         sounds = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
@@ -22,7 +22,6 @@ public class Teleporter : MonoBehaviour {
 		ParticleSystem particles = gameObject.GetComponent<ParticleSystem> ();
 		particles.startSpeed = Vector3.Distance(transform.position, destination.position) / particles.startLifetime;
 	}
-
 	void FixedUpdate() {
 		if (playerWarping) {
 			Transform player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -85,5 +84,17 @@ public class Teleporter : MonoBehaviour {
 	public bool IsActive {
 		get { return isActive; }
 		set { ChangeState(value); }
+	}
+	void Update()
+	{
+		int count = 0;
+		for (int i = 0; i < dampeners.Length; ++i) {
+			if(dampeners[i].Toggle == true)
+				count++;
+		}
+		if (count == dampeners.Length)
+			ChangeState (true);
+		else
+			ChangeState (false);
 	}
 }

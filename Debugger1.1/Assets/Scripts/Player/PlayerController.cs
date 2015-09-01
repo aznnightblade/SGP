@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour {
 				if (!sounds.PlayerSoundeffects [1].isPlaying && !sounds.PlayerSoundeffects [2].isPlaying)
 					sounds.PlayerSoundeffects [2].Play ();
 
-                if ((player.CurrWeapon.ChargeScale < player.CurrWeapon.MaxChargeScale) && GameManager.Chargeshot == 1)
+				if ((player.CurrWeapon.ChargeScale < player.CurrWeapon.MaxChargeScale)/* &&  GameManager.Chargeshot == 1*/)
                 {
 					player.CurrWeapon.ChargeScale += player.CurrWeapon.ChargePerTick;
 					player.CurrWeapon.ChargeDelay = player.CurrWeapon.DelayTime;
