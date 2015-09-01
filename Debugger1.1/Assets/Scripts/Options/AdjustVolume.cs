@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class AdjustVolume : MonoBehaviour
 {
-    public SoundManager sounds;
     public float sfxvalue;
     public float musicvalue;
     public Slider sfxslider;
@@ -18,7 +17,6 @@ public class AdjustVolume : MonoBehaviour
     {
         sfxslider.value = PlayerPrefs.GetFloat("SFX");
         musicslider.value = PlayerPrefs.GetFloat("Music");
-        sounds = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
     }
 
     void Update()
@@ -30,47 +28,47 @@ public class AdjustVolume : MonoBehaviour
     {
        
 
-        for (int i = 0; i < sounds.PlayerSoundeffects.Count; i++)
+        for (int i = 0; i <  SoundManager.instance.PlayerSoundeffects.Count; i++)
         {
-            sounds.PlayerSoundeffects[i].volume = sfxslider.value/100f;
+            SoundManager.instance.PlayerSoundeffects[i].volume = sfxslider.value / 100f;
         }
-        for (int i = 0; i < sounds.EnemySoundeffects.Count; i++)
+        for (int i = 0; i < SoundManager.instance.EnemySoundeffects.Count; i++)
         {
-            sounds.EnemySoundeffects[i].volume= sfxslider.value/100f;
+            SoundManager.instance.EnemySoundeffects[i].volume = sfxslider.value / 100f;
         }
-        for (int i = 0; i < sounds.BossSoundeffects.Count; i++)
+        for (int i = 0; i < SoundManager.instance.BossSoundeffects.Count; i++)
         {
-            sounds.BossSoundeffects[i].volume = sfxslider.value / 100f;
+            SoundManager.instance.BossSoundeffects[i].volume = sfxslider.value / 100f;
         }
-        for (int i = 0; i < sounds.WeaponSoundeffects.Count; i++)
+        for (int i = 0; i < SoundManager.instance.WeaponSoundeffects.Count; i++)
         {
-            sounds.WeaponSoundeffects[i].volume = sfxslider.value / 100f;
+            SoundManager.instance.WeaponSoundeffects[i].volume = sfxslider.value / 100f;
         }
-        for (int i = 0; i < sounds.MiscSoundeffects.Count; i++)
+        for (int i = 0; i < SoundManager.instance.MiscSoundeffects.Count; i++)
         {
-            sounds.MiscSoundeffects[i].volume = sfxslider.value / 100f;
+            SoundManager.instance.MiscSoundeffects[i].volume = sfxslider.value / 100f;
         }
 
         PlayerPrefs.SetFloat("SFX", sfxslider.value);
-        if (!sounds.PlayerSoundeffects[0].isPlaying && Play==true)
-            sounds.PlayerSoundeffects[0].Play();
+        if (!SoundManager.instance.PlayerSoundeffects[0].isPlaying && Play == true)
+            SoundManager.instance.PlayerSoundeffects[0].Play();
 
         Play = true;
     }
     public void AdjustMusic()
     {
-       
-        for (int i = 0; i < sounds.Music.Count; i++)
+
+        for (int i = 0; i < SoundManager.instance.Music.Count; i++)
         {
-            sounds.Music[i].volume = musicslider.value / 100f;
+            SoundManager.instance.Music[i].volume = musicslider.value / 100f;
         }
-        for (int i = 0; i < sounds.BossMusic.Count; i++)
+        for (int i = 0; i < SoundManager.instance.BossMusic.Count; i++)
         {
-            sounds.BossMusic[i].volume = musicslider.value / 100f;
+            SoundManager.instance.BossMusic[i].volume = musicslider.value / 100f;
         }
         PlayerPrefs.SetFloat("Music", musicslider.value);
 
-        if (!sounds.Music[0].isPlaying)
-            sounds.Music[0].Play();
+        if (!SoundManager.instance.Music[0].isPlaying)
+            SoundManager.instance.Music[0].Play();
     }
 }
