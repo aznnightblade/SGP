@@ -94,6 +94,8 @@ MonoBehaviour:
   maxHealth: 0
   shield: 0
   maxShield: 0
+  hitRegenTimer: 2
+  hitTimer: 0
   acceleration: 0
   velocity: 0
   maxVelocity: 0
@@ -124,10 +126,12 @@ MonoBehaviour:
   color: 0
   money: 0
   exp: 0
+  sounds: {fileID: 0}
   statToBuff: 6
   buffAmount: 1
   initShieldBuff: 50
   shieldIncreasePerLevel: 50
+  bullet: {fileID: 455734, guid: 03f693d2d88d30340bd8da95c9603087, type: 2}
   currLevel: 1
 --- !u!135 &13508640
 SphereCollider:
@@ -236,6 +240,10 @@ Prefab:
       propertyPath: healthPerEndurance
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 455734, guid: 03f693d2d88d30340bd8da95c9603087, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 122856}

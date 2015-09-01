@@ -77,12 +77,12 @@ public class Player : Statistics {
 				hoverTimer = 0.0f;
 
 				isHovering = false;
-			} else if (hoverTimer < hoverTime) {
-				hoverTimer += Time.deltaTime * GameManager.CTimeScale2;
-
-				if (hoverTimer > hoverTime)
-					hoverTimer = hoverTime;
-			}
+			} 
+		} else if (hoverTimer < hoverTime) {
+			hoverTimer += Time.deltaTime * GameManager.CTimeScale2;
+			
+			if (hoverTimer > hoverTime)
+				hoverTimer = hoverTime;
 		}
 	}
 
