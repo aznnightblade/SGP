@@ -13,15 +13,14 @@ public class PlayerController : MonoBehaviour {
 	
 	bool bulletFired = false;
     bool chargebullet = false;
-    public SoundManager sounds;
     public Image chargemeter;
     public Image Heatmeter;
 	// Use this for initialization
 	void Start () {
-        sounds = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
+
 		player = GetComponentInChildren<Player> ();
 		PlayerSprite = GameObject.FindGameObjectWithTag ("Player").transform;
-        sounds.PlayerSoundeffects[2].loop = true;
+         SoundManager.instance.PlayerSoundeffects[2].loop = true;
 	}
 	
 	// Update is called once per frame
@@ -53,10 +52,10 @@ public class PlayerController : MonoBehaviour {
 
 			if (InputManager.instance.GetButton ("Fire2") && !InputManager.instance.GetButton ("Fire1") && player.CurrWeapon.ChargeDelay <= 0.0f) {
 				if (player.CurrWeapon.ChargeScale == 1.0f)
-					sounds.PlayerSoundeffects [1].Play ();
-            
-				if (!sounds.PlayerSoundeffects [1].isPlaying && !sounds.PlayerSoundeffects [2].isPlaying)
-					sounds.PlayerSoundeffects [2].Play ();
+                    SoundManager.instance.PlayerSoundeffects[1].Play();
+
+                if (!SoundManager.instance.PlayerSoundeffects[1].isPlaying && !SoundManager.instance.PlayerSoundeffects[2].isPlaying)
+                    SoundManager.instance.PlayerSoundeffects[2].Play();
 
                 if ((player.CurrWeapon.ChargeScale < player.CurrWeapon.MaxChargeScale) && GameManager.Chargeshot == 1)
                 {
@@ -71,7 +70,7 @@ public class PlayerController : MonoBehaviour {
 
 			if (InputManager.instance.GetButtonDown ("Fire3")) {
 				player.Breakpoint.FireBreakpoint ();
-				sounds.WeaponSoundeffects [1].Play ();
+                SoundManager.instance.WeaponSoundeffects[1].Play();
 			}
 
 			if (player.HasDLLs) {
@@ -225,13 +224,13 @@ public class PlayerController : MonoBehaviour {
         if (chargebullet==true)
         {
             chargebullet = false;
-            sounds.PlayerSoundeffects[1].Stop();
-            sounds.PlayerSoundeffects[2].Stop();
-            sounds.PlayerSoundeffects[3].Play();
+            SoundManager.instance.PlayerSoundeffects[1].Stop();
+            SoundManager.instance.PlayerSoundeffects[2].Stop();
+            SoundManager.instance.PlayerSoundeffects[3].Play();
         }
         else if(chargebullet==false)
         {
-            sounds.PlayerSoundeffects[0].Play();
+            SoundManager.instance.PlayerSoundeffects[0].Play();
         }
 	}
 }

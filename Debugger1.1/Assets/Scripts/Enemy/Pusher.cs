@@ -73,7 +73,7 @@ public class Pusher : Statistics {
 		}
 
 		if (attackingPlayer && delayTimer <= 0.0f) {
-            sounds.EnemySoundeffects[0].Play();
+            SoundManager.instance.EnemySoundeffects[0].Play();
 			Player player = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Player>();
 			
 			float damage = (initialDamage + damagePerStrength * strength) - player.Defense;
