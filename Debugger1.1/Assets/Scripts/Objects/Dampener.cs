@@ -10,12 +10,12 @@ public class Dampener : Statistics {
 		}
 	}
 
-	void OnCollisionEnter(Collision col) {
+	public override void OnCollisionEnter(Collision col) {
 
 		if (col.gameObject.tag == "Player Bullet") {
 
 			if (currHealth <= 0) {
-                sounds.MiscSoundeffects[7].Play();
+                SoundManager.instance.MiscSoundeffects[7].Play();
 				Toggle = true;
 			}
 
