@@ -152,6 +152,8 @@ public class Statistics : MonoBehaviour {
 
             if (gameObject.name=="Corruption") {
                 SoundManager.instance.MiscSoundeffects[4].Play();
+                gameObject.GetComponent<Corruption>().LessAlpha();
+                
             } else
             	SoundManager.instance.EnemySoundeffects[6].Play();
 
