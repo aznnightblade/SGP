@@ -91,7 +91,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 139786}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 34.1982498, y: 1.40999997, z: -2.80773211}
+  m_LocalPosition: {x: -2.89408922, y: -1.85933852, z: -.320767045}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 470784}
@@ -105,7 +105,7 @@ MeshRenderer:
   m_GameObject: {fileID: 151402}
   m_Enabled: 1
   m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_ReceiveShadows: 0
   m_Materials:
   - {fileID: 2100000, guid: 628de003157465e4abdd7893c2e788d2, type: 2}
   m_SubsetIndices: 
@@ -172,6 +172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c108ce78c99d9824f8e9518f562a0a20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currMode: 0
   currHealth: 25
   maxHealth: 25
   shield: 0
@@ -208,7 +209,7 @@ MonoBehaviour:
   color: 0
   money: 0
   exp: 0
-  sounds: {fileID: 11447646, guid: 71781c32a7dd242428cf9cfcf1d8bfbe, type: 2}
+  IsCapturable: 0
 --- !u!114 &11456720
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -374,6 +375,23 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Carve
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7b08b8e9d8e9f614c94210fb642bf842,
+        type: 3}
+    - target: {fileID: 0}
+      propertyPath: m_LocalRotation.x
+      value: .707106829
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LocalRotation.w
+      value: .707106709
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
