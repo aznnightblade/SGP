@@ -41,7 +41,7 @@ public class Player : Statistics {
     public Text gold;
 	// Use this for initialization
 	void Start () {
-       
+        playersprite = GetComponentInChildren<SpriteRenderer>();
         if (newGame==1)
         {
             currHealth = maxHealth = initialHealth + healthPerEndurance * endurance;
@@ -58,6 +58,7 @@ public class Player : Statistics {
         {
             SoundManager.instance.WeaponSoundeffects[i].volume = PlayerPrefs.GetFloat("SFX") / 100f;
         }
+        
 	}
 	
 	// Update is called once per frame
@@ -102,6 +103,8 @@ public class Player : Statistics {
 	public void DamagePlayer (int damageTaken) {
 		// If the player is not in invulnerability state, deal damage to the player.
 		if (invulTimer <= 0.0f) {
+            StartCoroutine(collideFlash())
+            ;
 			currHealth -= damageTaken;
             SoundManager.instance.PlayerSoundeffects[4].Play();
 
@@ -184,8 +187,7 @@ public class Player : Statistics {
     {
         Material m = playersprite.material;
         Color32 c = playersprite.material.color;
-        playersprite.material = null;
-        playersprite.material.color = Color.white;
+        playersprite.material.color = new Color(1, 1, 1, 0);
         yield return new WaitForSeconds(0.1f);
         playersprite.material = m;
         playersprite.material.color = c;

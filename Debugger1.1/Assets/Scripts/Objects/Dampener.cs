@@ -21,7 +21,6 @@ public class Dampener : Statistics {
 			if (currHealth <= 0) {
 				teleporter.GetComponentInChildren<Teleporter> ().IsActive = true;
                 SoundManager.instance.MiscSoundeffects[7].Play();
-				DestroyObject ();
 			}
 		}
 	}
