@@ -7,10 +7,13 @@ public class Player : Statistics {
 	Transform shotLocation = null;
 	[SerializeField]
 	Weapon currWeapon = null;
+	int currWeaponCounter = 0;
 	[SerializeField]
 	Weapon[] weapons = null;
 	[SerializeField]
 	bool hasDLLs = false;
+	[SerializeField]
+	bool hasChargeShot = false;
 	DLLColor.Color prevColor = DLLColor.Color.BLUE;
 	DLLColor.Color nextColor = DLLColor.Color.RED;
 	[SerializeField]
@@ -20,6 +23,8 @@ public class Player : Statistics {
 	[SerializeField]
 	float hoverTime = 5.0f;
 	float hoverTimer = 5.0f;
+	[SerializeField]
+	Transform friend = null;
 	[SerializeField]
 	Breakpoint breakpoint = null;
 	[SerializeField]
@@ -77,12 +82,12 @@ public class Player : Statistics {
 				hoverTimer = 0.0f;
 
 				isHovering = false;
-			} else if (hoverTimer < hoverTime) {
-				hoverTimer += Time.deltaTime * GameManager.CTimeScale2;
-
-				if (hoverTimer > hoverTime)
-					hoverTimer = hoverTime;
-			}
+			} 
+		} else if (hoverTimer < hoverTime) {
+			hoverTimer += Time.deltaTime * GameManager.CTimeScale2;
+			
+			if (hoverTimer > hoverTime)
+				hoverTimer = hoverTime;
 		}
         experience.text = "Current Experience: " + EXP;
         gold.text = "Current Credits: " + Money;
@@ -103,15 +108,30 @@ public class Player : Statistics {
 		}
 	}
 
-	public Weapon CurrWeapon { get { return currWeapon; } }
+	public Weapon CurrWeapon { 
+		get { return currWeapon; }
+		set { currWeapon = value; }
+	}
+	public int CurrWeaponCounter {
+		get { return currWeaponCounter; }
+		set { currWeaponCounter = value; }
+	}
 	public Weapon[] Weapons { get { return weapons; } }
 	public bool HasDLLs {
 		get { return hasDLLs; }
 		set { hasDLLs = value; }
 	}
+	public bool HasChargeShot {
+		get { return hasChargeShot; }
+		set { hasChargeShot = value; }
+	}
 	public bool HasNegationBoots {
 		get { return hasNegationBoots; }
 		set { hasNegationBoots = value; }
+	}
+	public float HoverTime {
+		get { return hoverTime; }
+		set { hoverTime = value; }
 	}
 	public DLLColor.Color PrevColor {
 		get { return prevColor; }
@@ -120,6 +140,10 @@ public class Player : Statistics {
 	public DLLColor.Color NextColor {
 		get { return nextColor; }
 		set { nextColor = value; }
+	}
+	public Transform Friend {
+		get { return friend; }
+		set { friend = value; }
 	}
 	public Breakpoint Breakpoint { get { return breakpoint; } }
 	public int MultithreadLevel {

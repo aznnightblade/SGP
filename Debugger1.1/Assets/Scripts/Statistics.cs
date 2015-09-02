@@ -3,6 +3,10 @@ using System.Collections;
 
 public class Statistics : MonoBehaviour {
 
+	public enum Mode { Attack, Idle, Patrolling, Friendly, Deactivated };
+
+	[SerializeField]
+	protected Mode currMode = Mode.Attack;
 	[SerializeField]
 	protected int currHealth = 0;
 	[SerializeField]
@@ -75,6 +79,9 @@ public class Statistics : MonoBehaviour {
 	int money = 0;
 	[SerializeField]
 	int exp = 0;
+
+	[SerializeField]
+	bool IsCapturable = false;
     
 	protected bool IsDisabled = false;
 	protected bool IsSlowed = false;
@@ -109,8 +116,8 @@ public class Statistics : MonoBehaviour {
 	}
 
 	// Only call this for enemies
-	public virtual void Damage (int damageTaken) {
-		if (shield > 0) {
+	public virtual void Damage (int damageTaken, Transform bullet) {
+		if (shield > 0 && bullet.gameObject.layer != LayerMask.NameToLayer("Waveshot Bullet")) {
 			if (shield >= damageTaken)
 				shield -= damageTaken;
 			else {
@@ -130,6 +137,19 @@ public class Statistics : MonoBehaviour {
 		}
 
 		if (currHealth <= 0) {
+			if (IsCapturable && bullet.name == "Friend Shot(Clone)") {
+				Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player> ();
+
+				if (player.Friend != null)
+					Destroy(player.Friend.gameObject);
+
+				player.Friend = (Instantiate(transform, transform.position, Quaternion.identity) as Transform);
+				Statistics friendStats = player.Friend.GetComponent<Statistics> ();
+				friendStats.CurrHealth = friendStats.MaxHealth;
+				friendStats.CurrMode = Mode.Friendly;
+				player.Friend.gameObject.SetActive(false);
+			}
+
             if (gameObject.name=="Corruption") {
                 SoundManager.instance.MiscSoundeffects[4].Play();
             } else
@@ -212,9 +232,13 @@ public class Statistics : MonoBehaviour {
 		get { return luck; }
 		set { luck = value; }
 	}
-	public DLLColor.Color Color {
+	public DLLColor.Color CurrColor {
 		get { return color; }
 		set { color = value; }
+	}
+	public Mode CurrMode {
+		get { return currMode; }
+		set { currMode = value; }
 	}
 	public int CurrHealth { 
 		get { return currHealth; }

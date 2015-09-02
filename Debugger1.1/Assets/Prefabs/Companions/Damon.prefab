@@ -94,6 +94,8 @@ MonoBehaviour:
   maxHealth: 0
   shield: 0
   maxShield: 0
+  hitRegenTimer: 2
+  hitTimer: 0
   acceleration: 0
   velocity: 0
   maxVelocity: 0
@@ -107,27 +109,28 @@ MonoBehaviour:
   defense: 0
   initialDefense: 0
   defensePerEndurance: 0
-  agility: 1
+  agility: 5
   shotDelay: 0
-  dexterity: 1
-  initialShotDistance: 0
-  increaseDistancePerDexerity: 0
-  intelligence: 1
+  dexterity: 2
+  initialShotDistance: 5
+  increaseDistancePerDexerity: 1
+  intelligence: 3
   initialCooldownReduction: 0
   reductionPerIntelligence: 0
-  luck: 1
+  luck: 2
   critChance: 0
-  initialCrit: 0
+  initialCrit: 10
   initialDropRate: 0
-  critPerLuck: 0
+  critPerLuck: 5
   dropRatePerLuck: 0
   color: 0
   money: 0
   exp: 0
   statToBuff: 3
   buffAmount: 1
-  initShieldBuff: 100
-  shieldIncreasePerLevel: 50
+  initShieldBuff: 50
+  shieldIncreasePerLevel: 45
+  bullet: {fileID: 455734, guid: 03f693d2d88d30340bd8da95c9603087, type: 2}
   currLevel: 1
 --- !u!135 &13508640
 SphereCollider:
@@ -153,7 +156,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -202,7 +205,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: initShieldBuff
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: strength
@@ -214,19 +217,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: agility
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: dexterity
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: intelligence
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: luck
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: initialHealth
@@ -235,6 +238,42 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: healthPerEndurance
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 455734, guid: 03f693d2d88d30340bd8da95c9603087, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_StoppingDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: shotDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: initialShotDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: increaseDistancePerDexerity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: critChance
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: initialCrit
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: critPerLuck
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: shieldIncreasePerLevel
+      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

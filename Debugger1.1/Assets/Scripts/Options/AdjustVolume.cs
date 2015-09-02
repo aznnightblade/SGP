@@ -11,7 +11,6 @@ public class AdjustVolume : MonoBehaviour
     public Slider musicslider;
     public Text sfxtext;
     public Text musictext;
-    bool Play = false;
 
     void Start()
     {
@@ -50,10 +49,10 @@ public class AdjustVolume : MonoBehaviour
         }
 
         PlayerPrefs.SetFloat("SFX", sfxslider.value);
-        if (!SoundManager.instance.PlayerSoundeffects[0].isPlaying && Play == true)
+        if (!SoundManager.instance.PlayerSoundeffects[0].isPlaying)
+        {
             SoundManager.instance.PlayerSoundeffects[0].Play();
-
-        Play = true;
+        }
     }
     public void AdjustMusic()
     {
@@ -70,5 +69,6 @@ public class AdjustVolume : MonoBehaviour
 
         if (!SoundManager.instance.Music[0].isPlaying)
             SoundManager.instance.Music[0].Play();
+
     }
 }

@@ -19,26 +19,26 @@ public class BasicBullet : Weapon {
 					if(damage <= 0.0f)
 						damage = 1;
 	
-					if(WeaknessCheck(color, colStats.Color) > 0) {
+					if(WeaknessCheck(color, colStats.CurrColor) > 0) {
 						damage *= 1.5f;
-					} else if (WeaknessCheck(color, colStats.Color) < 0) {
+					} else if (WeaknessCheck(color, colStats.CurrColor) < 0) {
 						damage *= 0.5f;
 					}
 
                     if (col.gameObject.tag != "Player" && col.gameObject.tag != "Dampener")
                     {
                         SoundManager.instance.EnemySoundeffects[4].Play();
-                        colStats.Damage(Mathf.CeilToInt(damage));
+                        colStats.Damage(Mathf.CeilToInt(damage), transform);
                     }
                     else if (col.gameObject.tag == "Dampener" && ChargeScale > 1.0f)
                     {
                         SoundManager.instance.MiscSoundeffects[5].Play();
-                        colStats.Damage(Mathf.CeilToInt(damage));
+						colStats.Damage(Mathf.CeilToInt(damage), transform);
                     }
                     else if (col.gameObject.tag == "Dampener" && ChargeScale <= 1.0f)
                     {
                         SoundManager.instance.MiscSoundeffects[6].Play();
-                        colStats.Damage(0);
+						colStats.Damage(0, transform);
                     }
                     else
                     {

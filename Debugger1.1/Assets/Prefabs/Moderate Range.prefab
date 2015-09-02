@@ -259,6 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df87de7e26ff3ab40b9e8a2df4be5a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currMode: 0
   currHealth: 0
   maxHealth: 0
   shield: 0
@@ -295,7 +296,7 @@ MonoBehaviour:
   color: 0
   money: 0
   exp: 0
-  sounds: {fileID: 11447646, guid: 71781c32a7dd242428cf9cfcf1d8bfbe, type: 2}
+  IsCapturable: 1
   bullet: {fileID: 477030, guid: 537370ef8cbeb98408728579714cf6ca, type: 2}
   maximumShotDistance: 6
 --- !u!114 &11430516
@@ -563,6 +564,10 @@ Prefab:
       value: 
       objectReference: {fileID: 11447646, guid: 71781c32a7dd242428cf9cfcf1d8bfbe,
         type: 2}
+    - target: {fileID: 0}
+      propertyPath: IsCapturable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 120728}

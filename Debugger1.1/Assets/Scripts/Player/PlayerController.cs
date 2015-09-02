@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField]
 	Transform PlayerSprite = null;
 	Player player = null;
+	Transform[] PlayerControlledObjects = new Transform[2];
+	int controlCounter = 0;
 
 	Vector3 moveDir = Vector3.zero;
 	Vector3 direction = Vector3.zero;
@@ -20,44 +22,48 @@ public class PlayerController : MonoBehaviour {
 
 		player = GetComponentInChildren<Player> ();
 		PlayerSprite = GameObject.FindGameObjectWithTag ("Player").transform;
-         SoundManager.instance.PlayerSoundeffects[2].loop = true;
+		PlayerControlledObjects [0] = transform;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (GameManager.CTimeScale2 > 0.0f) {
-			if (Time.timeScale > 0.0f) {
-				if (InputManager.instance.UsingController == false) {
-					previousLookDir = direction;
-					direction = Camera.main.WorldToScreenPoint (transform.position) - Input.mousePosition;
-				} else {
-					previousLookDir = direction;
-					direction = new Vector3 (InputManager.instance.GetAxisRaw ("Horizontal2"), InputManager.instance.GetAxisRaw ("Vertical2"), 0);
+			if (controlCounter == 0) {
+				if (Time.timeScale > 0.0f) {
+					if (InputManager.instance.UsingController == false) {
+						previousLookDir = direction;
+						direction = Camera.main.WorldToScreenPoint (transform.position) - Input.mousePosition;
+					} else {
+						previousLookDir = direction;
+						direction = new Vector3 (InputManager.instance.GetAxisRaw ("Horizontal2"), InputManager.instance.GetAxisRaw ("Vertical2"), 0);
 
-					if (direction == Vector3.zero)
-						direction = previousLookDir;
+						if (direction == Vector3.zero)
+							direction = previousLookDir;
+					}
 				}
+
+				direction.Normalize ();
+				float rot = (Mathf.Atan2 (-direction.y, direction.x) * 180 / Mathf.PI) - 90;
+				PlayerSprite.rotation = Quaternion.Euler (0, rot, 0);
 			}
 
-			direction.Normalize ();
-			float rot = (Mathf.Atan2 (-direction.y, direction.x) * 180 / Mathf.PI) - 90;
-			PlayerSprite.rotation = Quaternion.Euler (0, rot, 0);
-
-			if (((InputManager.instance.GetButton ("Fire1") || InputManager.instance.GetButtonUp ("Fire2")) && player.CurrWeapon.ShotDelay <= 0.0f)) {
+			if (((InputManager.instance.GetButton ("Fire1") || InputManager.instance.GetButtonUp ("Fire2")) && 
+			     (player.CurrWeapon.ShotDelay <= 0.0f && !player.CurrWeapon.OnCooldown))) {
 				bulletFired = true;
 
 				player.CurrWeapon.ShotDelay += player.CurrWeapon.InitialShotDelay - player.CurrWeapon.ShotDelayReductionPerAgility * player.Agility;
 				player.CurrWeapon.HeatGenerated += player.CurrWeapon.HeatPerShot * player.CurrWeapon.ChargeScale;
 			}
 
-			if (InputManager.instance.GetButton ("Fire2") && !InputManager.instance.GetButton ("Fire1") && player.CurrWeapon.ChargeDelay <= 0.0f) {
+			if (InputManager.instance.GetButton ("Fire2") && !InputManager.instance.GetButton ("Fire1") &&
+			    player.CurrWeapon.ChargeDelay <= 0.0f && !player.CurrWeapon.OnCooldown) {
 				if (player.CurrWeapon.ChargeScale == 1.0f)
                     SoundManager.instance.PlayerSoundeffects[1].Play();
 
                 if (!SoundManager.instance.PlayerSoundeffects[1].isPlaying && !SoundManager.instance.PlayerSoundeffects[2].isPlaying)
                     SoundManager.instance.PlayerSoundeffects[2].Play();
 
-				if ((player.CurrWeapon.ChargeScale < player.CurrWeapon.MaxChargeScale)/* &&  GameManager.Chargeshot == 1*/)
+                if ((player.CurrWeapon.ChargeScale < player.CurrWeapon.MaxChargeScale) && player.HasChargeShot)
                 {
 					player.CurrWeapon.ChargeScale += player.CurrWeapon.ChargePerTick;
 					player.CurrWeapon.ChargeDelay = player.CurrWeapon.DelayTime;
@@ -82,9 +88,35 @@ public class PlayerController : MonoBehaviour {
 				}
 			}
 
+			if (player.Weapons.Length > 1) {
+				if (InputManager.instance.GetButtonDown ("WeaponSwap")) {
+					if (InputManager.instance.GetAxisRaw ("WeaponSwap") > 0) {
+						NextWeapon ();
+					} else {
+						PrevWeapon ();
+					}
+				}
+			}
+
 			if (player.HasNegationBoots) {
 				if (InputManager.instance.GetButtonDown ("Hover")) {
 					player.IsHovering = !player.IsHovering;
+				}
+			}
+
+			if (InputManager.instance.GetButtonDown ("FriendToggle")) {
+				if (player.Friend != null) {
+					if (PlayerControlledObjects[1] == null) {
+						player.Friend.gameObject.SetActive(true);
+						PlayerControlledObjects[1] = player.Friend;
+						Camera.main.GetComponent<CameraFollow> ().Target = PlayerControlledObjects[1];
+						controlCounter = 1;
+					} else {
+						player.Friend.gameObject.SetActive(false);
+						PlayerControlledObjects[1] = null;
+						Camera.main.GetComponent<CameraFollow> ().Target = PlayerControlledObjects[0];
+						controlCounter = 0;
+					}
 				}
 			}
 
@@ -152,7 +184,7 @@ public class PlayerController : MonoBehaviour {
 
 			moveDir *= player.Velocity;
 
-			gameObject.GetComponent<Rigidbody> ().velocity = moveDir;
+			PlayerControlledObjects[controlCounter].GetComponent<Rigidbody> ().velocity = moveDir;
 
 			if (bulletFired)
 				FireBullet ();
@@ -167,16 +199,34 @@ public class PlayerController : MonoBehaviour {
 		else
 			player.NextColor++;
 	}
-
+	
 	void PrevColor () {
 		player.CurrWeapon.CurrColor = player.PrevColor;
-
+		
 		if (player.PrevColor == DLLColor.Color.NEUTRAL)
 			player.PrevColor = DLLColor.Color.BLUE;
 		else
 			player.PrevColor--;
 	}
 
+	void PrevWeapon () {
+		player.CurrWeaponCounter--;
+
+		if (player.CurrWeaponCounter == -1)
+			player.CurrWeaponCounter = player.Weapons.Length - 1;
+
+		player.CurrWeapon = player.Weapons [player.CurrWeaponCounter];
+	}
+
+	void NextWeapon () {
+		player.CurrWeaponCounter++;
+		
+		if (player.CurrWeaponCounter == player.Weapons.Length)
+			player.CurrWeaponCounter = 0;
+
+		player.CurrWeapon = player.Weapons [player.CurrWeaponCounter];
+	}
+	
 	void FireBullet(){
 		float rot = PlayerSprite.rotation.eulerAngles.y;
 		Vector3 pos = player.ShotLocation.position;

@@ -4,7 +4,6 @@ using System.Collections;
 public class CameraFollow : MonoBehaviour
 {
 
-
     [SerializeField]
     Transform target = null;
 
@@ -16,4 +15,9 @@ public class CameraFollow : MonoBehaviour
     {
         transform.position = new Vector3(target.position.x, target.position.y + distance, target.position.z);
     }
+
+	public Transform Target {
+		get { return target; }
+		set { target = value; }
+	}
 }
