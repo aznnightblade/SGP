@@ -7,10 +7,13 @@ public class Player : Statistics {
 	Transform shotLocation = null;
 	[SerializeField]
 	Weapon currWeapon = null;
+	int currWeaponCounter = 0;
 	[SerializeField]
 	Weapon[] weapons = null;
 	[SerializeField]
 	bool hasDLLs = false;
+	[SerializeField]
+	bool hasChargeShot = false;
 	DLLColor.Color prevColor = DLLColor.Color.BLUE;
 	DLLColor.Color nextColor = DLLColor.Color.RED;
 	[SerializeField]
@@ -103,11 +106,22 @@ public class Player : Statistics {
 		}
 	}
 
-	public Weapon CurrWeapon { get { return currWeapon; } }
+	public Weapon CurrWeapon { 
+		get { return currWeapon; }
+		set { currWeapon = value; }
+	}
+	public int CurrWeaponCounter {
+		get { return currWeaponCounter; }
+		set { currWeaponCounter = value; }
+	}
 	public Weapon[] Weapons { get { return weapons; } }
 	public bool HasDLLs {
 		get { return hasDLLs; }
 		set { hasDLLs = value; }
+	}
+	public bool HasChargeShot {
+		get { return hasChargeShot; }
+		set { hasChargeShot = value; }
 	}
 	public bool HasNegationBoots {
 		get { return hasNegationBoots; }

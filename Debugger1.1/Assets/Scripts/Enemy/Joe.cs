@@ -70,7 +70,7 @@ public class Joe : Statistics {
 		}
 	}
 
-	public override void Damage (int damage) {
+	public override void Damage (int damage, Transform bullet) {
 		if (!vulnerable) {
 			damage = Mathf.CeilToInt(damage * 0.2f);
 		}

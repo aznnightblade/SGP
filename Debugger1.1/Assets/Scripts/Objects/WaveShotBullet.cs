@@ -1,15 +1,45 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class WaveShotBullet : MonoBehaviour {
+public class WaveShotBullet : Weapon {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	void OnCollisionEnter(Collision col) {
+		if (col.gameObject.tag != owner.gameObject.tag && col.gameObject.tag != gameObject.tag) {
+			if (col.gameObject.tag != "Wall" && col.gameObject.tag != "ShieldWall" && col.gameObject.tag != "WorldObject") {
+				Statistics colStats = col.gameObject.GetComponent<Statistics> ();
+				
+				if (colStats != null) {
+					float damage = (initialDamage + owner.Strength * damagePerStrength) - colStats.Defense;
+					
+					if (damage <= 0.0f)
+						damage = 1;
+					
+					if (WeaknessCheck (color, colStats.Color) > 0) {
+						damage *= 1.5f;
+					} else if (WeaknessCheck (color, colStats.Color) < 0) {
+						damage *= 0.5f;
+					}
+					
+					if (col.gameObject.tag != "Dampener") {
+						SoundManager.instance.EnemySoundeffects [4].Play ();
+						colStats.Damage (Mathf.CeilToInt (damage), transform);
+					} else if (col.gameObject.tag == "Dampener" && ChargeScale > 1.0f) {
+						SoundManager.instance.MiscSoundeffects [5].Play ();
+						colStats.Damage (Mathf.CeilToInt (damage), transform);
+					} else if (col.gameObject.tag == "Dampener" && ChargeScale <= 1.0f) {
+						SoundManager.instance.MiscSoundeffects [6].Play ();
+						colStats.Damage (0, transform);
+					}
+
+					EnemyHealthbar healthbar = col.transform.parent.GetComponentInChildren<EnemyHealthbar> ();
+						
+					if (healthbar != null) {
+						healthbar.UpdateFillAmount ();
+					}
+				}
+				
+				Destroy (gameObject);
+			}
+		}
 	}
 }

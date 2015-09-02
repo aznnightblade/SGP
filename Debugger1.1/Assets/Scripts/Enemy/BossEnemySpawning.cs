@@ -100,7 +100,7 @@ public class BossEnemySpawning : MonoBehaviour {
 }
 
 [System.Serializable]
-struct Wave {
+public struct Wave {
 	public GameObject[] EnemyTypes;
 	public int[] numToSpawn;
 }

@@ -107,10 +107,6 @@ public class Weapon : MonoBehaviour {
 		return -1;
 	}
 
-	public void ProduceWeaponInfo() {
-
-	}
-
 	public Statistics Owner {
 		get { return owner; }
 		set { owner = value; }

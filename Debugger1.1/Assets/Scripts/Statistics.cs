@@ -109,8 +109,8 @@ public class Statistics : MonoBehaviour {
 	}
 
 	// Only call this for enemies
-	public virtual void Damage (int damageTaken) {
-		if (shield > 0) {
+	public virtual void Damage (int damageTaken, Transform bullet) {
+		if (shield > 0 && bullet.gameObject.layer != LayerMask.NameToLayer("Waveshot Bullet")) {
 			if (shield >= damageTaken)
 				shield -= damageTaken;
 			else {
