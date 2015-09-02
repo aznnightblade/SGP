@@ -21,6 +21,14 @@ public class SoundManager : MonoBehaviour {
         }
         else if (instance != this)
         {
+            for (int i = 0; i < Music.Count; i++)
+            {
+                Music[i].Stop();
+            }
+            for (int i = 0; i < BossMusic.Count; i++)
+            {
+                BossMusic[i].Stop();
+            }
             Destroy(gameObject);
         }
 
@@ -55,6 +63,9 @@ public class SoundManager : MonoBehaviour {
         {
             BossMusic[i].volume = PlayerPrefs.GetFloat("Music") / 100f;
         }
+
+       
+
 	}
 	
 	// Update is called once per frame

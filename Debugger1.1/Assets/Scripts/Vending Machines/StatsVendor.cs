@@ -7,7 +7,6 @@ public class StatsVendor : MonoBehaviour {
     bool triggerActive = false;
     public GameObject Panel;
     public GameObject Button;
-    public SoundManager sounds;
     public GameObject Panel2;
     public Text text;
     public Text costtext;
@@ -29,7 +28,6 @@ public class StatsVendor : MonoBehaviour {
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        sounds = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<SoundManager>();
         GetStats();
     }
 
@@ -100,7 +98,7 @@ public class StatsVendor : MonoBehaviour {
     public void Onclick()
     {
         Panel2.SetActive(false);
-        sounds.MiscSoundeffects[8].Play();
+        SoundManager.instance.MiscSoundeffects[8].Play();
         Panel.SetActive(false);
         Button.SetActive(false);
         if (gameObject.name=="Strength")

@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour {
 
 		player = GetComponentInChildren<Player> ();
 		PlayerSprite = GameObject.FindGameObjectWithTag ("Player").transform;
-         SoundManager.instance.PlayerSoundeffects[2].loop = true;
 	}
 	
 	// Update is called once per frame
