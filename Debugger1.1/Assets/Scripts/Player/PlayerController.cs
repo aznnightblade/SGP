@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField]
 	Transform PlayerSprite = null;
 	Player player = null;
+	Transform[] PlayerControlledObjects = new Transform[2];
+	int controlCounter = 0;
 
 	Vector3 moveDir = Vector3.zero;
 	Vector3 direction = Vector3.zero;
@@ -20,27 +22,30 @@ public class PlayerController : MonoBehaviour {
 
 		player = GetComponentInChildren<Player> ();
 		PlayerSprite = GameObject.FindGameObjectWithTag ("Player").transform;
+		PlayerControlledObjects [0] = transform;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (GameManager.CTimeScale2 > 0.0f) {
-			if (Time.timeScale > 0.0f) {
-				if (InputManager.instance.UsingController == false) {
-					previousLookDir = direction;
-					direction = Camera.main.WorldToScreenPoint (transform.position) - Input.mousePosition;
-				} else {
-					previousLookDir = direction;
-					direction = new Vector3 (InputManager.instance.GetAxisRaw ("Horizontal2"), InputManager.instance.GetAxisRaw ("Vertical2"), 0);
+			if (controlCounter == 0) {
+				if (Time.timeScale > 0.0f) {
+					if (InputManager.instance.UsingController == false) {
+						previousLookDir = direction;
+						direction = Camera.main.WorldToScreenPoint (transform.position) - Input.mousePosition;
+					} else {
+						previousLookDir = direction;
+						direction = new Vector3 (InputManager.instance.GetAxisRaw ("Horizontal2"), InputManager.instance.GetAxisRaw ("Vertical2"), 0);
 
-					if (direction == Vector3.zero)
-						direction = previousLookDir;
+						if (direction == Vector3.zero)
+							direction = previousLookDir;
+					}
 				}
-			}
 
-			direction.Normalize ();
-			float rot = (Mathf.Atan2 (-direction.y, direction.x) * 180 / Mathf.PI) - 90;
-			PlayerSprite.rotation = Quaternion.Euler (0, rot, 0);
+				direction.Normalize ();
+				float rot = (Mathf.Atan2 (-direction.y, direction.x) * 180 / Mathf.PI) - 90;
+				PlayerSprite.rotation = Quaternion.Euler (0, rot, 0);
+			}
 
 			if (((InputManager.instance.GetButton ("Fire1") || InputManager.instance.GetButtonUp ("Fire2")) && 
 			     (player.CurrWeapon.ShotDelay <= 0.0f && !player.CurrWeapon.OnCooldown))) {
@@ -96,6 +101,22 @@ public class PlayerController : MonoBehaviour {
 			if (player.HasNegationBoots) {
 				if (InputManager.instance.GetButtonDown ("Hover")) {
 					player.IsHovering = !player.IsHovering;
+				}
+			}
+
+			if (InputManager.instance.GetButtonDown ("FriendToggle")) {
+				if (player.Friend != null) {
+					if (PlayerControlledObjects[1] == null) {
+						player.Friend.gameObject.SetActive(true);
+						PlayerControlledObjects[1] = player.Friend;
+						Camera.main.GetComponent<CameraFollow> ().Target = PlayerControlledObjects[1];
+						controlCounter = 1;
+					} else {
+						player.Friend.gameObject.SetActive(false);
+						PlayerControlledObjects[1] = null;
+						Camera.main.GetComponent<CameraFollow> ().Target = PlayerControlledObjects[0];
+						controlCounter = 0;
+					}
 				}
 			}
 
@@ -163,7 +184,7 @@ public class PlayerController : MonoBehaviour {
 
 			moveDir *= player.Velocity;
 
-			gameObject.GetComponent<Rigidbody> ().velocity = moveDir;
+			PlayerControlledObjects[controlCounter].GetComponent<Rigidbody> ().velocity = moveDir;
 
 			if (bulletFired)
 				FireBullet ();

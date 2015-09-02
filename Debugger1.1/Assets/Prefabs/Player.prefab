@@ -377,7 +377,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerSprite: {fileID: 0}
-  sounds: {fileID: 0}
   chargemeter: {fileID: 0}
   Heatmeter: {fileID: 0}
 --- !u!114 &11439146
@@ -449,12 +448,13 @@ MonoBehaviour:
   color: 0
   money: 0
   exp: 0
-  sounds: {fileID: 11447646, guid: 71781c32a7dd242428cf9cfcf1d8bfbe, type: 2}
   shotLocation: {fileID: 423828}
   currWeapon: {fileID: 11460952, guid: 03f693d2d88d30340bd8da95c9603087, type: 2}
   weapons:
   - {fileID: 11460952, guid: 03f693d2d88d30340bd8da95c9603087, type: 2}
+  - {fileID: 11468706, guid: 83dec05f8a359414c8fee09faee45b8c, type: 2}
   hasDLLs: 1
+  hasChargeShot: 0
   hasNegationBoots: 0
   isHovering: 0
   hoverTime: 5
@@ -524,6 +524,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: weapons.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: chargemeter
       value: 
       objectReference: {fileID: 11459906, guid: e0a839ee4b9219e4b9b50840d15eb90f,
@@ -569,6 +573,11 @@ Prefab:
       propertyPath: m_Layer
       value: 11
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: weapons.Array.data[1]
+      value: 
+      objectReference: {fileID: 11468706, guid: 83dec05f8a359414c8fee09faee45b8c,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 129180}

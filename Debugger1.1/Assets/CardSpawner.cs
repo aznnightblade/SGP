@@ -46,7 +46,7 @@ public class CardSpawner : MonoBehaviour {
 
 		for (int index = 0; index < cards.Count; index++) {
 			cards [index].transform.parent = transform;
-			cards [index].GetComponent<Statistics> ().Color = (DLLColor.Color)Random.Range(0, 4);
+			cards [index].GetComponent<Statistics> ().CurrColor = (DLLColor.Color)Random.Range(0, 4);
 		}
 	}
 

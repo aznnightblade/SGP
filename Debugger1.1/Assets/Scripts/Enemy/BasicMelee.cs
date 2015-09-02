@@ -23,42 +23,46 @@ public class BasicMelee : Statistics {
 	
 	// Update is called once per frame
 	void Update () {
-		agent.destination = target.position;
+		if (currMode == Mode.Attack || currMode == Mode.Patrolling)
+			agent.destination = target.position;
 
 		RechargeShields ();
 
-		if (GameManager.CTimeScale == 0.0f) {
-			agent.velocity = Vector3.zero;
-			agent.updateRotation = false;
-		}
+		if (currMode != Mode.Friendly) {
+			if (GameManager.CTimeScale == 0.0f) {
+				agent.velocity = Vector3.zero;
+				agent.updateRotation = false;
+			}
 		
-		if (GameManager.CTimeScale > 0.0f && !agent.updateRotation) {
-			agent.updateRotation = true;
-		}
+			if (GameManager.CTimeScale > 0.0f && !agent.updateRotation) {
+				agent.updateRotation = true;
+			}
 
-        if (currHealth <= 0)
-        {
-            DestroyObject();
-        }
+			if (currHealth <= 0) {
+				DestroyObject ();
+			}
 
-		if (attackingPlayer && delayTimer <= 0.0f) {
-			Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-            SoundManager.instance.EnemySoundeffects[0].Play();
-			float damage = (initialDamage + damagePerStrength * strength) - player.Defense;
+			if (attackingPlayer && delayTimer <= 0.0f) {
+				Player player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
+				SoundManager.instance.EnemySoundeffects [0].Play ();
+				float damage = (initialDamage + damagePerStrength * strength) - player.Defense;
 
-			if(damage < 0.0f)
-				damage = 0;
-             SoundManager.instance.EnemySoundeffects[0].Play();
-			player.DamagePlayer(Mathf.CeilToInt(damage));
+				if (damage < 0.0f)
+					damage = 0;
+				SoundManager.instance.EnemySoundeffects [0].Play ();
+				player.DamagePlayer (Mathf.CeilToInt (damage));
 
-			delayTimer = damageDelay;
-		}
+				delayTimer = damageDelay;
+			}
 
-		if (delayTimer > 0.0f) {
-			delayTimer -= Time.deltaTime * GameManager.CTimeScale;
+			if (delayTimer > 0.0f) {
+				delayTimer -= Time.deltaTime * GameManager.CTimeScale;
 
-			if (delayTimer <= 0.0f)
-				delayTimer = 0.0f;
+				if (delayTimer <= 0.0f)
+					delayTimer = 0.0f;
+			}
+		} else if (agent.enabled == true) {
+			agent.enabled = false;
 		}
 	}
 

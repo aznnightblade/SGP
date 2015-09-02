@@ -24,6 +24,8 @@ public class Player : Statistics {
 	float hoverTime = 5.0f;
 	float hoverTimer = 5.0f;
 	[SerializeField]
+	Transform friend = null;
+	[SerializeField]
 	Breakpoint breakpoint = null;
 	[SerializeField]
 	int multithreadLevel = 1;
@@ -127,6 +129,10 @@ public class Player : Statistics {
 		get { return hasNegationBoots; }
 		set { hasNegationBoots = value; }
 	}
+	public float HoverTime {
+		get { return hoverTime; }
+		set { hoverTime = value; }
+	}
 	public DLLColor.Color PrevColor {
 		get { return prevColor; }
 		set { prevColor = value; }
@@ -134,6 +140,10 @@ public class Player : Statistics {
 	public DLLColor.Color NextColor {
 		get { return nextColor; }
 		set { nextColor = value; }
+	}
+	public Transform Friend {
+		get { return friend; }
+		set { friend = value; }
 	}
 	public Breakpoint Breakpoint { get { return breakpoint; } }
 	public int MultithreadLevel {
