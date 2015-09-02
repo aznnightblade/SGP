@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 public class Player : Statistics {
 
+    private SpriteRenderer playersprite;
 	[SerializeField]
 	Transform shotLocation = null;
 	[SerializeField]
@@ -168,5 +169,15 @@ public class Player : Statistics {
     {
         return (x - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
 
+    }
+    IEnumerator collideFlash()
+    {
+        Material m = playersprite.material;
+        Color32 c = playersprite.material.color;
+        playersprite.material = null;
+        playersprite.material.color = Color.white;
+        yield return new WaitForSeconds(0.1f);
+        playersprite.material = m;
+        playersprite.material.color = c;
     }
 }
