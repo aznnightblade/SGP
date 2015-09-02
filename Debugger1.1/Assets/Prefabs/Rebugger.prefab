@@ -322,6 +322,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01817926f102cf84db0e88843b63652d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currMode: 0
   currHealth: 0
   maxHealth: 0
   shield: 0
@@ -358,7 +359,7 @@ MonoBehaviour:
   color: 0
   money: 0
   exp: 0
-  sounds: {fileID: 11447646, guid: 71781c32a7dd242428cf9cfcf1d8bfbe, type: 2}
+  IsCapturable: 1
   healRange: 6
   detectRange: 20
   initialHealAmount: 3
@@ -576,6 +577,10 @@ Prefab:
       value: 
       objectReference: {fileID: 11447646, guid: 71781c32a7dd242428cf9cfcf1d8bfbe,
         type: 2}
+    - target: {fileID: 0}
+      propertyPath: IsCapturable
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 120994}

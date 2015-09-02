@@ -14,9 +14,9 @@ public class WaveShotBullet : Weapon {
 					if (damage <= 0.0f)
 						damage = 1;
 					
-					if (WeaknessCheck (color, colStats.Color) > 0) {
+					if (WeaknessCheck (color, colStats.CurrColor) > 0) {
 						damage *= 1.5f;
-					} else if (WeaknessCheck (color, colStats.Color) < 0) {
+					} else if (WeaknessCheck (color, colStats.CurrColor) < 0) {
 						damage *= 0.5f;
 					}
 					
