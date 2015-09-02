@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour {
 	public static bool loadfirst = true;
     public static int Chargeshot = 0;
     public static int DLLShot = 0;
+    public static int breakptlevel = 1;
+    public static int negationbootlevel = 1;
+    public static int multithreadlevel = 1;
 	void Awake(){
 		if (instance == null) {
 			instance = this;
