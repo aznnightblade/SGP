@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour {
 	[SerializeField]
 	Transform PlayerSprite = null;
 	Player player = null;
-	Transform[] PlayerControlledObjects = new Transform[2];
+	Transform[] playerControlledObjects = new Transform[2];
 	int controlCounter = 0;
 
 	Vector3 moveDir = Vector3.zero;
@@ -45,75 +45,75 @@ public class PlayerController : MonoBehaviour {
 				direction.Normalize ();
 				float rot = (Mathf.Atan2 (-direction.y, direction.x) * 180 / Mathf.PI) - 90;
 				PlayerSprite.rotation = Quaternion.Euler (0, rot, 0);
-			}
+					
+				if (((InputManager.instance.GetButton ("Fire1") || InputManager.instance.GetButtonUp ("Fire2")) && 
+				     (player.CurrWeapon.ShotDelay <= 0.0f && !player.CurrWeapon.OnCooldown))) {
+					bulletFired = true;
+	
+					player.CurrWeapon.ShotDelay += player.CurrWeapon.InitialShotDelay - player.CurrWeapon.ShotDelayReductionPerAgility * player.Agility;
+					player.CurrWeapon.HeatGenerated += player.CurrWeapon.HeatPerShot * player.CurrWeapon.ChargeScale;
+				}
 
-			if (((InputManager.instance.GetButton ("Fire1") || InputManager.instance.GetButtonUp ("Fire2")) && 
-			     (player.CurrWeapon.ShotDelay <= 0.0f && !player.CurrWeapon.OnCooldown))) {
-				bulletFired = true;
+				if (InputManager.instance.GetButton ("Fire2") && !InputManager.instance.GetButton ("Fire1") &&
+				    player.CurrWeapon.ChargeDelay <= 0.0f && !player.CurrWeapon.OnCooldown) {
+					if (player.CurrWeapon.ChargeScale == 1.0f)
+	                    SoundManager.instance.PlayerSoundeffects[1].Play();
 
-				player.CurrWeapon.ShotDelay += player.CurrWeapon.InitialShotDelay - player.CurrWeapon.ShotDelayReductionPerAgility * player.Agility;
-				player.CurrWeapon.HeatGenerated += player.CurrWeapon.HeatPerShot * player.CurrWeapon.ChargeScale;
-			}
+        	        if (!SoundManager.instance.PlayerSoundeffects[1].isPlaying && !SoundManager.instance.PlayerSoundeffects[2].isPlaying)
+        	            SoundManager.instance.PlayerSoundeffects[2].Play();
 
-			if (InputManager.instance.GetButton ("Fire2") && !InputManager.instance.GetButton ("Fire1") &&
-			    player.CurrWeapon.ChargeDelay <= 0.0f && !player.CurrWeapon.OnCooldown) {
-				if (player.CurrWeapon.ChargeScale == 1.0f)
-                    SoundManager.instance.PlayerSoundeffects[1].Play();
-
-                if (!SoundManager.instance.PlayerSoundeffects[1].isPlaying && !SoundManager.instance.PlayerSoundeffects[2].isPlaying)
-                    SoundManager.instance.PlayerSoundeffects[2].Play();
-
-                if ((player.CurrWeapon.ChargeScale < player.CurrWeapon.MaxChargeScale) && player.HasChargeShot)
-                {
-					player.CurrWeapon.ChargeScale += player.CurrWeapon.ChargePerTick;
-					player.CurrWeapon.ChargeDelay = player.CurrWeapon.DelayTime;
-					chargebullet = true;
+    	            if ((player.CurrWeapon.ChargeScale < player.CurrWeapon.MaxChargeScale) && player.HasChargeShot)
+    	            {
+						player.CurrWeapon.ChargeScale += player.CurrWeapon.ChargePerTick;
+						player.CurrWeapon.ChargeDelay = player.CurrWeapon.DelayTime;
+						chargebullet = true;
                
-					if (player.CurrWeapon.ChargeScale > player.CurrWeapon.MaxChargeScale)
-						player.CurrWeapon.ChargeScale = player.CurrWeapon.MaxChargeScale;	
-				}
-			}
-
-			if (InputManager.instance.GetButtonDown ("Fire3")) {
-				player.Breakpoint.FireBreakpoint ();
-                SoundManager.instance.WeaponSoundeffects[1].Play();
-			}
-
-			if (player.HasDLLs) {
-				if (InputManager.instance.GetButtonDown ("ColorSwap")) {
-					if (InputManager.instance.GetAxisRaw ("ColorSwap") > 0)
-						NextColor ();
-					else
-						PrevColor ();
-				}
-			}
-
-			if (player.Weapons.Length > 1) {
-				if (InputManager.instance.GetButtonDown ("WeaponSwap")) {
-					if (InputManager.instance.GetAxisRaw ("WeaponSwap") > 0) {
-						NextWeapon ();
-					} else {
-						PrevWeapon ();
+						if (player.CurrWeapon.ChargeScale > player.CurrWeapon.MaxChargeScale)
+							player.CurrWeapon.ChargeScale = player.CurrWeapon.MaxChargeScale;	
 					}
 				}
-			}
 
-			if (player.HasNegationBoots) {
-				if (InputManager.instance.GetButtonDown ("Hover")) {
-					player.IsHovering = !player.IsHovering;
+				if (InputManager.instance.GetButtonDown ("Fire3")) {
+					player.Breakpoint.FireBreakpoint ();
+    	            SoundManager.instance.WeaponSoundeffects[1].Play();
+				}
+
+				if (player.HasDLLs) {
+					if (InputManager.instance.GetButtonDown ("ColorSwap")) {
+						if (InputManager.instance.GetAxisRaw ("ColorSwap") > 0)
+							NextColor ();
+						else
+							PrevColor ();
+					}
+				}
+
+				if (player.Weapons.Length > 1) {
+					if (InputManager.instance.GetButtonDown ("WeaponSwap")) {
+						if (InputManager.instance.GetAxisRaw ("WeaponSwap") > 0) {
+							NextWeapon ();
+						} else {
+							PrevWeapon ();
+						}
+					}
+				}
+
+				if (player.HasNegationBoots) {
+					if (InputManager.instance.GetButtonDown ("Hover")) {
+						player.IsHovering = !player.IsHovering;
+					}
 				}
 			}
 
 			if (InputManager.instance.GetButtonDown ("FriendToggle")) {
 				if (player.Friend != null) {
-					if (PlayerControlledObjects[1] == null) {
+					if (playerControlledObjects[1] == null) {
 						player.Friend.gameObject.SetActive(true);
-						PlayerControlledObjects[1] = player.Friend;
+						playerControlledObjects[1] = player.Friend.GetChild(0);
 						Camera.main.GetComponent<CameraFollow> ().Target = PlayerControlledObjects[1];
 						controlCounter = 1;
 					} else {
 						player.Friend.gameObject.SetActive(false);
-						PlayerControlledObjects[1] = null;
+						playerControlledObjects[1] = null;
 						Camera.main.GetComponent<CameraFollow> ().Target = PlayerControlledObjects[0];
 						controlCounter = 0;
 					}
@@ -184,7 +184,7 @@ public class PlayerController : MonoBehaviour {
 
 			moveDir *= player.Velocity;
 
-			PlayerControlledObjects[controlCounter].GetComponent<Rigidbody> ().velocity = moveDir;
+			playerControlledObjects[controlCounter].GetComponent<Rigidbody> ().velocity = moveDir;
 
 			if (bulletFired)
 				FireBullet ();
@@ -262,7 +262,7 @@ public class PlayerController : MonoBehaviour {
 		bulletFired = false;
 	}
 
-	void CreateBullet (Transform weapon, Vector3 pos, float rot) {
+	public GameObject CreateBullet (Transform weapon, Vector3 pos, float rot) {
 		GameObject newBullet = (Instantiate (weapon, pos, Quaternion.Euler(0, rot, 0)) as Transform).gameObject;
 		//GameObject newBullet = Bullet.gameObject;
 		newBullet.tag = ("Player Bullet");
@@ -282,5 +282,13 @@ public class PlayerController : MonoBehaviour {
         {
             SoundManager.instance.PlayerSoundeffects[0].Play();
         }
+
+		return newBullet;
+	}
+
+	public Transform[] PlayerControlledObjects { get { return playerControlledObjects; } }
+	public int ControlCounter {
+		get { return controlCounter; }
+		set { controlCounter = value; }
 	}
 }

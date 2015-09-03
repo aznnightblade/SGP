@@ -18,7 +18,10 @@ public class DeletedMemory : MonoBehaviour {
 
 	void OnTriggerEnter(Collider col) {
 		if (col.tag == "Player" ) {
-			playerContacting = true;
+			if (col.name == "Player")
+				playerContacting = true;
+			else
+				col.gameObject.GetComponent<Enemy> ().Damage(9999, transform);
 		}
 	}
 

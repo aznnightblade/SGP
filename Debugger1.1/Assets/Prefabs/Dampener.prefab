@@ -47,7 +47,7 @@ GameObject:
   - 4: {fileID: 443074}
   m_Layer: 0
   m_Name: Dampener
-  m_TagString: Untagged
+  m_TagString: Dampener
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -193,10 +193,6 @@ MonoBehaviour:
   maxShield: 0
   hitRegenTimer: 2
   hitTimer: 0
-  acceleration: 0
-  velocity: 0
-  maxVelocity: 0
-  maxTurnRadius: 0
   strength: 0
   initialDamage: 0
   damagePerStrength: 0
@@ -217,13 +213,10 @@ MonoBehaviour:
   luck: 0
   critChance: 0
   initialCrit: 0
-  initialDropRate: 0
   critPerLuck: 0
-  dropRatePerLuck: 0
   color: 0
   money: 0
   exp: 0
-  sounds: {fileID: 11447646, guid: 71781c32a7dd242428cf9cfcf1d8bfbe, type: 2}
   teleporter: {fileID: 0}
 --- !u!114 &11461338
 MonoBehaviour:
@@ -329,6 +322,10 @@ Prefab:
       value: 
       objectReference: {fileID: 11447646, guid: 71781c32a7dd242428cf9cfcf1d8bfbe,
         type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Dampener
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 179112}

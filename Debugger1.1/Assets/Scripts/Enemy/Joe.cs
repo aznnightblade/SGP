@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Joe : Statistics {
+public class Joe : Enemy {
 
 	[SerializeField]
     GameObject[] BossSwitches = null;

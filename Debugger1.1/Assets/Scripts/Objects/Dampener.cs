@@ -14,7 +14,7 @@ public class Dampener : Statistics {
 		}
 	}
 
-	public override void OnCollisionEnter(Collision col) {
+	void OnCollisionEnter(Collision col) {
 
 		if (col.gameObject.tag == "Player Bullet") {
 
