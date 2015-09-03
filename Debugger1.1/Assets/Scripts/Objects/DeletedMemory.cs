@@ -8,6 +8,7 @@ public class DeletedMemory : MonoBehaviour {
 
 	void Start () {
 		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
+
 	}
 
 	void Update () {
