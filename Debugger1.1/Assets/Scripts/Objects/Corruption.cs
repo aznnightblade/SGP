@@ -2,18 +2,17 @@
 using System.Collections;
 
 public class Corruption : Statistics {
-
+    private Renderer corruption;
     void Start()
     {
-        
+        corruption = GetComponentInParent<Renderer>();
     }
 	void Update(){
-		if (CurrHealth <= 0)
-        {
-            SoundManager.instance.MiscSoundeffects[4].Play();
-            Destroy(gameObject);
-            
-        }
-			
+
 	}
+    public void LessAlpha()
+    {
+        float b = (float)(currHealth/maxHealth);
+        corruption.material.color = new Color(0, 0, 0, b);
+    }
 }

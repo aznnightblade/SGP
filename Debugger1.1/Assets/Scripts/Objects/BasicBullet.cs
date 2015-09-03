@@ -25,20 +25,10 @@ public class BasicBullet : Weapon {
 						damage *= 0.5f;
 					}
 
-                    if (col.gameObject.tag != "Player" && col.gameObject.tag != "Dampener")
+                    if (col.gameObject.tag != "Player")
                     {
                         SoundManager.instance.EnemySoundeffects[4].Play();
                         colStats.Damage(Mathf.CeilToInt(damage), transform);
-                    }
-                    else if (col.gameObject.tag == "Dampener" && ChargeScale > 1.0f)
-                    {
-                        SoundManager.instance.MiscSoundeffects[5].Play();
-						colStats.Damage(Mathf.CeilToInt(damage), transform);
-                    }
-                    else if (col.gameObject.tag == "Dampener" && ChargeScale <= 1.0f)
-                    {
-                        SoundManager.instance.MiscSoundeffects[6].Play();
-						colStats.Damage(0, transform);
                     }
                     else
                     {

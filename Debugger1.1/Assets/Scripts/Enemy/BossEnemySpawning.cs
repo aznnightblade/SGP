@@ -46,7 +46,7 @@ public class BossEnemySpawning : MonoBehaviour {
 			}
 
 			LayerMask layer = (1 << (LayerMask.NameToLayer("Enemy") | LayerMask.NameToLayer("Player")));
-
+            SoundManager.instance.BossSoundeffects[2].Play();
 			if(Type == SpawnLocation.OnTarget) {
 				for (int index = 0; index < Waves[spawn].EnemyTypes.Length; index++) {
 					SphereCollider[] enemyCollider = Waves[spawn].EnemyTypes[index].GetComponentsInChildren<SphereCollider> (true);

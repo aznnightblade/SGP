@@ -79,6 +79,7 @@ public class Joe : Enemy {
 
 		if (currHealth <= 0.0f) {
 			Teleporter.SetActive (true);
+            SoundManager.instance.BossSoundeffects[3].Play();
 			GameObject.FindGameObjectWithTag("Player").GetComponent<Player> ().HasDLLs = true;
 
 			DestroyObject();
@@ -148,6 +149,7 @@ public class Joe : Enemy {
 		}
 
 		if (win) {
+            SoundManager.instance.BossSoundeffects[0].Play();
 			if (player == 0) {
 				BossWin();
 			} else {
@@ -181,6 +183,7 @@ public class Joe : Enemy {
 	}
 
 	void BossWin () {
+        SoundManager.instance.BossSoundeffects[1].Play();
 		for (int index = 0; index < BossSwitches.Length; index++) {
 			Vector3 pos = BossSwitches[index].transform.position;
 			pos.y += .25f;
