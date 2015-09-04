@@ -1,28 +1,23 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BasicMelee : Statistics {
-
-	NavMeshAgent agent = null;
-	Transform target = null;
+public class BasicMelee : Enemy {
 
 	[SerializeField]
 	float damageDelay = 0.5f;
 	float delayTimer = 0.0f;
-	bool attackingPlayer = false;
+	bool attacking = false;
 
 	// Use this for initialization
 	void Start () {
-		currHealth = maxHealth = initialHealth + healthPerEndurance * endurance;
-		critChance = initialCrit + critPerLuck * luck;
-
-		agent = gameObject.GetComponent<NavMeshAgent> ();
-		target = GameObject.FindGameObjectWithTag ("Player").transform;
-		agent.destination = target.position;
+		UpdateStats ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (currMode == Mode.Patrolling)
+			UpdateWaypoints ();
+
 		if (currMode == Mode.Attack || currMode == Mode.Patrolling)
 			agent.destination = target.position;
 
@@ -38,11 +33,13 @@ public class BasicMelee : Statistics {
 				agent.updateRotation = true;
 			}
 
-			if (currHealth <= 0) {
-				DestroyObject ();
+			if (currMode == Mode.Attack) {
+				CheckForReset ();
+			} else if (currMode != Mode.Deactivated) {
+				CheckForPlayer ();
 			}
 
-			if (attackingPlayer && delayTimer <= 0.0f) {
+			if (attacking && delayTimer <= 0.0f) {
 				Player player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
 				SoundManager.instance.EnemySoundeffects [0].Play ();
 				float damage = (initialDamage + damagePerStrength * strength) - player.Defense;
@@ -54,29 +51,52 @@ public class BasicMelee : Statistics {
 
 				delayTimer = damageDelay;
 			}
-
-			if (delayTimer > 0.0f) {
-				delayTimer -= Time.deltaTime * GameManager.CTimeScale;
-
-				if (delayTimer <= 0.0f)
-					delayTimer = 0.0f;
+		} else {
+			if (agent.enabled == true) {
+				agent.enabled = false;
 			}
-		} else if (agent.enabled == true) {
-			agent.enabled = false;
+
+			if (target != null) {
+				if ((InputManager.instance.GetButton("Fire1") || InputManager.instance.GetButton("Fire2")) && delayTimer <= 0.0f) {
+					float damage = (initialDamage + damagePerStrength * strength) - target.GetComponent<Statistics> ().Defense;
+					
+					if (damage < 0.0f)
+						damage = 0;
+
+					target.GetComponent<Statistics> ().Damage(Mathf.CeilToInt (damage), transform);
+					SoundManager.instance.EnemySoundeffects [0].Play ();
+					delayTimer = damageDelay;
+				}
+			}
+		}
+
+		if (delayTimer > 0.0f) {
+			delayTimer -= Time.deltaTime * GameManager.CTimeScale;
+			
+			if (delayTimer <= 0.0f)
+				delayTimer = 0.0f;
 		}
 	}
 
-	public override void OnCollisionEnter(Collision col) {
-		gameObject.GetComponent<Rigidbody> ().velocity = Vector3.zero;
+	void OnCollisionEnter(Collision col) {
+		if (currMode != Mode.Friendly) {
+			gameObject.GetComponent<Rigidbody> ().velocity = Vector3.zero;
 
-		if (col.gameObject.tag == "Player Controller") {
-			attackingPlayer = true;
+			if (col.gameObject.tag == "Player Controller") {
+				attacking = true;
+			}
+		} else if (target == null && col.gameObject.tag != "Player Controller") {
+			target = col.transform;
 		}
 	}
 
 	void OnCollisionExit(Collision col) {
-		if (col.gameObject.tag == "Player Controller") {
-			attackingPlayer = false;
+		if (currMode != Mode.Friendly) {
+			if (col.gameObject.tag == "Player Controller") {
+				attacking = false;
+			}
+		} else if (col.transform == target) {
+			target = null;
 		}
 	}
 }

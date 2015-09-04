@@ -2,11 +2,7 @@
 using System.Collections;
 
 public class Statistics : MonoBehaviour {
-
-	public enum Mode { Attack, Idle, Patrolling, Friendly, Deactivated };
-
-	[SerializeField]
-	protected Mode currMode = Mode.Attack;
+	
 	[SerializeField]
 	protected int currHealth = 0;
 	[SerializeField]
@@ -19,14 +15,6 @@ public class Statistics : MonoBehaviour {
 	protected float hitRegenTimer = 2.0f;
 	[SerializeField]
 	protected float hitTimer = 0.0f;
-	[SerializeField]
-	protected float acceleration = 0;
-	[SerializeField]
-	protected float velocity = 0;
-	[SerializeField]
-	protected float maxVelocity = 0;
-	[SerializeField]
-	protected float maxTurnRadius = 0;
 	[SerializeField]
 	protected int strength = 0;
 	[SerializeField]
@@ -68,11 +56,7 @@ public class Statistics : MonoBehaviour {
 	[SerializeField]
 	protected float initialCrit = 0;
 	[SerializeField]
-	protected float initialDropRate = 0;
-	[SerializeField]
 	protected float critPerLuck = 0;
-	[SerializeField]
-	protected float dropRatePerLuck = 0;
 	[SerializeField]
 	protected DLLColor.Color color = DLLColor.Color.NEUTRAL;
 	[SerializeField]
@@ -80,30 +64,37 @@ public class Statistics : MonoBehaviour {
 	[SerializeField]
 	int exp = 0;
 
-	[SerializeField]
-	bool IsCapturable = false;
-    
-	protected bool IsDisabled = false;
-	protected bool IsSlowed = false;
-	protected bool CanMove = true;
+	public virtual void Damage (int damageTaken, Transform bullet) {
+		if (shield > 0 && bullet.gameObject.layer != LayerMask.NameToLayer("Waveshot Bullet")) {
+			if (shield >= damageTaken)
+				shield -= damageTaken;
+			else {
+				damageTaken -= shield;
+				shield = 0;
+				currHealth -= damageTaken;
+				transform.parent.GetComponentInChildren<EnemyHealthbar> ().UpdateFillAmount ();
+			}
+			
+			transform.parent.GetComponentInChildren<EnemyShieldbar> ().UpdateFillAmount ();
+		} else {
+			currHealth -= damageTaken;
+			EnemyHealthbar healthbar = transform.parent.GetComponentInChildren<EnemyHealthbar> ();
+			
+			if (healthbar != null)
+				healthbar.UpdateFillAmount();
+		}
 
-	public virtual void MoveObject() {
+		if (currHealth <= 0) {
+			if (gameObject.name=="Corruption") {
+				SoundManager.instance.MiscSoundeffects[4].Play();
+			} else
+				SoundManager.instance.EnemySoundeffects[6].Play();
 
+			Destroy (gameObject);
+		}
 	}
 
-	public virtual void PrimaryAction() {
-	
-	}
-
-	public virtual void SecondaryAction() {
-
-	}
-
-	public virtual void OnCollisionEnter(Collision col){
-	
-	}
-
-	public void UpdateStats () {
+	public virtual void UpdateStats () {
 		if (gameObject.tag == "Player") {
 			maxHealth = currHealth = initialHealth + healthPerEndurance * endurance;
 			critChance = initialCrit + critPerLuck * luck;
@@ -115,70 +106,6 @@ public class Statistics : MonoBehaviour {
 		}
 	}
 
-	// Only call this for enemies
-	public virtual void Damage (int damageTaken, Transform bullet) {
-		if (shield > 0 && bullet.gameObject.layer != LayerMask.NameToLayer("Waveshot Bullet")) {
-			if (shield >= damageTaken)
-				shield -= damageTaken;
-			else {
-				damageTaken -= shield;
-				shield = 0;
-				currHealth -= damageTaken;
-				transform.parent.GetComponentInChildren<EnemyHealthbar> ().UpdateFillAmount ();
-			}
-
-			transform.parent.GetComponentInChildren<EnemyShieldbar> ().UpdateFillAmount ();
-		} else {
-			currHealth -= damageTaken;
-			EnemyHealthbar healthbar = transform.parent.GetComponentInChildren<EnemyHealthbar> ();
-
-			if (healthbar != null)
-				healthbar.UpdateFillAmount();
-		}
-
-		if (currHealth <= 0) {
-			if (IsCapturable && bullet.name == "Friend Shot(Clone)") {
-				Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player> ();
-
-				if (player.Friend != null)
-					Destroy(player.Friend.gameObject);
-
-				player.Friend = (Instantiate(transform, transform.position, Quaternion.identity) as Transform);
-				Statistics friendStats = player.Friend.GetComponent<Statistics> ();
-				friendStats.CurrHealth = friendStats.MaxHealth;
-				friendStats.CurrMode = Mode.Friendly;
-				player.Friend.gameObject.SetActive(false);
-			}
-
-            if (gameObject.name=="Corruption") {
-                SoundManager.instance.MiscSoundeffects[4].Play();
-                gameObject.GetComponent<Corruption>().LessAlpha();
-                
-            } else
-            	SoundManager.instance.EnemySoundeffects[6].Play();
-
-            if (gameObject.name=="Joe") {
-                GameManager.DLLShot = 1;
-            }
-
-            if (gameObject.name == "Justin") {
-                GameManager.Chargeshot = 1;
-            }
-
-			if (gameObject.name == "Worm") {
-				gameObject.GetComponent<Trojan> ().OnDeath ();
-			}
-
-			if (gameObject.name == "Destructor") {
-				gameObject.GetComponent<Destructor> ().Detonate ();
-			} else {
-				DestroyObject();
-			}
-		}
-
-		hitTimer = hitRegenTimer;
-	}
-
 	public void RechargeShields() {
 		if (maxShield > 0) {
 			if (shield < maxShield && hitTimer <= 0.0f) {
@@ -186,9 +113,11 @@ public class Statistics : MonoBehaviour {
 
 				if (shield > maxShield)
 					shield = maxShield;
+			
+				EnemyShieldbar shieldBar = transform.parent.GetComponentInChildren<EnemyShieldbar> ();
 
-				if (gameObject.tag == "Enemy")
-					transform.parent.GetComponentInChildren<EnemyShieldbar> ().UpdateFillAmount ();
+				if (shieldBar != null)
+					shieldBar.UpdateFillAmount ();
 			}
 		}
 
@@ -200,13 +129,7 @@ public class Statistics : MonoBehaviour {
 		}
 	}
 
-	public void DestroyObject() {
-		Breakpoint breakpoint = GameObject.FindGameObjectWithTag ("Player").GetComponent<Breakpoint> ();
-		breakpoint.AddFill ();
-
-		if (gameObject.name == "FireWaller")
-			gameObject.GetComponent<FireWaller> ().RemoveShields ();
-
+	public virtual void DestroyObject() {
 		Destroy (transform.parent.gameObject);
 	}
 
@@ -237,10 +160,6 @@ public class Statistics : MonoBehaviour {
 	public DLLColor.Color CurrColor {
 		get { return color; }
 		set { color = value; }
-	}
-	public Mode CurrMode {
-		get { return currMode; }
-		set { currMode = value; }
 	}
 	public int CurrHealth { 
 		get { return currHealth; }
@@ -273,18 +192,6 @@ public class Statistics : MonoBehaviour {
 	public float CritChance {
 		get { return critChance; }
 		set { critChance = value; }
-	}
-	public float Velocity { 
-		get { return velocity; }
-		set{ velocity = value; }
-	}
-	public float MaxVelocity { 
-		get { return maxVelocity; }
-		set { maxVelocity = value; }
-	}
-	public float Acceleration { 
-		get { return acceleration; }
-		set { acceleration = value; }
 	}
 	public float InitialShotDistance { get { return initialShotDistance; } }
 	public float ShotDistancePerDexerity { get { return increaseDistancePerDexerity; } }

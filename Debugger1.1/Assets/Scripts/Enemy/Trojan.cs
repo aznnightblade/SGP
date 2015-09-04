@@ -1,10 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Trojan : Statistics {
-
-	NavMeshAgent agent = null;
-	Transform target = null;
+public class Trojan : Enemy {
 
 	[SerializeField]
 	Transform[] spawns = null;
@@ -26,37 +23,49 @@ public class Trojan : Statistics {
 		UpdateStats ();
 
 		spawnTimer = spawnDelay;
-		agent = GetComponent<NavMeshAgent> ();
-		target = GameObject.FindGameObjectWithTag ("Player").transform;
-
-		agent.destination = target.position;
-
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		agent.destination = target.position;
+		if (currMode == Mode.Patrolling)
+			UpdateWaypoints ();
+		
+		if (currMode == Mode.Attack || currMode == Mode.Patrolling)
+			agent.destination = target.position;
 
-		if (spawnTimer <= 0.0f) {
-			int random = Random.Range(0, 100);
-			int rangeMin = 0, rangeMax = 0;
-
-			for (int index = 0; index < spawns.Length; index++) {
-				rangeMax += spawnChances[index];
-				if(random >= rangeMin && random <= rangeMax) {
-					SpawnEnemy(index);
-					break;
-				}
-
-				rangeMin += spawnChances[index];
+		if (currMode != Mode.Friendly) {
+			if (GameManager.CTimeScale == 0.0f) {
+				agent.velocity = Vector3.zero;
+				agent.updateRotation = false;
+			}
+			
+			if (GameManager.CTimeScale > 0.0f && !agent.updateRotation) {
+				agent.updateRotation = true;
 			}
 
-			spawnTimer = spawnDelay;
-		} else if (spawnTimer > 0.0f) {
-			spawnTimer -= Time.deltaTime * GameManager.CTimeScale;
+			if (currMode == Mode.Attack) {
+				if (spawnTimer <= 0.0f) {
+					int random = Random.Range (0, 100);
+					int rangeMin = 0, rangeMax = 0;
 
-			if(spawnTimer < 0.0f)
-				spawnTimer = 0.0f;
+					for (int index = 0; index < spawns.Length; index++) {
+						rangeMax += spawnChances [index];
+						if (random >= rangeMin && random <= rangeMax) {
+							SpawnEnemy (index);
+							break;
+						}
+
+						rangeMin += spawnChances [index];
+					}
+
+					spawnTimer = spawnDelay;
+				} else if (spawnTimer > 0.0f) {
+					spawnTimer -= Time.deltaTime * GameManager.CTimeScale;
+
+					if (spawnTimer < 0.0f)
+						spawnTimer = 0.0f;
+				}
+			}
 		}
 	}
 

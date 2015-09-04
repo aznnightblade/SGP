@@ -3,7 +3,16 @@ using System.Collections;
 using UnityEngine.UI;
 public class Player : Statistics {
 
+	public enum COMPANIONS { Bill, Chris, Daemon, LeRoc, None };
+
     private SpriteRenderer playersprite;
+	[SerializeField]
+	protected float acceleration = 0;
+	[SerializeField]
+	protected float velocity = 0;
+	[SerializeField]
+	protected float maxVelocity = 0;
+
 	[SerializeField]
 	Transform shotLocation = null;
 	[SerializeField]
@@ -11,12 +20,13 @@ public class Player : Statistics {
 	int currWeaponCounter = 0;
 	[SerializeField]
 	Weapon[] weapons = null;
+
 	[SerializeField]
 	bool hasDLLs = false;
-	[SerializeField]
-	bool hasChargeShot = false;
 	DLLColor.Color prevColor = DLLColor.Color.BLUE;
 	DLLColor.Color nextColor = DLLColor.Color.RED;
+	[SerializeField]
+	bool hasChargeShot = false;
 	[SerializeField]
 	bool hasNegationBoots = false;
 	[SerializeField]
@@ -30,15 +40,22 @@ public class Player : Statistics {
 	Breakpoint breakpoint = null;
 	[SerializeField]
 	int multithreadLevel = 1;
+
 	[SerializeField]
 	float invulTimePerDamage = 0.1f;
 	float invulTimer = 0.0f;
+
+	[SerializeField]
+	int[] companions = new int[4];
+	COMPANIONS selectedCompanion = COMPANIONS.None;
+
 	public int newGame = 1;
     public Text healthText;
     public Image visualHealth;
     public float healthspeed;
     public Text experience;
     public Text gold;
+
 	// Use this for initialization
 	void Start () {
         playersprite = GetComponentInChildren<SpriteRenderer>();
@@ -112,6 +129,18 @@ public class Player : Statistics {
 		}
 	}
 
+	public float Velocity { 
+		get { return velocity; }
+		set{ velocity = value; }
+	}
+	public float MaxVelocity { 
+		get { return maxVelocity; }
+		set { maxVelocity = value; }
+	}
+	public float Acceleration { 
+		get { return acceleration; }
+		set { acceleration = value; }
+	}
 	public Weapon CurrWeapon { 
 		get { return currWeapon; }
 		set { currWeapon = value; }
@@ -159,6 +188,12 @@ public class Player : Statistics {
 	public bool IsHovering {
 		get { return isHovering; }
 		set { isHovering = value; }
+	}
+
+	public int[] Companions { get { return companions; } }
+	public COMPANIONS SelectedCompanion {
+		get { return selectedCompanion; }
+		set { selectedCompanion = value; }
 	}
 
     private void HandleHealth()

@@ -7,7 +7,6 @@ public class MenuInput : EventSystem {
 	[SerializeField]
 	float moveDelay = 0.5f;
 	float moveDelayTimer = 0.0f;
-	float lastTime = 0.0f;
 
     [SerializeField]
 	button[] Buttons = null;
@@ -17,7 +16,7 @@ public class MenuInput : EventSystem {
 	int currColumn = 0;
 
 	override protected void Start () {
-		lastTime = Time.timeSinceLevelLoad;
+
 	}
 
 	// Update is called once per frame
@@ -70,10 +69,8 @@ public class MenuInput : EventSystem {
 						ExecuteEvents.Execute (selectedButton, null, ExecuteEvents.submitHandler);
 				}
 			}
-		} else {
-			float currTime = Time.timeSinceLevelLoad;
-			moveDelayTimer -= currTime - lastTime;
-			lastTime = currTime;
+		} else if (moveDelayTimer > 0.0f) {
+			moveDelayTimer -= Time.deltaTime;
 
 			if (moveDelayTimer <= 0.0f)
 				moveDelayTimer = 0.0f;

@@ -8,7 +8,7 @@ public class BasicBullet : Weapon {
 			if(col.gameObject.tag != "Wall" && col.gameObject.tag != "WorldObject") {
 				Statistics colStats = null;
 
-				if (col.gameObject.tag != "Player")
+				if (col.gameObject.tag != "Player Controller")
 					colStats = col.gameObject.GetComponent<Statistics> ();
 				else
 					colStats = col.gameObject.GetComponentInChildren<Player> ();
