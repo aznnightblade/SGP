@@ -81,7 +81,7 @@ public class CompanionVendor : MonoBehaviour {
 		Panel2.SetActive(false);
 
 		print ("Got in OnClick()");
-
+        SoundManager.instance.CompanionSFX[1].Play();
 		if (player.Companions [(int)CompanionToUpgrade] < 5) {
 			int cost = 0;
 
