@@ -77,6 +77,10 @@ public class Statistics : MonoBehaviour {
 			
 			transform.parent.GetComponentInChildren<EnemyShieldbar> ().UpdateFillAmount ();
 		} else {
+            if (gameObject.name=="Bill"||gameObject.name=="Cris"||gameObject.name=="Le Roc"||gameObject.name=="Damon")
+            {
+                SoundManager.instance.CompanionSFX[0].Play();
+            }
 			currHealth -= damageTaken;
 			EnemyHealthbar healthbar = transform.parent.GetComponentInChildren<EnemyHealthbar> ();
 			

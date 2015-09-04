@@ -49,6 +49,7 @@ public class Companion : Statistics {
 		// apply stat buff if companion is alive, remove it when companion dies
 		if (currHealth <= 0) {
 			RemoveBuffs ();
+            SoundManager.instance.CompanionSFX[3].Play();
 			Destroy (gameObject);
 		}
 
@@ -156,6 +157,7 @@ public class Companion : Statistics {
 	}
 
 	void FireBullet () {
+        SoundManager.instance.CompanionSFX[2].Play();
 		Vector3 pos = transform.position;
 		Vector3 direction = pos - target.position;
 		float rot = -((Mathf.Atan2(direction.z, direction.x) * 180 / Mathf.PI) + 90.0f);
