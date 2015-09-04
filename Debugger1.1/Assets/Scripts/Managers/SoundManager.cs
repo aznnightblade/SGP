@@ -10,7 +10,7 @@ public class SoundManager : MonoBehaviour {
     public List<AudioSource> BossSoundeffects;
     public List<AudioSource> WeaponSoundeffects;
 	public List<AudioSource> MiscSoundeffects;
-    public List<AudioSource> MenuSFX;
+    public List<AudioSource> CompanionSFX;
 	// Use this for initialization
 
 	void Start () {

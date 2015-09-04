@@ -156,6 +156,7 @@ public class Companion : Statistics {
 	}
 
 	void FireBullet () {
+        SoundManager.instance.CompanionSFX[2].Play();
 		Vector3 pos = transform.position;
 		Vector3 direction = pos - target.position;
 		float rot = -((Mathf.Atan2(direction.z, direction.x) * 180 / Mathf.PI) + 90.0f);
