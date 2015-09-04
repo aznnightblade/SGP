@@ -58,6 +58,7 @@ public class Justin : Statistics {
 		if (currHealth <= 0) {
 			Teleporter.SetActive(true);
 			Dampener.SetActive(true);
+            SoundManager.instance.BossSoundeffects[7].Play();
 			DestroyObject();
 		}
 
@@ -102,13 +103,18 @@ public class Justin : Statistics {
 		int random = Random.Range (0, (int)UnoCards.WildDrawFour);
 
 		switch (random) {
-		case 0:
-			for(int index = 0; index < conveyorBelts.Length; index++) {
-				conveyorBelts[index].MoveDirection = -conveyorBelts[index].MoveDirection;
-			}
-			break;
+            case 0:
+                {
+                    SoundManager.instance.BossSoundeffects[6].Play();
+                    for (int index = 0; index < conveyorBelts.Length; index++)
+                    {
+                        conveyorBelts[index].MoveDirection = -conveyorBelts[index].MoveDirection;
+                    }
+                }
+                break;
 		case 1:
 			if (freezeTimer <= 0.0f) {
+                SoundManager.instance.BossSoundeffects[4].Play();
 				freezeTimer = freezePlayerDuration;
 				GameManager.CTimeScale2 = 0.0f;
 			}
@@ -118,7 +124,7 @@ public class Justin : Statistics {
 			break;
 		case 3:
 			TeleportZoneScript teleport = teleportZone.GetComponent<TeleportZoneScript> ();
-
+                SoundManager.instance.MiscSoundeffects[3].Play();
 			if(teleport.ContainsPlayer) {
 				target.parent.position = teleportLocations[Random.Range(0, teleportLocations.Length)].position;
 			}
@@ -152,6 +158,7 @@ public class Justin : Statistics {
 
 	void CreateBullet (Vector3 pos, Quaternion rot) {
 		GameObject newBullet = (Instantiate (bullet, pos, rot) as Transform).gameObject;
+        SoundManager.instance.BossSoundeffects[5].Play();
 		//GameObject newBullet = Bullet.gameObject;
 		newBullet.tag = ("Enemy Bullet");
 		newBullet.GetComponent<Weapon> ().Owner = this;
