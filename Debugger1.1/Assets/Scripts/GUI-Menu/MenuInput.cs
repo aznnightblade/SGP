@@ -69,11 +69,28 @@ public class MenuInput : EventSystem {
 						ExecuteEvents.Execute (selectedButton, null, ExecuteEvents.submitHandler);
 				}
 			}
+		} else if (!Input.anyKey) {
+			moveDelayTimer = 0.0f;
 		} else if (moveDelayTimer > 0.0f) {
 			moveDelayTimer -= Time.deltaTime;
 
 			if (moveDelayTimer <= 0.0f)
 				moveDelayTimer = 0.0f;
+		}
+
+		for (int column = 0; column < Buttons.Length; column++) {
+			for (int row = 0; row < Buttons[column].buttons.Length; row++) {
+				GameObject currButton = Buttons[column].buttons[row];
+
+
+				if (EventSystem.current.currentSelectedGameObject.gameObject == currButton) {
+					if (row != currRow || column != currColumn) {
+						currRow = row;
+						currColumn = column;
+						Buttons[currColumn].buttons[currRow].GetComponent<Button> ().Select();
+					}
+				}
+			}
 		}
 	}
 }
