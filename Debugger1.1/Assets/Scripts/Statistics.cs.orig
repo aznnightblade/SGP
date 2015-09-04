@@ -85,10 +85,40 @@ public class Statistics : MonoBehaviour {
 		}
 
 		if (currHealth <= 0) {
+<<<<<<< HEAD
 			if (gameObject.name=="Corruption") {
 				SoundManager.instance.MiscSoundeffects[4].Play();
 			} else
 				SoundManager.instance.EnemySoundeffects[6].Play();
+=======
+			if (IsCapturable && bullet.name == "Friend Shot(Clone)") {
+				Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player> ();
+
+				if (player.Friend != null)
+					Destroy(player.Friend.gameObject);
+
+				player.Friend = (Instantiate(transform, transform.position, Quaternion.identity) as Transform);
+				Statistics friendStats = player.Friend.GetComponent<Statistics> ();
+				friendStats.CurrHealth = friendStats.MaxHealth;
+				friendStats.CurrMode = Mode.Friendly;
+				player.Friend.gameObject.SetActive(false);
+			}
+
+            if (gameObject.name=="Corruption") {
+                SoundManager.instance.MiscSoundeffects[4].Play();
+                gameObject.GetComponent<Corruption>().LessAlpha();
+                
+            } else
+            	SoundManager.instance.EnemySoundeffects[6].Play();
+
+            if (gameObject.name=="Joe") {
+                GameManager.DLLShot = 1;
+            }
+
+            if (gameObject.name == "Justin") {
+                GameManager.Chargeshot = 1;
+            }
+>>>>>>> master
 
 			Destroy (gameObject);
 		}

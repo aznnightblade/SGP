@@ -1,0 +1,196 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class Enemy : Statistics {
+
+	public enum Mode { Attack, Idle, Patrolling, Friendly, Deactivated };
+
+	protected NavMeshAgent agent = null;
+	protected Transform target = null;
+
+	Vector3 direction = Vector3.zero;
+	Vector3 previousLookDir = Vector3.zero;
+	
+	[SerializeField]
+	protected Mode currMode = Mode.Attack;
+	[SerializeField]
+	protected Transform[] Waypoints = null;
+	int waypointCounter = 0;
+	[SerializeField]
+	protected float detectRange = 8.0f;
+	[SerializeField]
+	protected float maxDistance = 15.0f;
+
+	[SerializeField]
+	protected float initialDropRate = 0;
+	[SerializeField]
+	protected float dropRatePerLuck = 0;
+
+	[SerializeField]
+	protected bool IsCapturable = false;
+
+	public override void UpdateStats () {
+		maxHealth = currHealth = initialHealth * GameManager.difficulty + healthPerEndurance * endurance;
+		critChance = initialCrit * GameManager.difficulty + critPerLuck * luck;
+		defense = initialDefense * GameManager.difficulty + defensePerEndurance * endurance;
+
+		agent = gameObject.GetComponent<NavMeshAgent> ();
+
+		if (currMode == Mode.Deactivated) {
+			agent.updateRotation = false;
+			agent.updatePosition = false;
+			gameObject.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeAll;
+		}
+
+		if (currMode == Mode.Attack) {
+			target = GameObject.FindGameObjectWithTag ("Player").transform;
+			agent.destination = target.position;
+		}
+
+		if (currMode == Mode.Patrolling) {
+			target = Waypoints[waypointCounter];
+			agent.destination = target.position;
+		}
+	}
+
+	public virtual void UpdateWaypoints () {
+		if (agent.remainingDistance < 1.0f) {
+			if (waypointCounter >= Waypoints.Length - 1)
+				waypointCounter = 0;
+			else
+				waypointCounter++;
+
+			target = Waypoints[waypointCounter];
+		}
+	}
+
+	public virtual void CheckForPlayer () {
+		Transform player = GameObject.FindGameObjectWithTag ("Player").transform;
+
+		if (Vector3.Distance (transform.position, player.position) <= detectRange) {
+			target = player;
+			currMode = Mode.Attack;
+		}
+	}
+
+	public virtual void CheckForReset () {
+		Transform player = GameObject.FindGameObjectWithTag ("Player").transform;
+
+		if (Vector3.Distance (transform.position, player.position) >= maxDistance) {
+			if (Waypoints.Length > 0) {
+				target = Waypoints [waypointCounter];
+				currMode = Mode.Patrolling;
+			} else {
+				target = null;
+				currMode = Mode.Idle;
+				agent.destination = transform.position;
+			}
+		}
+	}
+
+	public override void Damage (int damageTaken, Transform bullet) {
+		if (shield > 0 && bullet.gameObject.layer != LayerMask.NameToLayer("Waveshot Bullet")) {
+			if (shield >= damageTaken)
+				shield -= damageTaken;
+			else {
+				damageTaken -= shield;
+				shield = 0;
+				currHealth -= damageTaken;
+				transform.parent.GetComponentInChildren<EnemyHealthbar> ().UpdateFillAmount ();
+			}
+			
+			transform.parent.GetComponentInChildren<EnemyShieldbar> ().UpdateFillAmount ();
+		} else {
+			currHealth -= damageTaken;
+			EnemyHealthbar healthbar = transform.parent.GetComponentInChildren<EnemyHealthbar> ();
+			
+			if (healthbar != null)
+				healthbar.UpdateFillAmount();
+		}
+		
+		if (currHealth <= 0) {
+			if (currMode != Mode.Friendly) {
+				if (IsCapturable && bullet.name == "Friend Shot(Clone)") {
+					Player player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
+				
+					if (player.Friend != null)
+						Destroy (player.Friend.gameObject);
+
+					target = null;
+					player.Friend = (Instantiate (transform.parent, transform.parent.position, Quaternion.identity) as Transform);
+					Enemy friendStats = player.Friend.GetComponentInChildren<Enemy> ();
+					friendStats.CurrHealth = friendStats.MaxHealth;
+					friendStats.CurrMode = Mode.Friendly;
+					player.Friend.GetChild(0).tag = player.tag;
+					player.Friend.GetChild (0).gameObject.layer = LayerMask.NameToLayer ("Player");
+					player.Friend.gameObject.SetActive (false);
+				}
+			
+				if (gameObject.name == "Joe") {
+					GameManager.DLLShot = 1;
+				}
+			
+				if (gameObject.name == "Justin") {
+					GameManager.Chargeshot = 1;
+				}
+			
+				if (gameObject.name == "Worm") {
+					gameObject.GetComponent<Trojan> ().OnDeath ();
+				}
+			
+				if (gameObject.name == "Destructor" && bullet.name != "Friend Shot(Clone)") {
+					gameObject.GetComponent<Destructor> ().Detonate ();
+				} else {
+					DestroyObject ();
+				}
+			} else {
+				PlayerController player = GameObject.FindGameObjectWithTag("Player Controller").GetComponent<PlayerController> ();
+				player.ControlCounter = 0;
+				player.PlayerControlledObjects[1] = null;
+				Camera.main.GetComponent<CameraFollow> ().Target = player.PlayerControlledObjects[0];
+				
+				Destroy(transform.parent.gameObject);
+			}
+		} 
+		
+		hitTimer = hitRegenTimer;
+	}
+
+	public override void DestroyObject() {
+		if (currMode != Mode.Friendly) {
+			Breakpoint breakpoint = GameObject.FindGameObjectWithTag ("Player").GetComponent<Breakpoint> ();
+			breakpoint.AddFill ();
+		
+			if (gameObject.name == "FireWaller")
+				gameObject.GetComponent<FireWaller> ().RemoveShields ();
+		
+			Destroy (transform.parent.gameObject);
+		} else {
+			Damage(9999, transform);
+		}
+	}
+
+	public void FaceMouse () {
+		if (Time.timeScale > 0.0f) {
+			if (InputManager.instance.UsingController == false) {
+				previousLookDir = direction;
+				direction = Camera.main.WorldToScreenPoint (transform.position) - Input.mousePosition;
+			} else {
+				previousLookDir = direction;
+				direction = new Vector3 (InputManager.instance.GetAxisRaw ("Horizontal2"), InputManager.instance.GetAxisRaw ("Vertical2"), 0);
+				
+				if (direction == Vector3.zero)
+					direction = previousLookDir;
+			}
+		}
+		
+		direction.Normalize ();
+		float rot = (Mathf.Atan2 (-direction.y, direction.x) * 180 / Mathf.PI) - 90;
+		transform.rotation = Quaternion.Euler (0, rot, 0);
+	}
+
+	public Mode CurrMode {
+		get { return currMode; }
+		set { currMode = value; }
+	}
+}

@@ -322,17 +322,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01817926f102cf84db0e88843b63652d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMode: 0
   currHealth: 0
   maxHealth: 0
   shield: 0
   maxShield: 0
   hitRegenTimer: 2
   hitTimer: 0
-  acceleration: 0
-  velocity: 0
-  maxVelocity: 0
-  maxTurnRadius: 0
   strength: 0
   initialDamage: 0
   damagePerStrength: 0
@@ -353,15 +348,18 @@ MonoBehaviour:
   luck: 0
   critChance: 0
   initialCrit: 0
-  initialDropRate: 0
   critPerLuck: 0
-  dropRatePerLuck: 0
   color: 0
   money: 0
   exp: 0
-  IsCapturable: 1
-  healRange: 6
+  currMode: 1
+  Waypoints: []
   detectRange: 20
+  maxDistance: 15
+  initialDropRate: 0
+  dropRatePerLuck: 0
+  IsCapturable: 0
+  healRange: 6
   initialHealAmount: 3
   increasePerIntelligence: 1
   healDelay: 1
@@ -579,6 +577,10 @@ Prefab:
         type: 2}
     - target: {fileID: 0}
       propertyPath: IsCapturable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: currMode
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
