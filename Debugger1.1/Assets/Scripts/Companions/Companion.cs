@@ -49,6 +49,7 @@ public class Companion : Statistics {
 		// apply stat buff if companion is alive, remove it when companion dies
 		if (currHealth <= 0) {
 			RemoveBuffs ();
+            SoundManager.instance.CompanionSFX[3].Play();
 			Destroy (gameObject);
 		}
 
