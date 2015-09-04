@@ -157,6 +157,11 @@ public class Rebugger : Enemy{
 				if (InputManager.instance.GetButtonDown("Fire1") || InputManager.instance.GetButtonDown("Fire2")) {
 					Dampener dampener = target.GetComponent<Dampener> ();
 
+					if (dampener.Toggle == true) {
+						dampener.Repair ();
+
+						delayTimer = healDelay;
+					}
 				}
 			}
 		}
@@ -170,12 +175,12 @@ public class Rebugger : Enemy{
 	}
 
 	void OnCollisionEnter (Collision col) {
-		if (currMode == Mode.Friendly && col.gameObject.tag == "Damepner") {
+		if (currMode == Mode.Friendly && col.gameObject.tag == "Dampener") {
 			target = col.transform;
 		}
 	}
 
-	void OnCollisionExit (Collider col) {
+	void OnCollisionExit (Collision col) {
 		if (currMode == Mode.Friendly && target == col.transform) {
 			target = null;
 		}

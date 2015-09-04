@@ -2921,7 +2921,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -34.493, y: -57.6899986, z: 44.2000008}
+  m_LocalPosition: {x: 3.11999989, y: -26.2779999, z: -13.79}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 416194}
@@ -7407,12 +7407,20 @@ MonoBehaviour:
     Positive: 304
     AltNegative: 0
     AltPositive: 0
-  - Name: 
+  - Name: WeaponSwap
+    axis: 
+    direction: 
+    axisDown: 
+    Negative: 113
+    Positive: 101
+    AltNegative: 0
+    AltPositive: 0
+  - Name: FriendToggle
     axis: 
     direction: 
     axisDown: 
     Negative: 0
-    Positive: 0
+    Positive: 306
     AltNegative: 0
     AltPositive: 0
   ControllerInputs:
@@ -8735,17 +8743,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca844a32592e8bf49baaee36238eea27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMode: 0
   currHealth: 0
   maxHealth: 0
   shield: 0
   maxShield: 0
   hitRegenTimer: 2
   hitTimer: 0
-  acceleration: 45
-  velocity: 0
-  maxVelocity: 15
-  maxTurnRadius: 0
   strength: 1
   initialDamage: 0
   damagePerStrength: 0
@@ -8766,19 +8769,21 @@ MonoBehaviour:
   luck: 1
   critChance: 0
   initialCrit: 0
-  initialDropRate: 0
   critPerLuck: 0
-  dropRatePerLuck: 0
   color: 0
   money: 0
   exp: 0
-  IsCapturable: 0
+  acceleration: 45
+  velocity: 0
+  maxVelocity: 15
   shotLocation: {fileID: 425844}
   currWeapon: {fileID: 11460952, guid: 03f693d2d88d30340bd8da95c9603087, type: 2}
   weapons:
   - {fileID: 11460952, guid: 03f693d2d88d30340bd8da95c9603087, type: 2}
-  hasDLLs: 0
-  hasChargeShot: 0
+  - {fileID: 11468706, guid: 83dec05f8a359414c8fee09faee45b8c, type: 2}
+  - {fileID: 11492286, guid: aae3aad06dd75f9469e9a42a3960f853, type: 2}
+  hasDLLs: 1
+  hasChargeShot: 1
   hasNegationBoots: 0
   isHovering: 0
   hoverTime: 5

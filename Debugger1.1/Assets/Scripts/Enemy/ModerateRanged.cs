@@ -21,7 +21,7 @@ public class ModerateRanged : Enemy {
 	void Start () {
 		UpdateStats ();
 
-		if (currMode != Mode.Friendly) {
+		if (currMode != Mode.Friendly && currMode != Mode.Deactivated) {
 			player = GameObject.FindGameObjectWithTag ("Player").transform;
 
 			flanks = GameObject.FindGameObjectsWithTag ("Ranged Flank");
@@ -100,7 +100,7 @@ public class ModerateRanged : Enemy {
 					}
 				}
 				
-				if (Vector3.Distance (transform.position, target.position) <= maximumShotDistance && delayTimer <= 0.0f) {
+				if (Vector3.Distance (transform.position, player.position) <= maximumShotDistance && delayTimer <= 0.0f) {
 					SoundManager.instance.EnemySoundeffects [1].Play ();
 					FireBullet ();
 					

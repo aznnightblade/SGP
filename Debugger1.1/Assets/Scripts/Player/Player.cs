@@ -3,6 +3,8 @@ using System.Collections;
 using UnityEngine.UI;
 public class Player : Statistics {
 
+	public enum COMPANIONS { Bill, Chris, Daemon, LeRoc, None };
+
     private SpriteRenderer playersprite;
 	[SerializeField]
 	protected float acceleration = 0;
@@ -42,6 +44,11 @@ public class Player : Statistics {
 	[SerializeField]
 	float invulTimePerDamage = 0.1f;
 	float invulTimer = 0.0f;
+
+	[SerializeField]
+	int[] companions = new int[4];
+	COMPANIONS selectedCompanion = COMPANIONS.None;
+
 	public int newGame = 1;
     public Text healthText;
     public Image visualHealth;
@@ -181,6 +188,12 @@ public class Player : Statistics {
 	public bool IsHovering {
 		get { return isHovering; }
 		set { isHovering = value; }
+	}
+
+	public int[] Companions { get { return companions; } }
+	public COMPANIONS SelectedCompanion {
+		get { return selectedCompanion; }
+		set { selectedCompanion = value; }
 	}
 
     private void HandleHealth()
