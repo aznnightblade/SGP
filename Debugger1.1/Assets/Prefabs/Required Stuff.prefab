@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 434808}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Left Ranged Flank
   m_TagString: Ranged Flank
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -330,7 +330,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 458888}
   - 212: {fileID: 21203708}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -378,7 +378,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 478982}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Front Ranged Flank
   m_TagString: Ranged Flank
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -484,7 +484,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 401542}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rear Flank
   m_TagString: Melee Flank
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -564,7 +564,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 423590}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Right Flank
   m_TagString: Melee Flank
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -628,7 +628,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 418294}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Left Flank
   m_TagString: Melee Flank
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -712,7 +712,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 494526}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Flanks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1010,7 +1010,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 459542}
   - 212: {fileID: 21268766}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1175,7 +1175,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 425844}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Shot Location
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1357,7 +1357,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 467942}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Right Ranged Flank
   m_TagString: Ranged Flank
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -1541,7 +1541,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 400898}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Rear Ranged Flank
   m_TagString: Ranged Flank
   m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
@@ -1696,7 +1696,7 @@ GameObject:
   - 4: {fileID: 440338}
   - 54: {fileID: 5443950}
   - 114: {fileID: 11455898}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player
   m_TagString: Player Controller
   m_Icon: {fileID: 0}
@@ -2247,7 +2247,7 @@ GameObject:
   - 135: {fileID: 13566284}
   - 114: {fileID: 11493326}
   - 114: {fileID: 11430172}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Player Stats
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -2507,7 +2507,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 173214}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.13876343, y: 28.3137589, z: -38.058075}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 440338}
@@ -3002,7 +3002,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.69999981, y: -28.3700008, z: 28.2399998}
+  m_LocalPosition: {x: -6.69999981, y: -.0500000007, z: 28.2399998}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 416194}
@@ -9147,17 +9147,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca844a32592e8bf49baaee36238eea27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMode: 0
   currHealth: 0
   maxHealth: 0
   shield: 0
   maxShield: 0
   hitRegenTimer: 2
   hitTimer: 0
-  acceleration: 45
-  velocity: 0
-  maxVelocity: 15
-  maxTurnRadius: 0
   strength: 1
   initialDamage: 0
   damagePerStrength: 0
@@ -9178,13 +9173,13 @@ MonoBehaviour:
   luck: 1
   critChance: 0
   initialCrit: 0
-  initialDropRate: 0
   critPerLuck: 0
-  dropRatePerLuck: 0
   color: 0
   money: 0
   exp: 0
-  IsCapturable: 0
+  acceleration: 45
+  velocity: 0
+  maxVelocity: 15
   shotLocation: {fileID: 425844}
   currWeapon: {fileID: 11460952, guid: 03f693d2d88d30340bd8da95c9603087, type: 2}
   weapons:
@@ -9198,6 +9193,7 @@ MonoBehaviour:
   breakpoint: {fileID: 11430172}
   multithreadLevel: 1
   invulTimePerDamage: .100000001
+  companions: 00000000000000000000000000000000
   newGame: 1
   healthText: {fileID: 11420932}
   visualHealth: {fileID: 11490910}
