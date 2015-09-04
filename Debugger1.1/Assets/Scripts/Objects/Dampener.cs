@@ -37,7 +37,7 @@ public class Dampener : Statistics {
         currHealth = maxHealth;
         Toggle = false;
     }
-	public override void OnCollisionEnter(Collision col) {
+	void OnCollisionEnter(Collision col) {
 
 		if (col.gameObject.tag == "Player Bullet") {
 			if (currHealth <= 0) {
