@@ -19,7 +19,7 @@ public class Teleporter : MonoBehaviour {
 		Vector3 direction = (transform.position - destination.position).normalized;
 		float rot = -((Mathf.Atan2(direction.z, direction.x) * 180 / Mathf.PI) + 90.0f);
 		transform.rotation = Quaternion.Euler (0, rot, 0);
-        SoundManager.instance.MiscSoundeffects[2].loop = true;
+       
 		ParticleSystem particles = gameObject.GetComponent<ParticleSystem> ();
 		particles.startSpeed = Vector3.Distance(transform.position, destination.position) / particles.startLifetime;
 	}
