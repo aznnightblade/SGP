@@ -117,6 +117,9 @@ public class Enemy : Statistics {
 						Destroy (player.Friend.gameObject);
 
 					target = null;
+					gameObject.GetComponentInChildren<Rigidbody> ().constraints = (RigidbodyConstraints.FreezePositionY | 
+					                                                               RigidbodyConstraints.FreezeRotationX |
+					                                                               RigidbodyConstraints.FreezeRotationZ);
 					player.Friend = (Instantiate (transform.parent, transform.parent.position, Quaternion.identity) as Transform);
 					Enemy friendStats = player.Friend.GetComponentInChildren<Enemy> ();
 					friendStats.CurrHealth = friendStats.MaxHealth;
