@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class MenuInput : EventSystem {
+public class MenuInput : MonoBehaviour {
 	[SerializeField]
 	float moveDelay = 0.5f;
 	float moveDelayTimer = 0.0f;
@@ -15,16 +15,14 @@ public class MenuInput : EventSystem {
 	int currRow = 0;
 	int currColumn = 0;
 
-	override protected void Start () {
-
-	}
-
 	// Update is called once per frame
-	override protected void Update () {
+	void Update () {
 		float input = 0.0f;
 
 		if (moveDelayTimer <= 0.0f) {
-			if (selectedButton == null) {
+			if (selectedButton == null && (InputManager.instance.GetButtonDown("Horizontal") ||
+			                               InputManager.instance.GetButtonDown("Vertical") ||
+			                               InputManager.instance.GetButtonDown("Submit"))) {
 				selectedButton = Buttons [currColumn].buttons [currRow];
 
 				Buttons [currColumn].buttons [currRow].GetComponent<Button> ().Select ();
@@ -62,6 +60,8 @@ public class MenuInput : EventSystem {
 
 					if (Buttons [currColumn].buttons [currRow].tag != "Slider")
 						Buttons [currColumn].buttons [currRow].GetComponent<Button> ().Select ();
+					else
+						Buttons [currColumn].buttons [currRow].GetComponent<Slider> ().Select ();
 					selectedButton = Buttons [currColumn].buttons [currRow];
 					moveDelayTimer = moveDelay;
 				} else if ((input = InputManager.instance.GetAxisRaw ("Submit")) != 0.0f) {
@@ -76,21 +76,6 @@ public class MenuInput : EventSystem {
 
 			if (moveDelayTimer <= 0.0f)
 				moveDelayTimer = 0.0f;
-		}
-
-		for (int column = 0; column < Buttons.Length; column++) {
-			for (int row = 0; row < Buttons[column].buttons.Length; row++) {
-				GameObject currButton = Buttons[column].buttons[row];
-
-
-				if (EventSystem.current.currentSelectedGameObject.gameObject == currButton) {
-					if (row != currRow || column != currColumn) {
-						currRow = row;
-						currColumn = column;
-						Buttons[currColumn].buttons[currRow].GetComponent<Button> ().Select();
-					}
-				}
-			}
 		}
 	}
 }

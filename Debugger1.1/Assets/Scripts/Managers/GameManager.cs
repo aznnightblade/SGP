@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour {
     public static int breakptlevel = 1;
     public static int negationbootlevel = 1;
     public static int multithreadlevel = 1;
+	public static Vector2 ScreenResolution = new Vector2(Screen.width, Screen.height);
+
 	void Awake(){
 		if (instance == null) {
 			instance = this;
@@ -50,11 +52,9 @@ public class GameManager : MonoBehaviour {
 			first = false;
 		} 
 
-		if(back)
-		{
-		FindObjectOfType<Player> ().SetPosition (lastPosition);
+		if(back) {
+			FindObjectOfType<Player> ().SetPosition (lastPosition);
 		}
-		
 	}
 
 	public void NextScene()
