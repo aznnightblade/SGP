@@ -173,7 +173,7 @@ public class Enemy : Statistics {
 		}
 	}
 
-	public void FaceMouse () {
+	protected void FaceMouse () {
 		if (Time.timeScale > 0.0f) {
 			if (InputManager.instance.UsingController == false) {
 				previousLookDir = direction;
@@ -189,6 +189,12 @@ public class Enemy : Statistics {
 		
 		direction.Normalize ();
 		float rot = (Mathf.Atan2 (-direction.y, direction.x) * 180 / Mathf.PI) - 90;
+		transform.rotation = Quaternion.Euler (0, rot, 0);
+	}
+
+	protected void FacePlayer () {
+		Vector3 direction = (transform.position - target.position).normalized;
+		float rot = (Mathf.Atan2 (-direction.z, direction.x) * 180 / Mathf.PI) - 90;
 		transform.rotation = Quaternion.Euler (0, rot, 0);
 	}
 

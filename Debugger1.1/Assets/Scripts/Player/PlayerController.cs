@@ -9,7 +9,10 @@ public class PlayerController : MonoBehaviour {
 	Transform[] playerControlledObjects = new Transform[2];
 	int controlCounter = 0;
 
+	[SerializeField]
 	Vector3 moveDir = Vector3.zero;
+	[SerializeField]
+	Vector3 rigidVel = Vector3.zero;
 	Vector3 direction = Vector3.zero;
 	Vector3 previousLookDir = Vector3.zero;
 	
@@ -158,6 +161,8 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
+		rigidVel = playerControlledObjects [controlCounter].GetComponent<Rigidbody> ().velocity;
+
 		if (GameManager.CTimeScale2 > 0.0f) {
 			moveDir.x = InputManager.instance.GetAxisRaw ("Horizontal");
 			moveDir.z = InputManager.instance.GetAxisRaw ("Vertical");
@@ -263,8 +268,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public GameObject CreateBullet (Transform weapon, Vector3 pos, float rot) {
-		GameObject newBullet = (Instantiate (weapon, pos, Quaternion.Euler(0, rot, 0)) as Transform).gameObject;
-		//GameObject newBullet = Bullet.gameObject;
+		GameObject newBullet = (Instantiate (weapon, pos, Quaternion.Euler (0, rot, 0)) as Transform).gameObject;
 		newBullet.tag = ("Player Bullet");
 		newBullet.GetComponent<Weapon> ().Owner = (Statistics)player;
 		newBullet.GetComponent<Weapon> ().CurrColor = player.CurrWeapon.CurrColor;
