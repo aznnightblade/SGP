@@ -9,6 +9,19 @@ public class Dampener : Statistics {
     public override void Damage (int damageTaken, Transform bullet)
     {
 		if (currHealth > 0) {
+
+            if (currHealth<= maxHealth*.75f)
+            {
+                gameObject.GetComponentInChildren<SpriteRenderer> ().sprite = images [1];
+            }
+            if (currHealth <= maxHealth * .50f)
+            {
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = images[2];
+            }
+            if (currHealth <= maxHealth * .25f)
+            {
+                gameObject.GetComponentInChildren<SpriteRenderer>().sprite = images[3];
+            }
 			Weapon Bullet = bullet.GetComponent<Weapon> ();
 			if (Bullet.ChargeScale < 1.25f) {
 				SoundManager.instance.MiscSoundeffects [6].Play ();
@@ -22,7 +35,7 @@ public class Dampener : Statistics {
 					healthbar.UpdateFillAmount ();
 			}
 			if (currHealth <= 0) {
-				gameObject.GetComponentInChildren<SpriteRenderer> ().sprite = images [1];
+                gameObject.GetComponentInChildren<SpriteRenderer>().color = new Color(0, 0, 0, 0);
 				Toggle = true;
 			}
 		}
