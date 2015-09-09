@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour {
     public static int breakptlevel = 1;
     public static int negationbootlevel = 1;
     public static int multithreadlevel = 1;
+    public static bool deletefile = false;
 	void Awake(){
 		if (instance == null) {
 			instance = this;
