@@ -58,7 +58,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152050}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.9200001, y: 10.7819996, z: 0}
+  m_LocalPosition: {x: -6.5, y: 10.7819996, z: -71.1999969}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 448308}
@@ -70,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 169982}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.9569035, y: 1, z: 2.56999993}
+  m_LocalPosition: {x: 6.63999987, y: -.0145206451, z: 56.4300003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 463790}
@@ -84,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 179756}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1.40999997, y: 0, z: -1.79999995}
   m_LocalScale: {x: 2, y: .5, z: 2}
   m_Children: []
   m_Father: {fileID: 448308}
@@ -132,7 +132,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destination: {fileID: 444792}
-  sounds: {fileID: 11447646, guid: 71781c32a7dd242428cf9cfcf1d8bfbe, type: 2}
+  newScene: 0
+  dampeners:
+  - {fileID: 0}
+  Next: Level3Boss
 --- !u!136 &13665348
 CapsuleCollider:
   m_ObjectHideFlags: 1
