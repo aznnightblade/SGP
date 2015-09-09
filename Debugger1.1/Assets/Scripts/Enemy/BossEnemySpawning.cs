@@ -70,34 +70,31 @@ public class BossEnemySpawning : MonoBehaviour {
 					}
 				}
 			} else {
+				int spawnerToUse = -1;
+				
+				if (Spawn == SpawnType.Player) {
+					for (int spawnpoint = 0; spawnpoint < spawnPointScripts.Length - 1; spawnpoint++) {
+						if (spawnPointScripts[spawnpoint].ContainsPlayer) {
+							spawnerToUse = spawnpoint;
+							break;
+						}
+					}
+				}
+
 				for (int index = 0; index < Waves[spawn].EnemyTypes.Length; index++) {
 					SphereCollider[] enemyCollider = Waves[spawn].EnemyTypes[index].GetComponentsInChildren<SphereCollider> (true);
 					
 					for (int enemy = 0; enemy < Waves[spawn].numToSpawn[index]; enemy++) {
 						Vector3 pos = Vector3.zero;
-						int spawnerToUse = -1;
+						if (spawnerToUse == -1)
+							spawnerToUse = Random.Range(0, spawnPoints.Length - 1);
 
-						if (Spawn == SpawnType.Player) {
-							for (int spawnpoint = 0; spawnpoint < spawnPointScripts.Length - 1; index ++) {
-								if (spawnPointScripts[spawnpoint].ContainsPlayer) {
-									spawnerToUse = spawnpoint;
-									break;
-								}
-							}
-						}
-						
+						Vector3 collider = spawnPoints[spawnerToUse].GetComponent<BoxCollider> ().bounds.size;
+
 						do {
-							Vector3 collider = Vector3.zero;
-
-							if (Spawn != SpawnType.Player || spawnerToUse == -1) {
-								collider = spawnPoints[Random.Range(0, spawnPoints.Length - 1)].GetComponent<BoxCollider> ().size;
-							} else {
-								collider = spawnPoints[spawnerToUse].GetComponent<BoxCollider> ().size;
-							}
-
 							pos = Random.insideUnitSphere;
-							pos = new Vector3 (pos.x * collider.x, 0, pos.z * collider.z);
-							pos.y = GameObject.FindGameObjectWithTag("Player Controller").transform.position.y;
+							pos = new Vector3 (pos.x * collider.x + spawnPoints[spawnerToUse].position.x, GameObject.FindGameObjectWithTag("Player Controller").transform.position.y,
+							                   pos.z * collider.z + spawnPoints[spawnerToUse].position.z);
 						} while (Physics.OverlapSphere(pos, enemyCollider[0].radius, layer).Length > 1);
 						
 						Instantiate(Waves[spawn].EnemyTypes[index], pos, Quaternion.identity);
@@ -117,6 +114,7 @@ public class BossEnemySpawning : MonoBehaviour {
 	}
 
 	public Transform[] SpawnPoints { get { return spawnPoints; } }
+	public BossSpawnArea[] SpawnPointScripts { get { return spawnPointScripts; } }
 }
 
 [System.Serializable]

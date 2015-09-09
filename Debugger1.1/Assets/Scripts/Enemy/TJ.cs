@@ -11,6 +11,8 @@ public class TJ : Enemy {
 	float percentTillTeleport = 0.2f;
 	float lastTeleportHealth = 1.0f;
 	BossEnemySpawning spawner = null;
+	[SerializeField]
+	Transform[] rooms = null;
 	int currentRoom = 4;
 
 	[SerializeField]
@@ -27,21 +29,27 @@ public class TJ : Enemy {
 
 		spawner = gameObject.GetComponent<BossEnemySpawning> ();
 		bulletScript = bullet.GetComponent<Weapon> ();
-		shotDelay = bulletScript.ShotDelay + bulletScript.ShotDelayReductionPerAgility * Agility;
+		shotDelay = (bulletScript.ShotDelay - bulletScript.ShotDelayReductionPerAgility * Agility) * 3;
+		target = GameObject.FindGameObjectWithTag ("Player").transform;
+		agent.updatePosition = false;
+		agent.updateRotation = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (isActive) {
-			if (currHealth / maxHealth <= lastTeleportHealth - percentTillTeleport) {
+			if ((float)currHealth / maxHealth <= lastTeleportHealth - percentTillTeleport) {
 				do {
-					int room = Random.Range (0, spawner.SpawnPoints.Length - 1);
+					int room = Random.Range (0, rooms.Length - 1);
 
 					if (room != currentRoom) {
 						currentRoom = room;
 
-						Vector3 newPosition = spawner.SpawnPoints[currentRoom].position;
-						newPosition.z += 2.0f;
+						Vector3 newPosition = rooms[currentRoom].position;
+						newPosition.y = transform.position.y;
+						transform.parent.transform.position = new Vector3 (newPosition.x, transform.position.y, newPosition.z);
+						shotDelay = (bulletScript.ShotDelay - bulletScript.ShotDelayReductionPerAgility * Agility) * 3;
+						transform.rotation = Quaternion.identity;
 						break;
 					}
 				} while (true);
@@ -55,7 +63,7 @@ public class TJ : Enemy {
 				if (shotDelay <= 0.0f) {
 					int random = Random.Range (1, 100);
 
-					if (random <= DeathBlossomChance && currHealth / maxHealth <= 0.4f) {
+					if (random <= DeathBlossomChance && (float)currHealth / maxHealth <= 0.4f) {
 						float rot = transform.rotation.eulerAngles.y;
 						float angleIncease = 360 / bulletsInBlossom;
 
@@ -66,8 +74,16 @@ public class TJ : Enemy {
 						FireBullets ();
 					}
 
-					shotDelay = bulletScript.ShotDelay + bulletScript.ShotDelayReductionPerAgility * Agility;
+					shotDelay = bulletScript.InitialShotDelay - bulletScript.ShotDelayReductionPerAgility * Agility;
 				}
+			}
+
+			if (spawner.SpawnPointScripts[currentRoom].ContainsPlayer && !playerNear) {
+				playerNear = true;
+				spawner.enabled = false;
+			} else if (playerNear) {
+				playerNear = false;
+				spawner.enabled = true;
 			}
 
 			if (shotDelay > 0.0f) {
@@ -82,7 +98,7 @@ public class TJ : Enemy {
 	void FireBullets () {
 		Vector3 direction = Vector3.zero;
 		float rot = transform.rotation.eulerAngles.y;
-		float healthPercent = currHealth / maxHealth;
+		float healthPercent = 1 - (float)currHealth / maxHealth;
 		int bulletsToFire = 0;
 
 		int random = Random.Range (1, 100);
@@ -131,9 +147,6 @@ public class TJ : Enemy {
 			if (!isActive) {
 				isActive = true;
 			}
-
-			playerNear = true;
-			spawner.enabled = false;
 		}
 
 		if (col.tag == "Dampener") {
@@ -145,10 +158,4 @@ public class TJ : Enemy {
 		}
 	}
 
-	void OnTriggerExit (Collider col) {
-		if (col.tag == "Player" || col.tag == "Player Controller") {
-			playerNear = false;
-			spawner.enabled = true;;
-		}
-	}
 }

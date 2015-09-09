@@ -5,13 +5,17 @@ public class BossSpawnArea : MonoBehaviour {
 
 	bool containsPlayer = false;
 
+	void Update () {
+
+	}
+
 	void OnTriggerEnter (Collider col) {
 		if (col.tag == "Player Controller" || col.tag == "Player") {
 			containsPlayer = true;
 		}
 	}
 
-	void OnTiggerExit (Collider col) {
+	public void OnTiggerExit (Collider col) {
 		if (col.tag == "Player Controller" || col.tag == "Player") {
 			containsPlayer = false;
 		}
