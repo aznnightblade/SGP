@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
 	Player player = null;
 	Transform[] playerControlledObjects = new Transform[2];
 	int controlCounter = 0;
-
+    Animator walkinganim;
 	Vector3 moveDir = Vector3.zero;
 	Vector3 direction = Vector3.zero;
 	Vector3 previousLookDir = Vector3.zero;
@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour {
     public Image Heatmeter;
 	// Use this for initialization
 	void Start () {
-
+        walkinganim = GetComponentInChildren<Animator>();
 		player = GetComponentInChildren<Player> ();
 		PlayerSprite = GameObject.FindGameObjectWithTag ("Player").transform;
 		PlayerControlledObjects [0] = transform;
@@ -161,16 +161,18 @@ public class PlayerController : MonoBehaviour {
 		if (GameManager.CTimeScale2 > 0.0f) {
 			moveDir.x = InputManager.instance.GetAxisRaw ("Horizontal");
 			moveDir.z = InputManager.instance.GetAxisRaw ("Vertical");
+            
 
 			if (moveDir.magnitude > 0.0f) {
 				if (player.Velocity < player.MaxVelocity) {
 					player.Velocity += player.Acceleration * Time.deltaTime;
-
+                    walkinganim.SetBool("Walking",true);
 					if (player.Velocity > player.MaxVelocity)
 						player.Velocity = player.MaxVelocity;
 				}
 			}
 			if (moveDir.magnitude == 0.0f) {
+                walkinganim.SetBool("Walking", false);
 				if (player.Velocity > 0.0f) {
 					player.Velocity -= player.Acceleration * Time.deltaTime;
 
