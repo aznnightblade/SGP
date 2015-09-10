@@ -12,7 +12,9 @@ public class Lazers : MonoBehaviour {
 			if (Col.gameObject.tag == "Player Controller" || Col.gameObject.GetComponent<Statistics> ().CurrColor != color) {
 				if (Col.gameObject.tag == "Player Controller")
 					Col.gameObject.GetComponentInChildren<Player> ().CurrHealth = 0;
-				else
+				else if(Col.gameObject.tag == "Dampener")
+					return;
+					else
 					Col.gameObject.GetComponent<Statistics> ().CurrHealth = 0;
 			}
 		}

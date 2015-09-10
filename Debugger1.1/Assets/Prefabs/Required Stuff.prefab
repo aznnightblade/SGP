@@ -475,7 +475,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &118232
 GameObject:
   m_ObjectHideFlags: 1
@@ -1614,6 +1614,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!1 &165060
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 437118}
+  - 82: {fileID: 8216908}
+  m_Layer: 0
+  m_Name: shootingsfx
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &165504
 GameObject:
   m_ObjectHideFlags: 1
@@ -2362,7 +2378,7 @@ GameObject:
   - 4: {fileID: 430690}
   - 82: {fileID: 8264226}
   m_Layer: 0
-  m_Name: shootingsfx
+  m_Name: deathsfx
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2921,7 +2937,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 443124}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!4 &432996
 Transform:
   m_ObjectHideFlags: 1
@@ -3061,6 +3077,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 417652}
   m_RootOrder: 3
+--- !u!4 &437118
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165060}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 443124}
+  m_RootOrder: 2
 --- !u!4 &437332
 Transform:
   m_ObjectHideFlags: 1
@@ -3101,7 +3129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.32999992, y: .129999995, z: -1.63999999}
+  m_LocalPosition: {x: 43.0800018, y: -28.8600006, z: 39.8300018}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 416194}
@@ -3132,6 +3160,7 @@ Transform:
   m_Children:
   - {fileID: 416064}
   - {fileID: 440102}
+  - {fileID: 437118}
   - {fileID: 430690}
   m_Father: {fileID: 468602}
   m_RootOrder: 6
@@ -3808,6 +3837,76 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24354300, guid: 94620953847c4e643b5e173a44635201,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: de3d6862b275b854680d7e2524c3ddd6, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!82 &8216908
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 165060}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24354300, guid: 94620953847c4e643b5e173a44635201,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: a1302a203156ab44cbe49dee0d8f1e37, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -5347,7 +5446,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24354300, guid: 94620953847c4e643b5e173a44635201,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: a1302a203156ab44cbe49dee0d8f1e37, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 5a4bda360a818d54985d995073d9a660, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -8470,6 +8569,7 @@ MonoBehaviour:
   CompanionSFX:
   - {fileID: 8299066}
   - {fileID: 8236952}
+  - {fileID: 8216908}
   - {fileID: 8264226}
 --- !u!114 &11454450
 MonoBehaviour:
