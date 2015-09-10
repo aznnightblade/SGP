@@ -6,6 +6,8 @@ public class TJ : Enemy {
 	[SerializeField]
 	Transform bullet = null;
 	Weapon bulletScript = null;
+	[SerializeField]
+	GameObject teleporter = null;
 
 	[SerializeField]
 	float percentTillTeleport = 0.2f;
@@ -140,6 +142,18 @@ public class TJ : Enemy {
 		SoundManager.instance.BossSoundeffects[5].Play();
 		newBullet.tag = ("Enemy Bullet");
 		newBullet.GetComponent<Weapon> ().Owner = this;
+	}
+
+	public override void Damage (int damage, Transform bullet) {
+		currHealth -= damage;
+		
+		if (currHealth <= 0.0f) {
+			teleporter.SetActive (true);
+			SoundManager.instance.BossSoundeffects[3].Play();
+			GameObject.FindGameObjectWithTag("Player").GetComponent<Player> ().HasDLLs = true;
+			
+			DestroyObject();
+		}
 	}
 
 	void OnTriggerEnter (Collider col) {

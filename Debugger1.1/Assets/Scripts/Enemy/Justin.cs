@@ -55,13 +55,6 @@ public class Justin : Statistics {
 		float rot = -((Mathf.Atan2(direction.z, direction.x) * 180 / Mathf.PI) + 90.0f);
 		transform.rotation = Quaternion.Euler (0, rot, 0);
 
-		if (currHealth <= 0) {
-			Teleporter.SetActive(true);
-			Dampener.SetActive(true);
-            SoundManager.instance.BossSoundeffects[7].Play();
-			DestroyObject();
-		}
-
 		if (cardBase.Cards.Count <= cardCountForRespawn && tickedRespawntimer == false) {
 			respawnTimer = cardRespawnTimer;
 			tickedRespawntimer = true;
@@ -162,5 +155,18 @@ public class Justin : Statistics {
 		//GameObject newBullet = Bullet.gameObject;
 		newBullet.tag = ("Enemy Bullet");
 		newBullet.GetComponent<Weapon> ().Owner = this;
+	}
+
+	public override void Damage (int damage, Transform bullet) {
+		currHealth -= damage;
+
+		if (currHealth <= 0.0f) {
+			Teleporter.SetActive(true);
+			Dampener.SetActive(true);
+			GameObject.FindGameObjectWithTag("Player").GetComponent<Player> ().HasChargeShot = true;
+			SoundManager.instance.BossSoundeffects[7].Play();
+			
+			DestroyObject();
+		}
 	}
 }

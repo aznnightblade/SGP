@@ -18,7 +18,7 @@ public class DeletedMemory : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider col) {
-		if (col.tag == "Player" ) {
+		if (col.tag == "Player Controller" ) {
 			if (col.name == "Player")
 				playerContacting = true;
 			else

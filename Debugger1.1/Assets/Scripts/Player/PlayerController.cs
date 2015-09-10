@@ -113,11 +113,16 @@ public class PlayerController : MonoBehaviour {
 						player.Friend.gameObject.SetActive(true);
 						playerControlledObjects[1] = player.Friend.GetChild(0);
 						Camera.main.GetComponent<CameraFollow> ().Target = PlayerControlledObjects[1];
+						Enemy friend = playerControlledObjects[1].gameObject.GetComponent<Enemy> ();
+
+						if (friend != null)
+							friend.enabled = true;
+
 						controlCounter = 1;
 					} else {
 						player.Friend.gameObject.SetActive(false);
 						playerControlledObjects[1] = null;
-						Camera.main.GetComponent<CameraFollow> ().Target = PlayerControlledObjects[0];
+						Camera.main.GetComponent<CameraFollow> ().Target = PlayerSprite;
 						controlCounter = 0;
 					}
 				}

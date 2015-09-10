@@ -20,7 +20,7 @@ public class BasicRanged : Enemy {
 		if (currMode == Mode.Patrolling)
 			UpdateWaypoints ();
 
-		if (currMode == Mode.Attack || currMode == Mode.Patrolling)
+		if (currMode == Mode.Attack || currMode == Mode.Patrolling || currMode == Mode.BossRoom)
 			agent.SetDestination (target.position);
 
 		RechargeShields ();

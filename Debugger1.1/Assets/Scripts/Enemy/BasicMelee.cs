@@ -18,7 +18,7 @@ public class BasicMelee : Enemy {
 		if (currMode == Mode.Patrolling)
 			UpdateWaypoints ();
 
-		if (currMode == Mode.Attack || currMode == Mode.Patrolling)
+		if (currMode == Mode.Attack || currMode == Mode.Patrolling || currMode == Mode.BossRoom)
 			agent.destination = target.position;
 
 		RechargeShields ();

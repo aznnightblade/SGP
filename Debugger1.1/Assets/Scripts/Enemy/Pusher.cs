@@ -28,7 +28,7 @@ public class Pusher : Enemy {
 		if (currMode == Mode.Patrolling)
 			UpdateWaypoints ();
 		
-		if (currMode == Mode.Attack || currMode == Mode.Patrolling)
+		if (currMode == Mode.Attack || currMode == Mode.Patrolling || currMode == Mode.BossRoom)
 			agent.destination = target.position;
 
 		RechargeShields ();
@@ -46,43 +46,53 @@ public class Pusher : Enemy {
 			if (currHealth <= 0)
 				DestroyObject ();
 
-			if ((currFlank == 0 || currFlank == 1) && agent.remainingDistance < 1.0f) {
-				int random = Mathf.CeilToInt (Random.Range (0, 100) * currHealth / MaxHealth);
+			if (currMode == Mode.Attack) {
+				CheckForReset ();
+			} else if (currMode != Mode.Deactivated) {
+				CheckForPlayer ();
+			}
 
-				if (random <= 25) {
-					target = GameObject.FindGameObjectWithTag ("Player").transform;
-				} else {
-					target = flanks [2].transform;
-				}
-			} else if (currFlank == 2) {
-				if (agent.remainingDistance < 1.0f) {
-					target = GameObject.FindGameObjectWithTag ("Player").transform;
-				} else {
+			if (currMode == Mode.Attack) {
+				if ((currFlank == 0 || currFlank == 1) && agent.remainingDistance < 1.0f) {
 					int random = Mathf.CeilToInt (Random.Range (0, 100) * currHealth / MaxHealth);
-			
-					if (random <= 10) {
+
+					if (random <= 25) {
 						target = GameObject.FindGameObjectWithTag ("Player").transform;
+					} else {
+						target = flanks [2].transform;
+					}
+				} else if (currFlank == 2) {
+					if (agent.remainingDistance < 1.0f) {
+						target = GameObject.FindGameObjectWithTag ("Player").transform;
+					} else {
+						int random = Mathf.CeilToInt (Random.Range (0, 100) * currHealth / MaxHealth);
+				
+						if (random <= 10) {
+							target = GameObject.FindGameObjectWithTag ("Player").transform;
+						}
 					}
 				}
-			}
 
-			if (currFlank != 0 || currFlank != 1) {
-				if (agent.remainingDistance > resetFlankDistance)
-					target = flanks [Random.Range (0, 1)].transform;
-			}
+				if (currFlank != 0 || currFlank != 1) {
+					if (agent.remainingDistance > resetFlankDistance)
+						target = flanks [Random.Range (0, 1)].transform;
+				}
 
-			if (attackingPlayer && delayTimer <= 0.0f) {
-				SoundManager.instance.EnemySoundeffects [0].Play ();
-				Player player = GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<Player> ();
-			
-				float damage = (initialDamage + damagePerStrength * strength) - player.Defense;
-			
-				if (damage < 0.0f)
-					damage = 0;
-			
-				player.DamagePlayer (Mathf.CeilToInt (damage));
-			
-				delayTimer = damageDelay;
+				if (attackingPlayer && delayTimer <= 0.0f) {
+					SoundManager.instance.EnemySoundeffects [0].Play ();
+					Player player = GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<Player> ();
+				
+					float damage = (initialDamage + damagePerStrength * strength) - player.Defense;
+				
+					if (damage < 0.0f)
+						damage = 0;
+				
+					player.DamagePlayer (Mathf.CeilToInt (damage));
+				
+					delayTimer = damageDelay;
+				}
+			} else if (currMode == Mode.Patrolling) {
+				UpdateWaypoints ();
 			}
 		} else {
 			if (agent.enabled == true) {

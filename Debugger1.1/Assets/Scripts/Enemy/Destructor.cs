@@ -12,18 +12,26 @@ public class Destructor : Enemy {
 
 	// Use this for initialization
 	void Start () {
-		UpdateStats ();
-
 		anim = gameObject.GetComponentInChildren<Animator> ();
 		anim.enabled = false;
+
+		UpdateStats ();
 	}
+
+//	void Awake () {
+//		anim = gameObject.GetComponentInChildren<Animator> ();
+//		anim.enabled = false;
+//		
+//		UpdateStats ();
+//	}
 	
 	// Update is called once per frame
 	void Update () {
+
 		if (currMode == Mode.Patrolling)
 			UpdateWaypoints ();
 
-		if (target != null && (currMode == Mode.Attack || currMode == Mode.Patrolling))
+		if (target != null && (currMode == Mode.Attack || currMode == Mode.Patrolling || currMode == Mode.BossRoom))
 			agent.destination = target.position;
 
 		if (currMode != Mode.Friendly) {
@@ -45,6 +53,9 @@ public class Destructor : Enemy {
 			} else if (currMode != Mode.Deactivated) {
 				CheckForPlayer ();
 			}
+
+			if (currMode == Mode.Patrolling)
+				UpdateWaypoints ();
 
 			if (currHealth <= 0.0f || anim.GetBool ("IsExploding")) {
 				if (playTime <= 0.0f) {
@@ -97,6 +108,11 @@ public class Destructor : Enemy {
 	}
 
 	public void Detonate () {
+		if (anim == null) {
+			anim = gameObject.GetComponentInChildren<Animator> ();
+			agent = gameObject.GetComponentInChildren<NavMeshAgent> ();
+		}
+
 		LayerMask layer;
 
 		if (currMode != Mode.Friendly)

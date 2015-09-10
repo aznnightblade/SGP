@@ -1,0 +1,307 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &150752
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 449646}
+  - 212: {fileID: 21250114}
+  m_Layer: 0
+  m_Name: Rodney Sprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &176408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 404630}
+  m_Layer: 0
+  m_Name: Rodney
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &195936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 445578}
+  - 135: {fileID: 13529824}
+  - 54: {fileID: 5446872}
+  - 114: {fileID: 11420016}
+  - 114: {fileID: 11464054}
+  - 195: {fileID: 19582556}
+  m_Layer: 0
+  m_Name: Rodney
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &404630
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 176408}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20, y: 0, z: 45}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 445578}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!4 &445578
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195936}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: .560000002, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 449646}
+  m_Father: {fileID: 404630}
+  m_RootOrder: 0
+--- !u!4 &449646
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150752}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
+  m_LocalPosition: {x: 0, y: .5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 445578}
+  m_RootOrder: 0
+--- !u!54 &5446872
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195936}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 84
+  m_CollisionDetection: 0
+--- !u!114 &11420016
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1537d75030131404da71e216e3b463c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currHealth: 0
+  maxHealth: 0
+  shield: 0
+  maxShield: 0
+  hitRegenTimer: 2
+  hitTimer: 0
+  strength: 5
+  initialDamage: 4
+  damagePerStrength: 3
+  endurance: 3
+  initialHealth: 50
+  healthPerEndurance: 20
+  defense: 0
+  initialDefense: 2
+  defensePerEndurance: 3
+  agility: 5
+  shotDelay: 0
+  dexterity: 5
+  initialShotDistance: 10
+  increaseDistancePerDexerity: 10
+  intelligence: 4
+  initialCooldownReduction: 10
+  reductionPerIntelligence: 10
+  luck: 3
+  critChance: 0
+  initialCrit: 20
+  critPerLuck: 10
+  color: 0
+  money: 1500
+  exp: 750
+  currMode: 1
+  Waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  detectRange: 8
+  maxDistance: 15
+  initialDropRate: 100
+  dropRatePerLuck: 0
+  IsCapturable: 0
+  spawner: {fileID: 11464054}
+  ones:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  zeros:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  lazers:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  brick: {fileID: 443970, guid: 36dd10fb78883c9498e855b01b26f6e9, type: 2}
+  currRodneyMode: 0
+  delayBeforeRepeat: 10
+  timeTillNextNumber: .25
+  numberChangeDelay: .100000001
+  checkDelay: .25
+--- !u!114 &11464054
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce41870a991e464fa8742560cae9c7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Waves:
+  - EnemyTypes:
+    - {fileID: 140700, guid: 3141207ffaf1fae408b448611696e6d7, type: 2}
+    - {fileID: 175152, guid: 22ec68d962e7d334f8aeddd2cdb22f6e, type: 2}
+    numToSpawn: 0600000002000000
+  - EnemyTypes:
+    - {fileID: 152214, guid: 3474341e733e7544f8acef326f86615a, type: 2}
+    - {fileID: 120728, guid: 79cc7f101ef0b6247b63540ad6c4e0d5, type: 2}
+    - {fileID: 105560, guid: 4c417255dea4ed5408abfdc82d81bf89, type: 2}
+    numToSpawn: 040000000200000001000000
+  - EnemyTypes:
+    - {fileID: 140700, guid: 3141207ffaf1fae408b448611696e6d7, type: 2}
+    - {fileID: 175152, guid: 22ec68d962e7d334f8aeddd2cdb22f6e, type: 2}
+    - {fileID: 152214, guid: 3474341e733e7544f8acef326f86615a, type: 2}
+    - {fileID: 120728, guid: 79cc7f101ef0b6247b63540ad6c4e0d5, type: 2}
+    numToSpawn: 03000000030000000100000001000000
+  - EnemyTypes:
+    - {fileID: 147778, guid: cb6ade09b0d00834ab153fdcbf98527f, type: 2}
+    - {fileID: 117292, guid: 4189af6fc68f51b44ab302414c7af9a9, type: 2}
+    - {fileID: 152214, guid: 3474341e733e7544f8acef326f86615a, type: 2}
+    numToSpawn: 020000000100000003000000
+  Spawn: 2
+  Type: 1
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  spawnPointScripts: []
+  timeBetweenWaves: 30
+  spawnTimer: 0
+  maxSpawnDistance: 0
+--- !u!135 &13529824
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195936}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.44000006
+  m_Center: {x: 0, y: 0, z: -.430000007}
+--- !u!195 &19582556
+NavMeshAgent:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195936}
+  m_Enabled: 1
+  m_Radius: .5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 1
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!212 &21250114
+SpriteRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 150752}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 153fe3b9a7de27e49920894842d2703f, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 176408}
+  m_IsPrefabParent: 1

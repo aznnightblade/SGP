@@ -26,7 +26,7 @@ public class FireWaller : Enemy {
 		if (currMode == Mode.Patrolling)
 			UpdateWaypoints ();
 		
-		if (currMode == Mode.Attack || currMode == Mode.Patrolling)
+		if (currMode == Mode.Attack || currMode == Mode.Patrolling || currMode == Mode.BossRoom)
 			agent.destination = target.position;
 
 		RechargeShields ();
@@ -46,6 +46,9 @@ public class FireWaller : Enemy {
 			} else if (currMode != Mode.Deactivated) {
 				CheckForPlayer ();
 			}
+
+			if (currMode == Mode.Patrolling)
+				UpdateWaypoints ();
 		
 			if (attackingPlayer && delayTimer <= 0.0f) {
 				Player player = GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<Player> ();
