@@ -173,12 +173,6 @@ public class SevereRanged : Enemy {
 		teleportDelayTimer = teleportDelay;
 	}
 
-	void FacePlayer () {
-		Vector3 direction = (transform.position - player.position).normalized;
-		float rot = (Mathf.Atan2 (-direction.y, direction.x) * 180 / Mathf.PI) - 90;
-		transform.rotation = Quaternion.Euler (0, rot, 0);
-	}
-
 	void FireBullet() {
 		Vector3 pos = transform.position;
 		Vector3 direction = pos - player.position;

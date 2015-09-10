@@ -62,12 +62,6 @@ public class Turret : Enemy {
 		}
 	}
 
-	void FacePlayer () {
-		Vector3 direction = (transform.position - target.position).normalized;
-		float rot = (Mathf.Atan2 (-direction.z, direction.x) * 180 / Mathf.PI) - 90;
-		transform.rotation = Quaternion.Euler (0, rot, 0);
-	}
-
 	void FireBullet() {
 		SoundManager.instance.EnemySoundeffects[1].Play();
 		GameObject newBullet = (Instantiate (bullet, transform.position, transform.rotation) as Transform).gameObject;

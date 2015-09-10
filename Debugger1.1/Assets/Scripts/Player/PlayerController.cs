@@ -8,8 +8,11 @@ public class PlayerController : MonoBehaviour {
 	Player player = null;
 	Transform[] playerControlledObjects = new Transform[2];
 	int controlCounter = 0;
-    Animator walkinganim;
+
+	[SerializeField]
 	Vector3 moveDir = Vector3.zero;
+	[SerializeField]
+	Vector3 rigidVel = Vector3.zero;
 	Vector3 direction = Vector3.zero;
 	Vector3 previousLookDir = Vector3.zero;
 	
@@ -19,7 +22,7 @@ public class PlayerController : MonoBehaviour {
     public Image Heatmeter;
 	// Use this for initialization
 	void Start () {
-        walkinganim = GetComponentInChildren<Animator>();
+
 		player = GetComponentInChildren<Player> ();
 		PlayerSprite = GameObject.FindGameObjectWithTag ("Player").transform;
 		PlayerControlledObjects [0] = transform;
@@ -110,11 +113,16 @@ public class PlayerController : MonoBehaviour {
 						player.Friend.gameObject.SetActive(true);
 						playerControlledObjects[1] = player.Friend.GetChild(0);
 						Camera.main.GetComponent<CameraFollow> ().Target = PlayerControlledObjects[1];
+						Enemy friend = playerControlledObjects[1].gameObject.GetComponent<Enemy> ();
+
+						if (friend != null)
+							friend.enabled = true;
+
 						controlCounter = 1;
 					} else {
 						player.Friend.gameObject.SetActive(false);
 						playerControlledObjects[1] = null;
-						Camera.main.GetComponent<CameraFollow> ().Target = PlayerControlledObjects[0];
+						Camera.main.GetComponent<CameraFollow> ().Target = PlayerSprite;
 						controlCounter = 0;
 					}
 				}
@@ -158,21 +166,21 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
+		rigidVel = playerControlledObjects [controlCounter].GetComponent<Rigidbody> ().velocity;
+
 		if (GameManager.CTimeScale2 > 0.0f) {
 			moveDir.x = InputManager.instance.GetAxisRaw ("Horizontal");
 			moveDir.z = InputManager.instance.GetAxisRaw ("Vertical");
-            
 
 			if (moveDir.magnitude > 0.0f) {
 				if (player.Velocity < player.MaxVelocity) {
 					player.Velocity += player.Acceleration * Time.deltaTime;
-                    walkinganim.SetBool("Walking",true);
+
 					if (player.Velocity > player.MaxVelocity)
 						player.Velocity = player.MaxVelocity;
 				}
 			}
 			if (moveDir.magnitude == 0.0f) {
-                walkinganim.SetBool("Walking", false);
 				if (player.Velocity > 0.0f) {
 					player.Velocity -= player.Acceleration * Time.deltaTime;
 
@@ -265,8 +273,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public GameObject CreateBullet (Transform weapon, Vector3 pos, float rot) {
-		GameObject newBullet = (Instantiate (weapon, pos, Quaternion.Euler(0, rot, 0)) as Transform).gameObject;
-		//GameObject newBullet = Bullet.gameObject;
+		GameObject newBullet = (Instantiate (weapon, pos, Quaternion.Euler (0, rot, 0)) as Transform).gameObject;
 		newBullet.tag = ("Player Bullet");
 		newBullet.GetComponent<Weapon> ().Owner = (Statistics)player;
 		newBullet.GetComponent<Weapon> ().CurrColor = player.CurrWeapon.CurrColor;
