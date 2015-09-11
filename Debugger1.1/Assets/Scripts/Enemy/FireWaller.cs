@@ -15,7 +15,6 @@ public class FireWaller : Enemy {
 	float damageDelay = 0.5f;
 	float delayTimer = 0.0f;
 	bool attackingPlayer = false;
-
 	// Use this for initialization
 	void Start () {
 		UpdateStats ();
@@ -52,16 +51,8 @@ public class FireWaller : Enemy {
 				UpdateWaypoints ();
 		
 			if (attackingPlayer && delayTimer <= 0.0f) {
-				Player player = GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<Player> ();
-			
-				float damage = (initialDamage + damagePerStrength * strength) - player.Defense;
-			
-				if (damage < 0.0f)
-					damage = 0;
-			
-				player.DamagePlayer (Mathf.CeilToInt (damage));
-			
-				delayTimer = damageDelay;
+                anim.SetBool("Attack", true);
+				
 			}
 		} else {
 			if (agent.enabled == true) {
@@ -161,4 +152,22 @@ public class FireWaller : Enemy {
 			}
 		}
 	}
+
+    public override void Attack()
+    {
+        if (attackingPlayer==true)
+        {
+            Player player = GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<Player> ();
+			
+				float damage = (initialDamage + damagePerStrength * strength) - player.Defense;
+			
+				if (damage < 0.0f)
+					damage = 0;
+			
+				player.DamagePlayer (Mathf.CeilToInt (damage));
+			
+				delayTimer = damageDelay;
+        }
+        anim.SetBool("Attack", false);
+    }
 }
