@@ -42,6 +42,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 410752}
   - 212: {fileID: 21295012}
+  - 95: {fileID: 9561080}
   m_Layer: 10
   m_Name: Moderate Ranged Sprite
   m_TagString: Untagged
@@ -155,7 +156,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120728}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.23703098, y: 1.47000003, z: -39.2960777}
+  m_LocalPosition: {x: 1.47000003, y: 1.47000003, z: -6.36999989}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 457718}
@@ -185,6 +186,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!95 &9561080
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 132672}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fb2e015b0ac101f47a30faa4e408e9e8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11402682
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -259,17 +277,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df87de7e26ff3ab40b9e8a2df4be5a19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMode: 0
   currHealth: 0
   maxHealth: 0
   shield: 0
   maxShield: 0
   hitRegenTimer: 2
   hitTimer: 0
-  acceleration: 0
-  velocity: 0
-  maxVelocity: 0
-  maxTurnRadius: 0
   strength: 1
   initialDamage: 5
   damagePerStrength: 2
@@ -290,13 +303,18 @@ MonoBehaviour:
   luck: 0
   critChance: 0
   initialCrit: 0
-  initialDropRate: 0
   critPerLuck: 0
-  dropRatePerLuck: 0
   color: 0
   money: 0
   exp: 0
+  currMode: 0
+  Waypoints: []
+  detectRange: 8
+  maxDistance: 15
+  initialDropRate: 0
+  dropRatePerLuck: 0
   IsCapturable: 1
+  anim: {fileID: 0}
   bullet: {fileID: 477030, guid: 537370ef8cbeb98408728579714cf6ca, type: 2}
   maximumShotDistance: 6
 --- !u!114 &11430516

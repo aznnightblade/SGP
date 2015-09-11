@@ -112,6 +112,7 @@ public class Rodney : Enemy {
 				if (!bricksSpawned) {
 					for (int index = 0; index < ones.Length; index++) {
 						if (ones[index].activeInHierarchy) {
+                            SoundManager.instance.BossSoundeffects[9].Play();
 							Vector3 pos = new Vector3(ones[index].transform.position.x, target.position.y + 1.5f, ones[index].transform.position.z); 
 							SpawnBrick(pos);
 
