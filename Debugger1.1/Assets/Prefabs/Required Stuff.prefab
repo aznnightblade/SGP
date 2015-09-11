@@ -330,6 +330,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 458888}
   - 212: {fileID: 21203708}
+  - 54: {fileID: 5404146}
   m_Layer: 11
   m_Name: New Sprite
   m_TagString: Untagged
@@ -1599,6 +1600,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &164244
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 454434}
+  - 82: {fileID: 8280976}
+  m_Layer: 0
+  m_Name: Justin'sdeathsfx
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &164250
 GameObject:
   m_ObjectHideFlags: 1
@@ -2347,7 +2364,7 @@ GameObject:
   - 4: {fileID: 429104}
   - 82: {fileID: 8262566}
   m_Layer: 0
-  m_Name: Justin'sdeathsfx
+  m_Name: TJteleport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2588,7 +2605,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 173214}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.13876343, y: 28.3137589, z: -38.058075}
+  m_LocalPosition: {x: 28.7550106, y: .5, z: 27.2370834}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 440338}
@@ -2664,6 +2681,7 @@ Transform:
   - {fileID: 445756}
   - {fileID: 496848}
   - {fileID: 498526}
+  - {fileID: 454434}
   - {fileID: 429104}
   m_Father: {fileID: 468602}
   m_RootOrder: 3
@@ -2797,7 +2815,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 191042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.07000005, y: 2.07299995, z: 0}
+  m_LocalPosition: {x: 1.07000005, y: 1.85000002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 449140}
@@ -2911,11 +2929,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 191292}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 403168}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!4 &429270
 Transform:
   m_ObjectHideFlags: 1
@@ -3131,7 +3149,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.0800018, y: -28.8600006, z: 39.8300018}
+  m_LocalPosition: {x: -2.05999994, y: -1.37, z: -24.7700005}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 416194}
@@ -3226,6 +3244,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 416194}
   m_RootOrder: 0
+--- !u!4 &454434
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164244}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 403168}
+  m_RootOrder: 7
 --- !u!4 &454678
 Transform:
   m_ObjectHideFlags: 1
@@ -3589,6 +3619,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 191042}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &5404146
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 110238}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: .0500000007
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 84
+  m_CollisionDetection: 0
 --- !u!54 &5443950
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -5308,7 +5353,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24354300, guid: 94620953847c4e643b5e173a44635201,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 0ea964b8756768a40bce3ba76e9225e5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ab3bb1567afc14f409aa0ebbdfd0bc81, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -5869,6 +5914,76 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24354300, guid: 94620953847c4e643b5e173a44635201,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 6e2aa6dfa99d7ef428f9a4b8157a9a31, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!82 &8280976
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 164244}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24354300, guid: 94620953847c4e643b5e173a44635201,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 0ea964b8756768a40bce3ba76e9225e5, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -6947,7 +7062,7 @@ Animation:
   m_GameObject: {fileID: 148690}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 568cf7431aa979f4fa0b0c63f319d9f3, type: 2}
+  m_Animation: {fileID: 0}
   m_Animations: []
   m_WrapMode: 0
   m_PlayAutomatically: 1
@@ -8584,6 +8699,7 @@ MonoBehaviour:
   - {fileID: 8228360}
   - {fileID: 8216764}
   - {fileID: 8261618}
+  - {fileID: 8280976}
   - {fileID: 8262566}
   WeaponSoundeffects:
   - {fileID: 8242682}
@@ -8636,6 +8752,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerSprite: {fileID: 0}
+  moveDir: {x: 0, y: 0, z: 0}
+  rigidVel: {x: 0, y: 0, z: 0}
   chargemeter: {fileID: 11475206}
   Heatmeter: {fileID: 11493446}
 --- !u!114 &11456360
@@ -9646,7 +9764,7 @@ MonoBehaviour:
   weapons:
   - {fileID: 11460952, guid: 03f693d2d88d30340bd8da95c9603087, type: 2}
   hasDLLs: 0
-  hasChargeShot: 0
+  hasChargeShot: 1
   hasNegationBoots: 1
   isHovering: 0
   hoverTime: 5

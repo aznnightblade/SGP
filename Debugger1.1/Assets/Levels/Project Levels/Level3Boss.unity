@@ -2402,6 +2402,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11453502, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: BossSoundeffects.Array.size
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 400992, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
       propertyPath: m_LocalPosition.x
       value: 28.7550106
@@ -2434,41 +2438,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 440338, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -1.37
-      objectReference: {fileID: 0}
-    - target: {fileID: 440338, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -24.7700005
-      objectReference: {fileID: 0}
-    - target: {fileID: 440338, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -2.05999994
-      objectReference: {fileID: 0}
-    - target: {fileID: 115586, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: hasChargeShot
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 416194, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1.85000002
-      objectReference: {fileID: 0}
-    - target: {fileID: 138210, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 110238, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 11145984, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: 7400000, guid: 568cf7431aa979f4fa0b0c63f319d9f3, type: 2}
+    - target: {fileID: 11453502, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: BossSoundeffects.Array.data[9]
+      value: 
+      objectReference: {fileID: 521668777}
+    - target: {fileID: 164244, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: m_Name
+      value: BossDeathSFX
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
   m_IsPrefabParent: 0
+--- !u!82 &521668777 stripped
+AudioSource:
+  m_PrefabParentObject: {fileID: 8262566, guid: bad108bd7c5945b4d9b68c4102aeae84,
+    type: 2}
+  m_PrefabInternal: {fileID: 521668776}
 --- !u!1001 &633038062
 Prefab:
   m_ObjectHideFlags: 0
@@ -7297,25 +7286,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ef30ca72a60f8e744802d70ff48d8e5d, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2047689597 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 110238, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-  m_PrefabInternal: {fileID: 521668776}
---- !u!54 &2047689598
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2047689597}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 84
-  m_CollisionDetection: 0
 --- !u!1 &2099543534
 GameObject:
   m_ObjectHideFlags: 0

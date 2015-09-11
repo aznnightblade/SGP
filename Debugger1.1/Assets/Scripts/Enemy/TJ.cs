@@ -102,7 +102,7 @@ public class TJ : Enemy {
 		float rot = transform.rotation.eulerAngles.y;
 		float healthPercent = 1 - (float)currHealth / maxHealth;
 		int bulletsToFire = 0;
-
+        SoundManager.instance.EnemySoundeffects[1].Play();
 		int random = Random.Range (1, 100);
 
 		if (random <= 10 + (20 * healthPercent)) {
