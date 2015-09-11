@@ -28,7 +28,7 @@ public class BasicMelee : Enemy {
 
 		RechargeShields ();
 
-		if (currMode != Mode.Friendly) {
+		if (currMode != Mode.Friendly && currMode != Mode.Deactivated) {
 			if (GameManager.CTimeScale == 0.0f) {
 				agent.velocity = Vector3.zero;
 				agent.updateRotation = false;

@@ -98,8 +98,6 @@ public class Enemy : Statistics {
 	}
 
 	public virtual void CheckForReset () {
-		Mode temp = currMode;
-
 		if (currMode != Mode.BossRoom && currMode != Mode.Deactivated) {
 			Transform player = GameObject.FindGameObjectWithTag ("Player").transform;
 

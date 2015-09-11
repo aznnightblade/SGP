@@ -35,7 +35,8 @@ public class ConvyorBelt : MonoBehaviour {
 		if (col.gameObject.tag == "Player") {
 			Objects.Add (col.transform.parent);
 		} else {
-			Objects.Add(col.transform);
+            if (col.gameObject.tag != "Lazer")
+			    Objects.Add(col.transform);
 		}
 	}
 
@@ -43,7 +44,8 @@ public class ConvyorBelt : MonoBehaviour {
 		if (col.gameObject.tag == "Player") {
 			Objects.Remove (col.transform.parent);
 		} else {
-			Objects.Remove(col.transform);
+			if (col.gameObject.tag != "Lazer")
+				Objects.Remove(col.transform);
 		}
 	}
 
