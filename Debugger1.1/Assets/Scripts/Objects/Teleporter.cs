@@ -98,12 +98,12 @@ public class Teleporter : MonoBehaviour {
 	{
 		int count = 0;
 		for (int i = 0; i < dampeners.Length; ++i) {
-			if(dampeners[i].Toggle == true)
+			if(dampeners[i].Toggle == false)
 				count++;
 		}
-		if (count == dampeners.Length)
-			ChangeState (true);
-		else
+		if (count > 0)
 			ChangeState (false);
+		else
+			ChangeState (true);
 	}
 }

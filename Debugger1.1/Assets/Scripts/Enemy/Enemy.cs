@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Enemy : Statistics {
 
-	public enum Mode { Attack, Idle, Patrolling, Friendly, Deactivated };
+	public enum Mode { Attack, Idle, Patrolling, Friendly, Deactivated, BossRoom };
 
 	protected NavMeshAgent agent = null;
 	protected Transform target = null;
@@ -42,14 +42,32 @@ public class Enemy : Statistics {
 			gameObject.GetComponent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeAll;
 		}
 
-		if (currMode == Mode.Attack) {
+		if (currMode == Mode.Attack || currMode == Mode.BossRoom) {
 			target = GameObject.FindGameObjectWithTag ("Player").transform;
-			agent.destination = target.position;
+
+			if (agent.isActiveAndEnabled)
+				agent.destination = target.position;
 		}
 
 		if (currMode == Mode.Patrolling) {
 			target = Waypoints[waypointCounter];
 			agent.destination = target.position;
+		}
+
+		if (currMode != Mode.Friendly) {
+			switch (color) {
+			case DLLColor.Color.NEUTRAL:
+				break;
+			case DLLColor.Color.RED:
+				gameObject.GetComponentInChildren<SpriteRenderer> ().material.color = Color.red;
+				break;
+			case DLLColor.Color.GREEN:
+				gameObject.GetComponentInChildren<SpriteRenderer> ().material.color = Color.green;
+				break;
+			case DLLColor.Color.BLUE:
+				gameObject.GetComponentInChildren<SpriteRenderer> ().material.color = Color.blue;
+				break;
+			}
 		}
 	}
 
@@ -65,25 +83,31 @@ public class Enemy : Statistics {
 	}
 
 	public virtual void CheckForPlayer () {
-		Transform player = GameObject.FindGameObjectWithTag ("Player").transform;
+		if (currMode != Mode.BossRoom && currMode != Mode.Deactivated) {
+			Transform player = GameObject.FindGameObjectWithTag ("Player").transform;
 
-		if (Vector3.Distance (transform.position, player.position) <= detectRange) {
-			target = player;
-			currMode = Mode.Attack;
+			if (Vector3.Distance (transform.position, player.position) <= detectRange) {
+				target = player;
+				currMode = Mode.Attack;
+			}
 		}
 	}
 
 	public virtual void CheckForReset () {
-		Transform player = GameObject.FindGameObjectWithTag ("Player").transform;
+		Mode temp = currMode;
 
-		if (Vector3.Distance (transform.position, player.position) >= maxDistance) {
-			if (Waypoints.Length > 0) {
-				target = Waypoints [waypointCounter];
-				currMode = Mode.Patrolling;
-			} else {
-				target = null;
-				currMode = Mode.Idle;
-				agent.destination = transform.position;
+		if (currMode != Mode.BossRoom && currMode != Mode.Deactivated) {
+			Transform player = GameObject.FindGameObjectWithTag ("Player").transform;
+
+			if (Vector3.Distance (transform.position, player.position) >= maxDistance) {
+				if (Waypoints.Length > 0) {
+					target = Waypoints [waypointCounter];
+					currMode = Mode.Patrolling;
+				} else {
+					target = null;
+					currMode = Mode.Idle;
+					agent.destination = transform.position;
+				}
 			}
 		}
 	}
@@ -120,7 +144,7 @@ public class Enemy : Statistics {
 					gameObject.GetComponentInChildren<Rigidbody> ().constraints = (RigidbodyConstraints.FreezePositionY | 
 					                                                               RigidbodyConstraints.FreezeRotationX |
 					                                                               RigidbodyConstraints.FreezeRotationZ);
-					player.Friend = (Instantiate (transform.parent, transform.parent.position, Quaternion.identity) as Transform);
+					player.Friend = (Transform)Instantiate (transform.parent, transform.parent.position, Quaternion.identity);
 					Enemy friendStats = player.Friend.GetComponentInChildren<Enemy> ();
 					friendStats.CurrHealth = friendStats.MaxHealth;
 					friendStats.CurrMode = Mode.Friendly;
@@ -150,7 +174,7 @@ public class Enemy : Statistics {
 				PlayerController player = GameObject.FindGameObjectWithTag("Player Controller").GetComponent<PlayerController> ();
 				player.ControlCounter = 0;
 				player.PlayerControlledObjects[1] = null;
-				Camera.main.GetComponent<CameraFollow> ().Target = player.PlayerControlledObjects[0];
+				Camera.main.GetComponent<CameraFollow> ().Target = GameObject.FindGameObjectWithTag("Player").transform;
 				
 				Destroy(transform.parent.gameObject);
 			}
@@ -173,7 +197,7 @@ public class Enemy : Statistics {
 		}
 	}
 
-	public void FaceMouse () {
+	protected void FaceMouse () {
 		if (Time.timeScale > 0.0f) {
 			if (InputManager.instance.UsingController == false) {
 				previousLookDir = direction;
@@ -189,6 +213,12 @@ public class Enemy : Statistics {
 		
 		direction.Normalize ();
 		float rot = (Mathf.Atan2 (-direction.y, direction.x) * 180 / Mathf.PI) - 90;
+		transform.rotation = Quaternion.Euler (0, rot, 0);
+	}
+
+	protected void FacePlayer () {
+		Vector3 direction = (transform.position - target.position).normalized;
+		float rot = (Mathf.Atan2 (-direction.z, direction.x) * 180 / Mathf.PI) - 90;
 		transform.rotation = Quaternion.Euler (0, rot, 0);
 	}
 

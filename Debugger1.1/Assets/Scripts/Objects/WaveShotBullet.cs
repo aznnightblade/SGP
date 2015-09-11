@@ -9,7 +9,7 @@ public class WaveShotBullet : Weapon {
 				Statistics colStats = col.gameObject.GetComponent<Statistics> ();
 				
 				if (colStats != null) {
-					float damage = (initialDamage + owner.Strength * damagePerStrength) - colStats.Defense;
+					float damage = ((initialDamage + owner.Strength * damagePerStrength) * ChargeScale) - colStats.Defense;
 					
 					if (damage <= 0.0f)
 						damage = 1;

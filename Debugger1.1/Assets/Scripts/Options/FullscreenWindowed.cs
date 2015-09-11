@@ -5,9 +5,10 @@ public class FullscreenWindowed : MonoBehaviour {
 
 	public void SwitchDisplays() {
 		if (gameObject.name == "Fullscreen") {
-			Screen.fullScreen = true;
+			Camera.main.aspect = (GameManager.ScreenResolution.x / GameManager.ScreenResolution.y);
+			Screen.SetResolution((int)GameManager.ScreenResolution.x, (int)GameManager.ScreenResolution.y, true);
 		} else if (gameObject.name == "Windowed") {
-			Screen.fullScreen = false;
+			Screen.SetResolution((int)GameManager.ScreenResolution.x, (int)GameManager.ScreenResolution.y, false);
 		}
 	}
 }

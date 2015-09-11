@@ -107,10 +107,9 @@ MonoBehaviour:
   maxChargeScale: 2
   chargePerTick: .25
   ticksPerSecond: 16
-  initialShotDelay: .200000003
-  reducedDelayPerAgility: .00999999978
+  initialShotDelay: .409999996
+  reducedDelayPerAgility: .0199999996
   maxDistance: 0
-  sounds: {fileID: 0}
 --- !u!135 &13529224
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -163,6 +162,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: Velocity
       value: 19.6599998
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: initialShotDelay
+      value: .409999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: reducedDelayPerAgility
+      value: .0199999996
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
