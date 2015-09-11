@@ -3,6 +3,7 @@ using System.Collections;
 
 public class BossSpawnArea : MonoBehaviour {
 
+	[SerializeField]
 	bool containsPlayer = false;
 
 	void Update () {
@@ -12,6 +13,12 @@ public class BossSpawnArea : MonoBehaviour {
 	void OnTriggerEnter (Collider col) {
 		if (col.tag == "Player Controller" || col.tag == "Player") {
 			containsPlayer = true;
+		}
+	}
+
+	void OnTriggerExit (Collider col) {
+		if (col.tag == "Player Controller" || col.tag == "Player") {
+			containsPlayer = false;
 		}
 	}
 
