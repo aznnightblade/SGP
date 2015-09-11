@@ -17,6 +17,7 @@ public class BasicRanged : Enemy {
 	
 	// Update is called once per frame
 	void Update () {
+        Death();
 		if (currMode == Mode.Patrolling)
 			UpdateWaypoints ();
 
@@ -91,8 +92,6 @@ public class BasicRanged : Enemy {
 				delayTimer = 0.0f;
 		}
 		
-		if (currHealth <= 0.0f)
-			DestroyObject ();
 	}
 
 	void FireBullet () {

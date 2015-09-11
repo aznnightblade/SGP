@@ -23,6 +23,7 @@ public class FireWaller : Enemy {
 	
 	// Update is called once per frame
 	void Update () {
+        Death();
 		if (currMode == Mode.Patrolling)
 			UpdateWaypoints ();
 		

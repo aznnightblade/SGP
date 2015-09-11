@@ -45,16 +45,9 @@ public class BasicMelee : Enemy {
 			}
 
 			if (attacking && delayTimer <= 0.0f) {
-				Player player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
-				SoundManager.instance.EnemySoundeffects [0].Play ();
-				float damage = (initialDamage + damagePerStrength * strength) - player.Defense;
-
-				if (damage < 0.0f)
-					damage = 0;
-				SoundManager.instance.EnemySoundeffects [0].Play ();
-				player.DamagePlayer (Mathf.CeilToInt (damage));
-
-				delayTimer = damageDelay;
+				
+                anim.SetBool("Attack", true);
+				
 			}
 		} else {
 			if (agent.enabled == true) {
@@ -105,4 +98,22 @@ public class BasicMelee : Enemy {
 			target = null;
 		}
 	}
+    public override void Attack()
+    {
+        if (attacking==true)
+        {
+            Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+            SoundManager.instance.EnemySoundeffects[0].Play();
+            float damage = (initialDamage + damagePerStrength * strength) - player.Defense;
+
+            if (damage < 0.0f)
+                damage = 0;
+            SoundManager.instance.EnemySoundeffects[0].Play();
+            player.DamagePlayer(Mathf.CeilToInt(damage));
+
+            delayTimer = damageDelay;
+           
+        }
+        anim.SetBool("Attack", false);
+    }
 }

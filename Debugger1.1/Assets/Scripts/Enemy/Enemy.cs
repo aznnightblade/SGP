@@ -29,7 +29,7 @@ public class Enemy : Statistics {
 	[SerializeField]
 	protected bool IsCapturable = false;
 
-    Animator deathanim;
+    public Animator anim;
     float timer = 0;
     bool deathbool;
 	public override void UpdateStats () {
@@ -37,7 +37,7 @@ public class Enemy : Statistics {
 		critChance = initialCrit * GameManager.difficulty + critPerLuck * luck;
 		defense = initialDefense * GameManager.difficulty + defensePerEndurance * endurance;
 
-        deathanim = gameObject.GetComponentInChildren<Animator>();
+        anim = gameObject.GetComponentInChildren<Animator>();
 		agent = gameObject.GetComponent<NavMeshAgent> ();
 
 		if (currMode == Mode.Deactivated) {
@@ -235,13 +235,20 @@ public class Enemy : Statistics {
         {
             currMode = Mode.Deactivated;
 
-            deathanim.SetBool("Death", true);
+            anim.SetBool("Death", true);
             timer += Time.deltaTime;
             if (timer >= .45f)
             {
                 DestroyObject();
                 timer = 0;
+                anim.SetBool("Death", false);
+                deathbool = false;
             }
-        } 
+        }
+
+    }
+    public virtual void Attack()
+    {
+
     }
 }
