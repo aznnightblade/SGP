@@ -148,7 +148,7 @@ public class Enemy : Statistics {
 					friendStats.CurrMode = Mode.Friendly;
 					player.Friend.GetChild(0).tag = player.tag;
 					player.Friend.GetChild (0).gameObject.layer = LayerMask.NameToLayer ("Player");
-					//player.Friend.gameObject.SetActive (false);
+					player.Friend.gameObject.SetActive (false);
 				}
 			
 				if (gameObject.name == "Joe") {

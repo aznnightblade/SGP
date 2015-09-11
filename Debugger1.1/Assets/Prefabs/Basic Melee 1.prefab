@@ -155,7 +155,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.29055405, y: 1.03499997, z: -5.16434336}
+  m_LocalPosition: {x: -10.3999996, y: 2.25999999, z: -2.3599999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 403610}
@@ -196,17 +196,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07ccbb1154298d94a88abf21ae7d7a31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currMode: 0
   currHealth: 0
   maxHealth: 0
   shield: 0
   maxShield: 0
   hitRegenTimer: 2
   hitTimer: 0
-  acceleration: 0
-  velocity: 0
-  maxVelocity: 0
-  maxTurnRadius: 0
   strength: 1
   initialDamage: 3
   damagePerStrength: 2
@@ -227,12 +222,16 @@ MonoBehaviour:
   luck: 1
   critChance: 0
   initialCrit: 0
-  initialDropRate: 0
   critPerLuck: 0
-  dropRatePerLuck: 0
   color: 0
   money: 50
   exp: 50
+  currMode: 0
+  Waypoints: []
+  detectRange: 8
+  maxDistance: 15
+  initialDropRate: 0
+  dropRatePerLuck: 0
   IsCapturable: 1
   damageDelay: .5
 --- !u!114 &11436788
