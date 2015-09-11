@@ -11,7 +11,7 @@ public class HealthDrops : MonoBehaviour {
 	void OnDestroy() {
 		float dropSuccess = Random.Range (0.0f, 1.0f);
 		if (dropSuccess <= dropRate) {
-			Transform item = Instantiate(itemDrop, transform.position, Quaternion.Euler(Vector3.zero)) as Transform;
+			Instantiate(itemDrop, transform.position, Quaternion.Euler(Vector3.zero));
 		}
 	}
 }

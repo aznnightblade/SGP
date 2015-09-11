@@ -12,8 +12,6 @@ public class PlayerController : MonoBehaviour {
     Animator walkinganim;
 	[SerializeField]
 	Vector3 moveDir = Vector3.zero;
-	[SerializeField]
-	Vector3 rigidVel = Vector3.zero;
 	Vector3 direction = Vector3.zero;
 	Vector3 previousLookDir = Vector3.zero;
 	
@@ -167,8 +165,6 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		rigidVel = playerControlledObjects [controlCounter].GetComponent<Rigidbody> ().velocity;
-
 		if (GameManager.CTimeScale2 > 0.0f) {
 			moveDir.x = InputManager.instance.GetAxisRaw ("Horizontal");
 			moveDir.z = InputManager.instance.GetAxisRaw ("Vertical");

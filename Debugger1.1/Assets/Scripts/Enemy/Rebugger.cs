@@ -6,7 +6,6 @@ public class Rebugger : Enemy{
 
 
 	Statistics targetStats = null;
-	List<GameObject> allies = new List<GameObject>();
 
 	[SerializeField]
 	float healRange = 4.0f;
@@ -80,7 +79,7 @@ public class Rebugger : Enemy{
 				Transform player = GameObject.FindGameObjectWithTag ("Player").transform;
 
 				if (isFleeing) {
-					if (agent.remainingDistance == 0 || agent.destination == null)
+					if (agent.remainingDistance == 0)
 						isFleeing = false;
 
 					NavMeshHit hit;

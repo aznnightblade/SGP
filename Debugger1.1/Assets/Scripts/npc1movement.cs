@@ -3,12 +3,10 @@ using System.Collections;
 
 public class npc1movement : MonoBehaviour {
     public bool active = false;
-    Random rnd = new Random();
 
     private NavMeshAgent agent = null;
     [SerializeField]
     Transform[] Waypoints = null;
-    Vector3 destination = Vector3.zero;
 	// Use this for initialization
 	void Start () {
 

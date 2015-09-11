@@ -200,8 +200,6 @@ public class Player : Statistics {
     {
         healthText.text = "HP: " + currHealth;
 
-        float currentValue = MapValues(currHealth, 0, maxHealth, 0, 1);
-
         visualHealth.fillAmount = currHealth / maxHealth;
 
         if (currHealth > maxHealth / 2) //more than 50% hp

@@ -1868,7 +1868,7 @@ Transform:
   - {fileID: 822194539}
   - {fileID: 842541076}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &180870211
 GameObject:
   m_ObjectHideFlags: 0
@@ -4100,6 +4100,48 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 605470656}
+--- !u!1001 &621583784
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 429734, guid: 3141207ffaf1fae408b448611696e6d7, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -11.2264194
+      objectReference: {fileID: 0}
+    - target: {fileID: 429734, guid: 3141207ffaf1fae408b448611696e6d7, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.05999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 429734, guid: 3141207ffaf1fae408b448611696e6d7, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -51.6383934
+      objectReference: {fileID: 0}
+    - target: {fileID: 429734, guid: 3141207ffaf1fae408b448611696e6d7, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429734, guid: 3141207ffaf1fae408b448611696e6d7, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429734, guid: 3141207ffaf1fae408b448611696e6d7, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 429734, guid: 3141207ffaf1fae408b448611696e6d7, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 429734, guid: 3141207ffaf1fae408b448611696e6d7, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3141207ffaf1fae408b448611696e6d7, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &626501143
 GameObject:
   m_ObjectHideFlags: 0
@@ -4200,7 +4242,7 @@ Transform:
   - {fileID: 1371727337}
   - {fileID: 1839943559}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!1 &653879163
 GameObject:
   m_ObjectHideFlags: 0
@@ -10530,6 +10572,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerSprite: {fileID: 0}
+  moveDir: {x: 0, y: 0, z: 0}
+  rigidVel: {x: 0, y: 0, z: 0}
   chargemeter: {fileID: 34252332}
   Heatmeter: {fileID: 363092974}
 --- !u!54 &1587977341

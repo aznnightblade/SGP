@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class Lazers : MonoBehaviour {
@@ -14,8 +14,8 @@ public class Lazers : MonoBehaviour {
 					Col.gameObject.GetComponentInChildren<Player> ().CurrHealth = 0;
 				else if(Col.gameObject.tag == "Dampener")
 					return;
-					else
-					Col.gameObject.GetComponent<Statistics> ().CurrHealth = 0;
+				else
+					Col.gameObject.GetComponent<Statistics> ().Damage(9999, transform);
 			}
 		}
 	}

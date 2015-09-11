@@ -39,8 +39,6 @@ public class Turret : Enemy {
 			}
 			
 			if (currMode == Mode.Attack) {
-				CheckForReset ();
-
 				FacePlayer ();
 
 				if (Vector3.Distance (transform.position, target.position) <= maximumShotDistance && shotDelayTimer <= 0.0f) {
@@ -49,6 +47,8 @@ public class Turret : Enemy {
 					
 					shotDelayTimer = shotDelay;
 				}
+				
+				CheckForReset ();
 			} else if (currMode != Mode.Deactivated) {
 				CheckForPlayer ();
 			}

@@ -98,7 +98,6 @@ public class TJ : Enemy {
 	}
 
 	void FireBullets () {
-		Vector3 direction = Vector3.zero;
 		float rot = transform.rotation.eulerAngles.y;
 		float healthPercent = 1 - (float)currHealth / maxHealth;
 		int bulletsToFire = 0;
