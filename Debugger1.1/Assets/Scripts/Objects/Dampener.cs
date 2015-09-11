@@ -43,6 +43,7 @@ public class Dampener : Statistics {
     public void Repair()
     {
         currHealth = maxHealth;
+        gameObject.GetComponentInChildren<SpriteRenderer>().color = new Color(1, 1, 1, 1);
 		gameObject.GetComponentInChildren<SpriteRenderer> ().sprite = images [0];
         Toggle = false;
     }
