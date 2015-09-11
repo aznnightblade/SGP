@@ -330,7 +330,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 458888}
   - 212: {fileID: 21203708}
-  - 54: {fileID: 5404146}
+  - 54: {fileID: 5457224}
   m_Layer: 11
   m_Name: New Sprite
   m_TagString: Untagged
@@ -399,7 +399,6 @@ GameObject:
   - 124: {fileID: 12446788}
   - 81: {fileID: 8122324}
   - 114: {fileID: 11408066}
-  - 114: {fileID: 11499954}
   - 82: {fileID: 8226728}
   - 114: {fileID: 11401420}
   m_Layer: 0
@@ -2301,6 +2300,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &190334
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 428674}
+  - 82: {fileID: 8262082}
+  m_Layer: 0
+  m_Name: TJteleport
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &190512
 GameObject:
   m_ObjectHideFlags: 1
@@ -2364,7 +2379,7 @@ GameObject:
   - 4: {fileID: 429104}
   - 82: {fileID: 8262566}
   m_Layer: 0
-  m_Name: TJteleport
+  m_Name: Rodney'sBrick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2605,7 +2620,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 173214}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.7550106, y: .5, z: 27.2370834}
+  m_LocalPosition: {x: -4.13876343, y: 28.3137589, z: -38.058075}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 440338}
@@ -2682,6 +2697,7 @@ Transform:
   - {fileID: 496848}
   - {fileID: 498526}
   - {fileID: 454434}
+  - {fileID: 428674}
   - {fileID: 429104}
   m_Father: {fileID: 468602}
   m_RootOrder: 3
@@ -2815,7 +2831,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 191042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.07000005, y: 1.85000002, z: 0}
+  m_LocalPosition: {x: 1.07000005, y: .00800000038, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 449140}
@@ -2922,6 +2938,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 437332}
   m_RootOrder: 8
+--- !u!4 &428674
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190334}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 403168}
+  m_RootOrder: 8
 --- !u!4 &429104
 Transform:
   m_ObjectHideFlags: 1
@@ -2929,11 +2957,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 191292}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 403168}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!4 &429270
 Transform:
   m_ObjectHideFlags: 1
@@ -3149,7 +3177,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.05999994, y: -1.37, z: -24.7700005}
+  m_LocalPosition: {x: -14.3999996, y: -28.2800007, z: 35.2999992}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 416194}
@@ -3619,12 +3647,12 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 191042}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &5404146
+--- !u!54 &5443950
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 110238}
+  m_GameObject: {fileID: 166856}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -3634,12 +3662,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
---- !u!54 &5443950
+--- !u!54 &5457224
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 166856}
+  m_GameObject: {fileID: 110238}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
@@ -4303,7 +4331,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24332136, guid: 94620953847c4e643b5e173a44635201,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: d2a2970bd47d3dd40a23c1e378dd699a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 49ade67636e83574b80b810799efe616, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -5343,6 +5371,76 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!82 &8262082
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 190334}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24354300, guid: 94620953847c4e643b5e173a44635201,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: ab3bb1567afc14f409aa0ebbdfd0bc81, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!82 &8262566
 AudioSource:
   m_ObjectHideFlags: 1
@@ -5353,7 +5451,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24354300, guid: 94620953847c4e643b5e173a44635201,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: ab3bb1567afc14f409aa0ebbdfd0bc81, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7bcff309c368aff409689ac7bbfd495d, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -8387,12 +8485,20 @@ MonoBehaviour:
     Positive: 304
     AltNegative: 0
     AltPositive: 0
-  - Name: 
+  - Name: WeaponSwap
+    axis: 
+    direction: 
+    axisDown: 
+    Negative: 113
+    Positive: 101
+    AltNegative: 0
+    AltPositive: 0
+  - Name: FriendToggle
     axis: 
     direction: 
     axisDown: 
     Negative: 0
-    Positive: 0
+    Positive: 306
     AltNegative: 0
     AltPositive: 0
   ControllerInputs:
@@ -8700,6 +8806,7 @@ MonoBehaviour:
   - {fileID: 8216764}
   - {fileID: 8261618}
   - {fileID: 8280976}
+  - {fileID: 8262082}
   - {fileID: 8262566}
   WeaponSoundeffects:
   - {fileID: 8242682}
@@ -9732,16 +9839,16 @@ MonoBehaviour:
   maxShield: 0
   hitRegenTimer: 2
   hitTimer: 0
-  strength: 1
-  initialDamage: 0
-  damagePerStrength: 0
+  strength: 5
+  initialDamage: 5
+  damagePerStrength: 5
   endurance: 1
   initialHealth: 40
   healthPerEndurance: 10
   defense: 1
   initialDefense: 1
   defensePerEndurance: 1
-  agility: 1
+  agility: 10
   shotDelay: 0
   dexterity: 1
   initialShotDistance: 10
@@ -9763,14 +9870,15 @@ MonoBehaviour:
   currWeapon: {fileID: 11460952, guid: 03f693d2d88d30340bd8da95c9603087, type: 2}
   weapons:
   - {fileID: 11460952, guid: 03f693d2d88d30340bd8da95c9603087, type: 2}
-  hasDLLs: 0
+  - {fileID: 11492286, guid: aae3aad06dd75f9469e9a42a3960f853, type: 2}
+  hasDLLs: 1
   hasChargeShot: 1
-  hasNegationBoots: 1
+  hasNegationBoots: 0
   isHovering: 0
   hoverTime: 5
   friend: {fileID: 0}
   breakpoint: {fileID: 11430172}
-  multithreadLevel: 1
+  multithreadLevel: 4
   invulTimePerDamage: .100000001
   companions: 00000000000000000000000000000000
   newGame: 1
@@ -10026,17 +10134,6 @@ MonoBehaviour:
   text: {fileID: 11452772}
   costtext: {fileID: 11489146}
   something: 0
---- !u!114 &11499954
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 111816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd58c733daefb264dbb09f6d1d36bc7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!124 &12446788
 Behaviour:
   m_ObjectHideFlags: 1

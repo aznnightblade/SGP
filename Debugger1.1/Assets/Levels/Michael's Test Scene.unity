@@ -419,6 +419,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1889659086}
   m_RootOrder: 0
+--- !u!1 &576893290 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 182458, guid: 3141207ffaf1fae408b448611696e6d7, type: 2}
+  m_PrefabInternal: {fileID: 586514318}
+--- !u!95 &576893292
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 576893290}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b38812d8024df9742b0659461fbdc019, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &586514318
 Prefab:
   m_ObjectHideFlags: 0
@@ -907,6 +928,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11483828, guid: ef30ca72a60f8e744802d70ff48d8e5d, type: 2}
+      propertyPath: dampeners.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 448308, guid: ef30ca72a60f8e744802d70ff48d8e5d, type: 2}
       propertyPath: m_LocalPosition.x
       value: 44.5541763
@@ -1065,6 +1090,14 @@ Prefab:
     - target: {fileID: 400992, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
       propertyPath: m_RootOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 416194, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 12.4700003
+      objectReference: {fileID: 0}
+    - target: {fileID: 416194, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.50999999
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}

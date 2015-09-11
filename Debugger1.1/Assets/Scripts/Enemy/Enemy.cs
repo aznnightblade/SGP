@@ -29,11 +29,15 @@ public class Enemy : Statistics {
 	[SerializeField]
 	protected bool IsCapturable = false;
 
+    Animator deathanim;
+    float timer = 0;
+    bool deathbool;
 	public override void UpdateStats () {
 		maxHealth = currHealth = initialHealth * GameManager.difficulty + healthPerEndurance * endurance;
 		critChance = initialCrit * GameManager.difficulty + critPerLuck * luck;
 		defense = initialDefense * GameManager.difficulty + defensePerEndurance * endurance;
 
+        deathanim = gameObject.GetComponentInChildren<Animator>();
 		agent = gameObject.GetComponent<NavMeshAgent> ();
 
 		if (currMode == Mode.Deactivated) {
@@ -133,6 +137,7 @@ public class Enemy : Statistics {
 		}
 		
 		if (currHealth <= 0) {
+
 			if (currMode != Mode.Friendly) {
 				if (IsCapturable && bullet.name == "Friend Shot(Clone)") {
 					Player player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
@@ -168,7 +173,7 @@ public class Enemy : Statistics {
 				if (gameObject.name == "Destructor" && bullet.name != "Friend Shot(Clone)") {
 					gameObject.GetComponent<Destructor> ().Detonate ();
 				} else {
-					DestroyObject ();
+                    deathbool = true;
 				}
 			} else {
 				PlayerController player = GameObject.FindGameObjectWithTag("Player Controller").GetComponent<PlayerController> ();
@@ -226,4 +231,19 @@ public class Enemy : Statistics {
 		get { return currMode; }
 		set { currMode = value; }
 	}
+    public void Death()
+    {
+        if (deathbool==true)
+        {
+            currMode = Mode.Deactivated;
+
+            deathanim.SetBool("Death", true);
+            timer += Time.deltaTime;
+            if (timer >= .45f)
+            {
+                DestroyObject();
+                timer = 0;
+            }
+        } 
+    }
 }
