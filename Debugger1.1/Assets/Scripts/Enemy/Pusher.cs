@@ -25,6 +25,7 @@ public class Pusher : Enemy {
 	
 	// Update is called once per frame
 	void Update () {
+        Death();
 		if (currMode == Mode.Patrolling)
 			UpdateWaypoints ();
 		
@@ -43,8 +44,6 @@ public class Pusher : Enemy {
 				agent.updateRotation = true;
 			}
 
-			if (currHealth <= 0)
-				DestroyObject ();
 
 			if (currMode == Mode.Attack) {
 				CheckForReset ();

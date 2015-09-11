@@ -45,6 +45,7 @@ public class ModerateRanged : Enemy {
 	
 	// Update is called once per frame
 	void Update () {
+        Death();
 		if (currMode == Mode.Patrolling)
 			UpdateWaypoints ();
 		
@@ -110,9 +111,6 @@ public class ModerateRanged : Enemy {
 				CheckForPlayer ();
 			}
 
-			if (currHealth <= 0.0f) {
-				DestroyObject ();
-			}
 		} else {
 			if (GameManager.CTimeScale2 > 0.0f) {
 				FaceMouse ();

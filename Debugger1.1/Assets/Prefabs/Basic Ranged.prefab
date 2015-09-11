@@ -116,6 +116,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 443396}
   - 212: {fileID: 21227600}
+  - 95: {fileID: 9507734}
   m_Layer: 10
   m_Name: Basic Ranged Sprite
   m_TagString: Untagged
@@ -145,7 +146,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 160608}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 13.96, y: 1, z: 34.9300003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 443396}
@@ -159,7 +160,7 @@ Transform:
   m_GameObject: {fileID: 195012}
   m_LocalRotation: {x: -1.15202326e-07, y: .707106709, z: -.707106829, w: -1.15202312e-07}
   m_LocalPosition: {x: 0, y: .5, z: 0}
-  m_LocalScale: {x: .5, y: .5, z: 1}
+  m_LocalScale: {x: -.289999992, y: .5, z: 1}
   m_Children: []
   m_Father: {fileID: 440876}
   m_RootOrder: 0
@@ -185,6 +186,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!95 &9507734
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195012}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b24e561c8bb2e404cbe90379bb73fae7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11405328
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -299,6 +317,7 @@ MonoBehaviour:
   initialDropRate: 0
   dropRatePerLuck: 0
   IsCapturable: 1
+  anim: {fileID: 0}
   bullet: {fileID: 477030, guid: 537370ef8cbeb98408728579714cf6ca, type: 2}
   maximumShotDistance: 5
 --- !u!114 &11472484
@@ -540,7 +559,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 186078}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
-  m_LocalPosition: {x: 0, y: 0, z: .949999988}
+  m_LocalPosition: {x: 0, y: 0, z: 35.4399986}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22409912}
@@ -548,7 +567,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 13.8000002, y: 1.69000006}
   m_SizeDelta: {x: 2.20000005, y: .181999996}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
