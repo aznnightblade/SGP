@@ -11,7 +11,7 @@ GameObject:
   - 65: {fileID: 6567674}
   - 114: {fileID: 11451032}
   - 212: {fileID: 21218618}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Dampener
   m_TagString: Dampener
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 493468}
   - 212: {fileID: 21241900}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: New Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - 222: {fileID: 22242874}
   - 114: {fileID: 11498324}
   - 114: {fileID: 11461338}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,7 +60,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 443074}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Dampener
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78,7 +78,7 @@ GameObject:
   - 223: {fileID: 22357048}
   - 114: {fileID: 11446384}
   - 114: {fileID: 11410366}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Healthbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,6 +383,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalScale.z
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

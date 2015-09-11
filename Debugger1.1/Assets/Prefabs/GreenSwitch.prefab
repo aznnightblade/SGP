@@ -14,7 +14,7 @@ GameObject:
   - 33: {fileID: 3377408}
   - 222: {fileID: 22205742}
   - 65: {fileID: 6553024}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: GreenSwitch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 423778}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - 224: {fileID: 22472610}
   - 222: {fileID: 22295736}
   - 114: {fileID: 11443746}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 479010}
   - 212: {fileID: 21227308}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: BSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   - 223: {fileID: 22383798}
   - 114: {fileID: 11433646}
   - 114: {fileID: 11443890}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 479656}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 485636}
   - 108: {fileID: 10892166}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 473262}
   - 212: {fileID: 21293590}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: ASprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -502,7 +502,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 116354}

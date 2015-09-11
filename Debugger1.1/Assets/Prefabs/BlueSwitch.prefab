@@ -10,7 +10,7 @@ GameObject:
   - 224: {fileID: 22404764}
   - 222: {fileID: 22219666}
   - 114: {fileID: 11486108}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25,7 +25,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 468520}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 455622}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - 223: {fileID: 22319800}
   - 114: {fileID: 11410492}
   - 114: {fileID: 11410594}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 413432}
   - 212: {fileID: 21287538}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: BSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 495764}
   - 212: {fileID: 21264502}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: ASprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 406668}
   - 108: {fileID: 10871638}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   - 33: {fileID: 3389302}
   - 222: {fileID: 22216934}
   - 65: {fileID: 6586536}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: BlueSwitch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -522,6 +522,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Intensity
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
