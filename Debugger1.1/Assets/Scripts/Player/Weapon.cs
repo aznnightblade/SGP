@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour {
 	[SerializeField]
 	protected Statistics owner = null;
 	[SerializeField]
-	protected float Velocity = 0.0f;
+	public float velocity = 0.0f;
 	[SerializeField]
 	protected float initialDamage = 0.0f;
 	[SerializeField]
@@ -56,7 +56,7 @@ public class Weapon : MonoBehaviour {
 		maxDistance = owner.InitialShotDistance + owner.ShotDistancePerDexerity * owner.Dexterity;
 		direction = new Vector3 (-Mathf.Cos (rot), 0, Mathf.Sin (rot));
 		
-		directionVelocity = direction * Velocity;
+		directionVelocity = direction * velocity;
 
 		if (directionVelocity.x > 0 && ownerMoveDirection.x > 0 || directionVelocity.x < 0 && ownerMoveDirection.x < 0)
 			directionVelocity.x += ownerMoveDirection.x;
@@ -105,6 +105,10 @@ public class Weapon : MonoBehaviour {
 		return -1;
 	}
 
+	public float Velocity {
+		get { return velocity; }
+		set { velocity = value; }
+	}
 	public Statistics Owner {
 		get { return owner; }
 		set { owner = value; }

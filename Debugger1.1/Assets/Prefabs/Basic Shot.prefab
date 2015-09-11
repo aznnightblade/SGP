@@ -95,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 113954}
   owner: {fileID: 0}
-  Velocity: 20
+  velocity: 20
   initialDamage: 2
   damagePerStrength: 2.5
   color: 0
@@ -110,7 +110,6 @@ MonoBehaviour:
   initialShotDelay: .200000003
   reducedDelayPerAgility: .00999999978
   maxDistance: 0
-  sounds: {fileID: 11447646, guid: 71781c32a7dd242428cf9cfcf1d8bfbe, type: 2}
 --- !u!135 &13559916
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -224,6 +223,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: color
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: velocity
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
