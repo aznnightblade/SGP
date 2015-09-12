@@ -4,7 +4,6 @@ using System.Collections;
 public class Enemy : Statistics {
 
 	public enum Mode { Attack, Idle, Patrolling, Friendly, Deactivated, BossRoom };
-
 	protected NavMeshAgent agent = null;
 	protected Transform target = null;
 
@@ -33,6 +32,7 @@ public class Enemy : Statistics {
     float timer = 0;
     bool deathbool;
 	public override void UpdateStats () {
+        sprite = GetComponentInChildren<SpriteRenderer>();
 		maxHealth = currHealth = initialHealth * GameManager.difficulty + healthPerEndurance * endurance;
 		critChance = initialCrit * GameManager.difficulty + critPerLuck * luck;
 		defense = initialDefense * GameManager.difficulty + defensePerEndurance * endurance;
@@ -129,7 +129,7 @@ public class Enemy : Statistics {
 		} else {
 			currHealth -= damageTaken;
 			EnemyHealthbar healthbar = transform.parent.GetComponentInChildren<EnemyHealthbar> ();
-			
+            StartCoroutine(collideFlash());
 			if (healthbar != null)
 				healthbar.UpdateFillAmount();
 		}
@@ -250,5 +250,12 @@ public class Enemy : Statistics {
     public virtual void Attack()
     {
 
+    }
+    IEnumerator collideFlash()
+    {
+        Color32 c = sprite.material.color;
+        sprite.material.color = new Color(1, 0, 0, 1);
+        yield return new WaitForSeconds(0.1f);
+        sprite.material.color = new Color(1,1,1,1);
     }
 }

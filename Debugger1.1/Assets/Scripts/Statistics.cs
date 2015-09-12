@@ -63,7 +63,8 @@ public class Statistics : MonoBehaviour {
 	int money = 0;
 	[SerializeField]
 	int exp = 0;
-
+    
+    public SpriteRenderer sprite;
 	public virtual void Damage (int damageTaken, Transform bullet) {
 		if (shield > 0 && bullet.gameObject.layer != LayerMask.NameToLayer("Waveshot Bullet")) {
 			if (shield >= damageTaken)
