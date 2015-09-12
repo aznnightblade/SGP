@@ -15032,6 +15032,27 @@ Transform:
   - {fileID: 2032023365}
   m_Father: {fileID: 2116260389}
   m_RootOrder: 1
+--- !u!1 &1032160123 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 199110, guid: 09df96ac708ad3644b5f61a901de2af5, type: 2}
+  m_PrefabInternal: {fileID: 436285151}
+--- !u!95 &1032160125
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1032160123}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8aa40c53f1b73ad4db9870fd8c56a72c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1036671739
 GameObject:
   m_ObjectHideFlags: 0
@@ -26679,7 +26700,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 115586, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8219486, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
       propertyPath: m_Enabled
@@ -26692,6 +26713,18 @@ Prefab:
     - target: {fileID: 8122324, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 416194, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -29.5599995
+      objectReference: {fileID: 0}
+    - target: {fileID: 416194, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: .769999981
+      objectReference: {fileID: 0}
+    - target: {fileID: 416194, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -17.3400002
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8243244, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
