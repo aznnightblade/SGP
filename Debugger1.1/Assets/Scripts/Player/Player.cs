@@ -5,7 +5,6 @@ public class Player : Statistics {
 
 	public enum COMPANIONS { Bill, Chris, Daemon, LeRoc, None };
 
-    private SpriteRenderer playersprite;
 	[SerializeField]
 	protected float acceleration = 0;
 	[SerializeField]
@@ -58,7 +57,7 @@ public class Player : Statistics {
 
 	// Use this for initialization
 	void Start () {
-        playersprite = GetComponentInChildren<SpriteRenderer>();
+        sprite = GetComponentInChildren<SpriteRenderer>();
         if (newGame==1)
         {
             currHealth = maxHealth = initialHealth + healthPerEndurance * endurance;
@@ -120,8 +119,7 @@ public class Player : Statistics {
 	public void DamagePlayer (int damageTaken) {
 		// If the player is not in invulnerability state, deal damage to the player.
 		if (invulTimer <= 0.0f) {
-            StartCoroutine(collideFlash())
-            ;
+            StartCoroutine(collideFlash());
 			currHealth -= damageTaken;
             SoundManager.instance.PlayerSoundeffects[4].Play();
 
@@ -218,11 +216,11 @@ public class Player : Statistics {
     }
     IEnumerator collideFlash()
     {
-        Material m = playersprite.material;
-        Color32 c = playersprite.material.color;
-        playersprite.material.color = new Color(1, 1, 1, 0);
+        Material m = sprite.material;
+        Color32 c = sprite.material.color;
+        sprite.material.color = new Color(1, 1, 1, 0);
         yield return new WaitForSeconds(0.1f);
-        playersprite.material = m;
-        playersprite.material.color = c;
+        sprite.material = m;
+        sprite.material.color = c;
     }
 }
