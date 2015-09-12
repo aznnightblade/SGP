@@ -5,7 +5,11 @@ public class Loading: MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-		GameManager.instance.LoadScene();
+        if (GameManager.instance !=null)
+        {
+            GameManager.instance.LoadScene();
+        }
+		
 	}
 	
 	// Update is called once per frame
