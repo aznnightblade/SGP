@@ -4,11 +4,10 @@ using System.Collections;
 public class npcrotation : MonoBehaviour {
 
     Animator movement;
-    NavMeshAgent agent;
+
 	// Use this for initialization
 	void Start () {
         movement = GetComponentInChildren<Animator>();
-        agent = gameObject.GetComponent<NavMeshAgent>();
 	}
 	
 	// Update is called once per frame

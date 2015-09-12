@@ -52,8 +52,6 @@ public class Rob : Enemy {
 	float timeTillMove = 120.0f;
 	float MoveTime = 0.0f;
 
-
-	Animator anim = null;
 	Player player = null;
 
 	[SerializeField]
