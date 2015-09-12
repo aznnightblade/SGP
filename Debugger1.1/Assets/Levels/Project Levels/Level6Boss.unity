@@ -5000,6 +5000,7 @@ MonoBehaviour:
   color: 0
   money: 1000
   exp: 500
+  sprite: {fileID: 0}
   currMode: 1
   Waypoints: []
   detectRange: 8
@@ -5007,6 +5008,7 @@ MonoBehaviour:
   initialDropRate: 0
   dropRatePerLuck: 0
   IsCapturable: 0
+  anim: {fileID: 0}
   frosty: {fileID: 966905897}
   timeDead: 10
   reviveDelay: 1.5
@@ -8888,6 +8890,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 416194, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.34599996
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
   m_IsPrefabParent: 0
@@ -10397,6 +10403,7 @@ MonoBehaviour:
   color: 0
   money: 2500
   exp: 1250
+  sprite: {fileID: 0}
   currMode: 1
   Waypoints: []
   detectRange: 0
@@ -10404,6 +10411,7 @@ MonoBehaviour:
   initialDropRate: 100
   dropRatePerLuck: 0
   IsCapturable: 0
+  anim: {fileID: 0}
   derek: {fileID: 441659249}
   Bullet: {fileID: 477030, guid: 537370ef8cbeb98408728579714cf6ca, type: 2}
   companionCube: {fileID: 1595943321}
