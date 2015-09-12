@@ -11,7 +11,7 @@ GameObject:
   - 223: {fileID: 22341212}
   - 114: {fileID: 11467628}
   - 114: {fileID: 11477878}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Healthbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,9 +46,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 429734}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Basic Melee 1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64,7 +64,7 @@ GameObject:
   - 222: {fileID: 22250538}
   - 114: {fileID: 11438758}
   - 114: {fileID: 11449408}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,7 +82,7 @@ GameObject:
   - 223: {fileID: 22383198}
   - 114: {fileID: 11465296}
   - 114: {fileID: 11470698}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Shieldbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - 222: {fileID: 22238472}
   - 114: {fileID: 11499658}
   - 114: {fileID: 11436788}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,7 +132,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182458}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
-  m_LocalPosition: {x: 0, y: .449999988, z: 1.84000003}
+  m_LocalPosition: {x: 0, y: .449999988, z: .0199999996}
   m_LocalScale: {x: .200000003, y: .200000003, z: 1}
   m_Children: []
   m_Father: {fileID: 403610}
@@ -157,7 +157,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.29055405, y: 1.01999998, z: -5.16434336}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 403610}
@@ -242,10 +242,10 @@ MonoBehaviour:
   critChance: 0
   initialCrit: 0
   critPerLuck: 0
-  color: 0
+  color: 3
   money: 50
   exp: 50
-  currMode: 0
+  currMode: 4
   Waypoints: []
   detectRange: 8
   maxDistance: 15

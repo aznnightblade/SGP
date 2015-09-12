@@ -20,7 +20,7 @@ public class Friends : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (player.GetComponentInChildren<Player> ().CurrHealth > 0) {
+		if (player.GetComponentInChildren<Player> ()!= null) {
 			if (player.GetComponentInChildren<Player> ().Friend != null && once)
 				tutor.GetComponent<Dialogue> ().lineLevel = 1;
 	
