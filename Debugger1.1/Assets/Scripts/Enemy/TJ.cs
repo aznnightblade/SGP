@@ -179,7 +179,7 @@ public class TJ : Enemy {
         {
             anim.SetBool("Death", true);
             deathtimer += Time.deltaTime;
-            if (deathtimer >= 1.2f)
+            if (deathtimer >= .8f)
             {
                 DestroyObject();
                 isdead = false;

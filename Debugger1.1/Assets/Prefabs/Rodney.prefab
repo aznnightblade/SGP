@@ -9,7 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 449646}
   - 212: {fileID: 21250114}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Rodney Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,9 +24,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 404630}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Rodney
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44,9 +44,9 @@ GameObject:
   - 114: {fileID: 11420016}
   - 114: {fileID: 11464054}
   - 195: {fileID: 19582556}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Rodney
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -71,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 195936}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .560000002, z: 0}
+  m_LocalPosition: {x: 0, y: .93599999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 449646}
@@ -85,7 +85,7 @@ Transform:
   m_GameObject: {fileID: 150752}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
   m_LocalPosition: {x: 0, y: .5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .5, y: .5, z: .5}
   m_Children: []
   m_Father: {fileID: 445578}
   m_RootOrder: 0
@@ -145,6 +145,7 @@ MonoBehaviour:
   color: 0
   money: 1500
   exp: 750
+  sprite: {fileID: 0}
   currMode: 1
   Waypoints:
   - {fileID: 0}
@@ -160,6 +161,7 @@ MonoBehaviour:
   initialDropRate: 100
   dropRatePerLuck: 0
   IsCapturable: 0
+  anim: {fileID: 0}
   spawner: {fileID: 11464054}
   ones:
   - {fileID: 0}
@@ -265,7 +267,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 2
-  m_BaseOffset: 1
+  m_BaseOffset: 1.39999998
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!212 &21250114
@@ -292,7 +294,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 153fe3b9a7de27e49920894842d2703f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 79bf9014727f8fd4dbb46803f6bfa494, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
