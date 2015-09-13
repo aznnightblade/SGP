@@ -9,6 +9,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 474114}
   - 212: {fileID: 21210184}
+  - 95: {fileID: 9521092}
   m_Layer: 10
   m_Name: Rebugger Sprite
   m_TagString: Untagged
@@ -185,6 +186,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!95 &9521092
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 120790}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3f935c369b87cdd40bce9b028f095a33, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11400156
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -332,7 +350,7 @@ MonoBehaviour:
   initialDamage: 0
   damagePerStrength: 0
   endurance: 0
-  initialHealth: 0
+  initialHealth: 10
   healthPerEndurance: 0
   defense: 0
   initialDefense: 0
@@ -352,6 +370,7 @@ MonoBehaviour:
   color: 0
   money: 0
   exp: 0
+  sprite: {fileID: 0}
   currMode: 1
   Waypoints: []
   detectRange: 20
@@ -359,6 +378,7 @@ MonoBehaviour:
   initialDropRate: 0
   dropRatePerLuck: 0
   IsCapturable: 1
+  anim: {fileID: 0}
   healRange: 6
   initialHealAmount: 3
   increasePerIntelligence: 1
@@ -552,7 +572,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 1.20000005}
   m_SizeDelta: {x: 2.20000005, y: .181999996}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
