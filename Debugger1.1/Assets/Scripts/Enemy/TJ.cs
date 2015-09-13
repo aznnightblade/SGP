@@ -29,7 +29,7 @@ public class TJ : Enemy {
 	// Use this for initialization
 	void Start () {
 		UpdateStats ();
-        anim = gameObject.GetComponentInChildren<Animator>();
+        anim = gameObject.GetComponentInChildren<Animator>(); 
 		spawner = gameObject.GetComponent<BossEnemySpawning> ();
 		bulletScript = bullet.GetComponent<Weapon> ();
 		shotDelay = (bulletScript.ShotDelay - bulletScript.ShotDelayReductionPerAgility * Agility) * 3;
