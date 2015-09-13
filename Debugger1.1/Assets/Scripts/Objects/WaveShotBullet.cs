@@ -4,12 +4,11 @@ using System.Collections;
 public class WaveShotBullet : Weapon {
 
 	void OnCollisionEnter(Collision col) {
-		if (col.gameObject.tag != owner.gameObject.tag && col.gameObject.tag != gameObject.tag) {
 			if (col.gameObject.tag != "Wall" && col.gameObject.tag != "ShieldWall" && col.gameObject.tag != "WorldObject") {
 				Statistics colStats = col.gameObject.GetComponent<Statistics> ();
 				
 				if (colStats != null) {
-					float damage = ((initialDamage + owner.Strength * damagePerStrength) * ChargeScale) - colStats.Defense;
+					float damage = ((initialDamage + ownersStrength * damagePerStrength) * ChargeScale) - colStats.Defense;
 					
 					if (damage <= 0.0f)
 						damage = 1;
@@ -40,6 +39,5 @@ public class WaveShotBullet : Weapon {
 				
 				Destroy (gameObject);
 			}
-		}
 	}
 }

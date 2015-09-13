@@ -37,14 +37,14 @@ public class BasicRanged : Enemy {
 			}
 
 			if (currMode == Mode.Attack) {
-				CheckForReset ();
-
 				if (Vector3.Distance (transform.position, target.position) <= maximumShotDistance && delayTimer <= 0.0f) {
 					SoundManager.instance.EnemySoundeffects [1].Play ();
 					FireBullet ();
 					
 					delayTimer = shotDelay;
 				}
+				
+				CheckForReset ();
 			} else if (currMode != Mode.Deactivated) {
 				CheckForPlayer ();
 			}

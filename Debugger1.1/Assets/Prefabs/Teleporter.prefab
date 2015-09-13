@@ -58,7 +58,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152050}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.5, y: 10.7819996, z: -71.1999969}
+  m_LocalPosition: {x: 20.7000008, y: .939999998, z: -7.80000019}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 448308}
@@ -70,7 +70,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 169982}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.63999987, y: -.0145206451, z: 56.4300003}
+  m_LocalPosition: {x: -2.8499999, y: -2.03999996, z: 3.8900001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 463790}
@@ -84,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 179756}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.40999997, y: 0, z: -1.79999995}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: .5, z: 2}
   m_Children: []
   m_Father: {fileID: 448308}
@@ -133,8 +133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destination: {fileID: 444792}
   newScene: 0
-  dampeners:
-  - {fileID: 0}
+  dampeners: []
   Next: Level3Boss
 --- !u!136 &13665348
 CapsuleCollider:

@@ -229,7 +229,7 @@ public class Enemy : Statistics {
 		get { return currMode; }
 		set { currMode = value; }
 	}
-    public void Death()
+    public virtual void Death()
     {
         if (deathbool==true)
         {
@@ -253,9 +253,9 @@ public class Enemy : Statistics {
     }
     IEnumerator collideFlash()
     {
-        Color32 c = sprite.material.color;
+        Color c = sprite.material.color;
         sprite.material.color = new Color(1, 0, 0, 1);
         yield return new WaitForSeconds(0.1f);
-        sprite.material.color = new Color(1,1,1,1);
+        sprite.material.color = c;
     }
 }

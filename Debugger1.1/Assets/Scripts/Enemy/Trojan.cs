@@ -18,6 +18,8 @@ public class Trojan : Enemy {
 	[SerializeField]
 	int maxSpawnOnDeath = 4;
 
+	bool spawnedOnDeath = false;
+
 	// Use this for initialization
 	void Start () {
 		UpdateStats ();
@@ -27,6 +29,7 @@ public class Trojan : Enemy {
 	
 	// Update is called once per frame
 	void Update () {
+        Death();
 		if (currMode == Mode.Patrolling)
 			UpdateWaypoints ();
 		
@@ -91,22 +94,26 @@ public class Trojan : Enemy {
 	}
 
 	public void OnDeath () {
-		int numToSpawn = Random.Range(minSpawnOnDeath, maxSpawnOnDeath);
+		if (!spawnedOnDeath) {
+			int numToSpawn = Random.Range (minSpawnOnDeath, maxSpawnOnDeath);
 			
-		for (int enemy = 0; enemy < numToSpawn; enemy++) {
-			int random = Random.Range(0, 100);
-			int rangeMin = 0, rangeMax = 0;
+			for (int enemy = 0; enemy < numToSpawn; enemy++) {
+				int random = Random.Range (0, 100);
+				int rangeMin = 0, rangeMax = 0;
 				
-			for (int index = 0; index < spawns.Length; index++) {
-				rangeMax += spawnChances[index];
+				for (int index = 0; index < spawns.Length; index++) {
+					rangeMax += spawnChances [index];
 		
-				if(random >= rangeMin && random <= rangeMax) {
-					SpawnEnemy(index);
-					break;
-				}
+					if (random >= rangeMin && random <= rangeMax) {
+						SpawnEnemy (index);
+						break;
+					}
 					
-				rangeMin += spawnChances[index];
+					rangeMin += spawnChances [index];
+				}
 			}
+
+			spawnedOnDeath = true;
 		}
 	}
 }

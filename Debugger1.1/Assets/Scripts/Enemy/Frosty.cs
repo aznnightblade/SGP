@@ -25,11 +25,12 @@ public class Frosty : Enemy {
 	float shotTimer = 0.0f;
 
 	bool deletedBullets = false;
-
+    bool isdead = false;
+    float deathtimer = 0;
 	// Use this for initialization
 	void Start () {
 		UpdateStats ();
-
+        anim = gameObject.GetComponentInChildren<Animator>();
 		agent = gameObject.GetComponent<NavMeshAgent> ();
 		target = GameObject.FindGameObjectWithTag ("Player").transform;
 		BulletHellDelayTimer = delayTillBulletHell;
@@ -37,6 +38,7 @@ public class Frosty : Enemy {
 	
 	// Update is called once per frame
 	void Update () {
+        Death();
 		UpdateTimers ();
 
 		if (derek.IsDead) {
@@ -137,10 +139,24 @@ public class Frosty : Enemy {
 			}
 
 			derek.DestroyDerek ();
-			DestroyObject ();
+            isdead = true;
 		}
 	}
-
+    public override void Death()
+    {
+        if (isdead == true)
+        {
+            anim.SetBool("Death", true);
+            deathtimer += Time.deltaTime;
+            if (deathtimer >= 1.2f)
+            {
+                DestroyObject();
+                isdead = false;
+                deathtimer = 0;
+                anim.SetBool("Death", false);
+            }
+        }
+    }
 	public float BulletHellDelayTimer {
 		get { return bulletHellDelayTimer; }
 		set { bulletHellDelayTimer = value; }

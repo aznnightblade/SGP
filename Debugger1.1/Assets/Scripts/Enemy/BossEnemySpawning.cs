@@ -113,7 +113,7 @@ public class BossEnemySpawning : MonoBehaviour {
 					if (random)
 						spawnerToUse = Random.Range(0, spawnPoints.Length - 1);
 					
-					Vector3 collider = spawnPoints[spawnerToUse].GetComponent<BoxCollider> ().bounds.size;
+					Vector3 collider = spawnPoints[spawnerToUse].GetComponent<BoxCollider> ().bounds.size * 0.5f;
 					
 					do {
 						pos = Random.insideUnitSphere;

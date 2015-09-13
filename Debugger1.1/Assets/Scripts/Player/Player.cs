@@ -65,15 +65,18 @@ public class Player : Statistics {
 		critChance = initialCrit + critPerLuck * luck;
 		currWeapon = weapons [0];
 
-
-        for (int i = 0; i < SoundManager.instance.PlayerSoundeffects.Count; i++)
+        if (SoundManager.instance != null)
         {
-            SoundManager.instance.PlayerSoundeffects[i].volume = PlayerPrefs.GetFloat("SFX") / 100f;
+            for (int i = 0; i < SoundManager.instance.PlayerSoundeffects.Count; i++)
+            {
+                SoundManager.instance.PlayerSoundeffects[i].volume = PlayerPrefs.GetFloat("SFX") / 100f;
+            }
+            for (int i = 0; i < SoundManager.instance.WeaponSoundeffects.Count; i++)
+            {
+                SoundManager.instance.WeaponSoundeffects[i].volume = PlayerPrefs.GetFloat("SFX") / 100f;
+            }
         }
-        for (int i = 0; i < SoundManager.instance.WeaponSoundeffects.Count; i++)
-        {
-            SoundManager.instance.WeaponSoundeffects[i].volume = PlayerPrefs.GetFloat("SFX") / 100f;
-        }
+        
         
 	}
 	

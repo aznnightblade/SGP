@@ -15,8 +15,8 @@ GameObject:
   m_Name: Dampener
   m_TagString: Dampener
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!1 &161322
 GameObject:
@@ -92,7 +92,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 179112}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -50.649147, y: -.5, z: 32.0663223}
+  m_LocalPosition: {x: 6, y: .649999976, z: -4.4000001}
   m_LocalScale: {x: 2.5, y: 1, z: 2.5}
   m_Children:
   - {fileID: 476684}
@@ -105,7 +105,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109066}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
-  m_LocalPosition: {x: -1.10699999, y: .888000011, z: 1.69599998}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: .796881318, y: .729497612, z: 1}
   m_Children:
   - {fileID: 22484788}
@@ -119,7 +119,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161322}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.00100000005, y: 0, z: .25}
+  m_LocalPosition: {x: -.00100000005, y: 0, z: .0900000036}
   m_LocalScale: {x: .156515613, y: .129452795, z: 1}
   m_Children: []
   m_Father: {fileID: 476684}
@@ -214,6 +214,7 @@ MonoBehaviour:
   color: 0
   money: 0
   exp: 0
+  sprite: {fileID: 0}
   Toggle: 0
   images:
   - {fileID: 21300000, guid: f1e3c30fc8be9ad4fa6c12060c9c98e5, type: 3}
@@ -353,7 +354,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 194838}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: .499000013}
+  m_LocalPosition: {x: 0, y: 0, z: .129999995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22471426}

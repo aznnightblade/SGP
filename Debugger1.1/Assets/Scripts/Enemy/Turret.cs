@@ -26,6 +26,10 @@ public class Turret : Enemy {
 
 	// Update is called once per frame
 	void Update () {
+        if (currHealth <= 0)
+        {
+            DestroyObject();
+        }
 		RechargeShields ();
 		
 		if (currMode != Mode.Friendly) {

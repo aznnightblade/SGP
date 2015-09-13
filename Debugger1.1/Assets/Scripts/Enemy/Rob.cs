@@ -52,8 +52,6 @@ public class Rob : Enemy {
 	float timeTillMove = 120.0f;
 	float MoveTime = 0.0f;
 
-
-	Animator anim = null;
 	Player player = null;
 
 	[SerializeField]
@@ -61,6 +59,8 @@ public class Rob : Enemy {
 	bool movingToNextRoom = false;
 	bool forceUpdateDestination = false;
 
+    bool isdead = false;
+    float deathtimer = 0;
 	// Use this for initialization
 	void Start () {
 		UpdateStats ();
@@ -81,15 +81,17 @@ public class Rob : Enemy {
 	
 	// Update is called once per frame
 	void Update () {
+        Death();
 		if (agent.remainingDistance <= 1.0f && Random.Range(1, 100) <= 50 && !movingToNextRoom || forceUpdateDestination) {
 			NavMeshHit hit;
 			float maxDistance = 0.0f;
 
 			do {
 				Vector3 newDestination = Random.insideUnitSphere;
-				newDestination = new Vector3(movementZones[currMoveZone].bounds.size.x * newDestination.x + movementZones[currMoveZone].transform.position.x,
+				Vector3 movementBounds = movementZones[currMoveZone].bounds.size * 0.5f;
+				newDestination = new Vector3(movementBounds.x * newDestination.x + movementZones[currMoveZone].transform.position.x,
 											 transform.position.y,
-				                             movementZones[currMoveZone].bounds.size.z * newDestination.z + movementZones[currMoveZone].transform.position.z);
+				                             movementBounds.z * newDestination.z + movementZones[currMoveZone].transform.position.z);
 
 				NavMesh.SamplePosition(newDestination, out hit, maxDistance, 1);
 
@@ -263,8 +265,8 @@ public class Rob : Enemy {
 			}
 
 			SoundManager.instance.BossSoundeffects[3].Play();
-			
-			DestroyObject();
+
+            isdead = true;
 		}
 	}
 
@@ -312,6 +314,21 @@ public class Rob : Enemy {
 			}
 		}
 	}
+    public override void Death()
+    {
+        if (isdead == true)
+        {
+            anim.SetBool("Death", true);
+            deathtimer += Time.deltaTime;
+            if (deathtimer >= 1.0f)
+            {
+                DestroyObject();
+                isdead = false;
+                deathtimer = 0;
+                anim.SetBool("Death", false);
+            }
+        }
+    }
 }
 
 [System.Serializable]

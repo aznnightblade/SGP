@@ -24,11 +24,12 @@ public class TJ : Enemy {
 
 	bool isActive = false;
 	bool playerNear = false;
-
+    bool isdead = false;
+    float deathtimer = 0;
 	// Use this for initialization
 	void Start () {
 		UpdateStats ();
-
+        anim = gameObject.GetComponentInChildren<Animator>(); 
 		spawner = gameObject.GetComponent<BossEnemySpawning> ();
 		bulletScript = bullet.GetComponent<Weapon> ();
 		shotDelay = (bulletScript.ShotDelay - bulletScript.ShotDelayReductionPerAgility * Agility) * 3;
@@ -39,6 +40,7 @@ public class TJ : Enemy {
 	
 	// Update is called once per frame
 	void Update () {
+        Death();
 		if (isActive) {
 			if ((float)currHealth / maxHealth <= lastTeleportHealth - percentTillTeleport) {
 				do {
@@ -150,8 +152,8 @@ public class TJ : Enemy {
 			teleporter.SetActive (true);
 			SoundManager.instance.BossSoundeffects[3].Play();
 			GameObject.FindGameObjectWithTag("Player").GetComponent<Player> ().HasDLLs = true;
-			
-			DestroyObject();
+
+            isdead = true;
 		}
 	}
 
@@ -171,4 +173,19 @@ public class TJ : Enemy {
 		}
 	}
 
+    public override void Death()
+    {
+        if (isdead == true)
+        {
+            anim.SetBool("Death", true);
+            deathtimer += Time.deltaTime;
+            if (deathtimer >= 1.2f)
+            {
+                DestroyObject();
+                isdead = false;
+                deathtimer = 0;
+                anim.SetBool("Death", false);
+            }
+        }
+    }
 }

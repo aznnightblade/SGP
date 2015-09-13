@@ -2,9 +2,7 @@
 using System.Collections;
 
 public class Destructor : Enemy {
-
-	Animator anim = null;
-
+	
 	float playTime = 1.0f;
 
 	[SerializeField]

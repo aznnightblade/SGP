@@ -40,17 +40,19 @@ public class Justin : Statistics {
 
 
 	Transform target = null;
-
-
+    Animator anim;
+    bool isdead = false;
+    float deathtimer = 0;
 	// Use this for initialization
 	void Start () {
 		UpdateStats ();
-
+        anim = gameObject.GetComponentInChildren<Animator>();
 		target = GameObject.FindGameObjectWithTag ("Player").transform;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        Death();
 		Vector3 direction = transform.position - target.position;
 		float rot = -((Mathf.Atan2(direction.z, direction.x) * 180 / Mathf.PI) + 90.0f);
 		transform.rotation = Quaternion.Euler (0, rot, 0);
@@ -165,8 +167,23 @@ public class Justin : Statistics {
 			Dampener.SetActive(true);
 			GameObject.FindGameObjectWithTag("Player").GetComponent<Player> ().HasChargeShot = true;
 			SoundManager.instance.BossSoundeffects[7].Play();
-			
-			DestroyObject();
+
+            isdead = true;
 		}
 	}
+    void Death()
+    {
+        if (isdead==true)
+        {
+            anim.SetBool("Death",true);
+            deathtimer += Time.deltaTime;
+            if (deathtimer>=1.2f)
+            {
+                DestroyObject();
+                isdead = false;
+                deathtimer = 0;
+                anim.SetBool("Death",false);
+            }
+        }
+    }
 }

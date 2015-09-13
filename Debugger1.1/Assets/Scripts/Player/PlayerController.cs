@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour {
 				if (Time.timeScale > 0.0f) {
 					if (InputManager.instance.UsingController == false) {
 						previousLookDir = direction;
-						direction = Camera.main.WorldToScreenPoint (transform.position) - Input.mousePosition;
+						direction = Camera.main.WorldToScreenPoint (playerControlledObjects[controlCounter].position) - Input.mousePosition;
 					} else {
 						previousLookDir = direction;
 						direction = new Vector3 (InputManager.instance.GetAxisRaw ("Horizontal2"), InputManager.instance.GetAxisRaw ("Vertical2"), 0);

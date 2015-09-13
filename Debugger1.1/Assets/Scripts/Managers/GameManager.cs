@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour {
 	public static string nextlevelname;
 	public static int indexLevel = 0;
 	public  static Player player;
-	public static bool back = true;
+	public static bool back = false;
 	public  static string saveSpot1;
 	public  static string saveSpot2;
 	public  static string saveSpot3;
@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour {
 	public  static SaveData data;
 	static float cTimeScale = 1.0f;
 	static float cTimeScale2 = 1.0f;
-	static public Vector3 lastPosition = new Vector3(-4.4f,28.5f,-36.7f);
+	static public Vector3 lastPosition = new Vector3(0.0f, 0.0f, 0.0f);
 	static bool first = true;
 	public static bool quit = false;
 	public static bool loadfirst = true;
@@ -29,34 +29,34 @@ public class GameManager : MonoBehaviour {
 	void Awake(){
 		if (instance == null) {
 			instance = this;
+
+			DontDestroyOnLoad (gameObject);
+
+			if (FindObjectOfType<Player> ().newGame == 1 && first) {
+				FindObjectOfType<Player> ().Agility = 1;
+				FindObjectOfType<Player> ().Strength = 1;
+				FindObjectOfType<Player> ().Endurance = 1;
+				FindObjectOfType<Player> ().Luck = 1;
+				FindObjectOfType<Player> ().Intelligence = 1;  
+				FindObjectOfType<Player> ().Dexterity = 1;
+				FindObjectOfType<Player> ().CurrHealth = 50;
+				FindObjectOfType<Player> ().MaxHealth = 50;
+				FindObjectOfType<Player> ().Money = 100;
+				FindObjectOfType<Player> ().EXP = 0;
+				FindObjectOfType<Player> ().newGame = 0;
+	            Chargeshot = 0;
+	            DLLShot = 0;
+				first = false;
+			} 
+
+			if(back)
+			{
+			    GameObject.FindGameObjectWithTag("Player Controller").GetComponent<Rigidbody> ().position = lastPosition;
+			}
+			
 		} else if (instance != this) {
 			Destroy (gameObject);
 		}
-
-		DontDestroyOnLoad (gameObject);
-
-		if (FindObjectOfType<Player> ().newGame == 1 && first) {
-			FindObjectOfType<Player> ().Agility = 1;
-			FindObjectOfType<Player> ().Strength = 1;
-			FindObjectOfType<Player> ().Endurance = 1;
-			FindObjectOfType<Player> ().Luck = 1;
-			FindObjectOfType<Player> ().Intelligence = 1;  
-			FindObjectOfType<Player> ().Dexterity = 1;
-			FindObjectOfType<Player> ().CurrHealth = 50;
-			FindObjectOfType<Player> ().MaxHealth = 50;
-			FindObjectOfType<Player> ().Money = 100;
-			FindObjectOfType<Player> ().EXP = 0;
-			FindObjectOfType<Player> ().newGame = 0;
-            Chargeshot = 0;
-            DLLShot = 0;
-			first = false;
-		} 
-
-		if(back)
-		{
-		FindObjectOfType<Player> ().SetPosition (lastPosition);
-		}
-		
 	}
 
 	public void NextScene()
