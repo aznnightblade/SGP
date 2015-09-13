@@ -19,6 +19,7 @@ public class Aurthor : Enemy {
 
 	[SerializeField]
 	int lives = 4;
+	[SerializeField]
 	int currStage = 0;
 
 	List<GameObject> enemies = new List<GameObject> ();
@@ -56,7 +57,7 @@ public class Aurthor : Enemy {
 		player = target.GetComponent<Player> ();
 		playerInitStrength = player.Strength;
 		playerInitVel = player.MaxVelocity;
-		teleportTimer = teleportDelay;
+		teleportTimer = 2.0f;
 
 		spawnTimers = new float[spawnDelays.Length];
 		for (int timer = 0; timer < spawnTimers.Length; timer++)
@@ -82,7 +83,7 @@ public class Aurthor : Enemy {
 			spawnTimers [currStage] = spawnDelays[currStage];
 
 			if ((spawners[currStage].WaveCounter >= spawners[currStage].NumberOfWaves - 1 && currStage < 3) ||
-			    (currStage == 1))
+			    currStage == 0)
 				checkEnemiesTimer = checkForEnemiesDelay;
 		}
 
@@ -95,6 +96,8 @@ public class Aurthor : Enemy {
 				for (int currBullet = 0; currBullet < 5; currBullet++) {
 					CreateBullet (rot + (-15 + (7.5f * currBullet)));
 				}
+
+				shotTimer = shotDelay;
 			}
 		}
 	}
@@ -209,6 +212,7 @@ public class Aurthor : Enemy {
 
 	void CheckForEnemies () {
 		GameObject[] spawnedEnemies = GameObject.FindGameObjectsWithTag("Enemy");
+		enemies.Clear ();
 		
 		for (int index = 0; index < spawnedEnemies.Length; index++) {
 			if (spawnedEnemies[index] != gameObject && spawnedEnemies[index] != transform.parent.gameObject)
@@ -233,10 +237,10 @@ public class Aurthor : Enemy {
 	}
 
 	public void DebuffPlayer () {
-		player.Strength = Mathf.FloorToInt(player.Strength * 0.5f);
+		player.Strength = Mathf.FloorToInt(playerInitStrength * 0.5f);
 
 		if (currStage > 1) {
-			player.MaxVelocity *= 0.5f;
+			player.MaxVelocity = playerInitVel * 0.5f;
 		}
 
 		buffDebuffTimer = buffDebuffTime;

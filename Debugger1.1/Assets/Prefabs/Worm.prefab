@@ -155,7 +155,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166078}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.13000011, y: 1.88999999, z: -45.3400002}
+  m_LocalPosition: {x: -10.1535168, y: 2.52999997, z: -54.6018562}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 405844}
@@ -252,10 +252,6 @@ MonoBehaviour:
   maxShield: 0
   hitRegenTimer: 2
   hitTimer: 0
-  acceleration: 0
-  velocity: 0
-  maxVelocity: 0
-  maxTurnRadius: 0
   strength: 0
   initialDamage: 0
   damagePerStrength: 0
@@ -276,13 +272,19 @@ MonoBehaviour:
   luck: 0
   critChance: 0
   initialCrit: 0
-  initialDropRate: 0
   critPerLuck: 0
-  dropRatePerLuck: 0
   color: 0
   money: 0
   exp: 0
-  sounds: {fileID: 0}
+  sprite: {fileID: 0}
+  currMode: 0
+  Waypoints: []
+  detectRange: 8
+  maxDistance: 15
+  initialDropRate: 0
+  dropRatePerLuck: 0
+  IsCapturable: 0
+  anim: {fileID: 0}
   spawns:
   - {fileID: 429734, guid: 3141207ffaf1fae408b448611696e6d7, type: 2}
   - {fileID: 419412, guid: 22ec68d962e7d334f8aeddd2cdb22f6e, type: 2}
@@ -503,7 +505,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 1.70000005}
   m_SizeDelta: {x: 2.20000005, y: .181999996}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22406660
@@ -530,7 +532,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 187570}
   m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
-  m_LocalPosition: {x: 0, y: 0, z: 46.2900009}
+  m_LocalPosition: {x: 0, y: 0, z: .921999991}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22448196}
@@ -538,7 +540,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 4.13000011, y: -.889999866}
+  m_AnchoredPosition: {x: 0, y: 1.70000005}
   m_SizeDelta: {x: 2.20000005, y: .181999996}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22448196

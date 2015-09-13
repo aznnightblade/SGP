@@ -253,7 +253,6 @@ public class Enemy : Statistics {
     }
     IEnumerator collideFlash()
     {
-        Color32 c = sprite.material.color;
         sprite.material.color = new Color(1, 0, 0, 1);
         yield return new WaitForSeconds(0.1f);
         sprite.material.color = new Color(1,1,1,1);

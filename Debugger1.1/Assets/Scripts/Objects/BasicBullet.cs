@@ -4,7 +4,6 @@ using System.Collections;
 public class BasicBullet : Weapon {
 
 	void OnCollisionEnter(Collision col) {
-		if (col.gameObject.tag != owner.gameObject.tag && col.gameObject.tag != gameObject.tag) {
 			if(col.gameObject.tag != "Wall" && col.gameObject.tag != "WorldObject") {
 				Statistics colStats = null;
 
@@ -14,7 +13,7 @@ public class BasicBullet : Weapon {
 					colStats = col.gameObject.GetComponentInChildren<Player> ();
 
 				if(colStats != null) {
-					float damage = ((initialDamage + owner.Strength * damagePerStrength) * ChargeScale) - colStats.Defense;
+					float damage = ((initialDamage + ownersStrength * damagePerStrength) * ChargeScale) - colStats.Defense;
 						
 					if(damage <= 0.0f)
 						damage = 1;
@@ -45,6 +44,5 @@ public class BasicBullet : Weapon {
 			}
 
 			Destroy(gameObject);
-		}
 	}
 }

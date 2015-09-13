@@ -85,9 +85,10 @@ public class Rob : Enemy {
 
 			do {
 				Vector3 newDestination = Random.insideUnitSphere;
-				newDestination = new Vector3(movementZones[currMoveZone].bounds.size.x * newDestination.x + movementZones[currMoveZone].transform.position.x,
+				Vector3 movementBounds = movementZones[currMoveZone].bounds.size * 0.5f;
+				newDestination = new Vector3(movementBounds.x * newDestination.x + movementZones[currMoveZone].transform.position.x,
 											 transform.position.y,
-				                             movementZones[currMoveZone].bounds.size.z * newDestination.z + movementZones[currMoveZone].transform.position.z);
+				                             movementBounds.z * newDestination.z + movementZones[currMoveZone].transform.position.z);
 
 				NavMesh.SamplePosition(newDestination, out hit, maxDistance, 1);
 
