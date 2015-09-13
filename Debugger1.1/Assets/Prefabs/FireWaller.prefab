@@ -146,7 +146,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 137502}
   m_LocalRotation: {x: -1.15202326e-07, y: .707106709, z: -.707106829, w: -1.15202312e-07}
-  m_LocalPosition: {x: -0, y: .5, z: -.579999983}
+  m_LocalPosition: {x: -0, y: .5, z: 0}
   m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children: []
   m_Father: {fileID: 433370}
@@ -158,7 +158,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 105560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.96000004, y: 1.89999998, z: -.400000006}
+  m_LocalPosition: {x: -7.48099995, y: 1.47000003, z: -44.2418022}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 433370}
@@ -346,6 +346,7 @@ MonoBehaviour:
   color: 0
   money: 0
   exp: 0
+  sprite: {fileID: 0}
   currMode: 0
   Waypoints: []
   detectRange: 8

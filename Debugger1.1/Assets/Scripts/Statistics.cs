@@ -64,6 +64,25 @@ public class Statistics : MonoBehaviour {
 	[SerializeField]
 	int exp = 0;
     
+	public Statistics () {
+
+	}
+
+	public Statistics (Statistics obj) {
+		strength = obj.strength;
+		agility = obj.agility;
+		endurance = obj.endurance;
+		dexterity = obj.dexterity;
+		intelligence = obj.intelligence;
+		luck = obj.luck;
+		initialDamage = obj.initialDamage;
+		damagePerStrength = obj.damagePerStrength;
+		initialShotDistance = obj.initialShotDistance;
+		increaseDistancePerDexerity = obj.increaseDistancePerDexerity;
+		initialCrit = obj.initialCrit;
+		critPerLuck = obj.critPerLuck;
+	}
+
     public SpriteRenderer sprite;
 	public virtual void Damage (int damageTaken, Transform bullet) {
 		if (shield > 0 && bullet.gameObject.layer != LayerMask.NameToLayer("Waveshot Bullet")) {

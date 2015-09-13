@@ -10,6 +10,8 @@ public class Weapon : MonoBehaviour {
 	[SerializeField]
 	public float velocity = 0.0f;
 	[SerializeField]
+	protected float ownersStrength = 0;
+	[SerializeField]
 	protected float initialDamage = 0.0f;
 	[SerializeField]
 	protected float damagePerStrength = 0.0f;
@@ -55,6 +57,9 @@ public class Weapon : MonoBehaviour {
 		float rot = (transform.rotation.eulerAngles.y + 90.0f) * (Mathf.PI / 180.0f);
 		maxDistance = owner.InitialShotDistance + owner.ShotDistancePerDexerity * owner.Dexterity;
 		direction = new Vector3 (-Mathf.Cos (rot), 0, Mathf.Sin (rot));
+		ownersStrength = owner.Strength;
+		initialDamage = owner.InitialDamage;
+		damagePerStrength = owner.DamagePerStrength;
 		
 		directionVelocity = direction * velocity;
 

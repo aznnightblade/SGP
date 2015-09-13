@@ -7,8 +7,6 @@ public class Derek : Enemy {
 	Frosty frosty = null;
 	Player player = null;
 
-	SpriteRenderer sprite = null;
-
 	[SerializeField]
 	float timeDead = 10.0f;
 	float deadTimer = 0.0f;
