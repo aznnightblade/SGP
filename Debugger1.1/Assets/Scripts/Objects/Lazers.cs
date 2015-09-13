@@ -9,8 +9,8 @@ public class Lazers : MonoBehaviour {
 
 	void OnTriggerEnter(Collider Col) {
 		if (Col.gameObject.GetComponent<Statistics> () != null) {
-			if (Col.gameObject.tag == "Player Controller" || Col.gameObject.GetComponent<Statistics> ().CurrColor != color) {
-				if (Col.gameObject.tag == "Player Controller")
+			if (Col.gameObject.tag == "Player" && Col.name == "Player" || Col.gameObject.GetComponent<Statistics> ().CurrColor != color) {
+				if (Col.gameObject.tag == "Player")
 					Col.gameObject.GetComponentInChildren<Player> ().CurrHealth = 0;
 				else if(Col.gameObject.tag == "Dampener")
 					return;

@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour {
 	public static string nextlevelname;
 	public static int indexLevel = 0;
 	public  static Player player;
-	public static bool back = true;
+	public static bool back = false;
 	public  static string saveSpot1;
 	public  static string saveSpot2;
 	public  static string saveSpot3;
@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour {
 	public  static SaveData data;
 	static float cTimeScale = 1.0f;
 	static float cTimeScale2 = 1.0f;
-	static public Vector3 lastPosition = new Vector3(-4.4f,28.5f,-36.7f);
+	static public Vector3 lastPosition = new Vector3(0.0f, 0.0f, 0.0f);
 	static bool first = true;
 	public static bool quit = false;
 	public static bool loadfirst = true;
@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour {
 
 			if(back)
 			{
-			FindObjectOfType<Player> ().SetPosition (lastPosition);
+			    GameObject.FindGameObjectWithTag("Player Controller").GetComponent<Rigidbody> ().position = lastPosition;
 			}
 			
 		} else if (instance != this) {

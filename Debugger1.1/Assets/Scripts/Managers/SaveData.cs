@@ -34,7 +34,9 @@ public class SaveData{
 		SaveData data = new SaveData ();
 
 		data.Name = PlayerPrefs.GetString (_name + "NAME");
-		data.Level = PlayerPrefs.GetInt (_name + "LEVEL");
+		
+        data.Level = PlayerPrefs.GetInt (_name + "LEVEL");
+        GameManager.indexLevel = data.Level;
 		data.Strength = PlayerPrefs.GetInt (_name + "STRENGTH");
 		data.Intelligence = PlayerPrefs.GetInt (_name + "INTELLIGENCE");
 		data.Luck = PlayerPrefs.GetInt (_name + "LUCK");
