@@ -2854,6 +2854,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 249698360}
   - 212: {fileID: 249698361}
+  - 95: {fileID: 249698362}
   m_Layer: 10
   m_Name: Aurthor Sprite
   m_TagString: Untagged
@@ -2899,6 +2900,23 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 154baf2d26268414da4287c6070fc0b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!95 &249698362
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 249698359}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a8a8235995f3a4f409b189246ed016e3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &250322218
 GameObject:
   m_ObjectHideFlags: 0

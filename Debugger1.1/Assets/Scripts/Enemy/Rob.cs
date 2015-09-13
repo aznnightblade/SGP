@@ -59,6 +59,8 @@ public class Rob : Enemy {
 	bool movingToNextRoom = false;
 	bool forceUpdateDestination = false;
 
+    bool isdead = false;
+    float deathtimer = 0;
 	// Use this for initialization
 	void Start () {
 		UpdateStats ();
@@ -79,6 +81,7 @@ public class Rob : Enemy {
 	
 	// Update is called once per frame
 	void Update () {
+        Death();
 		if (agent.remainingDistance <= 1.0f && Random.Range(1, 100) <= 50 && !movingToNextRoom || forceUpdateDestination) {
 			NavMeshHit hit;
 			float maxDistance = 0.0f;
@@ -262,8 +265,8 @@ public class Rob : Enemy {
 			}
 
 			SoundManager.instance.BossSoundeffects[3].Play();
-			
-			DestroyObject();
+
+            isdead = true;
 		}
 	}
 
@@ -311,6 +314,21 @@ public class Rob : Enemy {
 			}
 		}
 	}
+    public override void Death()
+    {
+        if (isdead == true)
+        {
+            anim.SetBool("Death", true);
+            deathtimer += Time.deltaTime;
+            if (deathtimer >= 1.0f)
+            {
+                DestroyObject();
+                isdead = false;
+                deathtimer = 0;
+                anim.SetBool("Death", false);
+            }
+        }
+    }
 }
 
 [System.Serializable]

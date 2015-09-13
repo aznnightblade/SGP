@@ -29,9 +29,7 @@ public class Trojan : Enemy {
 	
 	// Update is called once per frame
 	void Update () {
-		if (currHealth < 0)
-			DestroyObject ();
-
+        Death();
 		if (currMode == Mode.Patrolling)
 			UpdateWaypoints ();
 		

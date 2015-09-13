@@ -229,7 +229,7 @@ public class Enemy : Statistics {
 		get { return currMode; }
 		set { currMode = value; }
 	}
-    public void Death()
+    public virtual void Death()
     {
         if (deathbool==true)
         {

@@ -49,10 +49,12 @@ public class Aurthor : Enemy {
 	int playerInitStrength = 0;
 	float playerInitVel = 0;
 
+    bool isdead =false;
+    float deathtimer = 0;
 	// Use this for initialization
 	void Start () {
 		UpdateStats ();
-
+        anim = gameObject.GetComponentInChildren<Animator>();
 		target = GameObject.FindGameObjectWithTag ("Player").transform;
 		player = target.GetComponent<Player> ();
 		playerInitStrength = player.Strength;
@@ -66,6 +68,7 @@ public class Aurthor : Enemy {
 	
 	// Update is called once per frame
 	void Update () {
+        Death();
 		UpdateTimers ();
 
 		FacePlayer ();
@@ -178,7 +181,7 @@ public class Aurthor : Enemy {
 
 				SoundManager.instance.BossSoundeffects[3].Play();
 
-				DestroyObject ();
+                isdead = true;
 			}
 		}
 	}
@@ -266,6 +269,22 @@ public class Aurthor : Enemy {
 		newBullet.tag = ("Enemy Bullet");
 		newBullet.GetComponent<Weapon> ().Owner = this;
 	}
+
+    public override void Death()
+    {
+        if (isdead == true)
+        {
+            anim.SetBool("Death", true);
+            deathtimer += Time.deltaTime;
+            if (deathtimer >= 1.2f)
+            {
+                DestroyObject();
+                isdead = false;
+                deathtimer = 0;
+                anim.SetBool("Death", false);
+            }
+        }
+    }
 }
 
 [System.Serializable]

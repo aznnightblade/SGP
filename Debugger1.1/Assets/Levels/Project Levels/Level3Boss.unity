@@ -699,6 +699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b10c82eb0e1d6940abe2f190c41f61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containsPlayer: 0
 --- !u!1001 &163679088
 Prefab:
   m_ObjectHideFlags: 0
@@ -1243,6 +1244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b10c82eb0e1d6940abe2f190c41f61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containsPlayer: 0
 --- !u!114 &230607985 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11451032, guid: 34273874e1962554f835695ea5a27809,
@@ -1309,6 +1311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b10c82eb0e1d6940abe2f190c41f61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containsPlayer: 0
 --- !u!1001 &300392143
 Prefab:
   m_ObjectHideFlags: 0
@@ -2454,6 +2457,18 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: f0045dc159233b0408e87e47aadaaf8d, type: 3}
+    - target: {fileID: 440338, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 1.19000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 440338, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1.03999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 440338, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -33.0499992
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11499954, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
@@ -2587,6 +2602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b10c82eb0e1d6940abe2f190c41f61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containsPlayer: 0
 --- !u!1001 &650732743
 Prefab:
   m_ObjectHideFlags: 0
@@ -2783,6 +2799,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b10c82eb0e1d6940abe2f190c41f61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containsPlayer: 0
 --- !u!1 &746905561
 GameObject:
   m_ObjectHideFlags: 0
@@ -3698,6 +3715,7 @@ MonoBehaviour:
   color: 0
   money: 500
   exp: 1000
+  sprite: {fileID: 0}
   currMode: 1
   Waypoints: []
   detectRange: 0
@@ -3705,6 +3723,7 @@ MonoBehaviour:
   initialDropRate: 0
   dropRatePerLuck: 0
   IsCapturable: 0
+  anim: {fileID: 0}
   bullet: {fileID: 477030, guid: 537370ef8cbeb98408728579714cf6ca, type: 2}
   teleporter: {fileID: 0}
   percentTillTeleport: .200000003
@@ -3985,6 +4004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b10c82eb0e1d6940abe2f190c41f61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containsPlayer: 0
 --- !u!114 &1026317697 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11451032, guid: 34273874e1962554f835695ea5a27809,
@@ -5708,6 +5728,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1594706577}
   - 212: {fileID: 1594706578}
+  - 95: {fileID: 1594706579}
   m_Layer: 10
   m_Name: TJ Sprite
   m_TagString: Enemy
@@ -5751,8 +5772,25 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 153fe3b9a7de27e49920894842d2703f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4a2abfbef03b9344b9f7dd70f69b765b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!95 &1594706579
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1594706576}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 037f58ca4ce0fd1408297496d457df5e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &1595296499
 Prefab:
   m_ObjectHideFlags: 0
@@ -6979,6 +7017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b10c82eb0e1d6940abe2f190c41f61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containsPlayer: 0
 --- !u!1001 &1869422416
 Prefab:
   m_ObjectHideFlags: 0
@@ -7097,6 +7136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b10c82eb0e1d6940abe2f190c41f61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containsPlayer: 0
 --- !u!1001 &1895892193
 Prefab:
   m_ObjectHideFlags: 0
@@ -7351,6 +7391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b10c82eb0e1d6940abe2f190c41f61e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  containsPlayer: 0
 --- !u!1001 &2105536298
 Prefab:
   m_ObjectHideFlags: 0

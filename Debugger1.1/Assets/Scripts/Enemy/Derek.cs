@@ -43,14 +43,8 @@ public class Derek : Enemy {
 			agent.destination = target.position;
 
 			if (attacking && attackTimer <= 0.0f) {
-				int damage = Mathf.CeilToInt((initialDamage + damagePerStrength * strength) - player.Defense);
 
-				if (damage < 2) {
-					damage = 2;
-				}
-
-				player.DamagePlayer(damage);
-				attackTimer = attackDelay;
+                anim.SetBool("Attack", true);
 			}
 		}
 
@@ -141,4 +135,21 @@ public class Derek : Enemy {
 
 	public bool IsDead { get { return isDead; } }
 	public bool IsReviving { get { return isReviving; } }
+
+    public override void Attack()
+    {
+        if (attacking == true)
+        {
+            int damage = Mathf.CeilToInt((initialDamage + damagePerStrength * strength) - player.Defense);
+
+            if (damage < 2)
+            {
+                damage = 2;
+            }
+
+            player.DamagePlayer(damage);
+            attackTimer = attackDelay;
+        }
+        anim.SetBool("Attack", false);
+    }
 }

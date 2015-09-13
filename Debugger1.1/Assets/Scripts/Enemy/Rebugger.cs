@@ -30,14 +30,13 @@ public class Rebugger : Enemy{
 	
 	// Update is called once per frame
 	void Update () {
+        Death();
 		if (currMode == Mode.Patrolling)
 			UpdateWaypoints ();
 
 		RechargeShields ();
 
 		if (currMode != Mode.Friendly) {
-			if (currHealth <= 0)
-				DestroyObject ();
 
 			if (GameManager.CTimeScale == 0.0f) {
 				agent.velocity = Vector3.zero;

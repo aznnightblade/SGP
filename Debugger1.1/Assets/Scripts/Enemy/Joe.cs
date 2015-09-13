@@ -23,14 +23,18 @@ public class Joe : Enemy {
 	float checkForWinDelay = 0.25f;
 	float checkTimer = 0.0f;
 
+    bool isdead = false;
+    float deathtimer = 0;
 	// Use this for initialization
 	void Start () {
+        anim = gameObject.GetComponentInChildren<Animator>(); 
 		BossSwitches [4].GetComponent<BossSwitches> ().JoesChoice ();
 		Teleporter.SetActive (false);
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        Death();
 		if (vulnerable) {
 			if (vulnerableTimer > 0.0f) {
 				vulnerableTimer -= Time.deltaTime * GameManager.CTimeScale;
@@ -82,7 +86,7 @@ public class Joe : Enemy {
             SoundManager.instance.BossSoundeffects[3].Play();
 			GameObject.FindGameObjectWithTag("Player").GetComponent<Player> ().HasDLLs = true;
 
-			DestroyObject();
+            isdead = true;
 		}
 	}
 
@@ -192,4 +196,20 @@ public class Joe : Enemy {
 
 		ResetSwitches ();
 	}
+
+    public override void Death()
+    {
+        if (isdead == true)
+        {
+            anim.SetBool("Death", true);
+            deathtimer += Time.deltaTime;
+            if (deathtimer >= 1.2f)
+            {
+                DestroyObject();
+                isdead = false;
+                deathtimer = 0;
+                anim.SetBool("Death", false);
+            }
+        }
+    }
 }

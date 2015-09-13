@@ -43,10 +43,12 @@ public class Rodney : Enemy {
 	float checkDelay = 0.25f;
 	float checkTimer = 0.0f;
 
+    bool isdead = false;
+    float deathtimer = 0;
 	// Use this for initialization
 	void Start () {
 		UpdateStats ();
-
+        anim = gameObject.GetComponentInChildren<Animator>(); 
 		target = GameObject.FindGameObjectWithTag ("Player").transform;
 		delayRepeatTimer = delayBeforeRepeat;
 		nextNumberTimer = timeTillNextNumber;
@@ -55,6 +57,7 @@ public class Rodney : Enemy {
 	
 	// Update is called once per frame
 	void Update () {
+        Death();
 		if (delayRepeatTimer <= 0.0f && CheckForDestructor ()) {
 			if (currRodneyMode == RodneyMode.Numbers) {
 				if (nextNumberTimer <= 0.0f) {
@@ -232,8 +235,24 @@ public class Rodney : Enemy {
 
 			for (int index = 0; index < lazers.Length; index++)
 				lazers[index].IsEnabled = false;
-			
-			DestroyObject();
+
+            isdead = true ;
 		}
 	}
+
+    public override void Death()
+    {
+        if (isdead == true)
+        {
+            anim.SetBool("Death", true);
+            deathtimer += Time.deltaTime;
+            if (deathtimer >= 1.2f)
+            {
+                DestroyObject();
+                isdead = false;
+                deathtimer = 0;
+                anim.SetBool("Death", false);
+            }
+        }
+    }
 }
