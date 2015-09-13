@@ -29,34 +29,34 @@ public class GameManager : MonoBehaviour {
 	void Awake(){
 		if (instance == null) {
 			instance = this;
+
+			DontDestroyOnLoad (gameObject);
+
+			if (FindObjectOfType<Player> ().newGame == 1 && first) {
+				FindObjectOfType<Player> ().Agility = 1;
+				FindObjectOfType<Player> ().Strength = 1;
+				FindObjectOfType<Player> ().Endurance = 1;
+				FindObjectOfType<Player> ().Luck = 1;
+				FindObjectOfType<Player> ().Intelligence = 1;  
+				FindObjectOfType<Player> ().Dexterity = 1;
+				FindObjectOfType<Player> ().CurrHealth = 50;
+				FindObjectOfType<Player> ().MaxHealth = 50;
+				FindObjectOfType<Player> ().Money = 100;
+				FindObjectOfType<Player> ().EXP = 0;
+				FindObjectOfType<Player> ().newGame = 0;
+	            Chargeshot = 0;
+	            DLLShot = 0;
+				first = false;
+			} 
+
+			if(back)
+			{
+			FindObjectOfType<Player> ().SetPosition (lastPosition);
+			}
+			
 		} else if (instance != this) {
 			Destroy (gameObject);
 		}
-
-		DontDestroyOnLoad (gameObject);
-
-		if (FindObjectOfType<Player> ().newGame == 1 && first) {
-			FindObjectOfType<Player> ().Agility = 1;
-			FindObjectOfType<Player> ().Strength = 1;
-			FindObjectOfType<Player> ().Endurance = 1;
-			FindObjectOfType<Player> ().Luck = 1;
-			FindObjectOfType<Player> ().Intelligence = 1;  
-			FindObjectOfType<Player> ().Dexterity = 1;
-			FindObjectOfType<Player> ().CurrHealth = 50;
-			FindObjectOfType<Player> ().MaxHealth = 50;
-			FindObjectOfType<Player> ().Money = 100;
-			FindObjectOfType<Player> ().EXP = 0;
-			FindObjectOfType<Player> ().newGame = 0;
-            Chargeshot = 0;
-            DLLShot = 0;
-			first = false;
-		} 
-
-		if(back)
-		{
-		FindObjectOfType<Player> ().SetPosition (lastPosition);
-		}
-		
 	}
 
 	public void NextScene()

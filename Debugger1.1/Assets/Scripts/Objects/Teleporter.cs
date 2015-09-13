@@ -43,6 +43,7 @@ public class Teleporter : MonoBehaviour {
 				player.GetComponent<SphereCollider> ().enabled = true;
 				player.GetComponentInParent<PlayerController> ().enabled = true;
 				player.GetComponentInParent<Rigidbody> ().isKinematic = false;
+				GameManager.CTimeScale = 1.0f;
 				playerWarping = false;
 
 				SoundManager.instance.MiscSoundeffects[2].Stop();
@@ -52,7 +53,7 @@ public class Teleporter : MonoBehaviour {
 	}
 
 	void OnTriggerEnter (Collider col) {
-		if (col.gameObject.tag == "Player" && isActive && !newScene) {
+		if (col.gameObject.tag == "Player" && col.gameObject.name == "Player Stats" && isActive && !newScene) {
 			ParticleSystem particles = gameObject.GetComponent<ParticleSystem> ();
 			particles.Play();
 
@@ -62,6 +63,7 @@ public class Teleporter : MonoBehaviour {
 			col.gameObject.GetComponentInParent<PlayerController> ().enabled = false;
 			col.gameObject.GetComponentInParent<Rigidbody> ().velocity = Vector3.zero;
 			col.gameObject.GetComponentInParent<Rigidbody> ().isKinematic = true;
+			GameManager.CTimeScale = 0.0f;
 			moveDir = (destination.position - col.transform.position).normalized;
 			speed = Vector3.Distance(col.transform.position, destination.position) / particles.startLifetime;
 			playerWarping = true;
