@@ -14,13 +14,15 @@ public class Pause : MonoBehaviour {
 	
 		if (InputManager.instance.GetButtonDown ("Cancel")) {
 			if (on == false) {
-				Time.timeScale = 0;
+                GameManager.CTimeScale = 0;
+                GameManager.CTimeScale2 = 0;
 				pause.SetActive(true);
 				Transform player = GameObject.FindGameObjectWithTag("Player").transform;
 				player.GetComponentInParent<Rigidbody>().freezeRotation = true;
 				on = true;
 			} else {
-				Time.timeScale = 1;
+                GameManager.CTimeScale = 1;
+                GameManager.CTimeScale2 = 1;
 				pause.SetActive(false);
 				Transform player = GameObject.FindGameObjectWithTag("Player").transform;
 				player.GetComponentInParent<Rigidbody>().freezeRotation = false;
