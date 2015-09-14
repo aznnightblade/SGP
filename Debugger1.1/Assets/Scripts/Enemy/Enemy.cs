@@ -31,6 +31,7 @@ public class Enemy : Statistics {
     public Animator anim;
     float timer = 0;
     bool deathbool;
+    
 	public override void UpdateStats () {
         sprite = GetComponentInChildren<SpriteRenderer>();
 		maxHealth = currHealth = initialHealth * GameManager.difficulty + healthPerEndurance * endurance;
@@ -241,6 +242,8 @@ public class Enemy : Statistics {
             {
                 DestroyObject();
                 timer = 0;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().EXP += 10;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Money += 10;
                 anim.SetBool("Death", false);
                 deathbool = false;
             }
