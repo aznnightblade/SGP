@@ -51,7 +51,7 @@ public class TJ : Enemy {
 
 						Vector3 newPosition = rooms[currentRoom].position;
 						newPosition.y = transform.position.y;
-						transform.parent.transform.position = new Vector3 (newPosition.x, transform.position.y, newPosition.z);
+						transform.parent.transform.position = new Vector3 (newPosition.x, transform.position.y, newPosition.z + 5.0f);
 						shotDelay = (bulletScript.ShotDelay - bulletScript.ShotDelayReductionPerAgility * Agility) * 3;
 						transform.rotation = Quaternion.identity;
 						break;
@@ -151,7 +151,6 @@ public class TJ : Enemy {
 		if (currHealth <= 0.0f) {
 			teleporter.SetActive (true);
 			SoundManager.instance.BossSoundeffects[3].Play();
-			GameObject.FindGameObjectWithTag("Player").GetComponent<Player> ().HasDLLs = true;
 
             isdead = true;
 		}
