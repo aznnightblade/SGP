@@ -26,6 +26,8 @@ public class SelectSaveSlot : MonoBehaviour {
             data.MaxHealth = FindObjectOfType<Player>().MaxHealth;
             data.Credits = FindObjectOfType<Player>().Money;
             data.XP = FindObjectOfType<Player>().EXP;
+            data.ChargeShot = GameManager.Chargeshot;
+            data.DLLShot = GameManager.DLLShot;
             data.newGame = 0;
             SaveData.Save(GameManager.saveSpot1="test", data);
             GameManager.back = true;
@@ -51,6 +53,8 @@ public class SelectSaveSlot : MonoBehaviour {
             data.Credits = FindObjectOfType<Player>().Money;
             data.XP = FindObjectOfType<Player>().EXP;
             data.newGame = 0;
+            data.ChargeShot = GameManager.Chargeshot;
+            data.DLLShot = GameManager.DLLShot;
 
 
             SaveData.Save(GameManager.saveSpot2 = "test2", data);
@@ -71,7 +75,8 @@ public class SelectSaveSlot : MonoBehaviour {
             data.Credits = FindObjectOfType<Player>().Money;
             data.XP = FindObjectOfType<Player>().EXP;
             data.newGame = 0;
-
+            data.ChargeShot = GameManager.Chargeshot;
+            data.DLLShot = GameManager.DLLShot;
 
             SaveData.Save(GameManager.saveSpot3 = "test3", data);
             Debug.Log("Saved information");

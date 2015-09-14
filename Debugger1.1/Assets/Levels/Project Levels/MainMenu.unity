@@ -406,10 +406,10 @@ GameObject:
   - 114: {fileID: 475878463}
   - 114: {fileID: 475878462}
   - 95: {fileID: 475878461}
-  - 114: {fileID: 475878460}
   - 82: {fileID: 475878466}
   - 114: {fileID: 475878468}
   - 114: {fileID: 475878467}
+  - 114: {fileID: 475878460}
   m_Layer: 5
   m_Name: Button (5)
   m_TagString: Button
@@ -425,10 +425,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 475878459}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac492a871734bf54791e1cc1b0c92cf6, type: 3}
+  m_Script: {fileID: 11500000, guid: 282f8b27bfc84e247932dfcf59fa3feb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextScene: 
 --- !u!95 &475878461
 Animator:
   serializedVersion: 3
@@ -485,12 +484,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: ac492a871734bf54791e1cc1b0c92cf6, type: 3}
-        m_MethodName: 
+      - m_Target: {fileID: 475878460}
+        m_MethodName: onclick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1011,6 +1010,7 @@ GameObject:
   - 82: {fileID: 703850314}
   - 114: {fileID: 703850316}
   - 114: {fileID: 703850315}
+  - 114: {fileID: 703850317}
   m_Layer: 5
   m_Name: Button
   m_TagString: Button
@@ -1073,7 +1073,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1289377734}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 703850308}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &703850311
@@ -1243,6 +1254,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ac97125e849dc4428581d2c68a12967, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &703850317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 703850308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac492a871734bf54791e1cc1b0c92cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextScene: Credits
 --- !u!1 &877535275
 GameObject:
   m_ObjectHideFlags: 0
