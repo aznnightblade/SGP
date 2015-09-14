@@ -29,7 +29,7 @@ public class SaveData{
 
 	public static SaveData Load( string _name ){
 
-		if (PlayerPrefs.HasKey (_name))
+		if (!PlayerPrefs.HasKey (_name))
 			return new SaveData ();
 		SaveData data = new SaveData ();
 

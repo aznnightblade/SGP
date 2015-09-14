@@ -228,11 +228,11 @@ public class Player : Statistics {
     }
     void Powerups()
     {
-        if (GameManager.indexLevel >= 1)
+        if (GameManager.indexLevel >= 2)
         {
             GameManager.DLLShot = 1;
         }
-        if (GameManager.indexLevel >= 2)
+        if (GameManager.indexLevel >= 3)
         {
             GameManager.Chargeshot = 1;
         }

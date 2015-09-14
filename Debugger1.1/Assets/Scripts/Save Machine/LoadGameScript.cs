@@ -16,7 +16,7 @@ public class LoadGameScript : MonoBehaviour {
 	void Update () {
         if (PlayerPrefs.HasKey("test" + "Name"))
         {
-            Load1.text = "Current Cleared Stage: " + PlayerPrefs.GetInt("test" + "LEVEL") + "\nCurrent XP: " + PlayerPrefs.GetInt("test" + "XP").ToString() + " \nCurrent Credits: " + PlayerPrefs.GetInt("test" + "CREDITS").ToString();
+           Load1.text = "Current Cleared Stage: " + PlayerPrefs.GetInt("test" + "LEVEL") + "\nCurrent XP: " + PlayerPrefs.GetInt("test" + "XP").ToString() + " \nCurrent Credits: " + PlayerPrefs.GetInt("test" + "CREDITS").ToString();
         }
         else
         {

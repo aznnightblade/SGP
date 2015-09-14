@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour {
         data.ChargeShot = Chargeshot;
         data.DLLShot = DLLShot;
 	}
-	 public void LoadScene()
+	 public static void LoadScene()
 	{
        
 		if (loadfirst == true) {
