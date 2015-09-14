@@ -76,8 +76,8 @@ public class Player : Statistics {
                 SoundManager.instance.WeaponSoundeffects[i].volume = PlayerPrefs.GetFloat("SFX") / 100f;
             }
         }
-        
-        
+
+        Powerups();
 	}
 	
 	// Update is called once per frame
@@ -225,5 +225,24 @@ public class Player : Statistics {
         yield return new WaitForSeconds(0.1f);
         sprite.material = m;
         sprite.material.color = c;
+    }
+    void Powerups()
+    {
+        if (GameManager.indexLevel >= 1)
+        {
+            GameManager.DLLShot = 1;
+        }
+        if (GameManager.indexLevel >= 2)
+        {
+            GameManager.Chargeshot = 1;
+        }
+        if (GameManager.DLLShot == 1)
+        {
+            hasDLLs = true;
+        }
+        if (GameManager.Chargeshot == 1)
+        {
+            hasChargeShot = true;
+        }
     }
 }
