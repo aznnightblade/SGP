@@ -377,6 +377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerSprite: {fileID: 0}
+  moveDir: {x: 0, y: 0, z: 0}
   chargemeter: {fileID: 0}
   Heatmeter: {fileID: 0}
 --- !u!114 &11439146
@@ -418,10 +419,6 @@ MonoBehaviour:
   maxShield: 0
   hitRegenTimer: 2
   hitTimer: 0
-  acceleration: 45
-  velocity: 0
-  maxVelocity: 15
-  maxTurnRadius: 0
   strength: 1
   initialDamage: 0
   damagePerStrength: 0
@@ -442,25 +439,30 @@ MonoBehaviour:
   luck: 1
   critChance: 0
   initialCrit: 0
-  initialDropRate: 0
   critPerLuck: 0
-  dropRatePerLuck: 0
   color: 0
   money: 0
   exp: 0
+  sprite: {fileID: 0}
+  acceleration: 45
+  velocity: 0
+  maxVelocity: 15
   shotLocation: {fileID: 423828}
   currWeapon: {fileID: 11460952, guid: 03f693d2d88d30340bd8da95c9603087, type: 2}
   weapons:
   - {fileID: 11460952, guid: 03f693d2d88d30340bd8da95c9603087, type: 2}
   - {fileID: 11468706, guid: 83dec05f8a359414c8fee09faee45b8c, type: 2}
-  hasDLLs: 1
+  - {fileID: 11492286, guid: aae3aad06dd75f9469e9a42a3960f853, type: 2}
+  hasDLLs: 0
   hasChargeShot: 0
   hasNegationBoots: 0
   isHovering: 0
   hoverTime: 5
+  friend: {fileID: 0}
   breakpoint: {fileID: 11439146}
   multithreadLevel: 1
   invulTimePerDamage: .100000001
+  companions: 00000000000000000000000000000000
   newGame: 1
   healthText: {fileID: 11429594, guid: 946a1fb778f40924083eeda2c67d2163, type: 2}
   visualHealth: {fileID: 11482176, guid: c611b37f3cd896e41ae57241650d8938, type: 2}
@@ -525,7 +527,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: weapons.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: chargemeter
@@ -577,6 +579,15 @@ Prefab:
       propertyPath: weapons.Array.data[1]
       value: 
       objectReference: {fileID: 11468706, guid: 83dec05f8a359414c8fee09faee45b8c,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: hasDLLs
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: weapons.Array.data[2]
+      value: 
+      objectReference: {fileID: 11492286, guid: aae3aad06dd75f9469e9a42a3960f853,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
