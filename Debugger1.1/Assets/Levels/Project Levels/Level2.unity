@@ -1216,7 +1216,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 473858, guid: 77c85c8bea19d0641bed58d54f525991, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 169866, guid: 77c85c8bea19d0641bed58d54f525991, type: 2}
       propertyPath: m_Name
@@ -2388,7 +2388,20 @@ Prefab:
       propertyPath: m_RootOrder
       value: 31
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 440338, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 40.3800011
+      objectReference: {fileID: 0}
+    - target: {fileID: 440338, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -27.2199993
+      objectReference: {fileID: 0}
+    - target: {fileID: 440338, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -79.4800034
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5457224, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &129520621 stripped
@@ -4249,7 +4262,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 473858, guid: 77c85c8bea19d0641bed58d54f525991, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 491294, guid: 77c85c8bea19d0641bed58d54f525991, type: 2}
       propertyPath: m_LocalPosition.z
@@ -19777,9 +19790,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1762053169}
   - {fileID: 1470430}
   - {fileID: 1901354649}
-  - {fileID: 1762053169}
   - {fileID: 1174271584}
   - {fileID: 890162868}
   - {fileID: 1978060938}
@@ -26492,7 +26505,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 484712, guid: 308fb9a0131cadd4abc8586b4d583ecb, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 139078, guid: 308fb9a0131cadd4abc8586b4d583ecb, type: 2}
       propertyPath: m_StaticEditorFlags
