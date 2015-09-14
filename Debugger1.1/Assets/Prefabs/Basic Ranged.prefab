@@ -49,6 +49,7 @@ GameObject:
   - 114: {fileID: 11463966}
   - 54: {fileID: 5479980}
   - 195: {fileID: 19537526}
+  - 114: {fileID: 11422652}
   m_Layer: 10
   m_Name: Basic Ranged
   m_TagString: Enemy
@@ -240,6 +241,19 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &11422652
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c399161ece66be4d870ba3bf4f08a28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropRate: .100000001
+  itemDrop: {fileID: 0}
 --- !u!114 &11441108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -595,6 +609,10 @@ Prefab:
       propertyPath: currMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: itemDrop
+      value: 
+      objectReference: {fileID: 418214, guid: f77fa78d742044241a4c75ff72c13ffc, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 175152}

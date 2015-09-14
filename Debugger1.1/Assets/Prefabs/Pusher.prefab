@@ -13,6 +13,7 @@ GameObject:
   - 54: {fileID: 5465740}
   - 114: {fileID: 11444774}
   - 195: {fileID: 19586568}
+  - 114: {fileID: 11403058}
   m_Layer: 10
   m_Name: Pusher
   m_TagString: Enemy
@@ -203,6 +204,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11403058
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 129740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c399161ece66be4d870ba3bf4f08a28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropRate: .150000006
+  itemDrop: {fileID: 418214, guid: f77fa78d742044241a4c75ff72c13ffc, type: 2}
 --- !u!114 &11412186
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -323,6 +337,7 @@ MonoBehaviour:
   color: 0
   money: 0
   exp: 0
+  sprite: {fileID: 0}
   currMode: 0
   Waypoints: []
   detectRange: 8
@@ -585,6 +600,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: IsCapturable
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: itemDrop
+      value: 
+      objectReference: {fileID: 418214, guid: f77fa78d742044241a4c75ff72c13ffc, type: 2}
+    - target: {fileID: 0}
+      propertyPath: dropRate
+      value: .150000006
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
