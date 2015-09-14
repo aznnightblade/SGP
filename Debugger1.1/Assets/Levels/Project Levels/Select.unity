@@ -347,7 +347,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11421444, guid: b3703ac2ec63ce848952581c80077650, type: 2}
       propertyPath: m_Text
-      value: Hard
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 11421444, guid: b3703ac2ec63ce848952581c80077650, type: 2}
       propertyPath: m_FontData.m_Font
@@ -357,7 +357,7 @@ Prefab:
     - target: {fileID: 11420828, guid: b3703ac2ec63ce848952581c80077650, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8fb89b63d298aaf4a89dada59c9cdabf,
+      objectReference: {fileID: 21300004, guid: da4cadc7dc8ced44092f712d46fbd2c4,
         type: 3}
     - target: {fileID: 11420828, guid: b3703ac2ec63ce848952581c80077650, type: 2}
       propertyPath: m_Type
@@ -379,6 +379,10 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 929179231}
+    - target: {fileID: 11491100, guid: b3703ac2ec63ce848952581c80077650, type: 2}
+      propertyPath: m_Transition
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11425718, guid: b3703ac2ec63ce848952581c80077650, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b3703ac2ec63ce848952581c80077650, type: 2}
@@ -469,6 +473,10 @@ Prefab:
     - target: {fileID: 11436312, guid: f182090c8ce340a43ad1d0cae218480c, type: 2}
       propertyPath: levelToLoad
       value: Hubworld
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471182, guid: f182090c8ce340a43ad1d0cae218480c, type: 2}
+      propertyPath: m_Transition
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f182090c8ce340a43ad1d0cae218480c, type: 2}
@@ -584,19 +592,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11437948, guid: 06500a81d93d7784aab61ae3879b6f5b, type: 2}
       propertyPath: m_Text
-      value: Medium
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 11494534, guid: 06500a81d93d7784aab61ae3879b6f5b, type: 2}
       propertyPath: m_Color.r
-      value: .00659602741
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11494534, guid: 06500a81d93d7784aab61ae3879b6f5b, type: 2}
       propertyPath: m_Color.g
-      value: .160124123
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11494534, guid: 06500a81d93d7784aab61ae3879b6f5b, type: 2}
       propertyPath: m_Color.b
-      value: .897058845
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 135206, guid: 06500a81d93d7784aab61ae3879b6f5b, type: 2}
       propertyPath: m_Name
@@ -610,7 +618,7 @@ Prefab:
     - target: {fileID: 11494534, guid: 06500a81d93d7784aab61ae3879b6f5b, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8fb89b63d298aaf4a89dada59c9cdabf,
+      objectReference: {fileID: 21300002, guid: da4cadc7dc8ced44092f712d46fbd2c4,
         type: 3}
     - target: {fileID: 11494534, guid: 06500a81d93d7784aab61ae3879b6f5b, type: 2}
       propertyPath: m_Type
@@ -632,6 +640,10 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1423736421}
+    - target: {fileID: 11498668, guid: 06500a81d93d7784aab61ae3879b6f5b, type: 2}
+      propertyPath: m_Transition
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11416538, guid: 06500a81d93d7784aab61ae3879b6f5b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 06500a81d93d7784aab61ae3879b6f5b, type: 2}
@@ -1007,7 +1019,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11404388, guid: af649b1ae47543441b2686eb06fa92d2, type: 2}
       propertyPath: m_Text
-      value: Easy
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 145580, guid: af649b1ae47543441b2686eb06fa92d2, type: 2}
       propertyPath: m_Name
@@ -1033,7 +1045,7 @@ Prefab:
     - target: {fileID: 11424542, guid: af649b1ae47543441b2686eb06fa92d2, type: 2}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8fb89b63d298aaf4a89dada59c9cdabf,
+      objectReference: {fileID: 21300000, guid: da4cadc7dc8ced44092f712d46fbd2c4,
         type: 3}
     - target: {fileID: 11424542, guid: af649b1ae47543441b2686eb06fa92d2, type: 2}
       propertyPath: m_Type
@@ -1050,6 +1062,22 @@ Prefab:
     - target: {fileID: 145580, guid: af649b1ae47543441b2686eb06fa92d2, type: 2}
       propertyPath: m_TagString
       value: Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 11468538, guid: af649b1ae47543441b2686eb06fa92d2, type: 2}
+      propertyPath: m_Transition
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11424542, guid: af649b1ae47543441b2686eb06fa92d2, type: 2}
+      propertyPath: m_Color.r
+      value: .760784388
+      objectReference: {fileID: 0}
+    - target: {fileID: 11424542, guid: af649b1ae47543441b2686eb06fa92d2, type: 2}
+      propertyPath: m_Color.g
+      value: .760784388
+      objectReference: {fileID: 0}
+    - target: {fileID: 11424542, guid: af649b1ae47543441b2686eb06fa92d2, type: 2}
+      propertyPath: m_Color.b
+      value: .760784388
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11489796, guid: af649b1ae47543441b2686eb06fa92d2, type: 2}
