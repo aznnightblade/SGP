@@ -158,7 +158,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 140700}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.0577038452, y: 1.75999999, z: .0202121735}
+  m_LocalPosition: {x: 26.3999996, y: 2.3900001, z: 30.1000004}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 403610}
@@ -243,11 +243,11 @@ MonoBehaviour:
   critChance: 0
   initialCrit: 0
   critPerLuck: 0
-  color: 3
+  color: 1
   money: 50
   exp: 50
   sprite: {fileID: 0}
-  currMode: 4
+  currMode: 1
   Waypoints: []
   detectRange: 8
   maxDistance: 15
@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropRate: .100000001
-  itemDrop: {fileID: 0}
+  itemDrop: {fileID: 418214, guid: f77fa78d742044241a4c75ff72c13ffc, type: 2}
 --- !u!114 &11499658
 MonoBehaviour:
   m_ObjectHideFlags: 1
