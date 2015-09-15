@@ -226,7 +226,7 @@ MonoBehaviour:
   initialDamage: 3
   damagePerStrength: 2
   endurance: 1
-  initialHealth: 10
+  initialHealth: 15
   healthPerEndurance: 10
   defense: 0
   initialDefense: 1
@@ -624,6 +624,10 @@ Prefab:
       propertyPath: itemDrop
       value: 
       objectReference: {fileID: 418214, guid: f77fa78d742044241a4c75ff72c13ffc, type: 2}
+    - target: {fileID: 0}
+      propertyPath: initialHealth
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 140700}
