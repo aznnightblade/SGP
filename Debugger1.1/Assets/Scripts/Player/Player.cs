@@ -1,9 +1,11 @@
 using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
+using System.Collections;
+using System.Collections.Generic;
+
 public class Player : Statistics {
 
-	public enum COMPANIONS { Bill, Chris, Daemon, LeRoc, None };
+	public enum COMPANIONS { Bill, Chris, Daemon, LeRoc, Bahim, None };
 
 	[SerializeField]
 	protected float acceleration = 0;
@@ -18,7 +20,7 @@ public class Player : Statistics {
 	Weapon currWeapon = null;
 	int currWeaponCounter = 0;
 	[SerializeField]
-	Weapon[] weapons = null;
+	List<Weapon> weapons = new List<Weapon> ();
 
 	[SerializeField]
 	bool hasDLLs = false;
@@ -150,7 +152,7 @@ public class Player : Statistics {
 		get { return currWeaponCounter; }
 		set { currWeaponCounter = value; }
 	}
-	public Weapon[] Weapons { get { return weapons; } }
+	public List<Weapon> Weapons { get { return weapons; } }
 	public bool HasDLLs {
 		get { return hasDLLs; }
 		set { hasDLLs = value; }

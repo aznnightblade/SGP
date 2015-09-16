@@ -14,11 +14,14 @@ public class PlayerController : MonoBehaviour {
 	Vector3 moveDir = Vector3.zero;
 	Vector3 direction = Vector3.zero;
 	Vector3 previousLookDir = Vector3.zero;
-	
+
+	[SerializeField]
+	bool inHubworld = false;
 	bool bulletFired = false;
     bool chargebullet = false;
     public Image chargemeter;
     public Image Heatmeter;
+
 	// Use this for initialization
 	void Start () {
         walkinganim = GetComponentInChildren<Animator>();
@@ -47,87 +50,89 @@ public class PlayerController : MonoBehaviour {
 				direction.Normalize ();
 				float rot = (Mathf.Atan2 (-direction.y, direction.x) * 180 / Mathf.PI) - 90;
 				PlayerSprite.rotation = Quaternion.Euler (0, rot, 0);
-					
-				if (((InputManager.instance.GetButton ("Fire1") || InputManager.instance.GetButtonUp ("Fire2")) && 
-				     (player.CurrWeapon.ShotDelay <= 0.0f && !player.CurrWeapon.OnCooldown))) {
-					bulletFired = true;
-	
-					player.CurrWeapon.ShotDelay += player.CurrWeapon.InitialShotDelay - player.CurrWeapon.ShotDelayReductionPerAgility * player.Agility;
-					player.CurrWeapon.HeatGenerated += player.CurrWeapon.HeatPerShot * player.CurrWeapon.ChargeScale;
-				}
 
-				if (InputManager.instance.GetButton ("Fire2") && !InputManager.instance.GetButton ("Fire1") &&
-				    player.CurrWeapon.ChargeDelay <= 0.0f && !player.CurrWeapon.OnCooldown) {
-					if (player.CurrWeapon.ChargeScale == 1.0f)
-	                    SoundManager.instance.PlayerSoundeffects[1].Play();
-
-        	        if (!SoundManager.instance.PlayerSoundeffects[1].isPlaying && !SoundManager.instance.PlayerSoundeffects[2].isPlaying)
-        	            SoundManager.instance.PlayerSoundeffects[2].Play();
-
-    	            if ((player.CurrWeapon.ChargeScale < player.CurrWeapon.MaxChargeScale) && player.HasChargeShot)
-    	            {
-						player.CurrWeapon.ChargeScale += player.CurrWeapon.ChargePerTick;
-						player.CurrWeapon.ChargeDelay = player.CurrWeapon.DelayTime;
-						chargebullet = true;
-               
-						if (player.CurrWeapon.ChargeScale > player.CurrWeapon.MaxChargeScale)
-							player.CurrWeapon.ChargeScale = player.CurrWeapon.MaxChargeScale;	
+				if (!inHubworld) {
+					if (((InputManager.instance.GetButton ("Fire1") || InputManager.instance.GetButtonUp ("Fire2")) && 
+					     (player.CurrWeapon.ShotDelay <= 0.0f && !player.CurrWeapon.OnCooldown))) {
+						bulletFired = true;
+		
+						player.CurrWeapon.ShotDelay += player.CurrWeapon.InitialShotDelay - player.CurrWeapon.ShotDelayReductionPerAgility * player.Agility;
+						player.CurrWeapon.HeatGenerated += player.CurrWeapon.HeatPerShot * player.CurrWeapon.ChargeScale;
 					}
-				}
 
-				if (InputManager.instance.GetButtonDown ("Fire3")) {
-					player.Breakpoint.FireBreakpoint ();
-    	            SoundManager.instance.WeaponSoundeffects[1].Play();
-				}
+					if (InputManager.instance.GetButton ("Fire2") && !InputManager.instance.GetButton ("Fire1") &&
+					    player.CurrWeapon.ChargeDelay <= 0.0f && !player.CurrWeapon.OnCooldown) {
+						if (player.CurrWeapon.ChargeScale == 1.0f)
+		                    SoundManager.instance.PlayerSoundeffects[1].Play();
 
-				if (player.HasDLLs) {
-					if (InputManager.instance.GetButtonDown ("ColorSwap")) {
-						if (InputManager.instance.GetAxisRaw ("ColorSwap") > 0)
-							NextColor ();
-						else
-							PrevColor ();
+	        	        if (!SoundManager.instance.PlayerSoundeffects[1].isPlaying && !SoundManager.instance.PlayerSoundeffects[2].isPlaying)
+	        	            SoundManager.instance.PlayerSoundeffects[2].Play();
+
+	    	            if ((player.CurrWeapon.ChargeScale < player.CurrWeapon.MaxChargeScale) && player.HasChargeShot)
+	    	            {
+							player.CurrWeapon.ChargeScale += player.CurrWeapon.ChargePerTick;
+							player.CurrWeapon.ChargeDelay = player.CurrWeapon.DelayTime;
+							chargebullet = true;
+	               
+							if (player.CurrWeapon.ChargeScale > player.CurrWeapon.MaxChargeScale)
+								player.CurrWeapon.ChargeScale = player.CurrWeapon.MaxChargeScale;	
+						}
 					}
-				}
 
-				if (player.Weapons.Length > 1) {
-					if (InputManager.instance.GetButtonDown ("WeaponSwap")) {
-						if (InputManager.instance.GetAxisRaw ("WeaponSwap") > 0) {
-							NextWeapon ();
-						} else {
-							PrevWeapon ();
+					if (InputManager.instance.GetButtonDown ("Fire3")) {
+						player.Breakpoint.FireBreakpoint ();
+	    	            SoundManager.instance.WeaponSoundeffects[1].Play();
+					}
+
+					if (player.HasDLLs) {
+						if (InputManager.instance.GetButtonDown ("ColorSwap")) {
+							if (InputManager.instance.GetAxisRaw ("ColorSwap") > 0)
+								NextColor ();
+							else
+								PrevColor ();
+						}
+					}
+
+					if (player.Weapons.Count > 1) {
+						if (InputManager.instance.GetButtonDown ("WeaponSwap")) {
+							if (InputManager.instance.GetAxisRaw ("WeaponSwap") > 0) {
+								NextWeapon ();
+							} else {
+								PrevWeapon ();
+							}
+						}
+					}
+
+					if (player.HasNegationBoots) {
+						if (InputManager.instance.GetButtonDown ("Hover")) {
+							player.IsHovering = !player.IsHovering;
 						}
 					}
 				}
 
-				if (player.HasNegationBoots) {
-					if (InputManager.instance.GetButtonDown ("Hover")) {
-						player.IsHovering = !player.IsHovering;
+				if (InputManager.instance.GetButtonDown ("FriendToggle")) {
+					if (player.Friend != null) {
+						if (playerControlledObjects[1] == null) {
+							player.Friend.gameObject.SetActive(true);
+							playerControlledObjects[1] = player.Friend.GetChild(0);
+							Camera.main.GetComponent<CameraFollow> ().Target = PlayerControlledObjects[1];
+							Enemy friend = playerControlledObjects[1].gameObject.GetComponent<Enemy> ();
+
+							if (friend != null)
+								friend.enabled = true;
+
+							controlCounter = 1;
+						} else {
+							player.Friend.gameObject.SetActive(false);
+							playerControlledObjects[1] = null;
+							Camera.main.GetComponent<CameraFollow> ().Target = PlayerSprite;
+							controlCounter = 0;
+						}
 					}
 				}
 			}
 
-			if (InputManager.instance.GetButtonDown ("FriendToggle")) {
-				if (player.Friend != null) {
-					if (playerControlledObjects[1] == null) {
-						player.Friend.gameObject.SetActive(true);
-						playerControlledObjects[1] = player.Friend.GetChild(0);
-						Camera.main.GetComponent<CameraFollow> ().Target = PlayerControlledObjects[1];
-						Enemy friend = playerControlledObjects[1].gameObject.GetComponent<Enemy> ();
-
-						if (friend != null)
-							friend.enabled = true;
-
-						controlCounter = 1;
-					} else {
-						player.Friend.gameObject.SetActive(false);
-						playerControlledObjects[1] = null;
-						Camera.main.GetComponent<CameraFollow> ().Target = PlayerSprite;
-						controlCounter = 0;
-					}
-				}
-			}
-
-			for (int index = 0; index < player.Weapons.Length; index++) {
+			for (int index = 0; index < player.Weapons.Count; index++) {
 				if (player.Weapons [index].ShotDelay > 0.0f) {
 					player.Weapons [index].ShotDelay -= Time.deltaTime;
 			
@@ -221,7 +226,7 @@ public class PlayerController : MonoBehaviour {
 		player.CurrWeaponCounter--;
 
 		if (player.CurrWeaponCounter == -1)
-			player.CurrWeaponCounter = player.Weapons.Length - 1;
+			player.CurrWeaponCounter = player.Weapons.Count - 1;
 
 		player.CurrWeapon = player.Weapons [player.CurrWeaponCounter];
 	}
@@ -229,7 +234,7 @@ public class PlayerController : MonoBehaviour {
 	void NextWeapon () {
 		player.CurrWeaponCounter++;
 		
-		if (player.CurrWeaponCounter == player.Weapons.Length)
+		if (player.CurrWeaponCounter == player.Weapons.Count)
 			player.CurrWeaponCounter = 0;
 
 		player.CurrWeapon = player.Weapons [player.CurrWeaponCounter];

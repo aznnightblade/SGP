@@ -2487,10 +2487,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 11453502, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: BossSoundeffects.Array.size
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 400992, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
       propertyPath: m_LocalPosition.x
       value: 28.7550106
@@ -2527,84 +2523,9 @@ Prefab:
       propertyPath: m_Animation
       value: 
       objectReference: {fileID: 7400000, guid: 568cf7431aa979f4fa0b0c63f319d9f3, type: 2}
-    - target: {fileID: 11453502, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: BossSoundeffects.Array.data[9]
-      value: 
-      objectReference: {fileID: 521668777}
-    - target: {fileID: 164244, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_Name
-      value: BossDeathSFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 8226728, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: f0045dc159233b0408e87e47aadaaf8d, type: 3}
-    - target: {fileID: 440338, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: .479999989
-      objectReference: {fileID: 0}
-    - target: {fileID: 440338, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -1.03999996
-      objectReference: {fileID: 0}
-    - target: {fileID: 440338, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -24.8299999
-      objectReference: {fileID: 0}
-    - target: {fileID: 184050, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 142674, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 132626, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22431312, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -4
-      objectReference: {fileID: 0}
-    - target: {fileID: 22431312, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -23
-      objectReference: {fileID: 0}
-    - target: {fileID: 11470870, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_UVRect.width
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22460722, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 354.899994
-      objectReference: {fileID: 0}
-    - target: {fileID: 11470870, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_UVRect.x
-      value: -.0199999996
-      objectReference: {fileID: 0}
-    - target: {fileID: 22460722, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -3.79999995
-      objectReference: {fileID: 0}
-    - target: {fileID: 22460722, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_SizeDelta.x
-      value: -810.900024
-      objectReference: {fileID: 0}
-    - target: {fileID: 22460722, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_SizeDelta.y
-      value: -22.8999996
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 11499954, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-    - {fileID: 5457224, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
   m_IsPrefabParent: 0
---- !u!82 &521668777 stripped
-AudioSource:
-  m_PrefabParentObject: {fileID: 8262566, guid: bad108bd7c5945b4d9b68c4102aeae84,
-    type: 2}
-  m_PrefabInternal: {fileID: 521668776}
 --- !u!1001 &633038062
 Prefab:
   m_ObjectHideFlags: 0
@@ -3849,6 +3770,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   bullet: {fileID: 477030, guid: 537370ef8cbeb98408728579714cf6ca, type: 2}
   teleporter: {fileID: 1146850111}
+  friendshot: {fileID: 11492286, guid: aae3aad06dd75f9469e9a42a3960f853, type: 2}
   percentTillTeleport: .200000003
   rooms:
   - {fileID: 150360605}

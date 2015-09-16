@@ -8,6 +8,8 @@ public class TJ : Enemy {
 	Weapon bulletScript = null;
 	[SerializeField]
 	GameObject teleporter = null;
+	[SerializeField]
+	FriendShotBullet friendshot = null;
 
 	[SerializeField]
 	float percentTillTeleport = 0.2f;
@@ -151,6 +153,7 @@ public class TJ : Enemy {
 		if (currHealth <= 0.0f) {
 			teleporter.SetActive (true);
 			SoundManager.instance.BossSoundeffects[3].Play();
+			GameObject.FindGameObjectWithTag("Player").GetComponent<Player> ().Weapons.Add(friendshot);
 
             isdead = true;
 		}

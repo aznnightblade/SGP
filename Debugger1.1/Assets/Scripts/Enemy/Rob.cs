@@ -13,6 +13,8 @@ public class Rob : Enemy {
 	Teleporter[] teleporters = null;
 	[SerializeField]
 	Transform turret = null;
+	[SerializeField]
+	WaveShotBullet waveshot = null;
 
 	int currMoveZone = 0;
 	int hallway = 0;
@@ -264,6 +266,7 @@ public class Rob : Enemy {
 				}
 			}
 
+			GameObject.FindGameObjectWithTag("Player").GetComponent<Player> ().Weapons.Add(waveshot);
 			SoundManager.instance.BossSoundeffects[3].Play();
 
             isdead = true;
