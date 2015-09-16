@@ -1961,6 +1961,10 @@ MonoBehaviour:
   bugtype: {fileID: 175152, guid: 22ec68d962e7d334f8aeddd2cdb22f6e, type: 2}
   bug: {fileID: 1944255978}
   once: 0
+--- !u!1 &702419887 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 157648, guid: c7a77532e0081014b8907d508b063c94, type: 2}
+  m_PrefabInternal: {fileID: 229599627}
 --- !u!1 &740843574
 GameObject:
   m_ObjectHideFlags: 0
@@ -3659,7 +3663,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22443842, guid: 27200227b04383a48b61d924fd874ac2, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 29.2099991
+      value: 24.7999992
       objectReference: {fileID: 0}
     - target: {fileID: 22443842, guid: 27200227b04383a48b61d924fd874ac2, type: 2}
       propertyPath: m_LocalRotation.x
@@ -3873,6 +3877,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11429528, guid: 38137a362bd1da7429ea2eec85735e1a, type: 2}
+      propertyPath: Attached.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 22402880, guid: 38137a362bd1da7429ea2eec85735e1a, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3961,6 +3969,10 @@ Prefab:
       propertyPath: colorNumber
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11429528, guid: 38137a362bd1da7429ea2eec85735e1a, type: 2}
+      propertyPath: Attached.Array.data[0]
+      value: 
+      objectReference: {fileID: 702419887}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 38137a362bd1da7429ea2eec85735e1a, type: 2}
   m_IsPrefabParent: 0

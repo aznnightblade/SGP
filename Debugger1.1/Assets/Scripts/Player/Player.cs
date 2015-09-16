@@ -244,5 +244,9 @@ public class Player : Statistics {
         {
             hasChargeShot = true;
         }
+        if (GameManager.Friendshot==1)
+        {
+           
+        }
     }
 }
