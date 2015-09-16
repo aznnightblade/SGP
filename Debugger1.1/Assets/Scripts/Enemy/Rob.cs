@@ -135,6 +135,7 @@ public class Rob : Enemy {
 			
 					if (totalTurrets >= minTurrets && Random.Range (1, 100) <= transformChance) {
 						anim.SetBool ("Flying", false);
+                        SoundManager.instance.BossSoundeffects[11].Play();
 						gameObject.GetComponent<SphereCollider> ().isTrigger = false;
 						onGround = true;
 						totalTurrets = 0;
@@ -163,6 +164,7 @@ public class Rob : Enemy {
 				}
 
 				if (isCharging) {
+                    SoundManager.instance.BossSoundeffects[12].Play();
 					if (chargeUpTimer < chargeUpTime) {
 						FacePlayer ();
 
@@ -187,6 +189,7 @@ public class Rob : Enemy {
 			if (timeTillMove <= 0.0f || ((float)currHealth / maxHealth) <= (enterRoomHealthPercent - healthLossTillMove)) {
 				timeTillMove = MoveTime;
 				enterRoomHealthPercent = (float)currHealth / maxHealth;
+                SoundManager.instance.BossSoundeffects[10].Play();
 				anim.SetBool("Flying", true);
 				gameObject.GetComponent<SphereCollider> ().enabled = false;
 				gameObject.GetComponent<SphereCollider> ().isTrigger = true;
