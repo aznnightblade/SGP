@@ -65,6 +65,7 @@ public class Switch : MonoBehaviour {
 		{
 			gameObject.GetComponentInChildren<Light> ().enabled = true;
 			if (InputManager.instance.GetButtonDown ("Submit") && activateSwitch == true) {
+                SoundManager.instance.MiscSoundeffects[9].Play();
 				gameObject.GetComponentInChildren<Light> ().enabled = false;
 				Health = 0;
 				gameObject.GetComponentInChildren<Image>().fillAmount = 0;
