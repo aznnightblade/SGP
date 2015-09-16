@@ -91,34 +91,35 @@ public class GameManager : MonoBehaviour {
 		}
 		if (back)
 			back = false;
-		FindObjectOfType<Player> ().Agility = data.Agility ;
-		FindObjectOfType<Player> ().Strength = data.Strength;
-		FindObjectOfType<Player> ().Endurance = data.Endurance;
-		FindObjectOfType<Player> ().Luck = data.Endurance;
-		FindObjectOfType<Player> ().Intelligence = data.Intelligence;
-		FindObjectOfType<Player> ().Dexterity = data.Dexterity;
-		FindObjectOfType<Player> ().CurrHealth = data.CurrentHealth;
-		FindObjectOfType<Player> ().MaxHealth = data.MaxHealth;
-		FindObjectOfType<Player> ().Money = data.Credits;
-		FindObjectOfType<Player> ().EXP = data.XP;
-		FindObjectOfType<Player> ().newGame = data.newGame;
+        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+		player.Agility = data.Agility ;
+        player.Strength = data.Strength;
+        player.Endurance = data.Endurance;
+        player.Luck = data.Endurance;
+        player.Intelligence = data.Intelligence;
+        player.Dexterity = data.Dexterity;
+        player.CurrHealth = data.CurrentHealth;
+        player.MaxHealth = data.MaxHealth;
+        player.Money = data.Credits;
+        player.EXP = data.XP;
+        player.newGame = data.newGame;
         DLLShot = data.DLLShot;
         Chargeshot = data.ChargeShot;
 	}
      public void LoadPlayerstatsScene(SaveData _data)
      {
-
-         FindObjectOfType<Player>().Agility = _data.Agility;
-         FindObjectOfType<Player>().Strength = _data.Strength;
-         FindObjectOfType<Player>().Endurance = _data.Endurance;
-         FindObjectOfType<Player>().Luck = _data.Endurance;
-         FindObjectOfType<Player>().Intelligence = _data.Intelligence;
-         FindObjectOfType<Player>().Dexterity = _data.Dexterity;
-         FindObjectOfType<Player>().CurrHealth = _data.CurrentHealth;
-         FindObjectOfType<Player>().MaxHealth = _data.MaxHealth;
-         FindObjectOfType<Player>().Money = _data.Credits;
-         FindObjectOfType<Player>().EXP = _data.XP;
-         FindObjectOfType<Player>().newGame = _data.newGame;
+         Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+         player.Agility = _data.Agility;
+         player.Strength = _data.Strength;
+         player.Endurance = _data.Endurance;
+         player.Luck = _data.Endurance;
+         player.Intelligence = _data.Intelligence;
+         player.Dexterity = _data.Dexterity;
+         player.CurrHealth = _data.CurrentHealth;
+         player.MaxHealth = _data.MaxHealth;
+         player.Money = _data.Credits;
+         player.EXP = _data.XP;
+         player.newGame = _data.newGame;
          DLLShot = _data.DLLShot;
          Chargeshot = _data.ChargeShot;
 

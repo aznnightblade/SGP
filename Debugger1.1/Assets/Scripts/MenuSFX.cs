@@ -10,6 +10,6 @@ public class MenuSFX : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
+        gameObject.GetComponent<AudioSource>().volume = PlayerPrefs.GetFloat("SFX") / 100;
 	}
 }
