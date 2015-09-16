@@ -37,10 +37,19 @@ public class LazerSpawner : MonoBehaviour {
 	[SerializeField]
 	GameObject lazerEnd = null;
 
+	[SerializeField]
+	Sprite[] sprites = null;
+
 	// Use this for initialization
 	void Start () {
 		float rot = (transform.rotation.eulerAngles.y + 90.0f) * (Mathf.PI / 180.0f);
 		direction = new Vector3 (-Mathf.Cos (rot), 0, Mathf.Sin (rot));
+
+		gameObject.GetComponentInChildren<SpriteRenderer> ().sprite = sprites [(int)color];
+
+		if (HasEndpoint) {
+			endPoint.GetComponentInChildren<SpriteRenderer> ().sprite = sprites [(int)color];
+		}
 
 		if (!IsStationary)
 			SetDestination (startMove);
