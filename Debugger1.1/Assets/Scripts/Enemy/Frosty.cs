@@ -154,8 +154,8 @@ public class Frosty : Enemy {
                 isdead = false;
                 deathtimer = 0;
                 anim.SetBool("Death", false);
-                GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().EXP += 800;
-                GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Money += 1000;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().EXP += EXP;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Money += Money;
             }
         }
     }

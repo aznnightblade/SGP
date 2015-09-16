@@ -85,8 +85,8 @@ public class Joe : Enemy {
 			Teleporter.SetActive (true);
             SoundManager.instance.BossSoundeffects[3].Play();
 			GameObject.FindGameObjectWithTag("Player").GetComponent<Player> ().HasDLLs = true;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().EXP += 200;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Money += 200;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().EXP += EXP;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Money += Money;
             isdead = true;
 		}
 	}

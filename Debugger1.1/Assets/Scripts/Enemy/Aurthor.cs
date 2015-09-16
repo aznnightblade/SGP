@@ -281,6 +281,8 @@ public class Aurthor : Enemy {
                 DestroyObject();
                 isdead = false;
                 deathtimer = 0;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().EXP += EXP;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Money += Money;
                 anim.SetBool("Death", false);
             }
         }

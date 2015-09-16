@@ -370,7 +370,7 @@ MonoBehaviour:
   initialDamage: 5
   damagePerStrength: 3
   endurance: 4
-  initialHealth: 20
+  initialHealth: 100
   healthPerEndurance: 20
   defense: 0
   initialDefense: 1
@@ -512,7 +512,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: initialHealth
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 133988}
