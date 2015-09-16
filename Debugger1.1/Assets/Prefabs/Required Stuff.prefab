@@ -7616,7 +7616,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 173214}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.7550106, y: .5, z: 27.2370834}
+  m_LocalPosition: {x: -4.13876343, y: 27.0400009, z: -38.058075}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22446056}
@@ -8225,7 +8225,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.03999996, y: .479999989, z: -24.8299999}
+  m_LocalPosition: {x: 5.51999998, y: -24.8990002, z: 31.6700001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 416194}
@@ -27330,7 +27330,7 @@ MonoBehaviour:
   maxShield: 0
   hitRegenTimer: 2
   hitTimer: 0
-  strength: 1
+  strength: 5
   initialDamage: 5
   damagePerStrength: 5
   endurance: 1
@@ -27339,7 +27339,7 @@ MonoBehaviour:
   defense: 1
   initialDefense: 1
   defensePerEndurance: 1
-  agility: 1
+  agility: 5
   shotDelay: 0
   dexterity: 1
   initialShotDistance: 10
@@ -27372,6 +27372,13 @@ MonoBehaviour:
   multithreadLevel: 1
   invulTimePerDamage: .100000001
   companions: 00000000000000000000000000000000
+  CompanionObjects:
+  - {fileID: 122856, guid: 6eeb1a6f1494b364d801f49add76b424, type: 2}
+  - {fileID: 122856, guid: 8fba09010dca2524999671269778840a, type: 2}
+  - {fileID: 122856, guid: e02640f7644c0214fba10cb3a6496581, type: 2}
+  - {fileID: 122856, guid: 4b7d0b76043c3a64a9778c3192d0505f, type: 2}
+  - {fileID: 0}
+  enableCompanion: 0
   newGame: 1
   healthText: {fileID: 11420932}
   visualHealth: {fileID: 11490910}

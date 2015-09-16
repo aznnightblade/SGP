@@ -47,8 +47,12 @@ public class Player : Statistics {
 	float invulTimer = 0.0f;
 
 	[SerializeField]
-	int[] companions = new int[4];
+	int[] companions = new int[5];
+	[SerializeField]
+	GameObject[] CompanionObjects = null;
 	COMPANIONS selectedCompanion = COMPANIONS.None;
+	[SerializeField]
+	bool enableCompanion = false;
 
 	public int newGame = 1;
     public Text healthText;
@@ -66,6 +70,12 @@ public class Player : Statistics {
         } 
 		critChance = initialCrit + critPerLuck * luck;
 		currWeapon = weapons [0];
+
+		if (enableCompanion && selectedCompanion != COMPANIONS.None) {
+			Vector3 pos = transform.position;
+			pos.z -= 2.0f;
+			Instantiate (CompanionObjects[(int)selectedCompanion], pos, Quaternion.identity);
+		}
 
         if (SoundManager.instance != null)
         {
