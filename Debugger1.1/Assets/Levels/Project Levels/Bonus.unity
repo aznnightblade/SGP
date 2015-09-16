@@ -3813,6 +3813,124 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 956475085}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &983706007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 983706011}
+  - 114: {fileID: 983706010}
+  - 82: {fileID: 983706009}
+  - 81: {fileID: 983706008}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &983706008
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 983706007}
+  m_Enabled: 1
+--- !u!82 &983706009
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 983706007}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24332136, guid: 94620953847c4e643b5e173a44635201,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 988eddf565c40854b8d4a174589f64a5, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+--- !u!114 &983706010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 983706007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd58c733daefb264dbb09f6d1d36bc7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &983706011
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 983706007}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 40.7496719, y: 2.27095866, z: -92.0178452}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
 --- !u!1 &1038577440
 GameObject:
   m_ObjectHideFlags: 0
@@ -4836,46 +4954,6 @@ Prefab:
     - target: {fileID: 400992, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
       propertyPath: m_RootOrder
       value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 440338, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 5.71000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 440338, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: .600000024
-      objectReference: {fileID: 0}
-    - target: {fileID: 440338, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -2.96000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: agility
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: dexterity
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5443950, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_Mass
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: maxVelocity
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 132626, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11470870, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_UVRect.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 118184, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
