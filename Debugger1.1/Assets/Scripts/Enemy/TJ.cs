@@ -184,8 +184,8 @@ public class TJ : Enemy {
                 isdead = false;
                 deathtimer = 0;
                 anim.SetBool("Death", false);
-                GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().EXP += 450;
-                GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Money += 550;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().EXP += EXP;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Money += Money;
             }
         }
     }
