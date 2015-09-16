@@ -83,6 +83,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &103228
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 432204}
+  - 114: {fileID: 11402242}
+  m_Layer: 0
+  m_Name: Input Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &103410
 GameObject:
   m_ObjectHideFlags: 1
@@ -1571,22 +1587,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &153270
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 459174}
-  - 114: {fileID: 11443970}
-  m_Layer: 0
-  m_Name: Input Manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &154010
 GameObject:
   m_ObjectHideFlags: 1
@@ -2922,7 +2922,7 @@ Transform:
   - {fileID: 468602}
   - {fileID: 436694}
   - {fileID: 457158}
-  - {fileID: 459174}
+  - {fileID: 432204}
   - {fileID: 440338}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -3296,6 +3296,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 443124}
   m_RootOrder: 3
+--- !u!4 &432204
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 103228}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.50463009, y: -19.7404652, z: -32.4224205}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 400992}
+  m_RootOrder: 4
 --- !u!4 &432996
 Transform:
   m_ObjectHideFlags: 1
@@ -3642,18 +3654,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 440338}
   m_RootOrder: 1
---- !u!4 &459174
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 153270}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.36586666, y: -48.0542221, z: 5.63565445}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 400992}
-  m_RootOrder: 4
 --- !u!4 &461990
 Transform:
   m_ObjectHideFlags: 1
@@ -7454,6 +7454,211 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Companion
+--- !u!114 &11402242
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 103228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93ad52139f4676a4d8c451378dcbf062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KeyboardInputs:
+  - Name: Horizontal
+    axis: 
+    direction: 
+    axisDown: 
+    Negative: 97
+    Positive: 100
+    AltNegative: 276
+    AltPositive: 275
+  - Name: Vertical
+    axis: 
+    direction: 
+    axisDown: 
+    Negative: 115
+    Positive: 119
+    AltNegative: 274
+    AltPositive: 273
+  - Name: Fire1
+    axis: 
+    direction: 
+    axisDown: 
+    Negative: 0
+    Positive: 323
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Fire2
+    axis: 
+    direction: 
+    axisDown: 
+    Negative: 0
+    Positive: 324
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Fire3
+    axis: 
+    direction: 
+    axisDown: 
+    Negative: 0
+    Positive: 32
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Submit
+    axis: 
+    direction: 
+    axisDown: 
+    Negative: 0
+    Positive: 13
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Cancel
+    axis: 
+    direction: 
+    axisDown: 
+    Negative: 0
+    Positive: 27
+    AltNegative: 0
+    AltPositive: 0
+  - Name: ColorSwap
+    axis: 
+    direction: 
+    axisDown: 
+    Negative: 102
+    Positive: 114
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Hover
+    axis: 
+    direction: 
+    axisDown: 
+    Negative: 0
+    Positive: 304
+    AltNegative: 0
+    AltPositive: 0
+  - Name: WeaponSwap
+    axis: 
+    direction: 
+    axisDown: 
+    Negative: 113
+    Positive: 101
+    AltNegative: 0
+    AltPositive: 0
+  - Name: FriendToggle
+    axis: 
+    direction: 
+    axisDown: 
+    Negative: 0
+    Positive: 306
+    AltNegative: 0
+    AltPositive: 0
+  ControllerInputs:
+  - Name: Horizontal
+    axis: 00000000000000000a0000000a000000
+    direction: 00000000010000000000000001000000
+    axisDown: 00000000
+    Negative: 0
+    Positive: 0
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Vertical
+    axis: 01000000010000000a0000000a000000
+    direction: 00000000010000000000000001000000
+    axisDown: 00000000
+    Negative: 0
+    Positive: 0
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Horizontal2
+    axis: 03000000030000000a0000000a000000
+    direction: 00000000010000000000000001000000
+    axisDown: 00000000
+    Negative: 0
+    Positive: 0
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Vertical2
+    axis: 04000000040000000a0000000a000000
+    direction: 00000000010000000000000001000000
+    axisDown: 00000000
+    Negative: 0
+    Positive: 0
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Fire1
+    axis: 0a000000090000000a0000000a000000
+    direction: 00000000010000000000000000000000
+    axisDown: 00000000
+    Negative: 0
+    Positive: 0
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Fire2
+    axis: 0a000000080000000a0000000a000000
+    direction: 00000000010000000000000000000000
+    axisDown: 00000000
+    Negative: 0
+    Positive: 0
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Fire3
+    axis: 0a0000000a0000000a0000000a000000
+    direction: 00000000000000000000000000000000
+    axisDown: 00000000
+    Negative: 0
+    Positive: 335
+    AltNegative: 0
+    AltPositive: 0
+  - Name: ColorSwap
+    axis: 05000000050000000a0000000a000000
+    direction: 00000000010000000000000001000000
+    axisDown: 00000000
+    Negative: 0
+    Positive: 0
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Submit
+    axis: 0a0000000a0000000a0000000a000000
+    direction: 00000000000000000000000000000000
+    axisDown: 00000000
+    Negative: 0
+    Positive: 330
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Cancel
+    axis: 0a0000000a0000000a0000000a000000
+    direction: 00000000000000000000000000000000
+    axisDown: 00000000
+    Negative: 0
+    Positive: 331
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Hover
+    axis: 0a0000000a0000000a0000000a000000
+    direction: 00000000000000000000000000000000
+    axisDown: 00000000
+    Negative: 0
+    Positive: 334
+    AltNegative: 0
+    AltPositive: 0
+  - Name: WeaponSwap
+    axis: 0a0000000a0000000a0000000a000000
+    direction: 00000000000000000000000000000000
+    axisDown: 00000000
+    Negative: 332
+    Positive: 333
+    AltNegative: 0
+    AltPositive: 0
+  - Name: FriendToggle
+    axis: 0a0000000a0000000a0000000a000000
+    direction: 00000000000000000000000000000000
+    axisDown: 00000000
+    Negative: 0
+    Positive: 336
+    AltNegative: 0
+    AltPositive: 0
 --- !u!114 &11403994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -8899,187 +9104,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &11443970
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 153270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93ad52139f4676a4d8c451378dcbf062, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  KeyboardInputs:
-  - Name: Horizontal
-    axis: 
-    direction: 
-    axisDown: 
-    Negative: 97
-    Positive: 100
-    AltNegative: 276
-    AltPositive: 275
-  - Name: Vertical
-    axis: 
-    direction: 
-    axisDown: 
-    Negative: 115
-    Positive: 119
-    AltNegative: 274
-    AltPositive: 273
-  - Name: Fire1
-    axis: 
-    direction: 
-    axisDown: 
-    Negative: 0
-    Positive: 323
-    AltNegative: 0
-    AltPositive: 0
-  - Name: Fire2
-    axis: 
-    direction: 
-    axisDown: 
-    Negative: 0
-    Positive: 324
-    AltNegative: 0
-    AltPositive: 0
-  - Name: Fire3
-    axis: 
-    direction: 
-    axisDown: 
-    Negative: 0
-    Positive: 32
-    AltNegative: 0
-    AltPositive: 0
-  - Name: Submit
-    axis: 
-    direction: 
-    axisDown: 
-    Negative: 0
-    Positive: 13
-    AltNegative: 0
-    AltPositive: 0
-  - Name: Cancel
-    axis: 
-    direction: 
-    axisDown: 
-    Negative: 0
-    Positive: 27
-    AltNegative: 0
-    AltPositive: 0
-  - Name: ColorSwap
-    axis: 
-    direction: 
-    axisDown: 
-    Negative: 102
-    Positive: 114
-    AltNegative: 0
-    AltPositive: 0
-  - Name: Hover
-    axis: 
-    direction: 
-    axisDown: 
-    Negative: 0
-    Positive: 304
-    AltNegative: 0
-    AltPositive: 0
-  - Name: WeaponSwap
-    axis: 
-    direction: 
-    axisDown: 
-    Negative: 113
-    Positive: 101
-    AltNegative: 0
-    AltPositive: 0
-  - Name: FriendToggle
-    axis: 
-    direction: 
-    axisDown: 
-    Negative: 0
-    Positive: 306
-    AltNegative: 0
-    AltPositive: 0
-  ControllerInputs:
-  - Name: Horizontal
-    axis: 00000000000000000a0000000a000000
-    direction: 00000000010000000000000001000000
-    axisDown: 00000000
-    Negative: 0
-    Positive: 0
-    AltNegative: 0
-    AltPositive: 0
-  - Name: Vertical
-    axis: 01000000010000000a0000000a000000
-    direction: 00000000010000000000000001000000
-    axisDown: 00000000
-    Negative: 0
-    Positive: 0
-    AltNegative: 0
-    AltPositive: 0
-  - Name: Horizontal2
-    axis: 03000000030000000a0000000a000000
-    direction: 00000000010000000000000001000000
-    axisDown: 00000000
-    Negative: 0
-    Positive: 0
-    AltNegative: 0
-    AltPositive: 0
-  - Name: Vertical2
-    axis: 04000000040000000a0000000a000000
-    direction: 00000000010000000000000001000000
-    axisDown: 00000000
-    Negative: 0
-    Positive: 0
-    AltNegative: 0
-    AltPositive: 0
-  - Name: Fire1
-    axis: 0a000000090000000a0000000a000000
-    direction: 00000000010000000000000000000000
-    axisDown: 00000000
-    Negative: 0
-    Positive: 0
-    AltNegative: 0
-    AltPositive: 0
-  - Name: Fire2
-    axis: 0a000000080000000a0000000a000000
-    direction: 00000000010000000000000000000000
-    axisDown: 00000000
-    Negative: 0
-    Positive: 0
-    AltNegative: 0
-    AltPositive: 0
-  - Name: Fire3
-    axis: 0a0000000a0000000a0000000a000000
-    direction: 00000000000000000000000000000000
-    axisDown: 00000000
-    Negative: 0
-    Positive: 335
-    AltNegative: 0
-    AltPositive: 0
-  - Name: ColorSwap
-    axis: 05000000050000000a0000000a000000
-    direction: 00000000010000000000000001000000
-    axisDown: 00000000
-    Negative: 0
-    Positive: 0
-    AltNegative: 0
-    AltPositive: 0
-  - Name: Submit
-    axis: 0a0000000a0000000a0000000a000000
-    direction: 00000000000000000000000000000000
-    axisDown: 00000000
-    Negative: 0
-    Positive: 330
-    AltNegative: 0
-    AltPositive: 0
-  - Name: 
-    axis: 0a0000000a0000000a0000000a000000
-    direction: 00000000000000000000000000000000
-    axisDown: 00000000
-    Negative: 0
-    Positive: 0
-    AltNegative: 0
-    AltPositive: 0
 --- !u!114 &11445206
 MonoBehaviour:
   m_ObjectHideFlags: 1
