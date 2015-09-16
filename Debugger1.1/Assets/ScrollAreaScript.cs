@@ -13,7 +13,6 @@ public class ScrollAreaScript : MonoBehaviour {
 	float scrollPerButton = 0.0f;
 	float totalScrollVisible = 0.0f;
 	float scrollMove = 0.0f;
-	int topVisibleIndex = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -30,16 +29,14 @@ public class ScrollAreaScript : MonoBehaviour {
 	void UpdateScrollbar (GameObject selectedButton) {
 		for (int currButton = 0; currButton < Buttons.Length; currButton++) {
 			if (selectedButton == Buttons[currButton]) {
+				float bottomScrollLocation = 1.0f - (scrollbar.value * (1 - totalScrollVisible));
+				float topScrollLocation = bottomScrollLocation - totalScrollVisible;
 				float buttonScrollLocation = currButton * scrollPerButton;
-				float topScrollLocation = topVisibleIndex * scrollPerButton;
-				float bottomScrollLocation = (topVisibleIndex + buttonsVisible) * scrollPerButton;
 
-				if (buttonScrollLocation < topScrollLocation) {
+				if (topScrollLocation - buttonScrollLocation > 0) {
 					scrollbar.value += scrollMove;
-					topVisibleIndex--;
-				} else if (buttonScrollLocation >= bottomScrollLocation) {
+				} else if (bottomScrollLocation - buttonScrollLocation <= 0.001f) {
 					scrollbar.value -= scrollMove;
-					topVisibleIndex++;
 				}
 
 				break;
