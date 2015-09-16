@@ -31,18 +31,18 @@ public class Breakpoint : MonoBehaviour {
 			isActive = true;
             timer_background.SetActive(true);
             freezetint.SetActive(true);
-		} else if (activeTimer == 0.0f && GameManager.CTimeScale == 0.0f) {
-			GameManager.CTimeScale = 1.0f;
-			isActive = false;
-            timer_background.SetActive(false);
-            freezetint.SetActive(false);
 		}
 
 		if (activeTimer > 0.0f) {
 			activeTimer -= Time.deltaTime;
 
-			if (activeTimer < 0.0f)
+			if (activeTimer <= 0.0f) {
 				activeTimer = 0.0f;
+				GameManager.CTimeScale = 1.0f;
+				isActive = false;
+				timer_background.SetActive(false);
+				freezetint.SetActive(false);
+			}
 		}
 
         _breakpoint.fillAmount = fillAmount/maxFill;
