@@ -7,10 +7,12 @@ public class LoadGameScript : MonoBehaviour {
     public Text Load1 = null;
     public Text Load2 = null;
     public Text Load3 = null;
+	public Font font ;
 	// Use this for initialization
 	void Start () {
-       
-	
+		Load1.font = font;
+		Load2.font = font;
+		Load3.font = font;
 	}
 	
 	// Update is called once per frame
