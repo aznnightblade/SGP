@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour {
 	public static bool loadfirst = true;
     public static int Chargeshot = 0;
     public static int DLLShot = 0;
+    public static int Friendshot = 0;
+    public static int RecursiveShot = 0;
     public static int breakptlevel = 1;
     public static int negationbootlevel = 1;
     public static int multithreadlevel = 1;
@@ -77,6 +79,8 @@ public class GameManager : MonoBehaviour {
 		data.newGame = FindObjectOfType<Player> ().newGame;
         data.ChargeShot = Chargeshot;
         data.DLLShot = DLLShot;
+        data.Friendwpn = Friendshot;
+        data.Waveshot = RecursiveShot;
 	}
 	 public static void LoadScene()
 	{
@@ -100,7 +104,6 @@ public class GameManager : MonoBehaviour {
 		FindObjectOfType<Player> ().newGame = data.newGame;
         DLLShot = data.DLLShot;
         Chargeshot = data.ChargeShot;
-
 	}
      public void LoadPlayerstatsScene(SaveData _data)
      {

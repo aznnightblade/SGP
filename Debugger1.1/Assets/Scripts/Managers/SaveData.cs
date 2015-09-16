@@ -20,7 +20,8 @@ public class SaveData{
 	public int MaxHealth = 0;
     public int ChargeShot = 0;
     public int DLLShot = 0;
-
+    public int Waveshot = 0;
+    public int Friendwpn = 0;
 	public SaveData()
 	{
 		SucessfulLoad = false;
@@ -29,7 +30,7 @@ public class SaveData{
 
 	public static SaveData Load( string _name ){
 
-		if (!PlayerPrefs.HasKey (_name))
+		if (PlayerPrefs.HasKey (_name))
 			return new SaveData ();
 		SaveData data = new SaveData ();
 
@@ -50,6 +51,8 @@ public class SaveData{
         data.newGame = PlayerPrefs.GetInt(_name + "NEWGAME");
         data.ChargeShot = PlayerPrefs.GetInt(_name + "CHARGESHOT");
         data.DLLShot = PlayerPrefs.GetInt(_name + "DLLSHOT");
+        data.Friendwpn = PlayerPrefs.GetInt(_name + "FriendShot");
+        data.Waveshot = PlayerPrefs.GetInt(_name + "Recursive");
 
 		return data;
 	}
@@ -86,6 +89,10 @@ public class SaveData{
         PlayerPrefs.SetInt(temp, _data.ChargeShot);
         temp = _name + "DLLSHOT";
         PlayerPrefs.SetInt(temp, _data.DLLShot);
+        temp = _name + "FriendShot";
+        PlayerPrefs.SetInt(temp, _data.Friendwpn);
+        temp = _name + "Recursive";
+        PlayerPrefs.SetInt(temp, _data.Waveshot);
 	}
 
 	//[MenuItem("Tools/DeleteAll")]

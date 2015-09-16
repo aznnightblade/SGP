@@ -543,6 +543,10 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: .0599999987
       objectReference: {fileID: 0}
+    - target: {fileID: 5451670, guid: 3141207ffaf1fae408b448611696e6d7, type: 2}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3141207ffaf1fae408b448611696e6d7, type: 2}
   m_IsPrefabParent: 0
@@ -4864,6 +4868,14 @@ Prefab:
     - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
       propertyPath: dexterity
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5443950, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: maxVelocity
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}

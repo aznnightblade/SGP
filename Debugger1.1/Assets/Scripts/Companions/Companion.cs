@@ -10,7 +10,7 @@ public class Companion : Statistics {
 	float findTargetDelay = 0.25f;
 	float findTargetTimer = 0.0f;
 	NavMeshAgent agent = null;
-
+	Animator anima;
 	[SerializeField]
 	StatToBuff statToBuff = StatToBuff.NONE; // which stat should be buffed
 	[SerializeField]
@@ -28,6 +28,7 @@ public class Companion : Statistics {
 
 	// Use this for initialization
 	void Start () {
+		anima = gameObject.GetComponentInChildren<Animator> ();
 		agent = gameObject.GetComponent<NavMeshAgent> ();
 		player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
 		agent.destination = player.transform.position;
@@ -45,7 +46,13 @@ public class Companion : Statistics {
 	// Update is called once per frame
 	void Update () {
 		agent.destination = player.transform.position;
-
+		if (agent.velocity.x > 0) {
+			anima.SetBool ("Walking", true);
+		}
+			else
+		{
+			anima.SetBool("Walking",false);
+		}
 		// apply stat buff if companion is alive, remove it when companion dies
 		if (currHealth <= 0) {
 			RemoveBuffs ();
