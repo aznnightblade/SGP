@@ -112,12 +112,20 @@ MonoBehaviour:
     Positive: 304
     AltNegative: 0
     AltPositive: 0
-  - Name: 
+  - Name: WeaponSwap
+    axis: 
+    direction: 
+    axisDown: 
+    Negative: 113
+    Positive: 101
+    AltNegative: 0
+    AltPositive: 0
+  - Name: FriendToggle
     axis: 
     direction: 
     axisDown: 
     Negative: 0
-    Positive: 0
+    Positive: 306
     AltNegative: 0
     AltPositive: 0
   ControllerInputs:
@@ -193,12 +201,36 @@ MonoBehaviour:
     Positive: 330
     AltNegative: 0
     AltPositive: 0
-  - Name: 
+  - Name: Cancel
     axis: 0a0000000a0000000a0000000a000000
     direction: 00000000000000000000000000000000
     axisDown: 00000000
     Negative: 0
-    Positive: 0
+    Positive: 331
+    AltNegative: 0
+    AltPositive: 0
+  - Name: Hover
+    axis: 0a0000000a0000000a0000000a000000
+    direction: 00000000000000000000000000000000
+    axisDown: 00000000
+    Negative: 0
+    Positive: 334
+    AltNegative: 0
+    AltPositive: 0
+  - Name: WeaponSwap
+    axis: 0a0000000a0000000a0000000a000000
+    direction: 00000000000000000000000000000000
+    axisDown: 00000000
+    Negative: 332
+    Positive: 333
+    AltNegative: 0
+    AltPositive: 0
+  - Name: FriendToggle
+    axis: 0a0000000a0000000a0000000a000000
+    direction: 00000000000000000000000000000000
+    axisDown: 00000000
+    Negative: 0
+    Positive: 336
     AltNegative: 0
     AltPositive: 0
 --- !u!1001 &100100000
