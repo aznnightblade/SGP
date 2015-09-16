@@ -252,8 +252,8 @@ public class Rodney : Enemy {
                 isdead = false;
                 deathtimer = 0;
                 anim.SetBool("Death", false);
-                GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().EXP += 600;
-                GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Money += 650;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().EXP += EXP;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Money += Money;
             }
         }
     }

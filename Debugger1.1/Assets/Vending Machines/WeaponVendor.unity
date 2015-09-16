@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 946093a38c051694db235e3694e63b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Panel: {fileID: 542879999}
+  Panel: {fileID: 152694599}
   Button: {fileID: 2115533877}
   Panel2: {fileID: 1969415380}
   costtext: {fileID: 458897611}
@@ -286,6 +286,10 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 83a304d2e4ab5f04da7e84d3fea0130c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1 &152694599 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 165504, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+  m_PrefabInternal: {fileID: 1152903601}
 --- !u!1 &423806565
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,7 +412,7 @@ Prefab:
     - target: {fileID: 11424122, guid: 4faa388a4c8948c45878fbf535dee43b, type: 2}
       propertyPath: Panel
       value: 
-      objectReference: {fileID: 1675679991}
+      objectReference: {fileID: 1628836633}
     - target: {fileID: 11424122, guid: 4faa388a4c8948c45878fbf535dee43b, type: 2}
       propertyPath: Button
       value: 
@@ -440,10 +444,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4faa388a4c8948c45878fbf535dee43b, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &542879999 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 120242, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-  m_PrefabInternal: {fileID: 1152903601}
 --- !u!1001 &620775343
 Prefab:
   m_ObjectHideFlags: 0
@@ -499,7 +499,8 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11424122, guid: 4faa388a4c8948c45878fbf535dee43b, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 4faa388a4c8948c45878fbf535dee43b, type: 2}
   m_IsPrefabParent: 0
 --- !u!114 &711550308 stripped
@@ -508,6 +509,10 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1152903601}
   m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!1 &732845925 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 116050, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+  m_PrefabInternal: {fileID: 1152903601}
 --- !u!1 &751516134
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,7 +598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 946093a38c051694db235e3694e63b1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Panel: {fileID: 1452931640}
+  Panel: {fileID: 732845925}
   Button: {fileID: 981452427}
   Panel2: {fileID: 1969415380}
   costtext: {fileID: 711550308}
@@ -673,6 +678,45 @@ Prefab:
     - target: {fileID: 440338, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
       propertyPath: m_LocalPosition.z
       value: 36.2999992
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433398, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8fb89b63d298aaf4a89dada59c9cdabf,
+        type: 3}
+    - target: {fileID: 11433398, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11442376, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8fb89b63d298aaf4a89dada59c9cdabf,
+        type: 3}
+    - target: {fileID: 11442376, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11433164, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8fb89b63d298aaf4a89dada59c9cdabf,
+        type: 3}
+    - target: {fileID: 11433164, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11442154, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11442356, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11473590, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: m_FontData.m_FontSize
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
@@ -839,10 +883,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1139665911}
   m_RootOrder: 3
---- !u!1 &1452931640 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 173212, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-  m_PrefabInternal: {fileID: 1152903601}
 --- !u!1001 &1520020627
 Prefab:
   m_ObjectHideFlags: 0
@@ -975,6 +1015,10 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1628836633 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 121916, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+  m_PrefabInternal: {fileID: 1152903601}
 --- !u!1 &1657627858
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,10 +1093,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 80565093}
   m_RootOrder: 2
---- !u!1 &1675679991 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 159014, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
-  m_PrefabInternal: {fileID: 1152903601}
 --- !u!1 &1706898758
 GameObject:
   m_ObjectHideFlags: 0

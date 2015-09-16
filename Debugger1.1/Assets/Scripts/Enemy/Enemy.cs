@@ -242,8 +242,8 @@ public class Enemy : Statistics {
             {
                 DestroyObject();
                 timer = 0;
-                GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().EXP += 10;
-                GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Money += 10;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().EXP += EXP;
+                GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Money += Money;
                 anim.SetBool("Death", false);
                 deathbool = false;
             }

@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropRate: .100000001
-  itemDrop: {fileID: 0}
+  itemDrop: {fileID: 418214, guid: f77fa78d742044241a4c75ff72c13ffc, type: 2}
 --- !u!114 &11441108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -304,7 +304,7 @@ MonoBehaviour:
   initialDamage: 4
   damagePerStrength: 2
   endurance: 2
-  initialHealth: 22
+  initialHealth: 30
   healthPerEndurance: 4
   defense: 0
   initialDefense: 1
@@ -613,6 +613,10 @@ Prefab:
       propertyPath: itemDrop
       value: 
       objectReference: {fileID: 418214, guid: f77fa78d742044241a4c75ff72c13ffc, type: 2}
+    - target: {fileID: 0}
+      propertyPath: initialHealth
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 175152}
