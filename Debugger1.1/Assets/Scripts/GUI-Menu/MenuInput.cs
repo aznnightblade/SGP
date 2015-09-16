@@ -4,6 +4,10 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class MenuInput : MonoBehaviour {
+
+	[SerializeField]
+	GameObject initialSelected = null;
+
 	[SerializeField]
 	float moveDelay = 0.5f;
 	float moveDelayTimer = 0.0f;
@@ -14,6 +18,25 @@ public class MenuInput : MonoBehaviour {
 
 	int currRow = 0;
 	int currColumn = 0;
+
+	[SerializeField]
+	bool hasScrollbar = false;
+
+	void Start () {
+		if (InputManager.instance.UsingController) {
+			selectedButton = initialSelected;
+
+			for (int column = 0; column < Buttons.Length; column++) {
+				for (int row = 0; row < Buttons[column].buttons.Length; row++) {
+					if (Buttons[column].buttons[row] == selectedButton) {
+						currColumn = column;
+						currRow = row;
+						break;
+					}
+				}
+			}
+		}
+	}
 
 	// Update is called once per frame
 	void Update () {
@@ -64,6 +87,9 @@ public class MenuInput : MonoBehaviour {
 						Buttons [currColumn].buttons [currRow].GetComponent<Slider> ().Select ();
 					selectedButton = Buttons [currColumn].buttons [currRow];
 					moveDelayTimer = moveDelay;
+
+					if (hasScrollbar)
+						BroadcastMessage("UpdateScrollbar", selectedButton);
 				} else if ((input = InputManager.instance.GetAxisRaw ("Submit")) != 0.0f) {
 					if (selectedButton != null)
 						ExecuteEvents.Execute (selectedButton, null, ExecuteEvents.submitHandler);
