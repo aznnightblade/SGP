@@ -12,9 +12,10 @@ public class Teleporter : MonoBehaviour {
 	bool playerWarping = false;
 	public Dampener[] dampeners;
 	public string Next = "Level3Boss";
+    Animator anim;
 	// Use this for initialization
 	void Start () {
-       
+        anim = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Animator>();
 		gameObject.GetComponent<Renderer> ().material.color = Color.green;
 		Vector3 direction = (transform.position - destination.position).normalized;
 		float rot = -((Mathf.Atan2(direction.z, direction.x) * 180 / Mathf.PI) + 90.0f);
@@ -39,12 +40,23 @@ public class Teleporter : MonoBehaviour {
 			}
 
 			if (!gameObject.GetComponent<ParticleSystem> ().IsAlive()) {
+                anim.enabled = true;
 				player.GetComponentInChildren<SpriteRenderer> ().enabled = true;
 				player.GetComponent<SphereCollider> ().enabled = true;
 				player.GetComponentInParent<PlayerController> ().enabled = true;
 				player.GetComponentInParent<Rigidbody> ().isKinematic = false;
 				GameManager.CTimeScale = 1.0f;
 				playerWarping = false;
+
+				Player playerStats = player.GetComponent<Player> ();
+
+				if (playerStats.IsCompanionActive) {
+					Vector3 pos = destination.position;
+					pos.z += 2.0f;
+
+					playerStats.ActiveCompanion.SetActive(true);
+					playerStats.ActiveCompanion.GetComponentInChildren<NavMeshAgent> ().Warp(pos);
+				}
 
 				SoundManager.instance.MiscSoundeffects[2].Stop();
 				SoundManager.instance.MiscSoundeffects[3].Play();
@@ -55,8 +67,9 @@ public class Teleporter : MonoBehaviour {
 	void OnTriggerEnter (Collider col) {
 		if (col.gameObject.tag == "Player" && col.gameObject.name == "Player Stats" && isActive && !newScene) {
 			ParticleSystem particles = gameObject.GetComponent<ParticleSystem> ();
+            anim.enabled = false;
 			particles.Play();
-
+            
 			//col.transform.parent.position = destination.position;
 			col.gameObject.GetComponentInChildren<SpriteRenderer> ().enabled = false;
 			col.gameObject.GetComponent<SphereCollider> ().enabled = false;
@@ -66,6 +79,13 @@ public class Teleporter : MonoBehaviour {
 			GameManager.CTimeScale = 0.0f;
 			moveDir = (destination.position - col.transform.position).normalized;
 			speed = Vector3.Distance(col.transform.position, destination.position) / particles.startLifetime;
+
+			Player player = col.gameObject.GetComponent<Player> ();
+
+			if (player.IsCompanionActive) {
+				player.ActiveCompanion.SetActive(false);
+			}
+
 			playerWarping = true;
 			SoundManager.instance.MiscSoundeffects[1].Play();
 		}

@@ -31,21 +31,22 @@ public class GameManager : MonoBehaviour {
 	void Awake(){
 		if (instance == null) {
 			instance = this;
-
+            
 			DontDestroyOnLoad (gameObject);
 
 			if (FindObjectOfType<Player> ().newGame == 1 && first) {
-				FindObjectOfType<Player> ().Agility = 1;
-				FindObjectOfType<Player> ().Strength = 1;
-				FindObjectOfType<Player> ().Endurance = 1;
-				FindObjectOfType<Player> ().Luck = 1;
-				FindObjectOfType<Player> ().Intelligence = 1;  
-				FindObjectOfType<Player> ().Dexterity = 1;
-				FindObjectOfType<Player> ().CurrHealth = 50;
-				FindObjectOfType<Player> ().MaxHealth = 50;
-				FindObjectOfType<Player> ().Money = 100;
-				FindObjectOfType<Player> ().EXP = 0;
-				FindObjectOfType<Player> ().newGame = 0;
+                data = new SaveData();
+                data.Agility= GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Agility = 1;
+                data.Strength = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Strength = 1;
+                data.Endurance =GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Endurance = 1;
+                data.Luck=GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Luck = 1;
+                data.Intelligence= GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Intelligence = 1;
+                data.Dexterity = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Dexterity = 1;
+                data.CurrentHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().CurrHealth = 50;
+                data.MaxHealth=GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().MaxHealth = 50;
+                data.Credits = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Money = 100;
+                data.XP = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().EXP = 0;
+                data.newGame = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().newGame = 0;
 	            Chargeshot = 0;
 	            DLLShot = 0;
 				first = false;
@@ -65,7 +66,6 @@ public class GameManager : MonoBehaviour {
 
 	public void NextScene()
 	{
-		data = new SaveData();
 		data.Agility = FindObjectOfType<Player> ().Agility;
 		data.Strength = FindObjectOfType<Player> ().Strength;
 		data.Endurance = FindObjectOfType<Player> ().Endurance;
@@ -91,37 +91,47 @@ public class GameManager : MonoBehaviour {
 		}
 		if (back)
 			back = false;
-        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-		player.Agility = data.Agility ;
-        player.Strength = data.Strength;
-        player.Endurance = data.Endurance;
-        player.Luck = data.Endurance;
-        player.Intelligence = data.Intelligence;
-        player.Dexterity = data.Dexterity;
-        player.CurrHealth = data.CurrentHealth;
-        player.MaxHealth = data.MaxHealth;
-        player.Money = data.Credits;
-        player.EXP = data.XP;
-        player.newGame = data.newGame;
-        DLLShot = data.DLLShot;
-        Chargeshot = data.ChargeShot;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+		data.Agility = player.Agility;
+        data.Strength = player.Strength;
+        data.Endurance=  player.Endurance;
+        data.Luck = player.Luck;
+        data.Intelligence = player.Intelligence; 
+        data.Dexterity= player.Dexterity;   
+        data.CurrentHealth = player.CurrHealth;   
+        data.MaxHealth = player.MaxHealth;    
+        data.Credits = player.Money;       
+        data.XP = player.EXP;
+        data.newGame = player.newGame;      
+        data.DLLShot = DLLShot;
+        data.ChargeShot = Chargeshot;
+        instance.LoadPlayerstatsScene(data);
 	}
      public void LoadPlayerstatsScene(SaveData _data)
      {
-         Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-         player.Agility = _data.Agility;
-         player.Strength = _data.Strength;
-         player.Endurance = _data.Endurance;
-         player.Luck = _data.Endurance;
-         player.Intelligence = _data.Intelligence;
-         player.Dexterity = _data.Dexterity;
-         player.CurrHealth = _data.CurrentHealth;
-         player.MaxHealth = _data.MaxHealth;
-         player.Money = _data.Credits;
-         player.EXP = _data.XP;
-         player.newGame = _data.newGame;
-         DLLShot = _data.DLLShot;
-         Chargeshot = _data.ChargeShot;
+         if (loadfirst==true)
+         {
+             loadfirst = false;
+			return;
+         }
+         if (_data!=null)
+         {
+             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+             player.Agility = _data.Agility;
+             player.Strength = _data.Strength;
+             player.Endurance = _data.Endurance;
+             player.Luck = _data.Endurance;
+             player.Intelligence = _data.Intelligence;
+             player.Dexterity = _data.Dexterity;
+             player.CurrHealth = _data.CurrentHealth;
+             player.MaxHealth = _data.MaxHealth;
+             player.Money = _data.Credits;
+             player.EXP = _data.XP;
+             player.newGame = _data.newGame;
+             DLLShot = _data.DLLShot;
+             Chargeshot = _data.ChargeShot;
+         }
+         
 
      }
 	public static void levelComplete(int _index)

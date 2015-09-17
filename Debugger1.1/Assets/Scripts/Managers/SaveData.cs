@@ -2,7 +2,7 @@
 using System.Collections;
 //using UnityEditor;
 
-public class SaveData{
+public class SaveData {
 
 	public string Name;
 	public int XP = 0;
@@ -22,6 +22,9 @@ public class SaveData{
     public int DLLShot = 0;
     public int Waveshot = 0;
     public int Friendwpn = 0;
+	public Player.COMPANIONS Companion = Player.COMPANIONS.None;
+	public int[] companions = new int[4];
+
 	public SaveData()
 	{
 		SucessfulLoad = false;
@@ -53,6 +56,10 @@ public class SaveData{
         data.DLLShot = PlayerPrefs.GetInt(_name + "DLLSHOT");
         data.Friendwpn = PlayerPrefs.GetInt(_name + "FriendShot");
         data.Waveshot = PlayerPrefs.GetInt(_name + "Recursive");
+		data.Companion = (Player.COMPANIONS)PlayerPrefs.GetInt (_name + "CurrentCompanion");
+
+		for (int index = 0; index < data.companions.Length; index++)
+			data.companions [index] = PlayerPrefs.GetInt (_name + "Companion" + index);
 
 		return data;
 	}
@@ -93,6 +100,13 @@ public class SaveData{
         PlayerPrefs.SetInt(temp, _data.Friendwpn);
         temp = _name + "Recursive";
         PlayerPrefs.SetInt(temp, _data.Waveshot);
+		temp = _name + "CurrentCompanion";
+		PlayerPrefs.SetInt (temp, (int)_data.Companion);
+
+		for (int index = 0; index < _data.companions.Length; index++) {
+			temp = _name + "Companion" + index;
+			PlayerPrefs.SetInt (temp, _data.companions[index]);
+		}
 	}
 
 	//[MenuItem("Tools/DeleteAll")]

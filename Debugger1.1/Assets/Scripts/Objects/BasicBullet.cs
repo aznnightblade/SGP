@@ -24,7 +24,7 @@ public class BasicBullet : Weapon {
 						damage *= 0.5f;
 					}
 
-                    if (col.gameObject.tag != "Player")
+                    if (col.gameObject.tag != "Player Controller")
                     {
                         SoundManager.instance.EnemySoundeffects[4].Play();
                         colStats.Damage(Mathf.CeilToInt(damage), transform);

@@ -47,12 +47,20 @@ public class Player : Statistics {
 	float invulTimer = 0.0f;
 
 	[SerializeField]
+	float totalDeathTime = 1.5f;
+	float deathTime = 0.0f;
+	Animator anim = null;
+
+	[SerializeField]
 	int[] companions = new int[5];
 	[SerializeField]
 	GameObject[] CompanionObjects = null;
+	[SerializeField]
 	COMPANIONS selectedCompanion = COMPANIONS.None;
+	GameObject activeCompanion = null;
 	[SerializeField]
 	bool enableCompanion = false;
+	bool isCompanionActive = false;
 
 	public int newGame = 1;
     public Text healthText;
@@ -74,8 +82,11 @@ public class Player : Statistics {
 		if (enableCompanion && selectedCompanion != COMPANIONS.None) {
 			Vector3 pos = transform.position;
 			pos.z -= 2.0f;
-			Instantiate (CompanionObjects[(int)selectedCompanion], pos, Quaternion.identity);
+			activeCompanion = (GameObject) Instantiate (CompanionObjects[(int)selectedCompanion], pos, Quaternion.identity);
+			isCompanionActive = true;
 		}
+
+		anim = gameObject.GetComponentInChildren<Animator> ();
 
         if (SoundManager.instance != null)
         {
@@ -101,12 +112,8 @@ public class Player : Statistics {
 				invulTimer = 0.0f;
 		}
         HandleHealth();
-        if (currHealth <= 0)
-        {
-            SoundManager.instance.PlayerSoundeffects[5].Play();
-            currHealth = maxHealth;
-            Application.LoadLevel("Hubworld");
-        }
+
+		Death ();
 
 		if (isHovering) {
 			hoverTimer -= Time.deltaTime * GameManager.CTimeScale2;
@@ -131,7 +138,7 @@ public class Player : Statistics {
 		transform.position = position;
 	}
 
-	public void DamagePlayer (int damageTaken) {
+	public void DamagePlayer (int damageTaken, Transform Entity = null) {
 		// If the player is not in invulnerability state, deal damage to the player.
 		if (invulTimer <= 0.0f) {
             StartCoroutine(collideFlash());
@@ -139,6 +146,19 @@ public class Player : Statistics {
             SoundManager.instance.PlayerSoundeffects[4].Play();
 
 			invulTimer = invulTimePerDamage * damageTaken;
+		}
+	}
+
+	void Death () {
+		if (currHealth <= 0) {
+			anim.SetBool("Death", true);
+			deathTime += Time.deltaTime;
+
+			if (deathTime >= totalDeathTime) {
+				SoundManager.instance.PlayerSoundeffects[5].Play();
+				currHealth = maxHealth;
+				Application.LoadLevel("Hubworld");
+			}
 		}
 	}
 
@@ -207,6 +227,14 @@ public class Player : Statistics {
 	public COMPANIONS SelectedCompanion {
 		get { return selectedCompanion; }
 		set { selectedCompanion = value; }
+	}
+	public GameObject ActiveCompanion {
+		get { return activeCompanion; }
+		set { activeCompanion = value; }
+	}
+	public bool IsCompanionActive {
+		get { return isCompanionActive; }
+		set { isCompanionActive = value; }
 	}
 
     private void HandleHealth()
