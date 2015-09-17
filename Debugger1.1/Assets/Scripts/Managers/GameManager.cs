@@ -65,22 +65,27 @@ public class GameManager : MonoBehaviour {
 
 	public void NextScene()
 	{
+		Player player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
 		data = new SaveData();
-		data.Agility = FindObjectOfType<Player> ().Agility;
-		data.Strength = FindObjectOfType<Player> ().Strength;
-		data.Endurance = FindObjectOfType<Player> ().Endurance;
-		data.Luck = FindObjectOfType<Player> ().Luck;
-		data.Intelligence = FindObjectOfType<Player> ().Intelligence;
-		data.Dexterity = FindObjectOfType<Player> ().Dexterity;
-		data.CurrentHealth = FindObjectOfType<Player> ().CurrHealth;
-		data.MaxHealth = FindObjectOfType<Player> ().MaxHealth;
-		data.Credits = FindObjectOfType<Player> ().Money;
-		data.XP = FindObjectOfType<Player> ().EXP;
-		data.newGame = FindObjectOfType<Player> ().newGame;
+		data.Agility = player.Agility;
+		data.Strength = player.Strength;
+		data.Endurance = player.Endurance;
+		data.Luck = player.Luck;
+		data.Intelligence = player.Intelligence;
+		data.Dexterity = player.Dexterity;
+		data.CurrentHealth = player.CurrHealth;
+		data.MaxHealth = player.MaxHealth;
+		data.Credits = player.Money;
+		data.XP = player.EXP;
+		data.newGame = player.newGame;
         data.ChargeShot = Chargeshot;
         data.DLLShot = DLLShot;
         data.Friendwpn = Friendshot;
         data.Waveshot = RecursiveShot;
+		data.Companion = player.SelectedCompanion;
+
+		for (int index = 0; index < player.Companions.Length; index++)
+			data.companions [index] = player.Companions [index];
 	}
 	 public static void LoadScene()
 	{
@@ -105,6 +110,10 @@ public class GameManager : MonoBehaviour {
         player.newGame = data.newGame;
         DLLShot = data.DLLShot;
         Chargeshot = data.ChargeShot;
+		player.SelectedCompanion = data.Companion;
+
+		for (int index = 0; index < player.Companions.Length; index++)
+			player.Companions [index] = data.companions [index];
 	}
      public void LoadPlayerstatsScene(SaveData _data)
      {
@@ -122,6 +131,10 @@ public class GameManager : MonoBehaviour {
          player.newGame = _data.newGame;
          DLLShot = _data.DLLShot;
          Chargeshot = _data.ChargeShot;
+		player.SelectedCompanion = _data.Companion;
+		
+		for (int index = 0; index < player.Companions.Length; index++)
+			player.Companions [index] = _data.companions [index];
 
      }
 	public static void levelComplete(int _index)

@@ -236,7 +236,6 @@ public class Enemy : Statistics {
         {
             currMode = Mode.Deactivated;
 
-            anim.SetBool("Death", true);
             timer += Time.deltaTime;
             if (timer >= .45f)
             {
@@ -247,6 +246,7 @@ public class Enemy : Statistics {
                 anim.SetBool("Death", false);
                 deathbool = false;
             }
+			anim.SetBool("Death", true);
         }
 
     }

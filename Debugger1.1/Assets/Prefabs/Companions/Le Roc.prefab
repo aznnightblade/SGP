@@ -71,7 +71,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 122856}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 1000
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 0
@@ -96,10 +96,6 @@ MonoBehaviour:
   maxShield: 0
   hitRegenTimer: 2
   hitTimer: 0
-  acceleration: 0
-  velocity: 0
-  maxVelocity: 0
-  maxTurnRadius: 0
   strength: 2
   initialDamage: 2
   damagePerStrength: 1
@@ -120,12 +116,11 @@ MonoBehaviour:
   luck: 5
   critChance: 0
   initialCrit: 25
-  initialDropRate: 0
   critPerLuck: 10
-  dropRatePerLuck: 0
   color: 0
   money: 0
   exp: 0
+  sprite: {fileID: 0}
   statToBuff: 6
   buffAmount: 1
   initShieldBuff: 40
@@ -290,6 +285,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: critPerLuck
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Mass
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

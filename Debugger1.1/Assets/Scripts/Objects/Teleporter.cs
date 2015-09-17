@@ -46,6 +46,16 @@ public class Teleporter : MonoBehaviour {
 				GameManager.CTimeScale = 1.0f;
 				playerWarping = false;
 
+				Player playerStats = player.GetComponent<Player> ();
+
+				if (playerStats.IsCompanionActive) {
+					Vector3 pos = destination.position;
+					pos.z += 2.0f;
+
+					playerStats.ActiveCompanion.SetActive(true);
+					playerStats.ActiveCompanion.GetComponentInChildren<NavMeshAgent> ().Warp(pos);
+				}
+
 				SoundManager.instance.MiscSoundeffects[2].Stop();
 				SoundManager.instance.MiscSoundeffects[3].Play();
 			}
@@ -66,6 +76,13 @@ public class Teleporter : MonoBehaviour {
 			GameManager.CTimeScale = 0.0f;
 			moveDir = (destination.position - col.transform.position).normalized;
 			speed = Vector3.Distance(col.transform.position, destination.position) / particles.startLifetime;
+
+			Player player = col.gameObject.GetComponent<Player> ();
+
+			if (player.IsCompanionActive) {
+				player.ActiveCompanion.SetActive(false);
+			}
+
 			playerWarping = true;
 			SoundManager.instance.MiscSoundeffects[1].Play();
 		}

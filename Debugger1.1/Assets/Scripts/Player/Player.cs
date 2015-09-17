@@ -50,9 +50,12 @@ public class Player : Statistics {
 	int[] companions = new int[5];
 	[SerializeField]
 	GameObject[] CompanionObjects = null;
+	[SerializeField]
 	COMPANIONS selectedCompanion = COMPANIONS.None;
+	GameObject activeCompanion = null;
 	[SerializeField]
 	bool enableCompanion = false;
+	bool isCompanionActive = false;
 
 	public int newGame = 1;
     public Text healthText;
@@ -74,7 +77,8 @@ public class Player : Statistics {
 		if (enableCompanion && selectedCompanion != COMPANIONS.None) {
 			Vector3 pos = transform.position;
 			pos.z -= 2.0f;
-			Instantiate (CompanionObjects[(int)selectedCompanion], pos, Quaternion.identity);
+			activeCompanion = (GameObject) Instantiate (CompanionObjects[(int)selectedCompanion], pos, Quaternion.identity);
+			isCompanionActive = true;
 		}
 
         if (SoundManager.instance != null)
@@ -131,7 +135,7 @@ public class Player : Statistics {
 		transform.position = position;
 	}
 
-	public void DamagePlayer (int damageTaken) {
+	public void DamagePlayer (int damageTaken, Transform Entity = null) {
 		// If the player is not in invulnerability state, deal damage to the player.
 		if (invulTimer <= 0.0f) {
             StartCoroutine(collideFlash());
@@ -207,6 +211,14 @@ public class Player : Statistics {
 	public COMPANIONS SelectedCompanion {
 		get { return selectedCompanion; }
 		set { selectedCompanion = value; }
+	}
+	public GameObject ActiveCompanion {
+		get { return activeCompanion; }
+		set { activeCompanion = value; }
+	}
+	public bool IsCompanionActive {
+		get { return isCompanionActive; }
+		set { isCompanionActive = value; }
 	}
 
     private void HandleHealth()

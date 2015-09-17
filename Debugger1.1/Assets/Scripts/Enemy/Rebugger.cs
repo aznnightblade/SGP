@@ -103,21 +103,18 @@ public class Rebugger : Enemy{
 						if (hit.hit) {
 							agent.destination = hit.position;
 						} else {
-							int attempts = 0;
+							direction = Random.insideUnitSphere;
+							direction.y = 0;
+							direction.Normalize ();
+							direction = direction * maxFleeDistance + transform.position;
 		
-							while (attempts < 10) {
-								direction = Random.insideUnitSphere;
-								direction.y = 0;
-								direction.Normalize ();
-								direction = direction * maxFleeDistance + transform.position;
-								NavMesh.SamplePosition (direction, out hit, maxFleeDistance, 1);
+							for (float range = 1.0f; ; range += 1.0f) {
+								NavMesh.SamplePosition (direction, out hit, range, 1);
 		
-								if (hit.hit || attempts == 9) {
+								if (hit.hit) {
 									agent.destination = hit.position;
 									break;
 								}
-		
-								attempts++;
 							}
 						}
 					}

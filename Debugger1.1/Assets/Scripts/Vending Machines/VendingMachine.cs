@@ -5,7 +5,7 @@ public class VendingMachine : MonoBehaviour {
 
 	bool triggerActive = false;
 	public string loadingLevel;
-	public Player player;
+	//public Player player;
 
 	void OnTriggerEnter(Collider col)
 	{
