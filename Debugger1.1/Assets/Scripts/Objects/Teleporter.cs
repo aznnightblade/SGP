@@ -12,9 +12,10 @@ public class Teleporter : MonoBehaviour {
 	bool playerWarping = false;
 	public Dampener[] dampeners;
 	public string Next = "Level3Boss";
+    Animator anim;
 	// Use this for initialization
 	void Start () {
-       
+        anim = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Animator>();
 		gameObject.GetComponent<Renderer> ().material.color = Color.green;
 		Vector3 direction = (transform.position - destination.position).normalized;
 		float rot = -((Mathf.Atan2(direction.z, direction.x) * 180 / Mathf.PI) + 90.0f);
@@ -39,6 +40,7 @@ public class Teleporter : MonoBehaviour {
 			}
 
 			if (!gameObject.GetComponent<ParticleSystem> ().IsAlive()) {
+                anim.enabled = true;
 				player.GetComponentInChildren<SpriteRenderer> ().enabled = true;
 				player.GetComponent<SphereCollider> ().enabled = true;
 				player.GetComponentInParent<PlayerController> ().enabled = true;
@@ -55,8 +57,9 @@ public class Teleporter : MonoBehaviour {
 	void OnTriggerEnter (Collider col) {
 		if (col.gameObject.tag == "Player" && col.gameObject.name == "Player Stats" && isActive && !newScene) {
 			ParticleSystem particles = gameObject.GetComponent<ParticleSystem> ();
+            anim.enabled = false;
 			particles.Play();
-
+            
 			//col.transform.parent.position = destination.position;
 			col.gameObject.GetComponentInChildren<SpriteRenderer> ().enabled = false;
 			col.gameObject.GetComponent<SphereCollider> ().enabled = false;

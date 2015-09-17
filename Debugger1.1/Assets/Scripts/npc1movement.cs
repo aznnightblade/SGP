@@ -22,7 +22,7 @@ public class npc1movement : MonoBehaviour {
             agent.enabled = false;
         }
 
-        if (GameManager.CTimeScale > 0.0f && !agent.updateRotation)
+        if (GameManager.CTimeScale > 0.0f)
         {
             agent.enabled = true;
         }
