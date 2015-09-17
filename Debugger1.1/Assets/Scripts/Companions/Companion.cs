@@ -47,11 +47,11 @@ public class Companion : Statistics {
 	void Update () {
 		agent.destination = player.transform.position;
 		if (agent.velocity.x > 0) {
-			anima.SetBool ("Walking", true);
+//			anima.SetBool ("Walking", true);
 		}
 			else
 		{
-			anima.SetBool("Walking",false);
+//			anima.SetBool("Walking",false);
 		}
 		// apply stat buff if companion is alive, remove it when companion dies
 		if (currHealth <= 0) {

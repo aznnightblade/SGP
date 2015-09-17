@@ -92,10 +92,15 @@ public class Statistics : MonoBehaviour {
 				damageTaken -= shield;
 				shield = 0;
 				currHealth -= damageTaken;
-				transform.parent.GetComponentInChildren<EnemyHealthbar> ().UpdateFillAmount ();
+				EnemyHealthbar healthbar = transform.parent.GetComponentInChildren<EnemyHealthbar> ();
+
+				if(healthbar != null)
+					healthbar.UpdateFillAmount ();
 			}
 			
-			transform.parent.GetComponentInChildren<EnemyShieldbar> ().UpdateFillAmount ();
+			EnemyShieldbar shieldbar = transform.parent.GetComponentInChildren<EnemyShieldbar> ();
+			if(shieldbar != null)
+				shieldbar.UpdateFillAmount ();
 		} else {
             if (gameObject.name=="Bill"||gameObject.name=="Cris"||gameObject.name=="Le Roc"||gameObject.name=="Damon")
             {
