@@ -33,7 +33,10 @@ public class GameManager : MonoBehaviour {
 			instance = this;
             
 			DontDestroyOnLoad (gameObject);
-
+            if (FindObjectOfType<Player>()==null)
+            {
+                return;
+            }
 			if (FindObjectOfType<Player> ().newGame == 1 && first) {
                 data = new SaveData();
                 data.Agility= GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Agility = 1;
@@ -66,6 +69,10 @@ public class GameManager : MonoBehaviour {
 
 	public void NextScene()
 	{
+        if (GameObject.FindGameObjectWithTag("Player") == null)
+        {
+            return;
+        }
 		data.Agility = FindObjectOfType<Player> ().Agility;
 		data.Strength = FindObjectOfType<Player> ().Strength;
 		data.Endurance = FindObjectOfType<Player> ().Endurance;
@@ -91,6 +98,10 @@ public class GameManager : MonoBehaviour {
 		}
 		if (back)
 			back = false;
+        if (GameObject.FindGameObjectWithTag("Player") == null)
+        {
+            return;
+        }
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 		data.Agility = player.Agility;
         data.Strength = player.Strength;
@@ -116,6 +127,10 @@ public class GameManager : MonoBehaviour {
          }
          if (_data!=null)
          {
+             if (GameObject.FindGameObjectWithTag("Player")==null)
+             {
+                 return;
+             }
              player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
              player.Agility = _data.Agility;
              player.Strength = _data.Strength;

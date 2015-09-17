@@ -47,8 +47,7 @@ public class LoadGameScript : MonoBehaviour {
     {
         if (gameObject.tag=="Load1")
         {
-            SaveData temp = SaveData.Load("test");
-            GameManager.instance.LoadPlayerstatsScene(temp);
+            GameManager.data = SaveData.Load("test");
             GameManager.instance.NextScene();
             GameManager.loadfirst = false;
             PlayerPrefs.SetString("Nextscene", NextScene);
@@ -57,8 +56,7 @@ public class LoadGameScript : MonoBehaviour {
         }
         else if (gameObject.tag == "Load2")
         {
-            SaveData temp = SaveData.Load("test2");
-            GameManager.instance.LoadPlayerstatsScene(temp);
+            GameManager.data = SaveData.Load("test2");
             GameManager.instance.NextScene();
             GameManager.loadfirst = false;
             PlayerPrefs.SetString("Nextscene", NextScene);
@@ -66,8 +64,7 @@ public class LoadGameScript : MonoBehaviour {
         }
         else if (gameObject.tag == "Load3")
         {
-            SaveData temp = SaveData.Load("test3");
-            GameManager.instance.LoadPlayerstatsScene(temp);
+            GameManager.data = SaveData.Load("test3");
             GameManager.instance.NextScene();
             GameManager.loadfirst = false;
             PlayerPrefs.SetString("Nextscene", NextScene);
