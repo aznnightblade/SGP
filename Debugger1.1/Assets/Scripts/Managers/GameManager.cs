@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour {
 	void Awake(){
 		if (instance == null) {
 			instance = this;
-
+            data=new SaveData();
 			DontDestroyOnLoad (gameObject);
 
 			if (FindObjectOfType<Player> ().newGame == 1 && first) {
@@ -65,7 +65,6 @@ public class GameManager : MonoBehaviour {
 
 	public void NextScene()
 	{
-		data = new SaveData();
 		data.Agility = FindObjectOfType<Player> ().Agility;
 		data.Strength = FindObjectOfType<Player> ().Strength;
 		data.Endurance = FindObjectOfType<Player> ().Endurance;
@@ -104,10 +103,16 @@ public class GameManager : MonoBehaviour {
         data.XP = player.EXP;
         data.newGame = player.newGame;      
         data.DLLShot = DLLShot;
-        data.ChargeShot = Chargeshot;       
+        data.ChargeShot = Chargeshot;
+        instance.LoadPlayerstatsScene(data);
 	}
      public void LoadPlayerstatsScene(SaveData _data)
      {
+         if (loadfirst==true)
+         {
+             loadfirst = false;
+			return;
+         }
          player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
          player.Agility = _data.Agility;
          player.Strength = _data.Strength;
