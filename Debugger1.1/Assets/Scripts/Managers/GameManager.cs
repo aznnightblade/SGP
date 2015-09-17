@@ -31,10 +31,11 @@ public class GameManager : MonoBehaviour {
 	void Awake(){
 		if (instance == null) {
 			instance = this;
-            data=new SaveData();
+            
 			DontDestroyOnLoad (gameObject);
 
 			if (FindObjectOfType<Player> ().newGame == 1 && first) {
+                data = new SaveData();
 				FindObjectOfType<Player> ().Agility = 1;
 				FindObjectOfType<Player> ().Strength = 1;
 				FindObjectOfType<Player> ().Endurance = 1;
@@ -113,20 +114,24 @@ public class GameManager : MonoBehaviour {
              loadfirst = false;
 			return;
          }
-         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-         player.Agility = _data.Agility;
-         player.Strength = _data.Strength;
-         player.Endurance = _data.Endurance;
-         player.Luck = _data.Endurance;
-         player.Intelligence = _data.Intelligence;
-         player.Dexterity = _data.Dexterity;
-         player.CurrHealth = _data.CurrentHealth;
-         player.MaxHealth = _data.MaxHealth;
-         player.Money = _data.Credits;
-         player.EXP = _data.XP;
-         player.newGame = _data.newGame;
-         DLLShot = _data.DLLShot;
-         Chargeshot = _data.ChargeShot;
+         if (_data!=null)
+         {
+             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+             player.Agility = _data.Agility;
+             player.Strength = _data.Strength;
+             player.Endurance = _data.Endurance;
+             player.Luck = _data.Endurance;
+             player.Intelligence = _data.Intelligence;
+             player.Dexterity = _data.Dexterity;
+             player.CurrHealth = _data.CurrentHealth;
+             player.MaxHealth = _data.MaxHealth;
+             player.Money = _data.Credits;
+             player.EXP = _data.XP;
+             player.newGame = _data.newGame;
+             DLLShot = _data.DLLShot;
+             Chargeshot = _data.ChargeShot;
+         }
+         
 
      }
 	public static void levelComplete(int _index)
