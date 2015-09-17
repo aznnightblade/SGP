@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance;
 	public static int difficulty = 1;
 	public static string nextlevelname;
-	public static int indexLevel = 0;
+	public static int indexLevel = 2;
 	public  static Player player;
 	public static bool back = false;
 	public  static string saveSpot1;

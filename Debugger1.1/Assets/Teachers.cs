@@ -11,7 +11,8 @@ public class Teachers : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		for (int i = 0; i < teachers.Length; ++i) {
-
+			if(GameManager.indexLevel > i + 1 )
+				teachers[i].SetActive(true);
 		}
 	}
 }
