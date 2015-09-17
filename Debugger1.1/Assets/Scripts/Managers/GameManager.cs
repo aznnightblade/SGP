@@ -145,6 +145,16 @@ public class GameManager : MonoBehaviour {
              player.newGame = _data.newGame;
              DLLShot = _data.DLLShot;
              Chargeshot = _data.ChargeShot;
+             Friendshot = _data.Friendwpn;
+             RecursiveShot = _data.Waveshot;
+             if (Friendshot==1)
+             {
+                 player.Weapons.Add(gameObject.GetComponentInChildren<Weapons>().Friendshot);
+             }
+             if (RecursiveShot == 1)
+             {
+                 player.Weapons.Add(gameObject.GetComponentInChildren<Weapons>().Waveshot);
+             }
          }
          
 

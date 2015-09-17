@@ -270,6 +270,7 @@ public class Rob : Enemy {
 			}
 
 			GameObject.FindGameObjectWithTag("Player").GetComponent<Player> ().Weapons.Add(waveshot);
+            GameManager.RecursiveShot = 1;
 			SoundManager.instance.BossSoundeffects[3].Play();
 
             isdead = true;

@@ -153,6 +153,7 @@ public class TJ : Enemy {
 		if (currHealth <= 0.0f) {
 			teleporter.SetActive (true);
 			SoundManager.instance.BossSoundeffects[3].Play();
+            GameManager.Friendshot = 1;
 			GameObject.FindGameObjectWithTag("Player").GetComponent<Player> ().Weapons.Add(friendshot);
 
             isdead = true;
