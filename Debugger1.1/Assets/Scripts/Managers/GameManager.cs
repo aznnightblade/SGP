@@ -36,17 +36,17 @@ public class GameManager : MonoBehaviour {
 
 			if (FindObjectOfType<Player> ().newGame == 1 && first) {
                 data = new SaveData();
-				FindObjectOfType<Player> ().Agility = 1;
-				FindObjectOfType<Player> ().Strength = 1;
-				FindObjectOfType<Player> ().Endurance = 1;
-				FindObjectOfType<Player> ().Luck = 1;
-				FindObjectOfType<Player> ().Intelligence = 1;  
-				FindObjectOfType<Player> ().Dexterity = 1;
-				FindObjectOfType<Player> ().CurrHealth = 50;
-				FindObjectOfType<Player> ().MaxHealth = 50;
-				FindObjectOfType<Player> ().Money = 100;
-				FindObjectOfType<Player> ().EXP = 0;
-				FindObjectOfType<Player> ().newGame = 0;
+                data.Agility= GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Agility = 1;
+                data.Strength = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Strength = 1;
+                data.Endurance =GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Endurance = 1;
+                data.Luck=GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Luck = 1;
+                data.Intelligence= GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Intelligence = 1;
+                data.Dexterity = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Dexterity = 1;
+                data.CurrentHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().CurrHealth = 50;
+                data.MaxHealth=GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().MaxHealth = 50;
+                data.Credits = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Money = 100;
+                data.XP = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().EXP = 0;
+                data.newGame = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().newGame = 0;
 	            Chargeshot = 0;
 	            DLLShot = 0;
 				first = false;
