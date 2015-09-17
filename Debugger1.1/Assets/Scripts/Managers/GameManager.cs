@@ -91,24 +91,24 @@ public class GameManager : MonoBehaviour {
 		}
 		if (back)
 			back = false;
-        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-		player.Agility = data.Agility ;
-        player.Strength = data.Strength;
-        player.Endurance = data.Endurance;
-        player.Luck = data.Endurance;
-        player.Intelligence = data.Intelligence;
-        player.Dexterity = data.Dexterity;
-        player.CurrHealth = data.CurrentHealth;
-        player.MaxHealth = data.MaxHealth;
-        player.Money = data.Credits;
-        player.EXP = data.XP;
-        player.newGame = data.newGame;
-        DLLShot = data.DLLShot;
-        Chargeshot = data.ChargeShot;
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+		data.Agility = player.Agility;
+        data.Strength = player.Strength;
+        data.Endurance=  player.Endurance;
+        data.Luck = player.Luck;
+        data.Intelligence = player.Intelligence; 
+        data.Dexterity= player.Dexterity;   
+        data.CurrentHealth = player.CurrHealth;   
+        data.MaxHealth = player.MaxHealth;    
+        data.Credits = player.Money;       
+        data.XP = player.EXP;
+        data.newGame = player.newGame;      
+        data.DLLShot = DLLShot;
+        data.ChargeShot = Chargeshot;       
 	}
      public void LoadPlayerstatsScene(SaveData _data)
      {
-         Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
          player.Agility = _data.Agility;
          player.Strength = _data.Strength;
          player.Endurance = _data.Endurance;
