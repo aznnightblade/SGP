@@ -47,6 +47,11 @@ public class Player : Statistics {
 	float invulTimer = 0.0f;
 
 	[SerializeField]
+	float totalDeathTime = 1.5f;
+	float deathTime = 0.0f;
+	Animator anim = null;
+
+	[SerializeField]
 	int[] companions = new int[5];
 	[SerializeField]
 	GameObject[] CompanionObjects = null;
@@ -81,6 +86,8 @@ public class Player : Statistics {
 			isCompanionActive = true;
 		}
 
+		anim = gameObject.GetComponentInChildren<Animator> ();
+
         if (SoundManager.instance != null)
         {
             for (int i = 0; i < SoundManager.instance.PlayerSoundeffects.Count; i++)
@@ -105,12 +112,8 @@ public class Player : Statistics {
 				invulTimer = 0.0f;
 		}
         HandleHealth();
-        if (currHealth <= 0)
-        {
-            SoundManager.instance.PlayerSoundeffects[5].Play();
-            currHealth = maxHealth;
-            Application.LoadLevel("Hubworld");
-        }
+
+		Death ();
 
 		if (isHovering) {
 			hoverTimer -= Time.deltaTime * GameManager.CTimeScale2;
@@ -143,6 +146,19 @@ public class Player : Statistics {
             SoundManager.instance.PlayerSoundeffects[4].Play();
 
 			invulTimer = invulTimePerDamage * damageTaken;
+		}
+	}
+
+	void Death () {
+		if (currHealth <= 0) {
+			anim.SetBool("Death", true);
+			deathTime += Time.deltaTime;
+
+			if (deathTime >= totalDeathTime) {
+				SoundManager.instance.PlayerSoundeffects[5].Play();
+				currHealth = maxHealth;
+				Application.LoadLevel("Hubworld");
+			}
 		}
 	}
 
