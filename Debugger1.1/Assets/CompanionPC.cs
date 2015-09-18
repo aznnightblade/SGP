@@ -27,7 +27,7 @@ public class CompanionPC : MonoBehaviour {
 				text.text = "Selected Companion: " + player.SelectedCompanion;
 				CompanionMenu.SetActive (true);
 				
-				for (int index = 0; index < GameManager.indexLevel + 1 && index < CompanionButtons.Length; index++) {
+				for (int index = 0; index < CompanionButtons.Length; index++) {
 					if (player.Companions[index] > 0)
 						CompanionButtons [index].SetActive (true);
 				}
