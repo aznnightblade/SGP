@@ -23,7 +23,9 @@ public class SaveData {
     public int Waveshot = 0;
     public int Friendwpn = 0;
     public int Multithread = 0;
-    public float breakpointlvl = 0;
+    public float breakpointduration = 0;
+    public int breakpointlevel = 1;
+    public int NegationBoots = 0;
 	public Player.COMPANIONS Companion = Player.COMPANIONS.None;
 	public int[] companions = new int[4];
 
@@ -59,7 +61,9 @@ public class SaveData {
         data.Friendwpn = PlayerPrefs.GetInt(_name + "FriendShot");
         data.Waveshot = PlayerPrefs.GetInt(_name + "Recursive");
         data.Multithread = PlayerPrefs.GetInt(_name + "Multithreadlevel");
-        data.breakpointlvl = PlayerPrefs.GetFloat(_name + "Breakpoint");
+        data.breakpointduration = PlayerPrefs.GetFloat(_name + "Breakpoint");
+        data.breakpointlevel = PlayerPrefs.GetInt(_name + "BreakpointLevel");
+        data.NegationBoots = PlayerPrefs.GetInt(_name + "NegationBoots");
 		data.Companion = (Player.COMPANIONS)PlayerPrefs.GetInt (_name + "CurrentCompanion");
       
 		for (int index = 0; index < data.companions.Length; index++)
@@ -104,10 +108,14 @@ public class SaveData {
         PlayerPrefs.SetInt(temp, _data.Friendwpn);
         temp = _name + "Recursive";
         PlayerPrefs.SetInt(temp, _data.Waveshot);
+        temp = _name + "NegationBoots";
+        PlayerPrefs.SetInt(temp, _data.NegationBoots);
         temp = _name + "Multithreadlevel";
         PlayerPrefs.SetInt(temp, GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().MultithreadLevel);
         temp = _name + "Breakpoint";
         PlayerPrefs.SetFloat(temp, GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Breakpoint.Duration);
+        temp = _name + "Breakpointlevel";
+        PlayerPrefs.SetInt(temp, GameManager.breakptlevel);
 		temp = _name + "CurrentCompanion";
 		PlayerPrefs.SetInt (temp, (int)_data.Companion);
 

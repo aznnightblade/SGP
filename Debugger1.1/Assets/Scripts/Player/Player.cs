@@ -277,6 +277,10 @@ public class Player : Statistics {
         {
             GameManager.Chargeshot = 1;
         }
+        if (GameManager.indexLevel>=5)
+        {
+            GameManager.Negationboots = 1;
+        }
         if (GameManager.DLLShot == 1)
         {
             hasDLLs = true;
@@ -285,9 +289,10 @@ public class Player : Statistics {
         {
             hasChargeShot = true;
         }
-        if (GameManager.Friendshot==1)
+        if (GameManager.Negationboots==1)
         {
-           
+            hasNegationBoots = true;
         }
+        
     }
 }
