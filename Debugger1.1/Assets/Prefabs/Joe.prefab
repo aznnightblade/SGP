@@ -219,7 +219,7 @@ MonoBehaviour:
   money: 500
   exp: 200
   sprite: {fileID: 0}
-  currMode: 0
+  currMode: 1
   Waypoints: []
   detectRange: 8
   maxDistance: 15
@@ -332,6 +332,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: initialHealth
       value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: currMode
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

@@ -15505,7 +15505,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 401820, guid: 09df96ac708ad3644b5f61a901de2af5, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 11454174, guid: 09df96ac708ad3644b5f61a901de2af5, type: 2}
       propertyPath: BossSwitches.Array.data[0]
@@ -15547,6 +15547,18 @@ Prefab:
       propertyPath: Teleporter
       value: 
       objectReference: {fileID: 356837161}
+    - target: {fileID: 11454174, guid: 09df96ac708ad3644b5f61a901de2af5, type: 2}
+      propertyPath: vulnerableTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454174, guid: 09df96ac708ad3644b5f61a901de2af5, type: 2}
+      propertyPath: teleportTime
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 11454174, guid: 09df96ac708ad3644b5f61a901de2af5, type: 2}
+      propertyPath: endurance
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 09df96ac708ad3644b5f61a901de2af5, type: 2}
   m_IsPrefabParent: 0
@@ -21145,7 +21157,6 @@ MonoBehaviour:
   currWeapon: {fileID: 11460952, guid: 03f693d2d88d30340bd8da95c9603087, type: 2}
   weapons:
   - {fileID: 11460952, guid: 03f693d2d88d30340bd8da95c9603087, type: 2}
-  - {fileID: 11492286, guid: aae3aad06dd75f9469e9a42a3960f853, type: 2}
   hasDLLs: 0
   hasChargeShot: 0
   hasNegationBoots: 0
@@ -33325,7 +33336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &969787403
 Transform:
   m_ObjectHideFlags: 0
@@ -39487,6 +39498,10 @@ Prefab:
     - target: {fileID: 11421666, guid: bc32ee89656ef7f46af54bfacef8aa0c, type: 2}
       propertyPath: Next
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 110332, guid: bc32ee89656ef7f46af54bfacef8aa0c, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc32ee89656ef7f46af54bfacef8aa0c, type: 2}

@@ -1352,7 +1352,7 @@ Transform:
   - {fileID: 1397873045}
   - {fileID: 264512402}
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 31
 --- !u!1001 &60361389
 Prefab:
   m_ObjectHideFlags: 0
@@ -8142,7 +8142,7 @@ Transform:
   - {fileID: 1600045459}
   - {fileID: 360850816}
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 32
 --- !u!1001 &299369851
 Prefab:
   m_ObjectHideFlags: 0
@@ -15078,6 +15078,10 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: weapons.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
       propertyPath: companions.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -15193,6 +15197,11 @@ Prefab:
       propertyPath: CompanionObjects.Array.data[3]
       value: 
       objectReference: {fileID: 122856, guid: 4b7d0b76043c3a64a9778c3192d0505f, type: 2}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: weapons.Array.data[1]
+      value: 
+      objectReference: {fileID: 11492286, guid: aae3aad06dd75f9469e9a42a3960f853,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 11499954, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
     - {fileID: 5457224, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}

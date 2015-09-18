@@ -171,7 +171,7 @@ public class GameManager : MonoBehaviour {
 
              if (Friendshot==1)
              {
-                 player.Weapons.Add(gameObject.GetComponentInChildren<Weapons>().Friendshot);
+                 player.Weapons.Add(FindObjectOfType<Weapons> ().Friendshot);
              }
              if (RecursiveShot == 1)
              {
