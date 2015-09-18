@@ -140,7 +140,7 @@ public class Enemy : Statistics {
 			if (currMode != Mode.Friendly) {
 				if (IsCapturable && bullet.name == "Friend Shot(Clone)") {
 					Player player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
-				
+                    GameObject.FindGameObjectWithTag("HUD").GetComponent<HUDImage>().Changefriend(transform.gameObject);
 					if (player.Friend != null)
 						Destroy (player.Friend.gameObject);
 

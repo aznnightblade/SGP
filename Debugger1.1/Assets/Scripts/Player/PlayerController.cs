@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour {
 	Player player = null;
 	Transform[] playerControlledObjects = new Transform[2];
 	int controlCounter = 0;
-
+    HUDImage textureswap;
     Animator walkinganim;
 	[SerializeField]
 	Vector3 moveDir = Vector3.zero;
@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour {
 		player = GetComponentInChildren<Player> ();
 		PlayerSprite = GameObject.FindGameObjectWithTag ("Player").transform;
 		PlayerControlledObjects [0] = transform;
+        textureswap = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUDImage>();
 	}
 	
 	// Update is called once per frame
@@ -211,6 +212,8 @@ public class PlayerController : MonoBehaviour {
 			player.NextColor = DLLColor.Color.NEUTRAL;
 		else
 			player.NextColor++;
+
+        textureswap.Changecolor(player.CurrWeapon.CurrColor);
 	}
 	
 	void PrevColor () {
@@ -220,6 +223,8 @@ public class PlayerController : MonoBehaviour {
 			player.PrevColor = DLLColor.Color.BLUE;
 		else
 			player.PrevColor--;
+
+        textureswap.Changecolor(player.CurrWeapon.CurrColor);
 	}
 
 	void PrevWeapon () {
@@ -229,6 +234,8 @@ public class PlayerController : MonoBehaviour {
 			player.CurrWeaponCounter = player.Weapons.Count - 1;
 
 		player.CurrWeapon = player.Weapons [player.CurrWeaponCounter];
+
+        textureswap.Changeweapon(player.CurrWeaponCounter);
 	}
 
 	void NextWeapon () {
@@ -238,6 +245,7 @@ public class PlayerController : MonoBehaviour {
 			player.CurrWeaponCounter = 0;
 
 		player.CurrWeapon = player.Weapons [player.CurrWeaponCounter];
+        textureswap.Changeweapon(player.CurrWeaponCounter);
 	}
 	
 	void FireBullet(){
