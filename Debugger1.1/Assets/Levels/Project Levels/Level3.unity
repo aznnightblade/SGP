@@ -1352,7 +1352,7 @@ Transform:
   - {fileID: 1397873045}
   - {fileID: 264512402}
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 30
 --- !u!1001 &60361389
 Prefab:
   m_ObjectHideFlags: 0
@@ -8134,15 +8134,15 @@ Transform:
   - {fileID: 2062613592}
   - {fileID: 1786124744}
   - {fileID: 460958482}
+  - {fileID: 2050928230}
   - {fileID: 726307286}
   - {fileID: 215200838}
   - {fileID: 964487911}
-  - {fileID: 2050928230}
   - {fileID: 138790756}
   - {fileID: 1600045459}
   - {fileID: 360850816}
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 31
 --- !u!1001 &299369851
 Prefab:
   m_ObjectHideFlags: 0
@@ -15077,6 +15077,14 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: companions.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: CompanionObjects.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 400992, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
       propertyPath: m_LocalPosition.x
       value: -.445516586
@@ -15107,7 +15115,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400992, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
       propertyPath: m_RootOrder
-      value: 21
+      value: 34
       objectReference: {fileID: 0}
     - target: {fileID: 440338, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
       propertyPath: m_LocalPosition.x
@@ -15157,6 +15165,34 @@ Prefab:
       propertyPath: enableCompanion
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: agility
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: dexterity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: maxVelocity
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: CompanionObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 122856, guid: 6eeb1a6f1494b364d801f49add76b424, type: 2}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: CompanionObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 122856, guid: 8fba09010dca2524999671269778840a, type: 2}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: CompanionObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 122856, guid: e02640f7644c0214fba10cb3a6496581, type: 2}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: CompanionObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 122856, guid: 4b7d0b76043c3a64a9778c3192d0505f, type: 2}
     m_RemovedComponents:
     - {fileID: 11499954, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
     - {fileID: 5457224, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
@@ -57686,7 +57722,7 @@ Transform:
   - {fileID: 1938426972}
   - {fileID: 980276615}
   m_Father: {fileID: 297678595}
-  m_RootOrder: 18
+  m_RootOrder: 15
 --- !u!1 &2050992497
 GameObject:
   m_ObjectHideFlags: 0

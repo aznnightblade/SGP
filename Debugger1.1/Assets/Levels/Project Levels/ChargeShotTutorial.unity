@@ -5249,7 +5249,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 179112, guid: 34273874e1962554f835695ea5a27809, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 34273874e1962554f835695ea5a27809, type: 2}
@@ -5792,6 +5792,10 @@ Prefab:
     - target: {fileID: 11421666, guid: bc32ee89656ef7f46af54bfacef8aa0c, type: 2}
       propertyPath: Next
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 110332, guid: bc32ee89656ef7f46af54bfacef8aa0c, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc32ee89656ef7f46af54bfacef8aa0c, type: 2}
@@ -15758,6 +15762,14 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: weapons.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: companions.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 400992, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
       propertyPath: m_LocalPosition.x
       value: -4.13876343
@@ -15805,6 +15817,31 @@ Prefab:
     - target: {fileID: 132626, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: agility
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: dexterity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: maxVelocity
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: hasNegationBoots
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: weapons.Array.data[1]
+      value: 
+      objectReference: {fileID: 11492286, guid: aae3aad06dd75f9469e9a42a3960f853,
+        type: 2}
+    - target: {fileID: 11455898, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: inHubworld
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8226728, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
@@ -16007,7 +16044,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!1 &1267522380
 GameObject:
   m_ObjectHideFlags: 0
@@ -17608,7 +17645,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 169982, guid: ef30ca72a60f8e744802d70ff48d8e5d, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11483828, guid: ef30ca72a60f8e744802d70ff48d8e5d, type: 2}
       propertyPath: dampeners.Array.data[0]
