@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour {
     public static int breakptlevel = 1;
     public static int negationbootlevel = 1;
     public static int multithreadlevel = 1;
+    public static float breakpointduration = 3;
 	public static Vector2 ScreenResolution = Vector2.zero;
     public static bool deletefile = false;
 	void Awake(){
@@ -50,6 +51,8 @@ public class GameManager : MonoBehaviour {
                 data.Credits = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Money = 100;
                 data.XP = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().EXP = 0;
                 data.newGame = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().newGame = 0;
+                data.Multithread = 1;
+                data.breakpointlvl = 3.0f;
 	            Chargeshot = 0;
 	            DLLShot = 0;
 				first = false;
@@ -116,6 +119,7 @@ public class GameManager : MonoBehaviour {
         data.newGame = player.newGame;      
         data.DLLShot = DLLShot;
         data.ChargeShot = Chargeshot;
+        
         instance.LoadPlayerstatsScene(data);
 	}
      public void LoadPlayerstatsScene(SaveData _data)
@@ -147,6 +151,8 @@ public class GameManager : MonoBehaviour {
              Chargeshot = _data.ChargeShot;
              Friendshot = _data.Friendwpn;
              RecursiveShot = _data.Waveshot;
+             GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Breakpoint.Duration = _data.breakpointlvl;
+             GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().MultithreadLevel = _data.Multithread;
              if (Friendshot==1)
              {
                  player.Weapons.Add(gameObject.GetComponentInChildren<Weapons>().Friendshot);
