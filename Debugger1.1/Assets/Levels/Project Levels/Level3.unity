@@ -1352,7 +1352,7 @@ Transform:
   - {fileID: 1397873045}
   - {fileID: 264512402}
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 29
 --- !u!1001 &60361389
 Prefab:
   m_ObjectHideFlags: 0
@@ -8137,12 +8137,12 @@ Transform:
   - {fileID: 726307286}
   - {fileID: 215200838}
   - {fileID: 964487911}
+  - {fileID: 2050928230}
   - {fileID: 138790756}
   - {fileID: 1600045459}
   - {fileID: 360850816}
-  - {fileID: 2050928230}
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 30
 --- !u!1001 &299369851
 Prefab:
   m_ObjectHideFlags: 0
@@ -15127,11 +15127,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
       propertyPath: hasDLLs
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
       propertyPath: hasChargeShot
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 440338, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
       propertyPath: m_LocalPosition.z
@@ -15144,6 +15144,18 @@ Prefab:
     - target: {fileID: 22431312, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
       propertyPath: m_AnchoredPosition.y
       value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455898, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: inHubworld
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: hasNegationBoots
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: enableCompanion
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11499954, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
@@ -57674,7 +57686,7 @@ Transform:
   - {fileID: 1938426972}
   - {fileID: 980276615}
   m_Father: {fileID: 297678595}
-  m_RootOrder: 21
+  m_RootOrder: 18
 --- !u!1 &2050992497
 GameObject:
   m_ObjectHideFlags: 0

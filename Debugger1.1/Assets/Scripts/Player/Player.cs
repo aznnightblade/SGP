@@ -158,6 +158,7 @@ public class Player : Statistics {
 		if (currHealth <= 0) {
 			anim.SetBool("Death", true);
 			deathTime += Time.deltaTime;
+			gameObject.GetComponentInParent<Rigidbody> ().constraints = RigidbodyConstraints.FreezeAll;
 
 			if (deathTime >= totalDeathTime) {
 				SoundManager.instance.PlayerSoundeffects[5].Play();

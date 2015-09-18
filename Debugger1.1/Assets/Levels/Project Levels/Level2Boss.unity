@@ -15972,6 +15972,18 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11455898, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: inHubworld
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: hasNegationBoots
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: enableCompanion
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8226728, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
     - {fileID: 11499954, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
@@ -16173,7 +16185,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
 --- !u!1 &1267522380
 GameObject:
   m_ObjectHideFlags: 0

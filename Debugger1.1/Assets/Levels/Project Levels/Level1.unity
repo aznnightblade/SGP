@@ -13401,6 +13401,18 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: weapons.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: companions.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: CompanionObjects.Array.size
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 400992, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
       propertyPath: m_LocalPosition.x
       value: -4.13876343
@@ -13433,6 +13445,87 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 440338, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 640.710022
+      objectReference: {fileID: 0}
+    - target: {fileID: 440338, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 325.928986
+      objectReference: {fileID: 0}
+    - target: {fileID: 440338, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -14.6700001
+      objectReference: {fileID: 0}
+    - target: {fileID: 11455898, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: inHubworld
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: hasNegationBoots
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: enableCompanion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: agility
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: dexterity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: maxVelocity
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: shotLocation
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: breakpoint
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: CompanionObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 122856, guid: 6eeb1a6f1494b364d801f49add76b424, type: 2}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: CompanionObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 122856, guid: 8fba09010dca2524999671269778840a, type: 2}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: CompanionObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 122856, guid: e02640f7644c0214fba10cb3a6496581, type: 2}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: CompanionObjects.Array.data[3]
+      value: 
+      objectReference: {fileID: 122856, guid: 4b7d0b76043c3a64a9778c3192d0505f, type: 2}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: healthText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: visualHealth
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: experience
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: gold
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11493326, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: weapons.Array.data[1]
+      value: 
+      objectReference: {fileID: 11492286, guid: aae3aad06dd75f9469e9a42a3960f853,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
   m_IsPrefabParent: 0
