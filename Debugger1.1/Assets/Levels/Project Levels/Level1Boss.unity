@@ -2352,7 +2352,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 13
 --- !u!1 &97009841
 GameObject:
   m_ObjectHideFlags: 0
@@ -6187,7 +6187,7 @@ Transform:
   - {fileID: 1486055068}
   - {fileID: 241103520}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 11
 --- !u!1 &367848740
 GameObject:
   m_ObjectHideFlags: 0
@@ -7387,6 +7387,10 @@ Prefab:
       propertyPath: Teleporter
       value: 
       objectReference: {fileID: 356837161}
+    - target: {fileID: 11454174, guid: 09df96ac708ad3644b5f61a901de2af5, type: 2}
+      propertyPath: initialHealth
+      value: 120
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 09df96ac708ad3644b5f61a901de2af5, type: 2}
   m_IsPrefabParent: 0
@@ -7967,7 +7971,7 @@ Transform:
   - {fileID: 264657259}
   - {fileID: 127484212}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 12
 --- !u!1001 &475505260
 Prefab:
   m_ObjectHideFlags: 0
