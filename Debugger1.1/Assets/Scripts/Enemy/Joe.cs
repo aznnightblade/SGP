@@ -30,6 +30,7 @@ public class Joe : Enemy {
         anim = gameObject.GetComponentInChildren<Animator>(); 
 		BossSwitches [4].GetComponent<BossSwitches> ().JoesChoice ();
 		Teleporter.SetActive (false);
+        UpdateStats();
 	}
 	
 	// Update is called once per frame
