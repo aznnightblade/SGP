@@ -87,18 +87,6 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &100300166 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 197658, guid: ce855a23834f34f4ab5e2dec020bf70b, type: 2}
-  m_PrefabInternal: {fileID: 1038664477}
---- !u!1 &127073399 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 163724, guid: ce855a23834f34f4ab5e2dec020bf70b, type: 2}
-  m_PrefabInternal: {fileID: 1038664477}
---- !u!1 &175893547 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 154520, guid: ce855a23834f34f4ab5e2dec020bf70b, type: 2}
-  m_PrefabInternal: {fileID: 1038664477}
 --- !u!1 &267472081
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,7 +286,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1038664478}
+  - {fileID: 1475892074}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_AnchorMin: {x: 0, y: 0}
@@ -535,10 +523,6 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!1 &871941472 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 134156, guid: ce855a23834f34f4ab5e2dec020bf70b, type: 2}
-  m_PrefabInternal: {fileID: 1038664477}
 --- !u!1001 &1038664477
 Prefab:
   m_ObjectHideFlags: 0
@@ -658,18 +642,14 @@ Prefab:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11429438, guid: ce855a23834f34f4ab5e2dec020bf70b, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1044997fa5f7f914aade4ba8cd44b5d2,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce855a23834f34f4ab5e2dec020bf70b, type: 2}
   m_IsPrefabParent: 0
---- !u!224 &1038664478 stripped
-RectTransform:
-  m_PrefabParentObject: {fileID: 22443672, guid: ce855a23834f34f4ab5e2dec020bf70b,
-    type: 2}
-  m_PrefabInternal: {fileID: 1038664477}
---- !u!1 &1230420203 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 191550, guid: ce855a23834f34f4ab5e2dec020bf70b, type: 2}
-  m_PrefabInternal: {fileID: 1038664477}
 --- !u!1 &1273982678
 GameObject:
   m_ObjectHideFlags: 0
@@ -1952,6 +1932,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71781c32a7dd242428cf9cfcf1d8bfbe, type: 2}
   m_IsPrefabParent: 0
+--- !u!224 &1475892074 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22495774, guid: ce855a23834f34f4ab5e2dec020bf70b,
+    type: 2}
+  m_PrefabInternal: {fileID: 1038664477}
 --- !u!1 &1536053396
 GameObject:
   m_ObjectHideFlags: 0
@@ -2122,21 +2107,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24aa06babb6f94a40acf74c8a4dfad9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialSelected: {fileID: 0}
   moveDelay: .200000003
   Buttons:
   - buttons:
-    - {fileID: 100300166}
-    - {fileID: 1230420203}
-    - {fileID: 871941472}
-    - {fileID: 1779854997}
-    - {fileID: 127073399}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
   - buttons:
-    - {fileID: 175893547}
-    - {fileID: 1230420203}
-    - {fileID: 871941472}
-    - {fileID: 1779854997}
-    - {fileID: 127073399}
---- !u!1 &1779854997 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 118074, guid: ce855a23834f34f4ab5e2dec020bf70b, type: 2}
-  m_PrefabInternal: {fileID: 1038664477}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+  hasScrollbar: 0
