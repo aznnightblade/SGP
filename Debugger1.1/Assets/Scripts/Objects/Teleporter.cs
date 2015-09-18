@@ -91,6 +91,9 @@ public class Teleporter : MonoBehaviour {
 		}
 		if (col.tag== "Player" && isActive && newScene)
 		{
+			if (col.GetComponent<Player> ().IsCompanionActive)
+				col.GetComponent<Player> ().ActiveCompanion.GetComponent<Companion> ().RemoveAllie ();
+
 			GameManager.instance.NextScene();
 			PlayerPrefs.SetString ("Nextscene", Next);
 			Application.LoadLevel ("Loadingscreen");

@@ -21,7 +21,10 @@ public class ConvyorBelt : MonoBehaviour {
 	void Update () {
 		if (isEnabled) {
 			for (int index = 0; index < Objects.Count; index++) {
-				Objects [index].position += dirVelocity * Time.deltaTime * GameManager.CTimeScale;
+				if (Objects[index] != null)
+					Objects [index].position += dirVelocity * Time.deltaTime * GameManager.CTimeScale;
+				else
+					Objects.RemoveAt(index);
 			}
 		}
 

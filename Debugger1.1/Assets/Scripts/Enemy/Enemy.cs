@@ -194,6 +194,10 @@ public class Enemy : Statistics {
 		
 			if (gameObject.name == "FireWaller")
 				gameObject.GetComponent<FireWaller> ().RemoveShields ();
+
+			HealthDrops health = gameObject.GetComponent<HealthDrops> ();
+			if(health != null)
+				health.Healthdrop ();
 		
 			Destroy (transform.parent.gameObject);
 		} else {

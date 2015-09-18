@@ -30,9 +30,15 @@ public class CompanionCube : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (InputManager.instance.GetButtonDown ("Submit") && activateSwitch == true) {
+			Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player> ();
+
 			if (GameManager.indexLevel < Next) {
 				GameManager.levelComplete (Next);
 			}
+
+			if (player.IsCompanionActive)
+				player.ActiveCompanion.GetComponent<Companion> ().RemoveAllie ();
+
 			GameManager.back = true;
 			GameManager.instance.NextScene();
 			PlayerPrefs.SetString ("Nextscene", HubWorld);

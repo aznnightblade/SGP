@@ -53,12 +53,6 @@ public class Companion : Statistics {
 		{
 //			anima.SetBool("Walking",false);
 		}
-		// apply stat buff if companion is alive, remove it when companion dies
-		if (currHealth <= 0) {
-			RemoveBuffs ();
-            SoundManager.instance.CompanionSFX[3].Play();
-			Destroy (gameObject);
-		}
 
 		if (findTargetTimer <= 0.0f && target == null) {
 			LayerMask layer = (1 << LayerMask.NameToLayer ("Enemy"));
@@ -93,6 +87,16 @@ public class Companion : Statistics {
 			
 			if (shotDelay < 0.0f)
 				shotDelay = 0.0f;
+		}
+	}
+
+	public override void Damage (int damageTaken, Transform bullet) {
+		currHealth -= damageTaken;
+
+		if (currHealth <= 0) {
+			RemoveBuffs ();
+			SoundManager.instance.CompanionSFX[3].Play();
+			Destroy (gameObject);
 		}
 	}
 

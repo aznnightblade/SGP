@@ -139,6 +139,10 @@ public class Player : Statistics {
 		transform.position = position;
 	}
 
+	public void RemoveCompanion () {
+		activeCompanion.GetComponentInChildren<Companion> ().Damage (9999, transform);
+	}
+
 	public void DamagePlayer (int damageTaken, Transform Entity = null) {
 		// If the player is not in invulnerability state, deal damage to the player.
 		if (invulTimer <= 0.0f) {

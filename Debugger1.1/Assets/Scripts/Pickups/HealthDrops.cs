@@ -8,10 +8,10 @@ public class HealthDrops : MonoBehaviour {
 	[SerializeField]
 	Transform itemDrop = null;
 
-	void OnDestroy() {
+	public void Healthdrop() {
 		float dropSuccess = Random.Range (0.0f, 1.0f);
 		if (dropSuccess <= dropRate) {
-			Instantiate(itemDrop, transform.position, Quaternion.Euler(Vector3.zero));
+			Instantiate(itemDrop, transform.position, Quaternion.identity);
 		}
 	}
 }
