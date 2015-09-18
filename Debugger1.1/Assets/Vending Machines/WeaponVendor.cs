@@ -105,22 +105,22 @@ public class WeaponVendor : MonoBehaviour {
             if (GameManager.breakptlevel==1 && player.Money >= 600)
             {
                 player.Money -= 600;
-                player.Breakpoint.Duration = 3.25f;
-                GameManager.breakptlevel++;
+                GameManager.breakpointduration = player.Breakpoint.Duration = 3.25f;
+                
                 text.text = "Breakpoint has increased duration!";
             }
             else if (GameManager.breakptlevel == 2 && player.Money >= 2400)
             {
-                player.Money -= 1200;
-                player.Breakpoint.Duration = 3.50f;
-                GameManager.breakptlevel++;
+                player.Money -= 2400;
+                GameManager.breakpointduration = player.Breakpoint.Duration = 3.50f;
+                
                 text.text = "Breakpoint has increased duration!";
             }
             else if (GameManager.breakptlevel == 3 && player.Money >= 4800)
             {
-                player.Money -= 1800;
-                player.Breakpoint.Duration = 3.75f;
-                GameManager.breakptlevel++;
+                player.Money -= 4800;
+                GameManager.breakpointduration = player.Breakpoint.Duration = 3.75f;
+                
                 text.text = "Breakpoint has increased duration!";
             }
             else
@@ -137,25 +137,23 @@ public class WeaponVendor : MonoBehaviour {
         }
         if (gameObject.name == "Multithread")
         {
-            if (GameManager.multithreadlevel == 1 && player.Money >= 600)
+            if (GameManager.data.Multithread == 1 && player.Money >= 600)
             {
                 player.Money -= 600;
-                player.MultithreadLevel = 2;
-                GameManager.multithreadlevel++;
+                
+                GameManager.data.Multithread=GameManager.multithreadlevel = player.MultithreadLevel = 2;
                 text.text = "Multithread can fire 2 shots at once!";
             }
-            else if (GameManager.multithreadlevel == 2 && player.Money >= 2400)
+            else if (GameManager.data.Multithread == 2 && player.Money >= 2400)
             {
-                player.Money -= 1200;
-                player.MultithreadLevel = 3;
-                GameManager.multithreadlevel++;
+                player.Money -= 2400;
+                GameManager.data.Multithread=GameManager.multithreadlevel = player.MultithreadLevel = 3;
                 text.text = "Multithread can fire 3 shots at once!";
             }
-            else if (GameManager.multithreadlevel == 3 && player.Money >= 4800)
+            else if (GameManager.data.Multithread == 3 && player.Money >= 4800)
             {
-                player.Money -= 1800;
-                player.MultithreadLevel = 4;
-                GameManager.multithreadlevel++;
+                player.Money -= 4800;
+                GameManager.data.Multithread= GameManager.multithreadlevel = player.MultithreadLevel = 4;
                 text.text = "Multithread can fire 4 shots at once!";
             }
             else
@@ -212,7 +210,7 @@ public class WeaponVendor : MonoBehaviour {
 void Weaponlevels()
     {
         _breakpoint = GameManager.breakptlevel;
-        _multithread = GameManager.multithreadlevel;
+        _multithread = GameManager.data.Multithread;
         _negation = GameManager.negationbootlevel;
     }
 }

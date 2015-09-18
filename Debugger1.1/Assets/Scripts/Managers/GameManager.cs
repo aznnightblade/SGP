@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance;
 	public static int difficulty = 1;
 	public static string nextlevelname;
-	public static int indexLevel = 7;
+	public static int indexLevel = 0;
 	public  static Player player;
 	public static bool back = false;
 	public  static string saveSpot1;
@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour {
     public static int breakptlevel = 1;
     public static int negationbootlevel = 1;
     public static int multithreadlevel = 1;
+    public static int Negationboots = 0;
     public static float breakpointduration = 3;
 	public static Vector2 ScreenResolution = Vector2.zero;
     public static bool deletefile = false;
@@ -52,9 +53,10 @@ public class GameManager : MonoBehaviour {
                 data.XP = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().EXP = 0;
                 data.newGame = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().newGame = 0;
                 data.Multithread = 1;
-                data.breakpointlvl = 3.0f;
+                data.breakpointduration = 3.0f;
 	            Chargeshot = 0;
 	            DLLShot = 0;
+                Negationboots = 0;
 				first = false;
 			} 
 
@@ -151,8 +153,9 @@ public class GameManager : MonoBehaviour {
              Chargeshot = _data.ChargeShot;
              Friendshot = _data.Friendwpn;
              RecursiveShot = _data.Waveshot;
-             GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Breakpoint.Duration = _data.breakpointlvl;
-             GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().MultithreadLevel = _data.Multithread;
+             player.Breakpoint.Duration = _data.breakpointduration;
+             player.MultithreadLevel = _data.Multithread;
+            GameManager.breakptlevel = _data.breakpointlevel;
              if (Friendshot==1)
              {
                  player.Weapons.Add(gameObject.GetComponentInChildren<Weapons>().Friendshot);
