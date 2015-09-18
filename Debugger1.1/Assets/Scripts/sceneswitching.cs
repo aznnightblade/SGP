@@ -14,16 +14,17 @@ public class sceneswitching : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (InputManager.instance.GetButtonDown("Submit") && changescene == true)
+        if ((InputManager.instance.GetButtonDown("Submit") || InputManager.instance.GetButtonDown("Fire1")) && changescene == true)
         {
             PlayerPrefs.SetString("Nextscene", next);
             Application.LoadLevel("Loadingscreen");
         }
-        if (InputManager.instance.GetButtonDown("Submit"))
+		if ((InputManager.instance.GetButtonDown("Submit") || InputManager.instance.GetButtonDown("Fire1")))
         {
             Panel1.SetActive(false);
             Panel2.SetActive(true);
             changescene = true;
+			GameManager.instance.Initizialize();
         }
       
 	}

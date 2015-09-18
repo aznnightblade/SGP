@@ -33,32 +33,14 @@ public class GameManager : MonoBehaviour {
 	void Awake(){
 		if (instance == null) {
 			instance = this;
+
+            data = new SaveData();
             
 			DontDestroyOnLoad (gameObject);
             if (FindObjectOfType<Player>()==null)
             {
                 return;
             }
-			if (FindObjectOfType<Player> ().newGame == 1 && first) {
-                data = new SaveData();
-                data.Agility= GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Agility = 1;
-                data.Strength = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Strength = 1;
-                data.Endurance =GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Endurance = 1;
-                data.Luck=GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Luck = 1;
-                data.Intelligence= GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Intelligence = 1;
-                data.Dexterity = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Dexterity = 1;
-                data.CurrentHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().CurrHealth = 50;
-                data.MaxHealth=GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().MaxHealth = 50;
-                data.Credits = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Money = 100;
-                data.XP = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().EXP = 0;
-                data.newGame = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().newGame = 0;
-                data.Multithread = 1;
-                data.breakpointduration = 3.0f;
-	            Chargeshot = 0;
-	            DLLShot = 0;
-                Negationboots = 0;
-				first = false;
-			} 
 
 			ScreenResolution = new Vector2 (Screen.currentResolution.width, Screen.currentResolution.height);
 
@@ -72,27 +54,53 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
+    public void Initizialize()
+    {
+		Player player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
+		data.Agility = player.Agility = 1;
+		data.Strength = player.Strength = 1;
+		data.Endurance = player.Endurance = 1;
+		data.Luck = player.Luck = 1;
+		data.Intelligence = player.Intelligence = 1;
+		data.Dexterity = player.Dexterity = 1;
+		data.CurrentHealth = player.CurrHealth = 50;
+		data.MaxHealth = player.MaxHealth = 50;
+		data.Credits = player.Money = 100;
+		data.XP = player.EXP = 0;
+		data.newGame = player.newGame = 0;
+        data.Multithread = 1;
+        data.breakpointduration = 3.0f;
+        Chargeshot = 0;
+        DLLShot = 0;
+        Negationboots = 0;
+    }
+
 	public void NextScene()
 	{
         if (GameObject.FindGameObjectWithTag("Player") == null)
         {
             return;
         }
-		data.Agility = FindObjectOfType<Player> ().Agility;
-		data.Strength = FindObjectOfType<Player> ().Strength;
-		data.Endurance = FindObjectOfType<Player> ().Endurance;
-		data.Luck = FindObjectOfType<Player> ().Luck;
-		data.Intelligence = FindObjectOfType<Player> ().Intelligence;
-		data.Dexterity = FindObjectOfType<Player> ().Dexterity;
-		data.CurrentHealth = FindObjectOfType<Player> ().CurrHealth;
-		data.MaxHealth = FindObjectOfType<Player> ().MaxHealth;
-		data.Credits = FindObjectOfType<Player> ().Money;
-		data.XP = FindObjectOfType<Player> ().EXP;
-		data.newGame = FindObjectOfType<Player> ().newGame;
+        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player> ();
+        data.Agility = player.Agility;
+        data.Strength = player.Strength;
+        data.Endurance = player.Endurance;
+        data.Luck = player.Luck;
+        data.Intelligence = player.Intelligence;
+        data.Dexterity = player.Dexterity;
+        data.CurrentHealth = player.CurrHealth;
+        data.MaxHealth = player.MaxHealth;
+        data.Credits = player.Money;
+        data.XP = player.EXP;
+        data.newGame = player.newGame;
         data.ChargeShot = Chargeshot;
         data.DLLShot = DLLShot;
         data.Friendwpn = Friendshot;
         data.Waveshot = RecursiveShot;
+        data.Companion = player.SelectedCompanion;
+
+        for (int index = 0; index < player.Companions.Length; index++)
+            data.companions[index] = player.Companions[index];
 	}
 	 public static void LoadScene()
 	{
@@ -155,7 +163,12 @@ public class GameManager : MonoBehaviour {
              RecursiveShot = _data.Waveshot;
              player.Breakpoint.Duration = _data.breakpointduration;
              player.MultithreadLevel = _data.Multithread;
-            GameManager.breakptlevel = _data.breakpointlevel;
+             GameManager.breakptlevel = _data.breakpointlevel;
+             player.SelectedCompanion = data.Companion;
+
+             for (int index = 0; index < player.Companions.Length; index++)
+                 player.Companions[index] = data.companions[index];
+
              if (Friendshot==1)
              {
                  player.Weapons.Add(gameObject.GetComponentInChildren<Weapons>().Friendshot);
