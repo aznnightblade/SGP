@@ -62,6 +62,7 @@ public class CompanionPC : MonoBehaviour {
 		}
 
 		text.text = "Selected Companion: " + player.SelectedCompanion;
+        GameObject.FindGameObjectWithTag("HUD").GetComponent<HUDImage>().Changecompanion(player.SelectedCompanion);
 	}
 
 	public void ExitMenu () {

@@ -9,6 +9,10 @@ public class HUDImage : MonoBehaviour {
     public RawImage[] weapons = null;
     public Texture[] Friends = null;
     public RawImage CurrFriend = null;
+    public Text boottimer = null;
+    public RawImage companion = null;
+    public Texture defaultcompanion = null;
+    public Texture nocompanion = null;
 	// Use this for initialization
 	void Start () {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -102,6 +106,37 @@ public class HUDImage : MonoBehaviour {
             case DLLColor.Color.RED:
                 CurrFriend.color = Color.red;
                 break;
+        }
+    }
+
+    public void Changecompanion(Player.COMPANIONS comp)
+    {
+        switch (comp)
+        {
+            case Player.COMPANIONS.Bill:
+                companion.texture = defaultcompanion;
+                companion.color = Color.green;
+                break;
+            case Player.COMPANIONS.Chris:
+                companion.texture = defaultcompanion;
+                companion.color = Color.blue;
+                break;
+            case Player.COMPANIONS.Daemon:
+                companion.texture = defaultcompanion;
+                companion.color = Color.red;
+                break;
+            case Player.COMPANIONS.LeRoc:
+                companion.texture = defaultcompanion;
+                companion.color = new Color(128,0,128);
+                break;
+            case Player.COMPANIONS.Bahim:
+                companion.texture = defaultcompanion;
+                companion.color = Color.white;
+                break;
+            case Player.COMPANIONS.None:
+                companion.texture = nocompanion;
+                break;
+           
         }
     }
 }

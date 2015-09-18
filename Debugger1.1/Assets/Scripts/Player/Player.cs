@@ -204,6 +204,11 @@ public class Player : Statistics {
 		get { return hoverTime; }
 		set { hoverTime = value; }
 	}
+    public float HoverTimer
+    {
+        get { return hoverTimer; }
+        set { hoverTimer = value; } 
+    }
 	public DLLColor.Color PrevColor {
 		get { return prevColor; }
 		set { prevColor = value; }

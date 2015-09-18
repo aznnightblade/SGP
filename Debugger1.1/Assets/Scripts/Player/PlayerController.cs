@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour {
     bool chargebullet = false;
     public Image chargemeter;
     public Image Heatmeter;
-
+   
 	// Use this for initialization
 	void Start () {
         walkinganim = GetComponentInChildren<Animator>();
@@ -108,6 +108,7 @@ public class PlayerController : MonoBehaviour {
 						if (InputManager.instance.GetButtonDown ("Hover")) {
 							player.IsHovering = !player.IsHovering;
 						}
+                        textureswap.boottimer.text = player.HoverTimer.ToString();
 					}
 				}
 
