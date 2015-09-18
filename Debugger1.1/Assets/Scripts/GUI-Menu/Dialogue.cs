@@ -138,6 +138,7 @@ public class Dialogue : MonoBehaviour {
             player.GetComponentInParent<PlayerController>().enabled = false;
             player.GetComponentInParent<Rigidbody>().velocity = Vector3.zero;
             player.GetComponentInParent<Rigidbody>().freezeRotation = true;
+			Time.timeScale = 0;
             agent.enabled = false;
             panel.SetActive(true);
             HUD.SetActive(false);
@@ -152,6 +153,7 @@ public class Dialogue : MonoBehaviour {
                     player.GetComponentInParent<PlayerController>().enabled = true;
                    // player.GetComponentInParent<Rigidbody>().freezeRotation = false;
                     currentline = 0;
+					Time.timeScale = 1;
                 }
                 else
                 {
