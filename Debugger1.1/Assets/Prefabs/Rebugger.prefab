@@ -350,7 +350,7 @@ MonoBehaviour:
   initialDamage: 0
   damagePerStrength: 0
   endurance: 0
-  initialHealth: 10
+  initialHealth: 50
   healthPerEndurance: 0
   defense: 0
   initialDefense: 0
@@ -602,6 +602,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: currMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: initialHealth
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
