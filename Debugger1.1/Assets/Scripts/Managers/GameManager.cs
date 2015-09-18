@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour {
     public static int breakptlevel = 1;
     public static int negationbootlevel = 1;
     public static int multithreadlevel = 1;
+    public static float breakpointduration = 3;
 	public static Vector2 ScreenResolution = Vector2.zero;
     public static bool deletefile = false;
 	void Awake(){
@@ -33,7 +34,10 @@ public class GameManager : MonoBehaviour {
 			instance = this;
             
 			DontDestroyOnLoad (gameObject);
-
+            if (FindObjectOfType<Player>()==null)
+            {
+                return;
+            }
 			if (FindObjectOfType<Player> ().newGame == 1 && first) {
                 data = new SaveData();
                 data.Agility= GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Agility = 1;
@@ -47,6 +51,8 @@ public class GameManager : MonoBehaviour {
                 data.Credits = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Money = 100;
                 data.XP = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().EXP = 0;
                 data.newGame = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().newGame = 0;
+                data.Multithread = 1;
+                data.breakpointlvl = 3.0f;
 	            Chargeshot = 0;
 	            DLLShot = 0;
 				first = false;
@@ -66,6 +72,10 @@ public class GameManager : MonoBehaviour {
 
 	public void NextScene()
 	{
+        if (GameObject.FindGameObjectWithTag("Player") == null)
+        {
+            return;
+        }
 		data.Agility = FindObjectOfType<Player> ().Agility;
 		data.Strength = FindObjectOfType<Player> ().Strength;
 		data.Endurance = FindObjectOfType<Player> ().Endurance;
@@ -91,6 +101,10 @@ public class GameManager : MonoBehaviour {
 		}
 		if (back)
 			back = false;
+        if (GameObject.FindGameObjectWithTag("Player") == null)
+        {
+            return;
+        }
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 		data.Agility = player.Agility;
         data.Strength = player.Strength;
@@ -105,6 +119,7 @@ public class GameManager : MonoBehaviour {
         data.newGame = player.newGame;      
         data.DLLShot = DLLShot;
         data.ChargeShot = Chargeshot;
+        
         instance.LoadPlayerstatsScene(data);
 	}
      public void LoadPlayerstatsScene(SaveData _data)
@@ -116,6 +131,10 @@ public class GameManager : MonoBehaviour {
          }
          if (_data!=null)
          {
+             if (GameObject.FindGameObjectWithTag("Player")==null)
+             {
+                 return;
+             }
              player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
              player.Agility = _data.Agility;
              player.Strength = _data.Strength;
@@ -130,6 +149,18 @@ public class GameManager : MonoBehaviour {
              player.newGame = _data.newGame;
              DLLShot = _data.DLLShot;
              Chargeshot = _data.ChargeShot;
+             Friendshot = _data.Friendwpn;
+             RecursiveShot = _data.Waveshot;
+             GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Breakpoint.Duration = _data.breakpointlvl;
+             GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().MultithreadLevel = _data.Multithread;
+             if (Friendshot==1)
+             {
+                 player.Weapons.Add(gameObject.GetComponentInChildren<Weapons>().Friendshot);
+             }
+             if (RecursiveShot == 1)
+             {
+                 player.Weapons.Add(gameObject.GetComponentInChildren<Weapons>().Waveshot);
+             }
          }
          
 

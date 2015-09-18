@@ -71,6 +71,7 @@ public class Player : Statistics {
 
 	// Use this for initialization
 	void Start () {
+        GameManager.instance.LoadPlayerstatsScene(GameManager.data);
         sprite = GetComponentInChildren<SpriteRenderer>();
         if (newGame==1)
         {
