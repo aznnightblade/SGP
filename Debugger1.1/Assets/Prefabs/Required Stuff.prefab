@@ -5873,6 +5873,8 @@ GameObject:
   - 114: {fileID: 11479294}
   - 114: {fileID: 11413184}
   - 95: {fileID: 9517122}
+  - 114: {fileID: 11489296}
+  - 114: {fileID: 11404292}
   m_Layer: 0
   m_Name: Restart Button
   m_TagString: Untagged
@@ -7348,6 +7350,8 @@ GameObject:
   - 114: {fileID: 11403402}
   - 114: {fileID: 11415956}
   - 95: {fileID: 9530746}
+  - 114: {fileID: 11441560}
+  - 114: {fileID: 11442086}
   m_Layer: 0
   m_Name: Quit Button
   m_TagString: Untagged
@@ -14178,6 +14182,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11404292
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac492a871734bf54791e1cc1b0c92cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextScene: Tutorial
 --- !u!114 &11404340
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15760,7 +15776,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11479294}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11404292}
+        m_MethodName: play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11413252
@@ -16512,7 +16539,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11403402}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11442086}
+        m_MethodName: play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11416412
@@ -20604,6 +20642,18 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &11441560
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac492a871734bf54791e1cc1b0c92cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextScene: MainMenu
 --- !u!114 &11441658
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -20682,6 +20732,18 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &11442086
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 196184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac492a871734bf54791e1cc1b0c92cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextScene: MainMenu
 --- !u!114 &11442154
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -23060,7 +23122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerSprite: {fileID: 0}
   moveDir: {x: 0, y: 0, z: 0}
-  inHubworld: 1
+  inHubworld: 0
   chargemeter: {fileID: 11475206}
   Heatmeter: {fileID: 11493446}
 --- !u!114 &11455928
@@ -28224,6 +28286,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11489296
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 174464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac492a871734bf54791e1cc1b0c92cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextScene: Tutorial
 --- !u!114 &11489594
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -28838,9 +28912,9 @@ MonoBehaviour:
   defense: 1
   initialDefense: 1
   defensePerEndurance: 1
-  agility: 10
+  agility: 1
   shotDelay: 0
-  dexterity: 4
+  dexterity: 1
   initialShotDistance: 10
   increaseDistancePerDexerity: 1.5
   intelligence: 1
@@ -28856,15 +28930,14 @@ MonoBehaviour:
   sprite: {fileID: 0}
   acceleration: 45
   velocity: 0
-  maxVelocity: 25
+  maxVelocity: 15
   shotLocation: {fileID: 425844}
   currWeapon: {fileID: 11460952, guid: 03f693d2d88d30340bd8da95c9603087, type: 2}
   weapons:
   - {fileID: 11460952, guid: 03f693d2d88d30340bd8da95c9603087, type: 2}
-  - {fileID: 11492286, guid: aae3aad06dd75f9469e9a42a3960f853, type: 2}
   hasDLLs: 0
   hasChargeShot: 0
-  hasNegationBoots: 1
+  hasNegationBoots: 0
   isHovering: 0
   hoverTime: 5
   friend: {fileID: 0}
@@ -28872,10 +28945,15 @@ MonoBehaviour:
   multithreadLevel: 1
   invulTimePerDamage: .100000001
   totalDeathTime: 1.5
-  companions: 00000000000000000000000000000000
-  CompanionObjects: []
+  companions: 0000000000000000000000000000000000000000
+  CompanionObjects:
+  - {fileID: 122856, guid: 6eeb1a6f1494b364d801f49add76b424, type: 2}
+  - {fileID: 122856, guid: 8fba09010dca2524999671269778840a, type: 2}
+  - {fileID: 122856, guid: e02640f7644c0214fba10cb3a6496581, type: 2}
+  - {fileID: 122856, guid: 4b7d0b76043c3a64a9778c3192d0505f, type: 2}
+  - {fileID: 0}
   selectedCompanion: 5
-  enableCompanion: 0
+  enableCompanion: 1
   newGame: 1
   healthText: {fileID: 11420932}
   visualHealth: {fileID: 11490910}

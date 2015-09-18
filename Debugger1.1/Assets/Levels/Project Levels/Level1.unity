@@ -3946,7 +3946,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 422842, guid: 5629253f685e69a448774e1ea44a4f2c, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 120034, guid: 5629253f685e69a448774e1ea44a4f2c, type: 2}
       propertyPath: m_Name
@@ -4890,7 +4890,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 418386, guid: aa5919e80dc2c74468e1427e61fb7bdf, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aa5919e80dc2c74468e1427e61fb7bdf, type: 2}
@@ -5485,7 +5485,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 422842, guid: 5629253f685e69a448774e1ea44a4f2c, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 120034, guid: 5629253f685e69a448774e1ea44a4f2c, type: 2}
       propertyPath: m_Name
@@ -9068,6 +9068,80 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 344055215}
+--- !u!1 &344218052
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 344218056}
+  - 114: {fileID: 344218055}
+  - 114: {fileID: 344218054}
+  - 114: {fileID: 344218053}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &344218053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 344218052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1997211142, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AllowActivationOnStandalone: 0
+--- !u!114 &344218054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 344218052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: ' '
+  m_VerticalAxis: ' '
+  m_SubmitButton: ' '
+  m_CancelButton: ' '
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: .5
+  m_AllowActivationOnMobileDevice: 0
+--- !u!114 &344218055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 344218052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -619905303, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 5
+--- !u!4 &344218056
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 344218052}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 372.392242, y: 281.791473, z: -21.0101185}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
 --- !u!1001 &344300877
 Prefab:
   m_ObjectHideFlags: 0
@@ -12111,7 +12185,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 422842, guid: 5629253f685e69a448774e1ea44a4f2c, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 120034, guid: 5629253f685e69a448774e1ea44a4f2c, type: 2}
       propertyPath: m_Name
@@ -13805,7 +13879,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 422842, guid: 5629253f685e69a448774e1ea44a4f2c, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 120034, guid: 5629253f685e69a448774e1ea44a4f2c, type: 2}
       propertyPath: m_Name
@@ -16976,7 +17050,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 422842, guid: 5629253f685e69a448774e1ea44a4f2c, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 120034, guid: 5629253f685e69a448774e1ea44a4f2c, type: 2}
       propertyPath: m_Name
@@ -25442,7 +25516,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 448308, guid: ef30ca72a60f8e744802d70ff48d8e5d, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11483828, guid: ef30ca72a60f8e744802d70ff48d8e5d, type: 2}
@@ -30745,6 +30819,7 @@ GameObject:
   - 114: {fileID: 1140843228}
   - 114: {fileID: 1140843227}
   - 95: {fileID: 1140843226}
+  - 114: {fileID: 1140843230}
   m_Layer: 0
   m_Name: Quit Button
   m_TagString: Untagged
@@ -30828,7 +30903,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1140843228}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1140843230}
+        m_MethodName: play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1140843228
@@ -30860,6 +30946,18 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1140843224}
+--- !u!114 &1140843230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1140843224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac492a871734bf54791e1cc1b0c92cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextScene: HubWorld
 --- !u!1 &1142197057
 GameObject:
   m_ObjectHideFlags: 0
@@ -33947,7 +34045,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 422842, guid: 5629253f685e69a448774e1ea44a4f2c, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5629253f685e69a448774e1ea44a4f2c, type: 2}
@@ -44066,7 +44164,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 422842, guid: 5629253f685e69a448774e1ea44a4f2c, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 120034, guid: 5629253f685e69a448774e1ea44a4f2c, type: 2}
       propertyPath: m_Name
@@ -45651,6 +45749,7 @@ GameObject:
   - 114: {fileID: 1722369118}
   - 114: {fileID: 1722369117}
   - 95: {fileID: 1722369116}
+  - 114: {fileID: 1722369120}
   m_Layer: 0
   m_Name: Restart Button
   m_TagString: Untagged
@@ -45734,7 +45833,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1722369118}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1722369120}
+        m_MethodName: play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1722369118
@@ -45766,6 +45876,18 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1722369114}
+--- !u!114 &1722369120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1722369114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac492a871734bf54791e1cc1b0c92cf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextScene: Level1
 --- !u!1 &1728846276
 GameObject:
   m_ObjectHideFlags: 0
@@ -48130,7 +48252,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 422842, guid: 5629253f685e69a448774e1ea44a4f2c, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 120034, guid: 5629253f685e69a448774e1ea44a4f2c, type: 2}
       propertyPath: m_Name

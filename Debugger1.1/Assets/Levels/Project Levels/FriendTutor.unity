@@ -146,7 +146,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 27
 --- !u!1 &103358350
 GameObject:
   m_ObjectHideFlags: 0
@@ -1325,7 +1325,7 @@ Transform:
   m_Children:
   - {fileID: 1312194487}
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 19
 --- !u!114 &290592729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2040,7 +2040,7 @@ Transform:
   m_Children:
   - {fileID: 1944255979}
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 29
 --- !u!114 &687157257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2634,6 +2634,80 @@ Transform:
 GameObject:
   m_PrefabParentObject: {fileID: 129402, guid: 3ba5ba7d3e7535b45bfd79b03ef021fb, type: 2}
   m_PrefabInternal: {fileID: 797379850}
+--- !u!1 &1037577709
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1037577713}
+  - 114: {fileID: 1037577712}
+  - 114: {fileID: 1037577711}
+  - 114: {fileID: 1037577710}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1037577710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1037577709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1997211142, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AllowActivationOnStandalone: 0
+--- !u!114 &1037577711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1037577709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1077351063, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: ' '
+  m_VerticalAxis: ' '
+  m_SubmitButton: ' '
+  m_CancelButton: ' '
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: .5
+  m_AllowActivationOnMobileDevice: 0
+--- !u!114 &1037577712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1037577709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -619905303, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 5
+--- !u!4 &1037577713
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1037577709}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 32
 --- !u!1001 &1054194908
 Prefab:
   m_ObjectHideFlags: 0
@@ -3425,7 +3499,7 @@ Transform:
   - {fileID: 201538074}
   - {fileID: 914994669}
   m_Father: {fileID: 0}
-  m_RootOrder: 31
+  m_RootOrder: 30
 --- !u!1 &1264047400
 GameObject:
   m_ObjectHideFlags: 0
@@ -4543,7 +4617,7 @@ Transform:
   - {fileID: 1573418760}
   - {fileID: 996744588}
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 24
 --- !u!114 &1647218894
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5118,7 +5192,17 @@ Prefab:
       propertyPath: hasNegationBoots
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 11442086, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: NextScene
+      value: Hubworld
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404292, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+      propertyPath: NextScene
+      value: FriendTutor
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 11441560, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
+    - {fileID: 11489296, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: bad108bd7c5945b4d9b68c4102aeae84, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1934145144
