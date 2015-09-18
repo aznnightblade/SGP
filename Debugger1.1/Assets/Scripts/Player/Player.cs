@@ -148,6 +148,11 @@ public class Player : Statistics {
 		if (invulTimer <= 0.0f) {
             StartCoroutine(collideFlash());
 			currHealth -= damageTaken;
+            if (Entity.gameObject.name.Contains("Lazer"))
+            {
+                SoundManager.instance.PlayerSoundeffects[6].Play();
+            }
+            else
             SoundManager.instance.PlayerSoundeffects[4].Play();
 
 			invulTimer = invulTimePerDamage * damageTaken;
