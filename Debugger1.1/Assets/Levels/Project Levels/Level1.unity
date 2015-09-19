@@ -2511,7 +2511,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 106345627}
   - 212: {fileID: 106345629}
-  - 54: {fileID: 106345628}
   m_Layer: 11
   m_Name: New Sprite
   m_TagString: Untagged
@@ -2531,22 +2530,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1908053679}
   m_RootOrder: 3
---- !u!54 &106345628
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 5498572, guid: bad108bd7c5945b4d9b68c4102aeae84,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 106345626}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 84
-  m_CollisionDetection: 0
 --- !u!212 &106345629
 SpriteRenderer:
   m_ObjectHideFlags: 0

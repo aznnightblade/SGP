@@ -21854,7 +21854,7 @@ Transform:
   - {fileID: 2033711366}
   - {fileID: 545480358}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!1 &761857140
 GameObject:
   m_ObjectHideFlags: 0
@@ -51398,7 +51398,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1679119496}
   - 212: {fileID: 1679119498}
-  - 54: {fileID: 1679119497}
   m_Layer: 11
   m_Name: New Sprite
   m_TagString: Untagged
@@ -51418,22 +51417,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1271800274}
   m_RootOrder: 3
---- !u!54 &1679119497
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 5498572, guid: bad108bd7c5945b4d9b68c4102aeae84,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1679119495}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 84
-  m_CollisionDetection: 0
 --- !u!212 &1679119498
 SpriteRenderer:
   m_ObjectHideFlags: 0
