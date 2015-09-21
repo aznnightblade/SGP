@@ -7289,7 +7289,7 @@ MonoBehaviour:
   - {fileID: 122856, guid: 4b7d0b76043c3a64a9778c3192d0505f, type: 2}
   - {fileID: 0}
   selectedCompanion: 5
-  enableCompanion: 1
+  enableCompanion: 0
   newGame: 1
   healthText: {fileID: 135277397}
   visualHealth: {fileID: 922172873}
@@ -14480,6 +14480,10 @@ Prefab:
     - target: {fileID: 110332, guid: bc32ee89656ef7f46af54bfacef8aa0c, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11421666, guid: bc32ee89656ef7f46af54bfacef8aa0c, type: 2}
+      propertyPath: Next
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bc32ee89656ef7f46af54bfacef8aa0c, type: 2}
