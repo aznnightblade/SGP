@@ -221,6 +221,11 @@ public class PlayerController : MonoBehaviour {
 		else
 			player.NextColor++;
 
+		if (player.PrevColor == DLLColor.Color.BLUE)
+			player.PrevColor = DLLColor.Color.NEUTRAL;
+		else
+			player.PrevColor++;
+
         textureswap.Changecolor(player.CurrWeapon.CurrColor);
 	}
 	
@@ -231,6 +236,11 @@ public class PlayerController : MonoBehaviour {
 			player.PrevColor = DLLColor.Color.BLUE;
 		else
 			player.PrevColor--;
+
+		if (player.NextColor == DLLColor.Color.NEUTRAL)
+			player.NextColor = DLLColor.Color.BLUE;
+		else
+			player.NextColor--;
 
         textureswap.Changecolor(player.CurrWeapon.CurrColor);
 	}

@@ -77,13 +77,13 @@ public class SaveComputer : MonoBehaviour {
         }
     }
 
-    public void Onclick()
+    public void Onclick(string save)
     {
-        if (GameManager.deletefile == true && gameObject.tag == "Save1") {
+        if (GameManager.deletefile == true && save == "Save1") {
             PlayerPrefs.DeleteKey("test"+"Name");
-        } else if (GameManager.deletefile == true && gameObject.tag == "Save2") {
+		} else if (GameManager.deletefile == true && save == "Save2") {
             PlayerPrefs.DeleteKey("test2" + "Name");
-        } else if (GameManager.deletefile == true && gameObject.tag == "Save3") {
+		} else if (GameManager.deletefile == true && save == "Save3") {
             PlayerPrefs.DeleteKey("test3" + "Name");
         } else {
 			Player playerStats = FindObjectOfType<Player> ();
@@ -110,23 +110,27 @@ public class SaveComputer : MonoBehaviour {
 			if(playerStats.Weapons.Count > 2)
 				data.Waveshot = 1;
 
-            if (gameObject.tag == "Save1") {
+			if (save == "Save1") {
                 SaveData.Save(GameManager.saveSpot1 = "test", data);
-            } else if (gameObject.tag == "Save2") {
+			} else if (save == "Save2") {
                 SaveData.Save(GameManager.saveSpot2 = "test2", data);
-            } else if (gameObject.tag == "Save3") {
+			} else if (save == "Save3") {
                 SaveData.Save(GameManager.saveSpot3 = "test3", data);
             }
 			
 			Debug.Log("Saved information");
         }
 		
+		ExitMenu ();
+    }
+
+	public void ExitMenu () {
 		Panel.SetActive(false);
 		Save1.SetActive(false);
 		Save2.SetActive(false);
 		Save3.SetActive(false);
 		Delete.SetActive(false);
 		player.GetComponentInParent<PlayerController>().enabled = true;
-        GameManager.deletefile = false;
-    }
+		GameManager.deletefile = false;
+	}
 }
