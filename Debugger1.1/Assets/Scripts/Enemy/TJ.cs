@@ -150,7 +150,7 @@ public class TJ : Enemy {
 	public override void Damage (int damage, Transform bullet) {
 		currHealth -= damage;
 		
-		if (currHealth <= 0.0f) {
+		if (currHealth <= 0.0f && !isdead) {
 			teleporter.SetActive (true);
 			SoundManager.instance.BossSoundeffects[3].Play();
             GameManager.Friendshot = 1;

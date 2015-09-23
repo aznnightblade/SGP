@@ -12,7 +12,7 @@ public class TutorialPC : MonoBehaviour {
 
 	void Update () {
 		if (containsPlayer) {
-			if (InputManager.instance.GetButtonDown("Submit")) {
+			if (InputManager.instance.GetButtonDown("Submit") && !tutorialMenu.activeInHierarchy) {
 				GameManager.CTimeScale2 = 0.0f;
 				GameObject.FindGameObjectWithTag("Player").GetComponentInParent<Rigidbody>().freezeRotation = true;
 				tutorialMenu.SetActive(true);

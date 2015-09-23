@@ -110,7 +110,8 @@ public class PlayerController : MonoBehaviour {
 						if (InputManager.instance.GetButtonDown ("Hover")) {
 							player.IsHovering = !player.IsHovering;
 						}
-                        textureswap.boottimer.text = player.HoverTimer.ToString();
+						if (textureswap != null)
+                        	textureswap.boottimer.text = player.HoverTimer.ToString();
 					}
 				}
 			}

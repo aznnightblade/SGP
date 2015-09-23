@@ -38,7 +38,7 @@ public class ConvyorBelt : MonoBehaviour {
 		if (col.gameObject.tag == "Player") {
 			Objects.Add (col.transform.parent);
 		} else {
-            if (col.gameObject.tag != "Lazer")
+            if (col.gameObject.tag != "Lazer" && !col.gameObject.tag.Contains("Bullet"))
 			    Objects.Add(col.transform);
 		}
 	}
@@ -47,7 +47,7 @@ public class ConvyorBelt : MonoBehaviour {
 		if (col.gameObject.tag == "Player") {
 			Objects.Remove (col.transform.parent);
 		} else {
-			if (col.gameObject.tag != "Lazer")
+			if (col.gameObject.tag != "Lazer" && !col.gameObject.tag.Contains("Bullet"))
 				Objects.Remove(col.transform);
 		}
 	}

@@ -70,7 +70,9 @@ public class Joe : Enemy {
 
 			if (teleportTimer <= 0.0f) {
 				teleportTimer = teleportTime;
-				Teleport ();
+
+				if (vulnerableTimer <= 0.0f)
+					Teleport ();
 			}
 		}
 	}
@@ -93,6 +95,11 @@ public class Joe : Enemy {
 	}
 
 	void Teleport () {
+		if (CheckForWin ()) {
+			if (vulnerableTimer > 0.0f)
+				return;
+		}
+
 		List<int> teleportLocations = new List<int> ();
 
 		for (int index = 0; index < BossSwitches.Length; index++) {
@@ -107,8 +114,6 @@ public class Joe : Enemy {
 
 			FlipSwitch (teleportLocations [teleportTo]);
 		}
-
-		CheckForWin ();
 	}
 
 	void ResetSwitches () {
@@ -121,7 +126,7 @@ public class Joe : Enemy {
 		BossSwitches [Switch].GetComponent<BossSwitches> ().JoesChoice ();
 	}
 
-	void CheckForWin () {
+	bool CheckForWin () {
 		BossSwitches[] Switches = new BossSwitches[9];
 		bool win = false;
 
@@ -132,12 +137,12 @@ public class Joe : Enemy {
 		int player = 0;
 		for (; player < 2; player++) {
 			if (Switches[0].CheckStatus(player)) {
-				if (Switches[1].CheckStatus(player) && Switches[2].CheckStatus(player) || Switches[3].CheckStatus(player) && Switches[5].CheckStatus(player) ||
+				if (Switches[1].CheckStatus(player) && Switches[2].CheckStatus(player) || Switches[3].CheckStatus(player) && Switches[6].CheckStatus(player) ||
 				    Switches[4].CheckStatus(player) && Switches[8].CheckStatus(player)) {
 					win = true;
 					break;
 				}
-			} else if (Switches[1].CheckStatus(player) && Switches[4].CheckStatus(player) && Switches[8].CheckStatus(player)) {
+			} else if (Switches[1].CheckStatus(player) && Switches[4].CheckStatus(player) && Switches[7].CheckStatus(player)) {
 				win = true;
 				break;
 			} else if (Switches[2].CheckStatus(player)) {
@@ -161,7 +166,11 @@ public class Joe : Enemy {
 			} else {
 				PlayerWin();
 			}
+
+			return true;
 		}
+
+		return false;
 	}
 
 	void CheckActive () {
@@ -173,7 +182,7 @@ public class Joe : Enemy {
 		}
 
 		for (int index = 0; index < BossSwitches.Length; index++) {
-			if (!Switches[index].CheckStatus(0) && !Switches[index].CheckStatus(0)) {
+			if (!Switches[index].CheckStatus(0) && !Switches[index].CheckStatus(1)) {
 				allActive = false;
 				break;
 			}

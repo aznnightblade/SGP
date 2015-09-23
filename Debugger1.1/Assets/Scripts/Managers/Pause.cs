@@ -17,7 +17,7 @@ public class Pause : MonoBehaviour {
 	void Update () {
 	
 		if (InputManager.instance.GetButtonDown ("Cancel")) {
-			if (on == false) {
+			if (on == false && !GameManager.InMenu) {
                 GameManager.CTimeScale = 0;
                 GameManager.CTimeScale2 = 0;
 				pause.SetActive(true);
@@ -36,7 +36,7 @@ public class Pause : MonoBehaviour {
 			} else if (options.activeInHierarchy) {
 				options.SetActive(false);
 				pause.SetActive(true);
-			} else {
+			} else if (keyconfig.activeInHierarchy){
 				InputManager.instance.SaveInputs ();
 				keyconfig.SetActive(false);
 				options.SetActive(true);

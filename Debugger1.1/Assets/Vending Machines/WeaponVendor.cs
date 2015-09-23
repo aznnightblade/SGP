@@ -24,57 +24,52 @@ public class WeaponVendor : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         Weaponlevels();
-        if (triggerActive == true && InputManager.instance.GetButtonDown("Submit"))
-        {
-            Panel.SetActive(true);
-            Button.SetActive(true);
-            player.GetComponentInParent<PlayerController>().enabled = false;
-            player.GetComponentInParent<Rigidbody>().velocity = Vector3.zero;
-            player.GetComponentInParent<Rigidbody>().freezeRotation = true;
+        if (triggerActive == true && !Panel.activeInHierarchy) {
+			if (InputManager.instance.GetButtonDown ("Submit")) {
+				Panel.SetActive (true);
+				Button.SetActive (true);
+				player.GetComponentInParent<PlayerController> ().enabled = false;
+				player.GetComponentInParent<Rigidbody> ().velocity = Vector3.zero;
+				player.GetComponentInParent<Rigidbody> ().freezeRotation = true;
 
-            switch (choice)
-            {
-                case Weapons.Breakpoint:
-                    {
-                        if (GameManager.breakptlevel<4)
-                        {
-                            costtext.text = "Upgrade Cost will be " + Mathf.FloorToInt(600 * _breakpoint).ToString() + " Credits";
-                        }
-                        else
-                        {
-                            costtext.text = "Breakpoint has max upgrades";
-                        }
+				switch (choice) {
+				case Weapons.Breakpoint:
+					{
+						if (GameManager.breakptlevel < 4) {
+							costtext.text = "Upgrade Cost will be " + Mathf.FloorToInt (600 * _breakpoint).ToString () + " Credits";
+						} else {
+							costtext.text = "Breakpoint has max upgrades";
+						}
                         
-                    }
-                    break;
-                case Weapons.Multithread:
-                    {
-                        if (GameManager.multithreadlevel <4)
-                        {
-                            costtext.text = "Upgrade Cost will be " + Mathf.FloorToInt(600 * _multithread).ToString() + " Credits";
-                        }
-                        else
-                        {
-                            costtext.text = "Multithread has max upgrades";
-                        }
+					}
+					break;
+				case Weapons.Multithread:
+					{
+						if (GameManager.multithreadlevel < 4) {
+							costtext.text = "Upgrade Cost will be " + Mathf.FloorToInt (600 * _multithread).ToString () + " Credits";
+						} else {
+							costtext.text = "Multithread has max upgrades";
+						}
                         
-                    }
-                    break;
-                case Weapons.NegationBoots:
-                    {
-                        if (GameManager.negationbootlevel < 4)
-                        {
-                            costtext.text = "Upgrade Cost will be " + Mathf.FloorToInt(600 * _negation).ToString() + " Credits";
-                        }
-                        else
-                        {
-                            costtext.text = "NegationBoots has max upgrades";
-                        }
-                    }
-                    break;
+					}
+					break;
+				case Weapons.NegationBoots:
+					{
+						if (GameManager.negationbootlevel < 4) {
+							costtext.text = "Upgrade Cost will be " + Mathf.FloorToInt (600 * _negation).ToString () + " Credits";
+						} else {
+							costtext.text = "NegationBoots has max upgrades";
+						}
+					}
+					break;
                
-            }
-        }
+				}
+			}
+		} else if (Panel.activeInHierarchy) {
+			if (InputManager.instance.GetButtonDown ("Cancel")) {
+				ExitMenu ();
+			}
+		}
 	}
 
     void OnTriggerEnter(Collider col)
@@ -207,7 +202,13 @@ public class WeaponVendor : MonoBehaviour {
         player.GetComponentInParent<PlayerController>().enabled = true;
     }
 
-void Weaponlevels()
+	public void ExitMenu () {
+		Panel.SetActive(false);
+		Button.SetActive(false);
+		player.GetComponentInParent<PlayerController>().enabled = true;
+	}
+
+	void Weaponlevels()
     {
         _breakpoint = GameManager.breakptlevel;
         _multithread = GameManager.data.Multithread;
