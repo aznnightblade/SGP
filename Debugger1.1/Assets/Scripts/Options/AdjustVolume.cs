@@ -11,7 +11,7 @@ public class AdjustVolume : MonoBehaviour
     public Slider musicslider;
     public Text sfxtext;
     public Text musictext;
-
+    float timer = 0;
     void Start()
     {
         sfxslider.value = PlayerPrefs.GetFloat("SFX");
@@ -22,6 +22,13 @@ public class AdjustVolume : MonoBehaviour
     {
         sfxtext.text = sfxslider.value.ToString();
         musictext.text = musicslider.value.ToString();
+        timer += Time.deltaTime;
+
+        if (timer>2.0f)
+        {
+            SoundManager.instance.Music[0].Stop();
+            timer = 0;
+        }
     }
     public void AdjustSFX()
     {
@@ -69,6 +76,8 @@ public class AdjustVolume : MonoBehaviour
 
         if (!SoundManager.instance.Music[0].isPlaying)
             SoundManager.instance.Music[0].Play();
+        
+       
 
     }
 }

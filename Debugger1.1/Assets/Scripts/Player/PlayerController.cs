@@ -28,7 +28,9 @@ public class PlayerController : MonoBehaviour {
 		player = GetComponentInChildren<Player> ();
 		PlayerSprite = GameObject.FindGameObjectWithTag ("Player").transform;
 		PlayerControlledObjects [0] = transform;
-        textureswap = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUDImage>();
+
+        if (GameObject.FindGameObjectWithTag("HUD") != null)
+            textureswap = GameObject.FindGameObjectWithTag("HUD").GetComponent<HUDImage>();
 	}
 	
 	// Update is called once per frame

@@ -27,7 +27,7 @@ public class SaveData {
     public int breakpointlevel = 1;
     public int NegationBoots = 0;
 	public Player.COMPANIONS Companion = Player.COMPANIONS.None;
-	public int[] companions = new int[4];
+	public int[] companions = new int[5];
 
 	public SaveData()
 	{

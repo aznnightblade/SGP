@@ -71,10 +71,10 @@ public class Player : Statistics {
 
 	// Use this for initialization
 	void Start () {
-        GameManager.instance.LoadPlayerstatsScene(GameManager.data);
         sprite = GetComponentInChildren<SpriteRenderer>();
         if (newGame==1)
         {
+			GameManager.instance.LoadPlayerstatsScene(GameManager.data);
             currHealth = maxHealth = initialHealth + healthPerEndurance * endurance;
         } 
 		critChance = initialCrit + critPerLuck * luck;
@@ -148,7 +148,7 @@ public class Player : Statistics {
 		if (invulTimer <= 0.0f) {
             StartCoroutine(collideFlash());
 			currHealth -= damageTaken;
-            if (Entity.gameObject.name.Contains("Lazer"))
+            if (Entity != null && Entity.gameObject.name.Contains("Lazer"))
             {
                 SoundManager.instance.PlayerSoundeffects[6].Play();
             }
