@@ -9,7 +9,7 @@ public class CompanionCube : MonoBehaviour {
 	bool activateSwitch;
 	void OnTriggerEnter(Collider col)
 	{
-		if (col.tag == "Player" )
+		if (col.tag == "Player" && col.name == "Player Stats")
 		{
 			activateSwitch = true;
 		}

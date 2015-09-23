@@ -21,7 +21,7 @@ public class WeaponVendor : MonoBehaviour {
         Weaponlevels();
 	}
 	
-	// Update is called once per frame
+	// Update is called once per frameaw
 	void Update () {
         Weaponlevels();
         if (triggerActive == true && !Panel.activeInHierarchy) {
@@ -132,23 +132,23 @@ public class WeaponVendor : MonoBehaviour {
         }
         if (gameObject.name == "Multithread")
         {
-            if (GameManager.data.Multithread == 1 && player.Money >= 600)
+            if (GameManager.multithreadlevel == 1 && player.Money >= 600)
             {
                 player.Money -= 600;
                 
-                GameManager.data.Multithread=GameManager.multithreadlevel = player.MultithreadLevel = 2;
+                GameManager.data.Multithread = GameManager.multithreadlevel = player.MultithreadLevel = 2;
                 text.text = "Multithread can fire 2 shots at once!";
             }
-            else if (GameManager.data.Multithread == 2 && player.Money >= 1200)
+			else if (GameManager.multithreadlevel == 2 && player.Money >= 1200)
             {
                 player.Money -= 1200;
-                GameManager.data.Multithread=GameManager.multithreadlevel = player.MultithreadLevel = 3;
+                GameManager.data.Multithread = GameManager.multithreadlevel = player.MultithreadLevel = 3;
                 text.text = "Multithread can fire 3 shots at once!";
             }
-            else if (GameManager.data.Multithread == 3 && player.Money >= 1800)
+			else if (GameManager.multithreadlevel == 3 && player.Money >= 1800)
             {
                 player.Money -= 1800;
-                GameManager.data.Multithread= GameManager.multithreadlevel = player.MultithreadLevel = 4;
+                GameManager.data.Multithread = GameManager.multithreadlevel = player.MultithreadLevel = 4;
                 text.text = "Multithread can fire 4 shots at once!";
             }
             else
@@ -211,7 +211,7 @@ public class WeaponVendor : MonoBehaviour {
 	void Weaponlevels()
     {
         _breakpoint = GameManager.breakptlevel;
-        _multithread = GameManager.data.Multithread;
-        _negation = GameManager.negationbootlevel;
+        _multithread = GameManager.multithreadlevel;
+		_negation = GameManager.negationbootlevel;
     }
 }

@@ -98,11 +98,15 @@ public class PlayerController : MonoBehaviour {
 
 					if (player.Weapons.Count > 1) {
 						if (InputManager.instance.GetButtonDown ("WeaponSwap")) {
+							DLLColor.Color tempColor = player.CurrWeapon.CurrColor;
+
 							if (InputManager.instance.GetAxisRaw ("WeaponSwap") > 0) {
 								NextWeapon ();
 							} else {
 								PrevWeapon ();
 							}
+
+							player.CurrWeapon.CurrColor = tempColor;
 						}
 					}
 
