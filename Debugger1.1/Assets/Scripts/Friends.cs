@@ -7,6 +7,7 @@ public class Friends : MonoBehaviour {
 	public GameObject bugtype;
 	public GameObject bug;
 	Vector3 position;
+    public int choice = 0;
 	DLLColor.Color color;
 	Enemy.Mode mode;
 	public bool once = false;
@@ -14,7 +15,31 @@ public class Friends : MonoBehaviour {
 	void Start () {
 	
 		position = bug.transform.position;
-		color = bug.GetComponentInChildren<Enemy> ().CurrColor;
+		switch(choice)
+        {
+            case 0:
+                {
+                    color = DLLColor.Color.NEUTRAL;
+                    break;
+                }
+            case 1:
+                {
+                    color = DLLColor.Color.RED;
+                    break;
+                }
+            case 2:
+                {
+                    color = DLLColor.Color.GREEN;
+                    break;
+                }
+            case 3:
+                {
+                    color = DLLColor.Color.BLUE;
+                    break;
+                }
+           
+        }
+        bug.GetComponentInChildren<Enemy>().CurrColor = color;
 		mode = bug.GetComponentInChildren<Enemy> ().CurrMode;
 	}
 	// Update is called once per frame
