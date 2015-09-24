@@ -54,7 +54,7 @@ public class FireWaller : Enemy {
                 anim.SetBool("Attack", true);
 				
 			}
-		} else {
+		} else if (currMode == Mode.Friendly) {
 			if (agent.enabled == true) {
 				agent.enabled = false;
 			}

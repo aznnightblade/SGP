@@ -269,4 +269,6 @@ public class Enemy : Statistics {
         yield return new WaitForSeconds(0.1f);
         sprite.material.color = c;
     }
+
+	public bool Deathbool { get { return deathbool; } }
 }
