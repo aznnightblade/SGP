@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
-using System.Collections;
 using UnityEngine.UI;
+using System;
+using System.Collections;
 public class PlayerController : MonoBehaviour {
 
 	[SerializeField]
@@ -114,8 +115,9 @@ public class PlayerController : MonoBehaviour {
 						if (InputManager.instance.GetButtonDown ("Hover")) {
 							player.IsHovering = !player.IsHovering;
 						}
-						if (textureswap != null)
-                        	textureswap.boottimer.text = player.HoverTimer.ToString();
+						if (textureswap != null) {
+							textureswap.boottimer.text = player.HoverTimer.ToString("#.0");
+						}
 					}
 				}
 			}
