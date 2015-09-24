@@ -60,6 +60,12 @@ public class HUDImage : MonoBehaviour {
     }
     public void Changefriend(GameObject friend)
     {
+		if (friend == null) {
+			CurrFriend.texture = nocompanion;
+			CurrFriend.color = Color.white;
+			return;
+		}
+
         if (friend.name.Contains("Pusher"))
         {
             CurrFriend.texture = Friends[7];

@@ -35,48 +35,51 @@ public class StatsVendor : MonoBehaviour {
     void Update()
     {
         GetStats();
-        if (triggerActive == true && InputManager.instance.GetButtonDown("Submit"))
-        {
-            Panel.SetActive(true);
-            Button.SetActive(true);
-            player.GetComponentInParent<PlayerController>().enabled = false;
-            player.GetComponentInParent<Rigidbody>().velocity = Vector3.zero;
-            player.GetComponentInParent<Rigidbody>().freezeRotation = true;
-            switch (something)
-            {
-                case Stats.Strength:
-                    {
-                        costtext.text = "Upgrade Cost will be " + Mathf.FloorToInt(currstrength * Mathf.Pow(10.0f, currstrength)).ToString() + " EXP";
-                    }
-                    break;
-                case Stats.Dexterity:
-                    {
-                        costtext.text = "Upgrade Cost will be " + Mathf.FloorToInt(currdex * Mathf.Pow(10.0f, currdex)).ToString() + " EXP";
-                    }
-                    break;
-                case Stats.Endurance:
-                    {
-                        costtext.text = "Upgrade Cost will be " + Mathf.FloorToInt(currendurance * Mathf.Pow(10.0f, currendurance)).ToString() + " EXP";
-                    }
-                    break;
-                case Stats.Agility:
-                    {
-                        costtext.text = "Upgrade Cost will be " + Mathf.FloorToInt(curragility * Mathf.Pow(10.0f, curragility)).ToString() + " EXP";
-                    }
-                    break;
-                case Stats.Intelligence:
-                    {
-                        costtext.text = "Upgrade Cost will be " + Mathf.FloorToInt(currint * Mathf.Pow(10.0f, currint)).ToString() + " EXP";
-                    }
-                    break;
-                case Stats.Luck:
-                    {
-                        costtext.text = "Upgrade Cost will be " + Mathf.FloorToInt(currluck * Mathf.Pow(10.0f, currluck)).ToString() + " EXP";
-                    }
-                    break;
-                
-            }
-        }
+        if (triggerActive == true && !Panel.activeInHierarchy) {
+			if (InputManager.instance.GetButtonDown ("Submit")) {
+				Panel.SetActive (true);
+				Button.SetActive (true);
+				player.GetComponentInParent<PlayerController> ().enabled = false;
+				player.GetComponentInParent<Rigidbody> ().velocity = Vector3.zero;
+				player.GetComponentInParent<Rigidbody> ().freezeRotation = true;
+				switch (something) {
+				case Stats.Strength:
+					{
+						costtext.text = "Upgrade Cost will be " + Mathf.FloorToInt (currstrength * Mathf.Pow (10.0f, currstrength)).ToString () + " EXP";
+					}
+					break;
+				case Stats.Dexterity:
+					{
+						costtext.text = "Upgrade Cost will be " + Mathf.FloorToInt (currdex * Mathf.Pow (10.0f, currdex)).ToString () + " EXP";
+					}
+					break;
+				case Stats.Endurance:
+					{
+						costtext.text = "Upgrade Cost will be " + Mathf.FloorToInt (currendurance * Mathf.Pow (10.0f, currendurance)).ToString () + " EXP";
+					}
+					break;
+				case Stats.Agility:
+					{
+						costtext.text = "Upgrade Cost will be " + Mathf.FloorToInt (curragility * Mathf.Pow (10.0f, curragility)).ToString () + " EXP";
+					}
+					break;
+				case Stats.Intelligence:
+					{
+						costtext.text = "Upgrade Cost will be " + Mathf.FloorToInt (currint * Mathf.Pow (10.0f, currint)).ToString () + " EXP";
+					}
+					break;
+				case Stats.Luck:
+					{
+						costtext.text = "Upgrade Cost will be " + Mathf.FloorToInt (currluck * Mathf.Pow (10.0f, currluck)).ToString () + " EXP";
+					}
+					break;
+	                
+				}
+			}
+		} else if (Panel.activeInHierarchy) {
+			if (InputManager.instance.GetButtonDown("Cancel"))
+				ExitMenu ();
+		}
     }
 
     void OnTriggerEnter(Collider col)
@@ -97,8 +100,8 @@ public class StatsVendor : MonoBehaviour {
 
     public void Onclick()
     {
-        Panel2.SetActive(false);
         SoundManager.instance.MiscSoundeffects[8].Play();
+		Panel2.SetActive(false);
         Panel.SetActive(false);
         Button.SetActive(false);
         if (gameObject.name=="Strength")
@@ -196,6 +199,13 @@ public class StatsVendor : MonoBehaviour {
         player.UpdateStats();
         player.GetComponentInParent<PlayerController>().enabled = true;
     }
+
+	public void ExitMenu () {
+		Panel.SetActive(false);
+		Button.SetActive(false);
+
+		player.GetComponentInParent<PlayerController>().enabled = true;
+	}
 
 
     bool UpgradeCost()

@@ -138,16 +138,19 @@ public class Enemy : Statistics {
 		if (currHealth <= 0) {
 
 			if (currMode != Mode.Friendly) {
-				if (IsCapturable && bullet.name == "Friend Shot(Clone)") {
+				if (IsCapturable && bullet.name.Contains("Friend Shot")) {
 					Player player = GameObject.FindGameObjectWithTag ("Player").GetComponent<Player> ();
                     GameObject.FindGameObjectWithTag("HUD").GetComponent<HUDImage>().Changefriend(transform.gameObject);
 					if (player.Friend != null)
 						Destroy (player.Friend.gameObject);
 
 					target = null;
-					gameObject.GetComponentInChildren<Rigidbody> ().constraints = (RigidbodyConstraints.FreezePositionY | 
-					                                                               RigidbodyConstraints.FreezeRotationX |
-					                                                               RigidbodyConstraints.FreezeRotationZ);
+					Rigidbody rigid = gameObject.GetComponentInChildren<Rigidbody> ();
+					rigid.constraints = (RigidbodyConstraints.FreezePositionY | 
+					                     RigidbodyConstraints.FreezeRotationX |
+					                     RigidbodyConstraints.FreezeRotationZ);
+					rigid.drag = 0;
+					rigid.angularDrag = 0;
 					player.Friend = (Transform)Instantiate (transform.parent, transform.parent.position, Quaternion.identity);
 					Enemy friendStats = player.Friend.GetComponentInChildren<Enemy> ();
 					friendStats.CurrHealth = friendStats.MaxHealth;
@@ -179,6 +182,7 @@ public class Enemy : Statistics {
 				player.ControlCounter = 0;
 				player.PlayerControlledObjects[1] = null;
 				Camera.main.GetComponent<CameraFollow> ().Target = GameObject.FindGameObjectWithTag("Player").transform;
+				FindObjectOfType<HUDImage> ().Changefriend(null);
 				
 				Destroy(transform.parent.gameObject);
 			}

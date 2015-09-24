@@ -37,9 +37,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
---- !u!127 &3
-LevelGameManager:
-  m_ObjectHideFlags: 0
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -68,6 +65,7 @@ LightmapSettings:
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
+    m_ReflectionCompression: 2
   m_LightmapSnapshot: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
@@ -155,6 +153,7 @@ Camera:
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
+  m_TargetEye: 3
   m_HDR: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -201,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 1997211142, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AllowActivationOnStandalone: 0
+  m_ForceModuleActive: 0
 --- !u!114 &244435422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -219,7 +218,7 @@ MonoBehaviour:
   m_CancelButton: ' '
   m_InputActionsPerSecond: 10
   m_RepeatDelay: .5
-  m_AllowActivationOnMobileDevice: 0
+  m_ForceModuleActive: 0
 --- !u!114 &244435423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -383,6 +382,14 @@ Prefab:
       propertyPath: m_Transition
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 22495822, guid: b3703ac2ec63ce848952581c80077650, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.66190195
+      objectReference: {fileID: 0}
+    - target: {fileID: 22495822, guid: b3703ac2ec63ce848952581c80077650, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.42506897
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11425718, guid: b3703ac2ec63ce848952581c80077650, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b3703ac2ec63ce848952581c80077650, type: 2}
@@ -476,7 +483,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11471182, guid: f182090c8ce340a43ad1d0cae218480c, type: 2}
       propertyPath: m_Transition
-      value: 3
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471182, guid: f182090c8ce340a43ad1d0cae218480c, type: 2}
+      propertyPath: m_Colors.m_NormalColor.r
+      value: .772058845
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471182, guid: f182090c8ce340a43ad1d0cae218480c, type: 2}
+      propertyPath: m_Colors.m_NormalColor.g
+      value: .772058845
+      objectReference: {fileID: 0}
+    - target: {fileID: 11471182, guid: f182090c8ce340a43ad1d0cae218480c, type: 2}
+      propertyPath: m_Colors.m_NormalColor.b
+      value: .772058845
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f182090c8ce340a43ad1d0cae218480c, type: 2}
@@ -503,6 +522,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Next: 
   difficulty: 0
+--- !u!95 &709789704
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 709789701}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8b27ecb3f7444ab49b2a2d5dd672a98e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &741961600
 Prefab:
   m_ObjectHideFlags: 0
@@ -687,6 +723,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Next: 
   difficulty: 2
+--- !u!95 &929179232
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 929179229}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8b27ecb3f7444ab49b2a2d5dd672a98e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1001 &1166640703
 Prefab:
   m_ObjectHideFlags: 0
@@ -833,6 +886,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Next: 
   difficulty: 1
+--- !u!95 &1423736422
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1423736419}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8b27ecb3f7444ab49b2a2d5dd672a98e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!1 &1579702225 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 101914, guid: f182090c8ce340a43ad1d0cae218480c, type: 2}
+  m_PrefabInternal: {fileID: 479525773}
+--- !u!114 &1579702226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1579702225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 16
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1579702228}
+          m_MethodName: OnSubmit
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
+--- !u!114 &1579702228 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11471182, guid: f182090c8ce340a43ad1d0cae218480c,
+    type: 2}
+  m_PrefabInternal: {fileID: 479525773}
+  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &1810921561
 GameObject:
   m_ObjectHideFlags: 0
@@ -844,6 +954,7 @@ GameObject:
   - 223: {fileID: 1810921565}
   - 114: {fileID: 1810921564}
   - 114: {fileID: 1810921563}
+  - 114: {fileID: 1810921566}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -926,6 +1037,26 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!114 &1810921566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1810921561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 24aa06babb6f94a40acf74c8a4dfad9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialSelected: {fileID: 0}
+  moveDelay: .5
+  Buttons:
+  - buttons:
+    - {fileID: 709789701}
+    - {fileID: 1423736419}
+    - {fileID: 929179229}
+    - {fileID: 1579702225}
+  hasScrollbar: 0
 --- !u!1001 &1958283805
 Prefab:
   m_ObjectHideFlags: 0

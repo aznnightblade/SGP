@@ -21,42 +21,37 @@ public class CompanionVendor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Panel.activeSelf == true) {
+		if (Panel.activeInHierarchy == true) {
 			if (InputManager.instance.GetButtonDown ("Cancel")) {
-				Panel.SetActive (false);
-				Button.SetActive (false);
-				Panel2.SetActive (true);
-
-				print("Cancel was hit");
-				
-				player.GetComponentInParent<PlayerController> ().enabled = true;
+				ExitMenu ();
 			}
 		}
 
-		if (triggerActive == true && InputManager.instance.GetButtonDown ("Submit") && !Panel.activeInHierarchy) {
-			Panel.SetActive (true);
-			Button.SetActive (true);
+		if (triggerActive == true && !Panel.activeInHierarchy) {
+			if (InputManager.instance.GetButtonDown ("Submit")) {
+				Panel.SetActive (true);
+				Button.SetActive (true);
 
-			player.GetComponentInParent<PlayerController> ().enabled = false;
-			player.GetComponentInParent<Rigidbody> ().velocity = Vector3.zero;
-			player.GetComponentInParent<Rigidbody> ().freezeRotation = true;
+				GameManager.CTimeScale2 = 0.0f;
+				player.GetComponentInParent<Rigidbody> ().freezeRotation = true;
 
-			Button.GetComponent<CompanionVendor> ().CompanionToUpgrade = CompanionToUpgrade;
+				Button.GetComponent<CompanionVendor> ().CompanionToUpgrade = CompanionToUpgrade;
 
-			Text text = Button.GetComponentInChildren<Text> ();
-			
-			if (player.Companions [(int)CompanionToUpgrade] == 0) {
-				text.text = "Acquire " + CompanionToUpgrade.ToString();
-			} else {
-				text.text = "Upgrade " + CompanionToUpgrade.ToString();
-			}
+				Text text = Button.GetComponentInChildren<Text> ();
+				
+				if (player.Companions [(int)CompanionToUpgrade] == 0) {
+					text.text = "Acquire " + CompanionToUpgrade.ToString();
+				} else {
+					text.text = "Upgrade " + CompanionToUpgrade.ToString();
+				}
 
-			if (player.Companions[(int)CompanionToUpgrade] == 0) {
-				costtext.text = "Acquiring " + CompanionToUpgrade.ToString() + "'s aid will cost 300 Credits";
-			} else if (player.Companions[(int)CompanionToUpgrade] < 5) {
-				costtext.text = "Upgrade " + CompanionToUpgrade.ToString() + "'s power for " + Mathf.FloorToInt(600 * player.Companions[(int)CompanionToUpgrade]).ToString() + " Credits";
-			} else {
-				costtext.text = CompanionToUpgrade.ToString() + " has max upgrades";
+				if (player.Companions[(int)CompanionToUpgrade] == 0) {
+					costtext.text = "Acquiring " + CompanionToUpgrade.ToString() + "'s aid will cost 300 Credits";
+				} else if (player.Companions[(int)CompanionToUpgrade] < 5) {
+					costtext.text = "Upgrade " + CompanionToUpgrade.ToString() + "'s power for " + Mathf.FloorToInt(600 * player.Companions[(int)CompanionToUpgrade]).ToString() + " Credits";
+				} else {
+					costtext.text = CompanionToUpgrade.ToString() + " has max upgrades";
+				}
 			}
 		}
 	}
@@ -76,11 +71,6 @@ public class CompanionVendor : MonoBehaviour {
 	}
 
 	public void OnClick () {
-		Panel.SetActive(false);
-		Button.SetActive(false);
-		Panel2.SetActive(false);
-
-		print ("Got in OnClick()");
         SoundManager.instance.CompanionSFX[1].Play();
 		if (player.Companions [(int)CompanionToUpgrade] < 5) {
 			int cost = 0;
@@ -108,6 +98,15 @@ public class CompanionVendor : MonoBehaviour {
 			text.text = CompanionToUpgrade.ToString() + " is maxed out!";
 		}
 
-		player.GetComponentInParent<PlayerController>().enabled = true;
+		Panel2.SetActive (false);
+		ExitMenu ();
+	}
+
+	public void ExitMenu () {
+		GameManager.CTimeScale2 = 1.0f;
+		player.GetComponentInParent<Rigidbody> ().freezeRotation = false;
+		
+		Panel.SetActive (false);
+		Button.SetActive (false);
 	}
 }

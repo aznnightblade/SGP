@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
@@ -16,7 +17,7 @@ public class GameManager : MonoBehaviour {
 	static float cTimeScale = 1.0f;
 	static float cTimeScale2 = 1.0f;
 	static public Vector3 lastPosition = new Vector3(0.0f, 0.0f, 0.0f);
-	static bool first = true;
+	//static bool first = true;
 	public static bool quit = false;
 	public static bool loadfirst = true;
     public static int Chargeshot = 0;
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour {
     public static float breakpointduration = 3;
 	public static Vector2 ScreenResolution = Vector2.zero;
     public static bool deletefile = false;
+	public static bool InMenu = false;
 	void Awake(){
 		if (instance == null) {
 			instance = this;
@@ -37,18 +39,15 @@ public class GameManager : MonoBehaviour {
             data = new SaveData();
             
 			DontDestroyOnLoad (gameObject);
-            if (FindObjectOfType<Player>()==null)
-            {
-                return;
-            }
 
-			ScreenResolution = new Vector2 (Screen.currentResolution.width, Screen.currentResolution.height);
+			ScreenResolution = new Vector2 (Screen.width, Screen.height);
 
-			if(back)
-			{
+			if (FindObjectOfType<Player>()==null) {
+				return;
+			}
+			if(back) {
 			    GameObject.FindGameObjectWithTag("Player Controller").GetComponent<Rigidbody> ().position = lastPosition;
 			}
-			
 		} else if (instance != this) {
 			Destroy (gameObject);
 		}
@@ -74,6 +73,17 @@ public class GameManager : MonoBehaviour {
         DLLShot = 0;
         Negationboots = 0;
     }
+
+	void Update () {
+		if (InMenu) {
+			if (InputManager.instance.GetButtonUp("Cancel")) {
+				MenuInput menu = FindObjectOfType<MenuInput> ();
+
+				if (menu == null)
+					InMenu = false;
+			}
+		}
+	}
 
 	public void NextScene()
 	{
@@ -141,42 +151,44 @@ public class GameManager : MonoBehaviour {
          }
          if (_data!=null)
          {
-             if (GameObject.FindGameObjectWithTag("Player")==null)
-             {
-                 return;
-             }
-             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-             player.Agility = _data.Agility;
-             player.Strength = _data.Strength;
-             player.Endurance = _data.Endurance;
-             player.Luck = _data.Endurance;
-             player.Intelligence = _data.Intelligence;
-             player.Dexterity = _data.Dexterity;
-             player.CurrHealth = _data.CurrentHealth;
-             player.MaxHealth = _data.MaxHealth;
-             player.Money = _data.Credits;
-             player.EXP = _data.XP;
-             player.newGame = _data.newGame;
-             DLLShot = _data.DLLShot;
-             Chargeshot = _data.ChargeShot;
-             Friendshot = _data.Friendwpn;
-             RecursiveShot = _data.Waveshot;
-             player.Breakpoint.Duration = _data.breakpointduration;
-             player.MultithreadLevel = _data.Multithread;
-             GameManager.breakptlevel = _data.breakpointlevel;
-             player.SelectedCompanion = data.Companion;
+			if (GameObject.FindGameObjectWithTag("Player")==null) {
+				return;
+			}
 
-             for (int index = 0; index < player.Companions.Length; index++)
-                 player.Companions[index] = data.companions[index];
-
-             if (Friendshot==1)
-             {
-                 player.Weapons.Add(FindObjectOfType<Weapons> ().Friendshot);
-             }
-             if (RecursiveShot == 1)
-             {
-                 player.Weapons.Add(gameObject.GetComponentInChildren<Weapons>().Waveshot);
-             }
+			player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+			player.Agility = _data.Agility;
+			player.Strength = _data.Strength;
+			player.Endurance = _data.Endurance;
+			player.Luck = _data.Endurance;
+			player.Intelligence = _data.Intelligence;
+			player.Dexterity = _data.Dexterity;
+			player.CurrHealth = _data.CurrentHealth;
+			player.MaxHealth = _data.MaxHealth;
+			player.Money = _data.Credits;
+			player.EXP = _data.XP;
+			player.newGame = _data.newGame;
+			DLLShot = _data.DLLShot;
+			player.HasDLLs = Convert.ToBoolean(DLLShot);
+			Chargeshot = _data.ChargeShot;
+			player.HasChargeShot = Convert.ToBoolean(Chargeshot);
+			Negationboots = _data.NegationBoots;
+			player.HasNegationBoots = Convert.ToBoolean(Negationboots);
+			Friendshot = _data.Friendwpn;
+			RecursiveShot = _data.Waveshot;
+			player.Breakpoint.Duration = _data.breakpointduration;
+			player.MultithreadLevel = _data.Multithread;
+			GameManager.breakptlevel = _data.breakpointlevel;
+			player.SelectedCompanion = data.Companion;
+			
+			for (int index = 0; index < player.Companions.Length; index++)
+				player.Companions[index] = data.companions[index];
+			
+			if (Friendshot==1) {
+				player.Weapons.Add(FindObjectOfType<Weapons> ().Friendshot);
+			}
+			if (RecursiveShot == 1) {
+				player.Weapons.Add(FindObjectOfType<Weapons> ().Waveshot);
+			}
          }
          
 

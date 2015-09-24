@@ -180,7 +180,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 1
+  m_StoppingDistance: 4.5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -295,7 +295,7 @@ Prefab:
       objectReference: {fileID: 455734, guid: 03f693d2d88d30340bd8da95c9603087, type: 2}
     - target: {fileID: 0}
       propertyPath: m_StoppingDistance
-      value: 1
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: shotDelay

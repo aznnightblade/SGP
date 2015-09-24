@@ -35,7 +35,7 @@ public class SaveData {
 	}
 
 
-	public static SaveData Load( string _name ){
+	public static SaveData Load( string _name ) {
 
 		if (PlayerPrefs.HasKey (_name))
 			return new SaveData ();

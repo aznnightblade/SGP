@@ -137,10 +137,10 @@ public class Rob : Enemy {
 			
 					if (totalTurrets >= minTurrets && Random.Range (1, 100) <= transformChance) {
 						anim.SetBool ("Flying", false);
-                        SoundManager.instance.BossSoundeffects[11].Play();
 						gameObject.GetComponent<SphereCollider> ().isTrigger = false;
 						onGround = true;
 						totalTurrets = 0;
+						SoundManager.instance.BossSoundeffects[11].Play();
 					}
 
 					spawnTurretTime = spawnTurretDelay;
@@ -259,7 +259,7 @@ public class Rob : Enemy {
 	public override void Damage (int damageTaken, Transform bullet) {
 		currHealth -= damageTaken;
 
-		if (currHealth <= 0) {
+		if (currHealth <= 0 && !isdead) {
 			for (int index = 0; index < teleporters.Length; index++)
 				teleporters[index].gameObject.SetActive (true);
 
