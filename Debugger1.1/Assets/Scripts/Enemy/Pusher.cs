@@ -93,7 +93,7 @@ public class Pusher : Enemy {
 			} else if (currMode == Mode.Patrolling) {
 				UpdateWaypoints ();
 			}
-		} else {
+		} else if (currMode == Mode.Friendly) {
 			if (agent.enabled == true) {
 				agent.enabled = false;
 			}

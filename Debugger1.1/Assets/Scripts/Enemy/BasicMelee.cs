@@ -12,9 +12,6 @@ public class BasicMelee : Enemy {
 	// Use this for initialization
 	void Start () {
 		UpdateStats ();
-
-        
-       
 	}
 	
 	// Update is called once per frame
@@ -49,7 +46,7 @@ public class BasicMelee : Enemy {
                 anim.SetBool("Attack", true);
 				
 			}
-		} else {
+		} else if (currMode == Mode.Friendly) {
 			if (agent.enabled == true) {
 				agent.enabled = false;
 			}
