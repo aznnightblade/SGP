@@ -17,6 +17,8 @@ public class Justin : Statistics {
 	[SerializeField]
 	GameObject Dampener = null;
 	[SerializeField]
+	GameObject Tutor = null;
+	[SerializeField]
 	Transform[] shotLocations = null;
 	[SerializeField]
 	Transform bullet = null;
@@ -70,7 +72,7 @@ public class Justin : Statistics {
 				respawnTimer = 0.0f;
 		}
 
-		if (pullCardTimer <= 0.0f) {
+		if (pullCardTimer <= 0.0f && !isdead) {
 			int random = Random.Range(0, 100);
 
 			if(random <= chanceForCard)
@@ -165,6 +167,7 @@ public class Justin : Statistics {
 		if (currHealth <= 0.0f) {
 			Teleporter.SetActive(true);
 			Dampener.SetActive(true);
+			Tutor.SetActive(true);
 			GameObject.FindGameObjectWithTag("Player").GetComponent<Player> ().HasChargeShot = true;
 			SoundManager.instance.BossSoundeffects[7].Play();
 
@@ -179,12 +182,13 @@ public class Justin : Statistics {
             deathtimer += Time.deltaTime;
             if (deathtimer>=1.2f)
             {
-                DestroyObject();
-                isdead = false;
-                deathtimer = 0;
-                anim.SetBool("Death",false);
+				if (freezeTimer > 0.0f) {
+					GameManager.CTimeScale2 = 1.0f;
+				}
+
                 GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().EXP += EXP;
                 GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().Money += Money;
+				DestroyObject();
             }
         }
     }

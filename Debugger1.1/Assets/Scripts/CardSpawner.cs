@@ -6,6 +6,7 @@ public class CardSpawner : MonoBehaviour {
 
 	[SerializeField]
 	Transform card = null;
+	[SerializeField]
 	List<GameObject> cards = new List<GameObject> ();
 
 	[SerializeField]
@@ -14,6 +15,10 @@ public class CardSpawner : MonoBehaviour {
 	[SerializeField]
 	float rotSpeed = 3.0f;
 	float rot = 0.0f;
+
+	[SerializeField]
+	float checkDelay = 0.25f;
+	float checkTimer = 0.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +29,20 @@ public class CardSpawner : MonoBehaviour {
 	void Update () {
 		rot += rotSpeed * Time.deltaTime * GameManager.CTimeScale;
 		transform.rotation = Quaternion.Euler (0, rot, 0);
+
+		if (checkTimer <= 0.0f) {
+			for (int index = cards.Count - 1; index > -1; index--) {
+				if (cards[index] == null)
+					cards.RemoveAt(index);
+			}
+
+			checkTimer = checkDelay;
+		} else {
+			checkTimer -= Time.deltaTime;
+
+			if (checkTimer < 0.0f)
+				checkTimer = 0.0f;
+		}
 	}
 
 	public void SpawnCards () {
