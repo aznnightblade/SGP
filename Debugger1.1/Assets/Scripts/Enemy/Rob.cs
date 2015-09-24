@@ -64,6 +64,9 @@ public class Rob : Enemy {
     bool isdead = false;
     float deathtimer = 0;
 	// Use this for initialization
+
+    [SerializeField]
+    BossHealthbar healthbar = null;
 	void Start () {
 		UpdateStats ();
 
@@ -259,6 +262,7 @@ public class Rob : Enemy {
 	public override void Damage (int damageTaken, Transform bullet) {
 		currHealth -= damageTaken;
 
+        healthbar.Healthbar();
 		if (currHealth <= 0 && !isdead) {
 			for (int index = 0; index < teleporters.Length; index++)
 				teleporters[index].gameObject.SetActive (true);

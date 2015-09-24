@@ -43,6 +43,9 @@ public class Rodney : Enemy {
 	float checkDelay = 0.25f;
 	float checkTimer = 0.0f;
 
+    [SerializeField]
+    BossHealthbar healthbar = null;
+
     bool isdead = false;
     float deathtimer = 0;
 	// Use this for initialization
@@ -228,7 +231,7 @@ public class Rodney : Enemy {
 
 	public override void Damage (int damage, Transform bullet) {
 		currHealth -= damage;
-		
+        healthbar.Healthbar();
 		if (currHealth <= 0.0f) {
 			SoundManager.instance.BossSoundeffects[3].Play();
 			GameObject.FindGameObjectWithTag("Player").GetComponent<Player> ().HasNegationBoots = true;

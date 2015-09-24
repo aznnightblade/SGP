@@ -39,7 +39,8 @@ public class Justin : Statistics {
 	[SerializeField]
 	float freezePlayerDuration = 1.5f;
 	float freezeTimer = 0.0f;
-
+    [SerializeField]
+    BossHealthbar healthbar = null;
 
 	Transform target = null;
     Animator anim;
@@ -163,7 +164,7 @@ public class Justin : Statistics {
 
 	public override void Damage (int damage, Transform bullet) {
 		currHealth -= damage;
-
+        healthbar.Healthbar();
 		if (currHealth <= 0.0f) {
 			Teleporter.SetActive(true);
 			Dampener.SetActive(true);

@@ -22,7 +22,8 @@ public class Joe : Enemy {
 
 	float checkForWinDelay = 0.25f;
 	float checkTimer = 0.0f;
-
+    [SerializeField]
+    BossHealthbar healthbar = null;
     bool isdead = false;
     float deathtimer = 0;
 	// Use this for initialization
@@ -83,7 +84,7 @@ public class Joe : Enemy {
 		}
 
 		currHealth -= damage;
-
+        healthbar.Healthbar();
 		if (currHealth <= 0.0f) {
 			Teleporter.SetActive (true);
             SoundManager.instance.BossSoundeffects[3].Play();

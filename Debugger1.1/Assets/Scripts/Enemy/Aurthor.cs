@@ -51,6 +51,8 @@ public class Aurthor : Enemy {
 
     bool isdead =false;
     float deathtimer = 0;
+    [SerializeField]
+    BossHealthbar healthbar = null;
 	// Use this for initialization
 	void Start () {
 		UpdateStats ();
@@ -164,10 +166,10 @@ public class Aurthor : Enemy {
 
 	public override void Damage (int damageTaken, Transform bullet) {
 		currHealth -= damageTaken;
-
+        healthbar.Healthbar();
 		if (currHealth <= 0) {
 			currStage++;
-
+            healthbar.bar.SetActive(true);
 			if (lives > 0) {
 				lives--;
 

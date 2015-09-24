@@ -27,6 +27,9 @@ public class Frosty : Enemy {
 	bool deletedBullets = false;
     bool isdead = false;
     float deathtimer = 0;
+
+    [SerializeField]
+    BossHealthbar healthbar = null;
 	// Use this for initialization
 	void Start () {
 		UpdateStats ();
@@ -126,7 +129,7 @@ public class Frosty : Enemy {
 		}
 
 		currHealth -= damageTaken;
-		
+        healthbar.Healthbar();
 		if (currHealth <= 0) {
 			companionCube.SetActive(true);
 			

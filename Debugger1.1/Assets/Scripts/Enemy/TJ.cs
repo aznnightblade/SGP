@@ -24,6 +24,9 @@ public class TJ : Enemy {
 	[SerializeField]
 	int bulletsInBlossom = 24;
 
+    [SerializeField]
+    BossHealthbar healthbar = null;
+
 	bool isActive = false;
 	bool playerNear = false;
     bool isdead = false;
@@ -149,7 +152,7 @@ public class TJ : Enemy {
 
 	public override void Damage (int damage, Transform bullet) {
 		currHealth -= damage;
-		
+        healthbar.Healthbar();
 		if (currHealth <= 0.0f && !isdead) {
 			teleporter.SetActive (true);
 			SoundManager.instance.BossSoundeffects[3].Play();
